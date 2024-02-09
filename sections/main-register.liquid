@@ -1,42 +1,234 @@
 {{ 'login-register.css' | asset_url | stylesheet_tag }}
 <div class="row">
-	<div class="small-12 columns">
+  <div class="small-12 columns">
     <div class="thb-form-container">
       <div class="thb-register-form">
         {% form 'create_customer', novalidate: 'novalidate' %}
-					<h4>{{ 'customer.login_page.create_account' | t }}</h4>
-					<p>{{ 'customer.login_page.create_account_description' | t }}</p>
-					{% if form.errors %}
-					<div class="form-notification error">
-						{% render 'svg-icons' with 'thb-error' %} {{ form.errors | default_errors }}
-					</div>
-					{% endif %}
-					<div class="fields">
+          <h4>{{ 'customer.login_page.create_account' | t }}</h4>
+          <p>{{ 'customer.login_page.create_account_description' | t }}</p>
+          {% if form.errors %}
+            <div class="form-notification error">
+              {% render 'svg-icons' with 'thb-error' %}
+              {{ form.errors | default_errors }}
+            </div>
+          {% endif %}
+
+          <div class="fields">
             <div class="field">
-              <input type="text" name="customer[first_name]" class="full" value="{% if form.first_name %}{{ form.first_name }}{% endif %}" placeholder="{{ 'customer.login_page.first_name' | t }}" />
-	            <label for="first_name">{{ 'customer.login_page.first_name' | t }}</label>
+              <input
+                type="text"
+                name="customer[first_name]"
+                class="full"
+                value="{% if form.first_name %}{{ form.first_name }}{% endif %}"
+                placeholder="{{ 'customer.login_page.first_name' | t }}"
+              >
+              <label for="first_name">{{ 'customer.login_page.first_name' | t }}</label>
             </div>
             <div class="field">
-              <input type="text" name="customer[last_name]" class="full" value="{% if form.last_name %}{{ form.last_name }}{% endif %}" placeholder="{{ 'customer.login_page.last_name' | t }}" />
-	            <label for="last_name">{{ 'customer.login_page.last_name' | t }}</label>
+              <input
+                type="text"
+                name="customer[last_name]"
+                class="full"
+                value="{% if form.last_name %}{{ form.last_name }}{% endif %}"
+                placeholder="{{ 'customer.login_page.last_name' | t }}"
+              >
+              <label for="last_name">{{ 'customer.login_page.last_name' | t }}</label>
             </div>
-					</div>
+          </div>
           <div class="field">
-            <input type="email" name="customer[email]" class="full {% if form.errors contains 'email' %}invalid{% endif %}" value="" placeholder="{{ 'customer.login_page.email' | t }}" />
+            <input
+              type="email"
+              name="customer[email]"
+              class="full {% if form.errors contains 'email' %}invalid{% endif %}"
+              value=""
+              placeholder="{{ 'customer.login_page.email' | t }}"
+            >
             <label for="email">{{ 'customer.login_page.email' | t }}</label>
           </div>
           <div class="field">
-            <input type="password" name="customer[password]" class="full" value="" placeholder="{{ 'customer.login_page.password' | t }}" />
+            <input
+              type="password"
+              name="customer[password]"
+              class="full"
+              value=""
+              placeholder="{{ 'customer.login_page.password' | t }}"
+            >
             <label for="password">{{ 'customer.login_page.password' | t }}</label>
           </div>
-          <button type="submit" class="button full"><span>{{ 'customer.login_page.submit_register' | t }}</span></button>
+
+          <div class="field">
+            <input
+              type="password"
+              name="customer[confirm_password]"
+              class="full"
+              value=""
+              placeholder="{{ 'customer.login_page.confirm_password' | t }}"
+            >
+            <label for="confirm_password">{{ 'customer.login_page.confirm_password' | t }}</label>
+          </div>
+
+          <div class="field">
+            <input
+              type="number"
+              placeholder="{{ 'Mobile' }}"
+              class="full numeric"
+              name="number"
+              id="mobile"
+              pattern="[0-9]*"
+              inputmode="numeric"
+            >
+            <label for="number">{{ 'Mobile' }}</label>
+          </div>
+
+          <div class="field" onclick="openPopup()">
+            <label for="streetAddress">Street Address</label>
+            <input type="text" name="streetAddress" id="streetAddress" readonly>
+          </div>
+
+          <div id="popup">
+            <label for="additionalDetails">Additional Details</label>
+            <textarea name="additionalDetails" id="additionalDetails"></textarea>
+            <button onclick="savePopup(event)">Save</button>
+          </div>
+
+          <div class="field">
+            <textarea name="address" placeholder="{{ 'address' }}" class="full" id="address"></textarea>
+            <label for="address" name="address">{{ 'Address' }}</label>
+          </div>
+
+          <div class="field">
+            <select name="city" id="regi_city" placeholder="{{ 'customer.addresses.city' | t }}" class="full">
+              <option value="">{{ 'customer.addresses.city' | t }}</option>
+              <option value="option1">Option 1</option>
+              <option value="option2">Option 2</option>
+              <option value="option3">Option 3</option>
+            </select>
+            <label for="regi_city" name="city">{{ 'customer.addresses.city' | t }}</label>
+          </div>
+
+          <div class="field">
+            <select name="district" placeholder="{{ 'District' | t }}" id="district" class="full">
+              <option value="">Select District</option>
+              <option value="district1">District 1</option>
+              <option value="district2">District 2</option>
+              <option value="district3">District 3</option>
+            </select>
+            <label for="district">{{ 'District' }}</label>
+          </div>
+
+          <button type="button" class="button full" id="regi_button">
+            <span>{{ 'customer.login_page.submit_register' | t }}</span>
+          </button>
+
+          <div style="visibility:hidden;height:0">
+            <div class="fields">
+              <div class="field">
+                <input
+                  type="text"
+                  name="customer[first_name]"
+                  class="full"
+                  value="{% if form.first_name %}{{ form.first_name }}{% endif %}"
+                  placeholder="{{ 'customer.login_page.first_name' | t }}"
+                >
+                <label for="first_name">{{ 'customer.login_page.first_name' | t }}</label>
+              </div>
+              <div class="field">
+                <input
+                  type="text"
+                  name="customer[last_name]"
+                  class="full"
+                  value="{% if form.last_name %}{{ form.last_name }}{% endif %}"
+                  placeholder="{{ 'customer.login_page.last_name' | t }}"
+                >
+                <label for="last_name">{{ 'customer.login_page.last_name' | t }}</label>
+              </div>
+            </div>
+            <div class="field">
+              <input
+                type="email"
+                name="customer[email]"
+                class="full {% if form.errors contains 'email' %}invalid{% endif %}"
+                value=""
+                placeholder="{{ 'customer.login_page.email' | t }}"
+              >
+              <label for="email">{{ 'customer.login_page.email' | t }}</label>
+            </div>
+            <div class="field">
+              <input
+                type="password"
+                name="customer[password]"
+                class="full"
+                value=""
+                placeholder="{{ 'customer.login_page.password' | t }}"
+              >
+              <label for="password">{{ 'customer.login_page.password' | t }}</label>
+            </div>
+
+            <button type="submit" class="button full">
+              <span>{{ 'customer.login_page.submit_register' | t }}</span>
+            </button>
+          </div>
         {% endform %}
-				<div class="switch-login-section">
-					{{ 'customer.login_page.already_have_an_account' | t }} 
-					{% assign text_button_title = 'customer.login_page.login' | t %}
-					{% render 'text-button', url: routes.account_login_url, title: text_button_title %}
-				</div>
+        <div class="switch-login-section">
+          {{ 'customer.login_page.already_have_an_account' | t }}
+          {% assign text_button_title = 'customer.login_page.login' | t %}
+          {% render 'text-button', url: routes.account_login_url, title: text_button_title %}
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+
+      const city = document.getElementById("regi_city").value;
+    
+      let userData = `{"city":${city},}`;
+      
+      const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/getCity/0';
+      
+      // Use the fetch function to make a GET request to the API
+      fetch(apiUrl, {
+        method: 'GET',
+       
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Network response was not ok: ${response.status}`);
+        }
+        
+        return response.json();
+      })
+      .then(data => {
+        console.log(userData);
+      
+      })
+      .catch(error => {
+        // Handle errors that may occur during the fetch operation
+        console.error('Error fetching data:', error);
+      });
+
+    // document.getElementById("regi_button").addEventListener("click", function(event) {
+    // });
+  });
+</script>
+
+<script>
+  function openPopup() {
+    document.getElementById('popup').style.display = 'block';
+  }
+
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+  }
+
+  function savePopup(event) {
+    // Add logic here to handle the data entered in the popup
+    // For now, let's just close the popup without refreshing the page
+    closePopup();
+
+    // Prevent the default form submission behavior
+    event.preventDefault();
+  }
+</script>
