@@ -1,0 +1,100 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "955bb93b-7a65-4933-8023-83a64ee46bc2": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "text": "Get Free Delivery on All Your Orders!",
+            "link": "",
+            "color_bg": "#3f72e5",
+            "color_text": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "955bb93b-7a65-4933-8023-83a64ee46bc2"
+      ],
+      "settings": {
+        "announcement_bar": true,
+        "announcement_bar_homepage_only": false,
+        "announcement_bar_layout": "carousel",
+        "direction": "left",
+        "speed": "20s",
+        "use_block_colors": false,
+        "autoplay": true,
+        "autoplay_length": 5
+      }
+    },
+    "header-secondary-menu": {
+      "type": "header-secondary-menu",
+      "settings": {
+        "secondary_menu": "",
+        "show_language_switcher": true,
+        "show_currency_switcher": true,
+        "show_social_media": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "megamenu_7Y8hTb": {
+          "type": "megamenu",
+          "settings": {
+            "position": "1",
+            "promo_1_image": "shopify:\/\/shop_images\/WhatsApp_Image_2024-01-17_at_9.47.53_PM.jpg",
+            "promo_1_heading": "Home Delivery",
+            "promo_1_content": "Learn More",
+            "promo_1_link": "shopify:\/\/collections\/zero-sodium",
+            "promo_2_image": "shopify:\/\/shop_images\/WhatsApp_Image_2024-01-17_at_9.48.05_PM.jpg",
+            "promo_2_heading": "Get 2 Free Gallons",
+            "promo_2_content": "When you buy 10 Bottles",
+            "promo_2_link": "shopify:\/\/collections\/gallon-1",
+            "promo_3_heading": "",
+            "promo_3_content": "",
+            "promo_3_link": "shopify:\/\/collections\/zero-sodium",
+            "promo_4_heading": "Promotion heading",
+            "promo_4_content": "",
+            "promo_4_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "megamenu_7Y8hTb"
+      ],
+      "settings": {
+        "sticky_header": true,
+        "logo": "shopify:\/\/shop_images\/Al_Ain_Logo.png",
+        "logo_height_range": 100,
+        "logo_height_range_mobile": 67,
+        "style": "style1",
+        "header_shadow": "header--shadow-small",
+        "menu": "header-menu-vision",
+        "transparent_header": true,
+        "mobile_secondary_menu": "",
+        "show_social_links": true,
+        "show_language_switcher": true,
+        "show_currency_switcher": true
+      }
+    },
+    "header-mobile-navigation": {
+      "type": "header-mobile-navigation",
+      "disabled": true,
+      "settings": {
+        "mobile_nav": "main-menu",
+        "color_links": "#d6d8d9",
+        "color_bg": "#787c80"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header-secondary-menu",
+    "header",
+    "header-mobile-navigation"
+  ]
+}

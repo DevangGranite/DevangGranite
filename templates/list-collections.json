@@ -1,0 +1,32 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {
+      }
+    },
+    "main": {
+      "type": "main-list-collections",
+      "settings": {
+        "heading": "Shop by category",
+        "description": "<p>Add a short description for your collections<\/p>",
+        "heading_size": "small",
+        "sort": "date",
+        "image_ratio": "square",
+        "style": "style1",
+        "columns_desktop": 4,
+        "collection_list_pagination_num": 12,
+        "heading_position": "bottom-center",
+        "text_color": "#2C2D2E",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main"
+  ]
+}
