@@ -45,7 +45,7 @@
             >
             <label for="email">{{ 'customer.login_page.email' | t }}</label>
           </div>
-         <div class="field">
+          <div class="field">
             <input
               type="password"
               name="customer[password]"
@@ -55,7 +55,7 @@
             >
             <label for="password">{{ 'customer.login_page.password' | t }}</label>
           </div>
-          
+
           <div class="field">
             <input
               type="password"
@@ -67,68 +67,54 @@
             <label for="confirm_password">{{ 'customer.login_page.confirm_password' | t }}</label>
           </div>
 
-          <div class="field">            
-            <input type="number" placeholder="{{ 'Mobile' }}" class="full numeric" name="number" id="mobile" pattern="[0-9]*" inputmode="numeric">
+          <div class="field">
+            <input
+              type="number"
+              placeholder="{{ 'Mobile' }}"
+              class="full numeric"
+              name="number"
+              id="mobile"
+              pattern="[0-9]*"
+              inputmode="numeric"
+            >
             <label for="number">{{ 'Mobile' }}</label>
-          </div>    
-
-<div class="field" onclick="openPopup()">
-  <label for="streetAddress">Street Address</label>
-  <input type="text" name="streetAddress" id="streetAddress" readonly>
-</div>
-
-<div id="popup">
-  <label for="additionalDetails">Additional Details</label>
-  <textarea name="additionalDetails" id="additionalDetails"></textarea>
-  <button onclick="savePopup(event)">Save</button>
-</div>
-
-<script>
-  function openPopup() {
-    document.getElementById('popup').style.display = 'block';
-  }
-
-  function closePopup() {
-    document.getElementById('popup').style.display = 'none';
-  }
-
-  function savePopup(event) {
-    // Add logic here to handle the data entered in the popup
-    // For now, let's just close the popup without refreshing the page
-    closePopup();
-
-    // Prevent the default form submission behavior
-    event.preventDefault();
-  }
-</script>
-
- 
-
-
-          <div class="field">            
-            <textarea name="address" placeholder="{{ 'address' }}" class="full" id="address"></textarea>
-            <label for="address" name="address" >{{ 'Address' }}</label>
           </div>
 
-          <div class="field">            
-            <select name="city" id="regi_city" placeholder="{{ 'customer.addresses.city' | t }}" class="full" >
+          <div class="field" onclick="openPopup()">
+            <label for="streetAddress">Street Address</label>
+            <input type="text" name="streetAddress" id="streetAddress" readonly>
+          </div>
+
+          <div id="popup">
+            <label for="additionalDetails">Additional Details</label>
+            <textarea name="additionalDetails" id="additionalDetails"></textarea>
+            <button onclick="savePopup(event)">Save</button>
+          </div>
+
+          <div class="field">
+            <textarea name="address" placeholder="{{ 'address' }}" class="full" id="address"></textarea>
+            <label for="address" name="address">{{ 'Address' }}</label>
+          </div>
+
+          <div class="field">
+            <select name="city" id="regi_city" placeholder="{{ 'customer.addresses.city' | t }}" class="full">
               <option value="">{{ 'customer.addresses.city' | t }}</option>
               <option value="option1">Option 1</option>
               <option value="option2">Option 2</option>
               <option value="option3">Option 3</option>
             </select>
-            <label for="regi_city" name="city" >{{ 'customer.addresses.city' | t }}</label>
+            <label for="regi_city" name="city">{{ 'customer.addresses.city' | t }}</label>
           </div>
 
-          <div class="field">           
-            <select name="district" placeholder="{{ 'District' | t }}" id="district" class="full" >
+          <div class="field">
+            <select name="district" placeholder="{{ 'District' | t }}" id="district" class="full">
               <option value="">Select District</option>
               <option value="district1">District 1</option>
               <option value="district2">District 2</option>
               <option value="district3">District 3</option>
             </select>
-             <label for="district">{{ 'District' }}</label>
-          </div>        
+            <label for="district">{{ 'District' }}</label>
+          </div>
 
           <button type="button" class="button full" id="regi_button">
             <span>{{ 'customer.login_page.submit_register' | t }}</span>
@@ -226,4 +212,23 @@
     // document.getElementById("regi_button").addEventListener("click", function(event) {
     // });
   });
+</script>
+
+<script>
+  function openPopup() {
+    document.getElementById('popup').style.display = 'block';
+  }
+
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+  }
+
+  function savePopup(event) {
+    // Add logic here to handle the data entered in the popup
+    // For now, let's just close the popup without refreshing the page
+    closePopup();
+
+    // Prevent the default form submission behavior
+    event.preventDefault();
+  }
 </script>
