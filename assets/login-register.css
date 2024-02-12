@@ -213,6 +213,9 @@ input.full.numeric {
 .thb-register-form h5 {
     text-align: center;
 }
+.thb-register-form h4 {
+    text-transform: inherit;
+}
 
 @media screen and (max-width: 575px) {
     .create_form_wrapper {
