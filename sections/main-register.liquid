@@ -181,38 +181,46 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
+    const cityDropdown = document.getElementById("regi_city");
+    const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/getCityDistricts';
 
-      const city = document.getElementById("regi_city").value;
-    
-      let userData = `{"city":${city},}`;
-      
-      const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/getCityDistricts/28';
-      
-      // Use the fetch function to make a GET request to the API
-      fetch(apiUrl, {
-        method: 'GET',
-       
-      })
+    // Function to populate the dropdown options
+    function populateDropdown(options) {
+      options.forEach(option => {
+        const optionElement = document.createElement("option");
+        optionElement.value = option.id; // Assuming there's an "id" property in your API response
+        optionElement.textContent = option.name; // Assuming there's a "name" property in your API response
+        cityDropdown.appendChild(optionElement);
+      });
+    }
+
+    // Use the fetch function to make a GET request to the API
+    fetch(apiUrl, {
+      method: 'GET',
+    })
       .then(response => {
         if (!response.ok) {
           throw new Error(`Network response was not ok: ${response.status}`);
         }
-        
+
         return response.json();
       })
       .then(data => {
-        console.log('City List',data);
-      
+        // Call the populateDropdown function with the retrieved data
+        populateDropdown(data);
       })
       .catch(error => {
         // Handle errors that may occur during the fetch operation
         console.error('Error fetching data:', error);
       });
 
-    // document.getElementById("regi_button").addEventListener("click", function(event) {
+    // Optional: Add an event listener if you want to do something when the dropdown changes
+    // cityDropdown.addEventListener("change", function(event) {
+    //   // Handle dropdown change if needed
     // });
   });
 </script>
+
 
 
 <script>
