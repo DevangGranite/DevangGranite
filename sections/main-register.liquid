@@ -96,15 +96,15 @@
             <label for="address" name="address">{{ 'Address' }}</label>
           </div>
 
-          <div class="field">
-            <select name="city" id="regi_city" placeholder="{{ 'customer.addresses.city' | t }}" class="full">
-              <option value="">{{ 'customer.addresses.city' | t }}</option>
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
-            </select>
-            <label for="regi_city" name="city">{{ 'customer.addresses.city' | t }}</label>
-          </div>
+       <div class="field">
+  <select name="city" id="regi_city" placeholder="{{ 'customer.addresses.city' | t }}" class="full">
+    <option value="">{{ 'customer.addresses.city' | t }}</option>
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+  </select>
+  <label for="regi_city" name="city">{{ 'customer.addresses.city' | t }}</label>
+</div>
 
           <div class="field">
             <select name="district" placeholder="{{ 'District' | t }}" id="district" class="full">
@@ -231,4 +231,33 @@
     // Prevent the default form submission behavior
     event.preventDefault();
   }
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("regi_city").addEventListener("change", function () {
+      const selectedCity = this.value;
+
+      if (selectedCity) {
+        const apiUrl = `https://alainuat.gdadmin.org/laravel/public/api/getCityDistricts/${selectedCity}`;
+
+        fetch(apiUrl, {
+          method: 'GET',
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`Network response was not ok: ${response.status}`);
+            }
+
+            return response.json();
+          })
+          .then(data => {
+            console.log(data); // Use the received data as needed
+          })
+          .catch(error => {
+            console.error('Error fetching data:', error);
+          });
+      }
+    });
+  });
 </script>
