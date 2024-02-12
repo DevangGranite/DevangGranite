@@ -97,7 +97,7 @@
           </div>
 
           <div class="field">
-            <select name="city" id="regi_city" placeholder="{{ 'customer.addresses.city' | t }}" class="full" onchange="getCityDistricts(this.id)">
+            <select name="city" id="regi_city" placeholder="{{ 'customer.addresses.city' | t }}" class="full" onchange="getCityDistricts(this.value)">
               <option value="">{{ 'customer.addresses.city' | t }}</option>
             </select>
             <label for="regi_city" name="city">{{ 'customer.addresses.city' | t }}</label>
