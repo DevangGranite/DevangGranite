@@ -104,10 +104,10 @@
           </div>
 
           <div class="field">
-            <select name="district" placeholder="{{ 'District' | t }}" id="district" class="full">
-              <option value="">{{ 'District' | t }}</option>
+            <select name="district" placeholder="{{ 'customer.addresses.district' | t }}" id="district" class="full">
+              <option value="">{{ 'customer.addresses.district' | t }}</option>
             </select>
-            <label for="district">{{ 'District' }}</label>
+            <label for="district">{{ 'customer.addresses.district' }}</label>
           </div>
 
           <button type="button" class="button full" id="regi_button">
@@ -208,7 +208,7 @@
           });
           document.getElementById("regi_city").innerHTML = city;
         }else{
-          let districts = "<option>{{ 'District' | t }}</option>";
+          let districts = "<option>{{ 'customer.addresses.district' | t }}</option>";
           data.response.forEach(function (item) {
             districts += `<option value="${item.id}">${item.district_name}</option>`;
           });
