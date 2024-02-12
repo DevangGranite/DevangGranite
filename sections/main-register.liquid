@@ -229,38 +229,3 @@
     event.preventDefault();
   }
 </script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-
-      const city = document.getElementById("regi_city").value;
-    
-      let userData = `{"city":${city},}`;
-      
-      const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/getCityDistricts/0';
-      
-      // Use the fetch function to make a GET request to the API
-      fetch(apiUrl, {
-        method: 'GET',
-       
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        
-        return response.json();
-      })
-      .then(data => {
-        console.log(userData);
-      
-      })
-      .catch(error => {
-        // Handle errors that may occur during the fetch operation
-        console.error('Error fetching data:', error);
-      });
-
-    // document.getElementById("regi_button").addEventListener("click", function(event) {
-    // });
-  });
-</script>
