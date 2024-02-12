@@ -137,6 +137,7 @@
               </div>
             </div>
             <div class="field">
+              <label for="email">{{ 'customer.login_page.email' | t }}</label>
               <input
                 type="email"
                 name="customer[email]"
@@ -144,9 +145,10 @@
                 value=""
                 placeholder="{{ 'customer.login_page.email' | t }}"
               >
-              <label for="email">{{ 'customer.login_page.email' | t }}</label>
+              
             </div>
             <div class="field">
+              <label for="password">{{ 'customer.login_page.password' | t }}</label>
               <input
                 type="password"
                 name="customer[password]"
@@ -154,7 +156,7 @@
                 value=""
                 placeholder="{{ 'customer.login_page.password' | t }}"
               >
-              <label for="password">{{ 'customer.login_page.password' | t }}</label>
+              
             </div>
 
             <button type="submit" class="button full">
