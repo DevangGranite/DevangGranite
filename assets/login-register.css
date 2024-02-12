@@ -194,6 +194,10 @@ input.full.numeric {
     background-size: 18px auto;
 }
 
+.thb-form-container .create_form_wrapper input[type="checkbox"] {
+    min-height: 15px;
+}
+
 @media screen and (max-width: 575px) {
     .create_form_wrapper {
         padding: 40px 24px;
