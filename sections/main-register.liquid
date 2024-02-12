@@ -210,7 +210,7 @@
         }else{
           let districts = "<option>{{ 'customer.addresses.city' | t }}</option>";
           data.response.forEach(function (item) {
-            districts += `<option value="${item.id}">${item.city_name}</option>`;
+            districts += `<option value="${item.id}">${item.district_name}</option>`;
           });
           document.getElementById("district").innerHTML = districts;
         }
