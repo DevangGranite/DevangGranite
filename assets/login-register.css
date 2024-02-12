@@ -196,6 +196,7 @@ input.full.numeric {
 
 .terms_condition-checkbox {
     margin-bottom: 20px;
+    font-size: 15px;
 }
 
 .thb-form-container .create_form_wrapper input[type=checkbox] {
