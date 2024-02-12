@@ -35,26 +35,28 @@
               <label for="last_name">{{ 'customer.login_page.last_name' | t }}</label>
             </div>
           </div>
-          <div class="field">
-            <input
-              type="email"
-              name="customer[email]"
-              class="full {% if form.errors contains 'email' %}invalid{% endif %}"
-              value=""
-              placeholder="{{ 'customer.login_page.email' | t }}"
-            >
-            <label for="email">{{ 'customer.login_page.email' | t }}</label>
-          </div>
-          <div class="field">
-            <input
-              type="password"
-              name="customer[password]"
-              class="full"
-              value=""
-              placeholder="{{ 'customer.login_page.password' | t }}"
-            >
-            <label for="password">{{ 'customer.login_page.password' | t }}</label>
-          </div>
+            <div class="field">
+              <input
+                type="email"
+                name="customer[email]"
+                class="full {% if form.errors contains 'email' %}invalid{% endif %}"
+                value=""
+                placeholder="{{ 'customer.login_page.email' | t }}"
+              >
+              <label for="email">{{ 'customer.login_page.email' | t }}</label>
+            </div>
+            
+            <div class="field">
+              <input
+                type="email"
+                name="customer[confirm_email]"
+                class="full {% if form.errors contains 'confirm_email' %}invalid{% endif %}"
+                value=""
+                placeholder="{{ 'customer.login_page.confirm_email' | t }}"
+              >
+              <label for="confirm_email">{{ 'customer.login_page.confirm_email' | t }}</label>
+            </div>
+        
 
           <div class="field">
             <input
