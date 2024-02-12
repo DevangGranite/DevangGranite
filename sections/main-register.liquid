@@ -96,12 +96,15 @@
             <label for="address" name="address">{{ 'Address' }}</label>
           </div>
 
-       <div class="field">
-  <select name="city" id="regi_city" placeholder="{{ 'customer.addresses.city' | t }}" class="full">
-    <option value="">{{ 'customer.addresses.city' | t }}</option>
-  </select>
-  <label for="regi_city" name="city">{{ 'customer.addresses.city' | t }}</label>
-</div>
+          <div class="field">
+            <select name="city" id="regi_city" placeholder="{{ 'customer.addresses.city' | t }}" class="full">
+              <option value="">{{ 'customer.addresses.city' | t }}</option>
+              <option value="option1">Option 1</option>
+              <option value="option2">Option 2</option>
+              <option value="option3">Option 3</option>
+            </select>
+            <label for="regi_city" name="city">{{ 'customer.addresses.city' | t }}</label>
+          </div>
 
           <div class="field">
             <select name="district" placeholder="{{ 'District' | t }}" id="district" class="full">
