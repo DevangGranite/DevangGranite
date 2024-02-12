@@ -315,7 +315,8 @@
       "already_have_an_account": "Already have an account?",
       "submit": "Submit",
       "cancel": "Cancel",
-      "address": "Address"
+      "address": "Address",
+      "address_place": "Location"
     },
     "recover_password": {
       "title": "Reset your password",
