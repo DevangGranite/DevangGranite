@@ -203,7 +203,7 @@
         data.response.forEach(function (item) {
           var newOp = document.createElement("option").text = item.city_name;
           newOp.value = item.id;
-          city.options.add(newOp);
+          document.getElementById("regi_city").options.add(newOp);
           // city += `<option value="${item.id}">${item.city_name}</option>`;
         });
         
