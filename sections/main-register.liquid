@@ -201,8 +201,12 @@
         return response.json();
       })
       .then(data => {
-        console.log('City List',data);
-      
+        console.log('data', data.response);
+        let city = '<option>Select City</option>';
+        data.response.forEach((item) => {
+          city += `<option value="${item.id}">${item.city_name}</option>`;
+        });
+        city.innerHtml = city;
       })
       .catch(error => {
         // Handle errors that may occur during the fetch operation
