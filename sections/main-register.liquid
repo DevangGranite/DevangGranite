@@ -184,7 +184,7 @@
   });
 
   function getCityDistricts(id){
-    
+      alert(id);
       const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/getCityDistricts/'+id;
       
       // Use the fetch function to make a GET request to the API
@@ -212,7 +212,7 @@
           data.response.forEach(function (item) {
             districts += `<option value="${item.id}">${item.city_name}</option>`;
           });
-          document.getElementById("regi_city").innerHTML = districts;
+          document.getElementById("district").innerHTML = districts;
         }
       })
       .catch(error => {
