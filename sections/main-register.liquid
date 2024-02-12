@@ -206,7 +206,7 @@
         return response.json();
       })
       .then(data => {
-        console.log('data', data.response);
+        // console.log('data', data.response);
         if(id == 0){
           let city = "<option>{{ 'customer.addresses.city' | t }}</option>";
           data.response.forEach(function (item) {
