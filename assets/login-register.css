@@ -142,8 +142,3 @@ input.full.numeric {
     line-height: 22px;
     min-height: 64px;
 }
-.thb-form-container .create_form_wrapper textarea {
-    height: auto;
-    min-height: 72px;
-}
-
