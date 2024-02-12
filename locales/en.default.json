@@ -316,7 +316,9 @@
       "submit": "Submit",
       "cancel": "Cancel",
       "address": "Address",
-      "address_place": "Location"
+      "address_place": "Location",
+      "address2": "Apt \/ Villa Number & Building \/ Villa Name",
+      "address2_place": "Enter Apt \/ Villa Number & Building \/ Villa Name"
     },
     "recover_password": {
       "title": "Reset your password",
