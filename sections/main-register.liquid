@@ -36,30 +36,6 @@
               
             </div>
           </div>
-            <div class="field">
-              <label for="email">{{ 'customer.login_page.email' | t }}</label>
-              <input
-                type="email"
-                name="customer[email]"
-                class="full {% if form.errors contains 'email' %}invalid{% endif %}"
-                value=""
-                placeholder="{{ 'customer.login_page.email' | t }}"
-              >
-              
-            </div>
-            
-            <div class="field">
-              <label for="confirm_email">{{ 'customer.login_page.confirm_email' | t }}</label>
-              <input
-                type="email"
-                name="customer[confirm_email]"
-                class="full {% if form.errors contains 'confirm_email' %}invalid{% endif %}"
-                value=""
-                placeholder="{{ 'customer.login_page.confirm_email' | t }}"
-              >
-              
-            </div>          
-
           <div class="field">
             <label for="number">{{ 'Mobile' }}</label>
             <input
@@ -70,10 +46,32 @@
               id="mobile"
               pattern="[0-9]*"
               inputmode="numeric"
+              required
             >
             
           </div>
-
+            <div class="field">
+              <label for="email">{{ 'customer.login_page.email' | t }}</label>
+              <input
+                type="email"
+                name="customer[email]"
+                class="full {% if form.errors contains 'email' %}invalid{% endif %}"
+                value=""
+                placeholder="{{ 'customer.login_page.email' | t }}"
+              >              
+            </div>
+            
+            <div class="field">
+              <label for="confirm_email">{{ 'customer.login_page.confirm_email' | t }}</label>
+              <input
+                type="email"
+                name="customer[confirm_email]"
+                class="full {% if form.errors contains 'confirm_email' %}invalid{% endif %}"
+                value=""
+                placeholder="{{ 'customer.login_page.confirm_email' | t }}"
+              >              
+            </div>          
+          
           <div class="field" onclick="openPopup()">
             <label for="streetAddress">Street Address</label>
             <input type="text" name="streetAddress" id="streetAddress" readonly>
