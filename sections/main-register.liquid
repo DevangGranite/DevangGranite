@@ -208,7 +208,7 @@
           });
           document.getElementById("regi_city").innerHTML = city;
         }else{
-          let districts = "<option>{{ 'customer.addresses.city' | t }}</option>";
+          let districts = "<option>{{ 'District' | t }}</option>";
           data.response.forEach(function (item) {
             districts += `<option value="${item.id}">${item.district_name}</option>`;
           });
