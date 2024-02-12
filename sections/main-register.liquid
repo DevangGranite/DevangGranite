@@ -77,7 +77,7 @@
           
           <div class="field" onclick="openPopup()">
             <label for="streetAddress">{{ 'customer.login_page.address' | t }}</label>
-            <input type="text" name="streetAddress" id="streetAddress" readonly>
+            <input type="text" name="streetAddress" id="streetAddress"  placeholder="{{ 'customer.login_page.address_place' | t }}" readonly>
             <div class="location_icon">
               {% render 'svg-icons' with 'location' %}
             </div>
