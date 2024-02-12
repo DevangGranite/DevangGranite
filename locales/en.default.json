@@ -314,7 +314,8 @@
       "submit_register": "Create an account",
       "already_have_an_account": "Already have an account?",
       "submit": "Submit",
-      "cancel": "Cancel"
+      "cancel": "Cancel",
+      "address": "Address"
     },
     "recover_password": {
       "title": "Reset your password",
