@@ -208,6 +208,7 @@ input.full.numeric {
     vertical-align: text-bottom;
     position: absolute;
     left: 0;
+    top: 1px;
 }
 
 @media screen and (max-width: 575px) {
