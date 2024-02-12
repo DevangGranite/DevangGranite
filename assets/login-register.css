@@ -172,6 +172,9 @@ input.full.numeric {
     border: none;
     margin-bottom: 0;
 }
+.thb-form-container .create_form_wrapper select {
+    appearance: auto;
+}
 
 @media screen and (max-width: 575px) {
     .create_form_wrapper {
