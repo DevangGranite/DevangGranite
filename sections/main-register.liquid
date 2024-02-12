@@ -97,15 +97,15 @@
           </div>
 
           <div class="field">
-            <select name="city" id="regi_city" placeholder="{{ 'customer.addresses.city' | t }}" class="full">
+            <select name="city" id="regi_city" placeholder="{{ 'customer.addresses.city' | t }}" class="full" onchange="getCityDistricts(this.id)">
               <option value="">{{ 'customer.addresses.city' | t }}</option>
             </select>
             <label for="regi_city" name="city">{{ 'customer.addresses.city' | t }}</label>
           </div>
 
           <div class="field">
-            <select name="district" placeholder="{{ 'District' | t }}" id="district" class="full" onchange="getCityDistricts(this.id)">
-              <option value="">Select District</option>
+            <select name="district" placeholder="{{ 'District' | t }}" id="district" class="full">
+              <option value="">District</option>
             </select>
             <label for="district">{{ 'District' }}</label>
           </div>
