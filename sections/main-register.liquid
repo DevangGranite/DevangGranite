@@ -3,7 +3,7 @@
   <div class="small-12 columns">
     <div class="thb-form-container">
       <div class="thb-register-form">
-        {% form 'create_customer', novalidate: 'novalidate' %}
+        
           <h4>{{ 'customer.login_page.create_account' | t }}</h4>
           <p>{{ 'customer.login_page.create_account_description' | t }}</p>
           {% if form.errors %}
@@ -12,7 +12,7 @@
               {{ form.errors | default_errors }}
             </div>
           {% endif %}
-
+      {% form 'create_customer', novalidate: 'novalidate' %}
           <div class="fields">
             <div class="field">
               <input
