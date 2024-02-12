@@ -303,6 +303,7 @@
       "dont_have_an_account": "Don’t have an account?",
       "password": "Password",
       "confirm_password": "confirm password",
+      "Mobile": "Mobile Number",
       "mobile": "Enter your mobile number",
       "title": "Login",
       "sign_in": "Sign in",
