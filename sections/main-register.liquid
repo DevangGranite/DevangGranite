@@ -104,6 +104,11 @@
               <option value="option3">Option 3</option>
             </select>
             <label for="regi_city" name="city">{{ 'customer.addresses.city' | t }}</label>
+            
+            <!-- Assuming you have an input element with the ID "regi_city" and a button with the ID "regi_button" -->
+            <input type="text" id="regi_city" placeholder="Enter City">
+            <button id="regi_button">Submit</button>
+
           </div>
 
           <div class="field">
@@ -182,37 +187,37 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
 
+    document.getElementById("regi_button").addEventListener("click", function(event) {
+      // Prevent the default form submission behavior
+      event.preventDefault();
+
+      // Get the city value from the input element with ID "regi_city"
       const city = document.getElementById("regi_city").value;
-    
-      let userData = `{"city":${city},}`;
-      
-      const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/getCityDistricts/{city_id}';
-      
+
+      // Define the API URL
+      const apiUrl = `https://alainuat.gdadmin.org/laravel/public/api/getCityDistricts/${city}`;
+
       // Use the fetch function to make a GET request to the API
       fetch(apiUrl, {
         method: 'GET',
-       
       })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        
-        return response.json();
-      })
-      .then(data => {
-        console.log(userData);
-      
-      })
-      .catch(error => {
-        // Handle errors that may occur during the fetch operation
-        console.error('Error fetching data:', error);
-      });
-
-    // document.getElementById("regi_button").addEventListener("click", function(event) {
-    // });
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log(data); // Logging the response data from the API
+        })
+        .catch(error => {
+          // Handle errors that may occur during the fetch operation
+          console.error('Error fetching data:', error);
+        });
+    });
   });
 </script>
+
 
 <script>
   function openPopup() {
