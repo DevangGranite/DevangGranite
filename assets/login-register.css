@@ -212,7 +212,9 @@ input.full.numeric {
 }
 .thb-register-form h5 {
     text-align: center;
+    color: #001489;
 }
+
 .thb-register-form h4 {
     text-transform: inherit;
 }
