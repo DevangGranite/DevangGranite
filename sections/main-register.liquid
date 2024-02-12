@@ -201,11 +201,14 @@
         console.log('data', data.response);
         let city = "<option>{{ 'customer.addresses.city' | t }}</option>";
         data.response.forEach(function (item) {
-          city += `<option value="${item.id}">${item.city_name}</option>`;
+          var newOp = document.createElement("option").text = item.city_name;
+          newOp.value = item.id;
+          city.options.add(newOp);
+          // city += `<option value="${item.id}">${item.city_name}</option>`;
         });
         
           console.log('city name',city);
-        document.getElementById("regi_city").innerHtml = city;
+        // document.getElementById("regi_city").innerHtml = city;
       })
       .catch(error => {
         // Handle errors that may occur during the fetch operation
