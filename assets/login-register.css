@@ -219,6 +219,11 @@ input.full.numeric {
     text-transform: inherit;
 }
 
+.terms_condition-checkbox a {
+    text-decoration: underline;
+     color: #001489;
+}
+
 @media screen and (max-width: 575px) {
     .create_form_wrapper {
         padding: 40px 24px;
