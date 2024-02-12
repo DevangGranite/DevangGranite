@@ -90,22 +90,22 @@
             <textarea name="address" placeholder="{{ 'address' }}" class="full" id="address"></textarea>
             
           </div>
-          
-         <div class="fields">
+
           <div class="field">
             <label for="regi_city" name="city">{{ 'customer.addresses.city' | t }}</label>
             <select name="city" id="regi_city" placeholder="{{ 'customer.addresses.city' | t }}" class="full" onchange="getCityDistricts(this.value)">
               <option value="">{{ 'customer.addresses.city' | t }}</option>
-            </select>          
+            </select>
+            
           </div>
 
           <div class="field">
             <label for="district">{{ 'customer.addresses.district' | t }}</label>
             <select name="district" placeholder="{{ 'customer.addresses.district' | t }}" id="district" class="full">
               <option value="">{{ 'customer.addresses.district' | t }}</option>
-            </select>            
+            </select>
+            
           </div>
-       </div>
 
           <button type="button" class="button full" id="regi_button">
             <span>{{ 'customer.login_page.submit_register' | t }}</span>
@@ -137,7 +137,6 @@
               </div>
             </div>
             <div class="field">
-              <label for="email">{{ 'customer.login_page.email' | t }}</label>
               <input
                 type="email"
                 name="customer[email]"
@@ -145,10 +144,9 @@
                 value=""
                 placeholder="{{ 'customer.login_page.email' | t }}"
               >
-              
+              <label for="email">{{ 'customer.login_page.email' | t }}</label>
             </div>
             <div class="field">
-              <label for="password">{{ 'customer.login_page.password' | t }}</label>
               <input
                 type="password"
                 name="customer[password]"
@@ -156,7 +154,7 @@
                 value=""
                 placeholder="{{ 'customer.login_page.password' | t }}"
               >
-              
+              <label for="password">{{ 'customer.login_page.password' | t }}</label>
             </div>
 
             <button type="submit" class="button full">
