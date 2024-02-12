@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'cunia';
+    src: url('cunia.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'hekaya';
+    src: url('hekaya-light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+#main-content h1,
+#main-content h2,
+#main-content h3 {
+    font-weight: bold;
+    font-family: 'cunia', serif;
+}
+[class*="description-size"] {
+    font-family: 'hekaya', serif;
+    font-size: 1.3em !important;
+}

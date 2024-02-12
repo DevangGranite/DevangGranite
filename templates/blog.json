@@ -1,0 +1,51 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {
+      }
+    },
+    "main-blog-header": {
+      "type": "main-blog-header",
+      "settings": {
+        "heading": "Latest News",
+        "description": "<p>Add a short description for your blog.<\/p>",
+        "show_category_list": true
+      }
+    },
+    "main-blog": {
+      "type": "main-blog",
+      "settings": {
+        "blog_layout": "style2",
+        "image_ratio": "landscape",
+        "show_date": true,
+        "show_excerpt": true,
+        "show_read_more": true
+      }
+    },
+    "featured_collection_7YmYtD": {
+      "type": "featured-collection",
+      "settings": {
+        "heading": "Discover Al Ain Zero Sodium",
+        "marker_style": "style1",
+        "description": "<p>Explore the Refreshing Taste of Al Ain Zero Sodium.<\/p>",
+        "collection": "zero-sodium",
+        "display_type": "grid",
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-blog-header",
+    "main-blog",
+    "featured_collection_7YmYtD"
+  ]
+}

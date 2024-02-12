@@ -1,0 +1,624 @@
+{
+  "sections": {
+    "8ba47ba3-de7f-4f0a-b30d-6f2a540748c3": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_hrDD8D": {
+          "type": "slide",
+          "settings": {
+            "slide_link": "",
+            "video_background": true,
+            "video_hosted": "shopify:\/\/files\/videos\/18f2efc8711e4ec68d702238e9e45dd2.mp4",
+            "badge_text": "DISCOVER",
+            "subheading": "Al Ain Zero Sodium",
+            "heading": "Your Path to Pure Hydration",
+            "heading_size": "h1",
+            "content": "A healthier way to stay hydrated.",
+            "description_size": "large",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "#2c2d2e",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#ffffff",
+            "color_badge_bg": "#47a45e",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 100,
+            "overlay_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4) 100%)",
+            "button_1_text": "Shop Now",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "Our Story",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": true
+          }
+        }
+      },
+      "block_order": [
+        "slide_hrDD8D"
+      ],
+      "settings": {
+        "desktop_height": "desktop-height-550",
+        "mobile_height": "mobile-height-500",
+        "full_width": true,
+        "autoplay": false,
+        "autoplay_length": 10,
+        "transition": "zoom",
+        "controls": "arrows-with-numbers",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "60ed2e7d-3f50-428a-b546-03274d862db0": {
+      "type": "collection-list",
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "heading_size": "medium",
+        "collection_list": [
+          "regular-water",
+          "water-box",
+          "plus-vit-d",
+          "glass-bottles",
+          "bambini"
+        ],
+        "image_ratio": "square",
+        "collection_layout": "grid",
+        "style": "style1",
+        "columns_desktop": 5,
+        "columns_mobile": "2",
+        "show_progress_bar": true,
+        "mobile_swipe": true,
+        "heading_position": "bottom-center",
+        "marker_color": "#fd6262",
+        "text_color": "#797b84",
+        "overlay_color": "rgba(0,0,0,0)",
+        "overlay_opacity": 0,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "f896bcf0-40bd-4c23-8c79-b4d0863d7715": {
+      "type": "media-grid",
+      "blocks": {
+        "media_BRxmXU": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/A_B1.jpg",
+            "slide_link": "shopify:\/\/collections\/gallon-1",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 2,
+            "row": 2,
+            "subheading": "Home Delivery",
+            "heading": "A convenient option \nfor your home or office",
+            "heading_size": "h4",
+            "button_text": "Shop Now",
+            "button_link": "",
+            "content_position": "top-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#252f35",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_ACy7mk": {
+          "type": "media",
+          "settings": {
+            "slide_link": "shopify:\/\/collections\/voss-natural-mineral-water",
+            "use_video": true,
+            "video_hosted": "shopify:\/\/files\/videos\/aed800244a0a48428de35d86ca40fc11.mp4",
+            "video_autoplay": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "Ramadan",
+            "heading": "Goodness begins here.\nJoin us in our journey",
+            "heading_size": "h4",
+            "button_text": "Learn More",
+            "button_link": "",
+            "content_position": "top-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 59
+          }
+        },
+        "media_tyNmpC": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/b_2.jpg",
+            "slide_link": "shopify:\/\/collections\/plus-vit-d",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "",
+            "heading": "Al Ain Plus",
+            "heading_size": "h4",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "bottom-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "linear-gradient(180deg, rgba(247, 177, 168, 1), rgba(63, 114, 229, 1) 99%, rgba(255, 140, 162, 1) 100%)",
+            "color_text": "#ffffff",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_mfWpWb": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/happynewyear.jpg",
+            "slide_link": "shopify:\/\/collections\/plus-vit-d",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "",
+            "heading": "Happy New Year",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "bottom-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 54
+          }
+        }
+      },
+      "block_order": [
+        "media_BRxmXU",
+        "media_ACy7mk",
+        "media_tyNmpC",
+        "media_mfWpWb"
+      ],
+      "settings": {
+        "desktop_height": 300,
+        "mobile_height": 220,
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#3a474e",
+        "color_link": "#151515",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "41985d74-e833-4bbd-b6df-f14039d7d1e4": {
+      "type": "rich-text",
+      "blocks": {
+        "8887e9cc-ea48-4e00-b3b5-2c62eecc0054": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/drop_Blue.png"
+          }
+        },
+        "template--17918041129242__41985d74-e833-4bbd-b6df-f14039d7d1e4-1676471079e61edf02-1": {
+          "type": "heading",
+          "settings": {
+            "text": "The UAE's Favourite |Water Choice|",
+            "marker_style": "style2",
+            "size": "h1",
+            "marker_color": "#2866d3"
+          }
+        },
+        "template--17918041129242__41985d74-e833-4bbd-b6df-f14039d7d1e4-1676471079e61edf02-2": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Stay healthy and refreshed<\/strong> with our pure, balanced mineral water.<\/p>",
+            "size": "text-size-large"
+          }
+        }
+      },
+      "block_order": [
+        "8887e9cc-ea48-4e00-b3b5-2c62eecc0054",
+        "template--17918041129242__41985d74-e833-4bbd-b6df-f14039d7d1e4-1676471079e61edf02-1",
+        "template--17918041129242__41985d74-e833-4bbd-b6df-f14039d7d1e4-1676471079e61edf02-2"
+      ],
+      "settings": {
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#252f35",
+        "color_text": "#303c43",
+        "color_links": "#ffffff",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_slideshow_xJRtiU": {
+      "type": "image-with-text-slideshow",
+      "blocks": {
+        "slide_Yfqd9m": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/FB1.jpg",
+            "subheading": "Zero Sodium",
+            "heading": "From Ordinary to Extraordinary",
+            "heading_size": "h3",
+            "content": "It's more than just water – it's an extraordinary experience, thanks to its pH-neutral, sodium-free goodness.",
+            "button_text": "Shop Now",
+            "button_link": "",
+            "color_bg": "#ffffff",
+            "color_text": "#2c2d2e",
+            "color_button": "#2866d3"
+          }
+        }
+      },
+      "block_order": [
+        "slide_Yfqd9m"
+      ],
+      "settings": {
+        "mobile_height": "mobile-height-450",
+        "desktop_height": "desktop-height-450",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "content_position": "text-left",
+        "autoplay": true,
+        "autoplay_length": 10,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "scrolling_text_J4Cxi6": {
+      "type": "scrolling-text",
+      "blocks": {
+        "text_zBJLen": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Al-Ain--Water-4-Gallon_ff7c8689-b93e-4db7-ad38-b876f9b80994.webp",
+            "text": "Your Hydration Partner, Al Ain Water",
+            "link": "",
+            "outline_text": false
+          }
+        },
+        "text_Ez7QUz": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Al-Ain--Water-5-Gallon_92c8a2d6-96a5-4b74-86aa-fe54eeecc578.webp",
+            "text": "Sip & Save with Al Ain's Offer",
+            "link": "",
+            "outline_text": false
+          }
+        },
+        "text_74xRyQ": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Al-Ain--Water-Zero-4-Gallon_814c793d-dd33-49e3-85f6-9084267def7a.webp",
+            "text": "Your Oasis of Hydration",
+            "link": "",
+            "outline_text": false
+          }
+        }
+      },
+      "block_order": [
+        "text_zBJLen",
+        "text_Ez7QUz",
+        "text_74xRyQ"
+      ],
+      "settings": {
+        "height": "height-auto",
+        "full_width": true,
+        "direction": "left",
+        "speed": "20s",
+        "rotation": 0,
+        "negative_rotation": false,
+        "font_family": "heading",
+        "text_size": 42,
+        "text_uppercase": false,
+        "image_size": "small",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_text": "#adb3bb",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "collection_tabs_Q9HMbU": {
+      "type": "collection-tabs",
+      "blocks": {
+        "collection_b3wFdz": {
+          "type": "collection",
+          "settings": {
+            "collection": "regular-water",
+            "enable_promotion": false,
+            "title": "Promotion",
+            "text": "Advertise a promotion or a sale",
+            "link_label": "Explore",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "overlay_color": "#000000",
+            "overlay_opacity": 70
+          }
+        },
+        "collection_fPf8Fq": {
+          "type": "collection",
+          "settings": {
+            "collection": "plus-vit-d",
+            "enable_promotion": false,
+            "title": "Promotion",
+            "text": "Advertise a promotion or a sale",
+            "link_label": "Explore",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "overlay_color": "#000000",
+            "overlay_opacity": 70
+          }
+        }
+      },
+      "block_order": [
+        "collection_b3wFdz",
+        "collection_fPf8Fq"
+      ],
+      "settings": {
+        "heading": "New Offers",
+        "marker_style": "style1",
+        "description": "<p>Sip and save with Al Ain's latest promotions!<\/p>",
+        "product_limit": 8,
+        "columns_desktop": 4,
+        "show_progress_bar": false,
+        "marker_color": "#62b3fd",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "customer_reviews_TDR3WG": {
+      "type": "customer-reviews",
+      "blocks": {
+        "review_dVpRVi": {
+          "type": "review",
+          "settings": {
+            "product_handle": "",
+            "stars": "5",
+            "heading": "The Best",
+            "text": "Al Ain Water is my daily dose of freshness and hydration.",
+            "author": "Amina Khalid",
+            "author_image": "shopify:\/\/shop_images\/www.thispersondoesnotexist-5.jpg"
+          }
+        },
+        "review_eBMtFM": {
+          "type": "review",
+          "settings": {
+            "product_handle": "",
+            "stars": "4.5",
+            "heading": "Fresh and Pure",
+            "text": "Refreshing and pure, Al Ain Water never disappoints.",
+            "author": "Ahmed Hassan",
+            "author_image": "shopify:\/\/shop_images\/www.thispersondoesnotexist-2.jpg"
+          }
+        },
+        "review_WGdFbV": {
+          "type": "review",
+          "settings": {
+            "product_handle": "",
+            "stars": "5",
+            "heading": "Top Quality",
+            "text": "I love the taste and quality of Al Ain Water. Definitely recommend.",
+            "author": "Fatima Abdullah",
+            "author_image": "shopify:\/\/shop_images\/www.thispersondoesnotexist-4.jpg"
+          }
+        },
+        "review_YnzH6e": {
+          "type": "review",
+          "settings": {
+            "product_handle": "",
+            "stars": "4.5",
+            "heading": "Best Taste",
+            "text": "I trust Al Ain Water for its top quality and best taste.",
+            "author": "Youssef Mahmoud",
+            "author_image": "shopify:\/\/shop_images\/www.thispersondoesnotexist-3.jpg"
+          }
+        },
+        "review_VLj6ME": {
+          "type": "review",
+          "settings": {
+            "product_handle": "",
+            "stars": "5",
+            "heading": "The Real Deal",
+            "text": "Al Ain Water is a staple in my healthy lifestyle.",
+            "author": "Noura Ali",
+            "author_image": "shopify:\/\/shop_images\/www.thispersondoesnotexist-6.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "review_dVpRVi",
+        "review_eBMtFM",
+        "review_WGdFbV",
+        "review_YnzH6e",
+        "review_VLj6ME"
+      ],
+      "settings": {
+        "heading": "Loved by Customers",
+        "description": "",
+        "columns": 4,
+        "autoplay": true,
+        "autoplay_length": 5,
+        "color_bg": "#ffffff",
+        "color_heading": "#252f35",
+        "color_text": "#303c43",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "media_grid_tFjKRQ": {
+      "type": "media-grid",
+      "blocks": {
+        "media_BGcraK": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Voss_Banner.jpg",
+            "slide_link": "shopify:\/\/collections\/voss-natural-mineral-water",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "Voss Water",
+            "heading": "Premium\nNatural Water",
+            "heading_size": "h4",
+            "button_text": "Shop Now",
+            "button_link": "",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "color_bg": "#69679c",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#2866d3",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_9McC8B": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/alain_plus.jpg",
+            "slide_link": "shopify:\/\/collections\/plus-vit-d",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "Think Immunity",
+            "heading": "Think \nAl Ain Plus",
+            "heading_size": "h4",
+            "button_text": "Shop Now",
+            "button_link": "",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "color_bg": "#69679c",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#47a45e",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_BGcraK",
+        "media_9McC8B"
+      ],
+      "settings": {
+        "desktop_height": 300,
+        "mobile_height": 250,
+        "column_spacing": "large",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_link": "#3f72e5",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "featured_blog_hbU64y": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "News and Updates",
+        "marker_style": "style1",
+        "description": "<p>Al Ain's Water and Product News<\/p>",
+        "blog": "news",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "mobile_swipe": true,
+        "image_ratio": "landscape",
+        "show_date": true,
+        "show_excerpt": true,
+        "show_read_more": true,
+        "show_view_all": true,
+        "marker_color": "#62b3fd",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "text_with_icons_m8TwgU": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon_BkkzFb": {
+          "type": "icon",
+          "settings": {
+            "icon": "truck",
+            "heading": "Same Day Delivery",
+            "text": "<p>Order today, enjoy it today<\/p>"
+          }
+        },
+        "icon_kgzdRP": {
+          "type": "icon",
+          "settings": {
+            "icon": "question_mark",
+            "heading": "Need assistance",
+            "text": "<p>shop@alainwater.com<\/p>"
+          }
+        },
+        "icon_ewixYa": {
+          "type": "icon",
+          "settings": {
+            "icon": "map_pin",
+            "heading": "Local Pickup",
+            "text": "<p>Order, Pick Up, Enjoy<\/p>"
+          }
+        },
+        "icon_MdqiQW": {
+          "type": "icon",
+          "settings": {
+            "icon": "clipboard",
+            "heading": "FAQs",
+            "text": "<p>Get Informed in Seconds.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_BkkzFb",
+        "icon_kgzdRP",
+        "icon_ewixYa",
+        "icon_MdqiQW"
+      ],
+      "settings": {
+        "text_alignment": "left",
+        "icon_position": "left",
+        "icon_size": "medium",
+        "heading_size": "medium",
+        "mobile_swipe": true,
+        "color_bg": "#f3f6fb",
+        "color_heading": "#2c2d2e",
+        "color_text": "#56585e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    }
+  },
+  "order": [
+    "8ba47ba3-de7f-4f0a-b30d-6f2a540748c3",
+    "60ed2e7d-3f50-428a-b546-03274d862db0",
+    "f896bcf0-40bd-4c23-8c79-b4d0863d7715",
+    "41985d74-e833-4bbd-b6df-f14039d7d1e4",
+    "image_with_text_slideshow_xJRtiU",
+    "scrolling_text_J4Cxi6",
+    "collection_tabs_Q9HMbU",
+    "customer_reviews_TDR3WG",
+    "media_grid_tFjKRQ",
+    "featured_blog_hbU64y",
+    "text_with_icons_m8TwgU"
+  ]
+}
