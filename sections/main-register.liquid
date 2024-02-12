@@ -210,13 +210,13 @@
       .then(data => {
         // console.log('data', data.response);
         if(id == 0){
-          let city = "<option>{{ 'customer.addresses.city' | t }}</option>";
+          let city = "<option>{{ 'customer.addresses.city_reg' | t }}</option>";
           data.response.forEach(function (item) {
             city += `<option value="${item.id}">${item.city_name}</option>`;
           });
           document.getElementById("regi_city").innerHTML = city;
         }else{
-          let districts = "<option>{{ 'customer.addresses.district' | t }}</option>";
+          let districts = "<option>{{ 'customer.addresses.district_reg' | t }}</option>";
           data.response.forEach(function (item) {
             districts += `<option value="${item.id}">${item.district_name}</option>`;
           });
