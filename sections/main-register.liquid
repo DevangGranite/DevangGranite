@@ -12,20 +12,19 @@
               {{ form.errors | default_errors }}
             </div>
           {% endif %}
-        <div class="create_form_wrapper">          
-            <div class="fields">
+
+          <div class="fields create_form_wrapper">
             <div class="field">
-              <label for="first_name">{{ 'customer.login_page.first_name' | t }}</label>
               <input
                 type="text"
                 name="customer[first_name]"
                 class="full"
                 value="{% if form.first_name %}{{ form.first_name }}{% endif %}"
                 placeholder="{{ 'customer.login_page.first_name' | t }}"
-              >              
+              >
+              <label for="first_name">{{ 'customer.login_page.first_name' | t }}</label>
             </div>
             <div class="field">
-              <label for="last_name">{{ 'customer.login_page.last_name' | t }}</label>
               <input
                 type="text"
                 name="customer[last_name]"
@@ -33,11 +32,10 @@
                 value="{% if form.last_name %}{{ form.last_name }}{% endif %}"
                 placeholder="{{ 'customer.login_page.last_name' | t }}"
               >
-              
+              <label for="last_name">{{ 'customer.login_page.last_name' | t }}</label>
             </div>
           </div>
             <div class="field">
-              <label for="email">{{ 'customer.login_page.email' | t }}</label>
               <input
                 type="email"
                 name="customer[email]"
@@ -45,11 +43,10 @@
                 value=""
                 placeholder="{{ 'customer.login_page.email' | t }}"
               >
-              
+              <label for="email">{{ 'customer.login_page.email' | t }}</label>
             </div>
             
             <div class="field">
-              <label for="confirm_email">{{ 'customer.login_page.confirm_email' | t }}</label>
               <input
                 type="email"
                 name="customer[confirm_email]"
@@ -57,11 +54,10 @@
                 value=""
                 placeholder="{{ 'customer.login_page.confirm_email' | t }}"
               >
-              
+              <label for="confirm_email">{{ 'customer.login_page.confirm_email' | t }}</label>
             </div>          
 
           <div class="field">
-            <label for="number">{{ 'Mobile' }}</label>
             <input
               type="number"
               placeholder="{{ 'Mobile' }}"
@@ -71,7 +67,7 @@
               pattern="[0-9]*"
               inputmode="numeric"
             >
-            
+            <label for="number">{{ 'Mobile' }}</label>
           </div>
 
           <div class="field" onclick="openPopup()">
@@ -86,25 +82,22 @@
           </div>
 
           <div class="field">
-            <label for="address" name="address">{{ 'Address' }}</label>
             <textarea name="address" placeholder="{{ 'address' }}" class="full" id="address"></textarea>
-            
+            <label for="address" name="address">{{ 'Address' }}</label>
           </div>
 
           <div class="field">
-            <label for="regi_city" name="city">{{ 'customer.addresses.city' | t }}</label>
             <select name="city" id="regi_city" placeholder="{{ 'customer.addresses.city' | t }}" class="full" onchange="getCityDistricts(this.value)">
               <option value="">{{ 'customer.addresses.city' | t }}</option>
             </select>
-            
+            <label for="regi_city" name="city">{{ 'customer.addresses.city' | t }}</label>
           </div>
 
           <div class="field">
-            <label for="district">{{ 'customer.addresses.district' | t }}</label>
             <select name="district" placeholder="{{ 'customer.addresses.district' | t }}" id="district" class="full">
               <option value="">{{ 'customer.addresses.district' | t }}</option>
             </select>
-            
+            <label for="district">{{ 'customer.addresses.district' | t }}</label>
           </div>
 
           <button type="button" class="button full" id="regi_button">
@@ -114,7 +107,6 @@
           <div style="visibility:hidden;height:0">
             <div class="fields">
               <div class="field">
-                  <label for="first_name">{{ 'customer.login_page.first_name' | t }}</label>
                 <input
                   type="text"
                   name="customer[first_name]"
@@ -122,10 +114,9 @@
                   value="{% if form.first_name %}{{ form.first_name }}{% endif %}"
                   placeholder="{{ 'customer.login_page.first_name' | t }}"
                 >
-              
+                <label for="first_name">{{ 'customer.login_page.first_name' | t }}</label>
               </div>
               <div class="field">
-                <label for="last_name">{{ 'customer.login_page.last_name' | t }}</label>
                 <input
                   type="text"
                   name="customer[last_name]"
@@ -133,7 +124,7 @@
                   value="{% if form.last_name %}{{ form.last_name }}{% endif %}"
                   placeholder="{{ 'customer.login_page.last_name' | t }}"
                 >
-                
+                <label for="last_name">{{ 'customer.login_page.last_name' | t }}</label>
               </div>
             </div>
             <div class="field">
@@ -161,7 +152,6 @@
               <span>{{ 'customer.login_page.submit_register' | t }}</span>
             </button>
           </div>
-      </div>
         {% endform %}
         <div class="switch-login-section">
           {{ 'customer.login_page.already_have_an_account' | t }}
