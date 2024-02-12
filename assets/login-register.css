@@ -149,7 +149,7 @@ input.full.numeric {
     color: #6B6E71;
 }
 
-.thb-form-container .create_form_wrapper textarea {
+.thb-form-container .create_form_wrapper textarea, .thb-form-container .create_form_wrapper select {
     height: auto;
     min-height: 72px;
     border: 1px solid #8A8F95;
