@@ -15,25 +15,6 @@
  DASHBOARD PAGE
  
 <div class="section-spacing-bottom">
-	<div class="row">
-      <div class="small-12 large-12 columns">
-        <div class="customer_data">
-           <p id="uuid"></p>
-           <p id="user_id"></p>
-           <p id="sp_user_type"></p>
-           <p id="sp_mobile"></p>
-           <p id="sp_email"></p>
-           <p id="sp_idn"></p>
-           <p id="sp_nationality_en"></p>
-           <p id="sp_nationality_ar"></p>
-           <p id="sp_gender"></p>
-           <p id="sp_id_type"></p>
-           <p id="sp_title_en"></p>
-           <p id="sp_title_ar"></p>
-           <p id="sp_full_name_en"></p>
-           <p id="sp_full_name_ar"></p>
-         </div>
-      </div>
 	  <div class="small-12 large-8 columns myaccount-content">
 			<h4>{{ 'customer.orders.title' | t }}</h4>
 			{% paginate customer.orders by 20 %}
