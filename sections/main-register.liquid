@@ -12,109 +12,10 @@
               {{ form.errors | default_errors }}
             </div>
           {% endif %}
-        <div class="create_form_wrapper">          
-            <div class="fields">
-            <div class="field">
-              <label for="first_name">{{ 'customer.login_page.first_name' | t }}</label>
-              <input
-                type="text"
-                name="customer[first_name]"
-                class="full"
-                value="{% if form.first_name %}{{ form.first_name }}{% endif %}"
-                placeholder="{{ 'customer.login_page.first_name' | t }}"
-              >              
-            </div>
-            <div class="field">
-              <label for="last_name">{{ 'customer.login_page.last_name' | t }}</label>
-              <input
-                type="text"
-                name="customer[last_name]"
-                class="full"
-                value="{% if form.last_name %}{{ form.last_name }}{% endif %}"
-                placeholder="{{ 'customer.login_page.last_name' | t }}"
-              >
-              
-            </div>
-          </div>
-            <div class="field">
-              <label for="email">{{ 'customer.login_page.email' | t }}</label>
-              <input
-                type="email"
-                name="customer[email]"
-                class="full {% if form.errors contains 'email' %}invalid{% endif %}"
-                value=""
-                placeholder="{{ 'customer.login_page.email' | t }}"
-              >
-              
-            </div>
-            
-            <div class="field">
-              <label for="confirm_email">{{ 'customer.login_page.confirm_email' | t }}</label>
-              <input
-                type="email"
-                name="customer[confirm_email]"
-                class="full {% if form.errors contains 'confirm_email' %}invalid{% endif %}"
-                value=""
-                placeholder="{{ 'customer.login_page.confirm_email' | t }}"
-              >
-              
-            </div>          
-
-          <div class="field">
-            <label for="number">{{ 'Mobile' }}</label>
-            <input
-              type="number"
-              placeholder="{{ 'Mobile' }}"
-              class="full numeric"
-              name="number"
-              id="mobile"
-              pattern="[0-9]*"
-              inputmode="numeric"
-            >
-            
-          </div>
-
-          <div class="field" onclick="openPopup()">
-            <label for="streetAddress">Street Address</label>
-            <input type="text" name="streetAddress" id="streetAddress" readonly>
-          </div>
-
-          <div id="popup">
-            <label for="additionalDetails">Additional Details</label>
-            <textarea name="additionalDetails" id="additionalDetails"></textarea>
-            <button onclick="savePopup(event)">Save</button>
-          </div>
-
-          <div class="field">
-            <label for="address" name="address">{{ 'Address' }}</label>
-            <textarea name="address" placeholder="{{ 'address' }}" class="full" id="address"></textarea>
-            
-          </div>
-          
-         <div class="fields">
-          <div class="field">
-            <label for="regi_city" name="city">{{ 'customer.addresses.city' | t }}</label>
-            <select name="city" id="regi_city" placeholder="{{ 'customer.addresses.city' | t }}" class="full" onchange="getCityDistricts(this.value)">
-              <option value="">{{ 'customer.addresses.city' | t }}</option>
-            </select>          
-          </div>
-
-          <div class="field">
-            <label for="district">{{ 'customer.addresses.district' | t }}</label>
-            <select name="district" placeholder="{{ 'customer.addresses.district' | t }}" id="district" class="full">
-              <option value="">{{ 'customer.addresses.district' | t }}</option>
-            </select>            
-          </div>
-       </div>
-
-          <button type="button" class="button full" id="regi_button">
-            <span>{{ 'customer.login_page.submit_register' | t }}</span>
-          </button>
-
-          <div style="visibility:hidden;height:0">
+          <div class="create_form_wrapper">
             <div class="fields">
               <div class="field">
-                  <label for="first_name">{{ 'customer.login_page.first_name' | t }}</label>
+                <label for="first_name">{{ 'customer.login_page.first_name' | t }}</label>
                 <input
                   type="text"
                   name="customer[first_name]"
@@ -122,7 +23,6 @@
                   value="{% if form.first_name %}{{ form.first_name }}{% endif %}"
                   placeholder="{{ 'customer.login_page.first_name' | t }}"
                 >
-              
               </div>
               <div class="field">
                 <label for="last_name">{{ 'customer.login_page.last_name' | t }}</label>
@@ -133,9 +33,22 @@
                   value="{% if form.last_name %}{{ form.last_name }}{% endif %}"
                   placeholder="{{ 'customer.login_page.last_name' | t }}"
                 >
-                
               </div>
             </div>
+
+            <div class="field">
+              <label for="number">{{ 'Mobile' }}</label>
+              <input
+                type="number"
+                placeholder="{{ 'Mobile' }}"
+                class="full numeric"
+                name="number"
+                id="mobile"
+                pattern="[0-9]*"
+                inputmode="numeric"
+              >
+            </div>
+
             <div class="field">
               <label for="email">{{ 'customer.login_page.email' | t }}</label>
               <input
@@ -145,25 +58,115 @@
                 value=""
                 placeholder="{{ 'customer.login_page.email' | t }}"
               >
-              
-            </div>
-            <div class="field">
-              <label for="password">{{ 'customer.login_page.password' | t }}</label>
-              <input
-                type="password"
-                name="customer[password]"
-                class="full"
-                value=""
-                placeholder="{{ 'customer.login_page.password' | t }}"
-              >
-              
             </div>
 
-            <button type="submit" class="button full">
+            <div class="field">
+              <label for="confirm_email">{{ 'customer.login_page.confirm_email' | t }}</label>
+              <input
+                type="email"
+                name="customer[confirm_email]"
+                class="full {% if form.errors contains 'confirm_email' %}invalid{% endif %}"
+                value=""
+                placeholder="{{ 'customer.login_page.confirm_email' | t }}"
+              >
+            </div>
+
+            <div class="field" onclick="openPopup()">
+              <label for="streetAddress">Street Address</label>
+              <input type="text" name="streetAddress" id="streetAddress" readonly>
+            </div>
+
+            <div id="popup">
+              <label for="additionalDetails">Additional Details</label>
+              <textarea name="additionalDetails" id="additionalDetails"></textarea>
+              <button onclick="savePopup(event)">Save</button>
+            </div>
+
+            <div class="field">
+              <label for="address" name="address">{{ 'Address' }}</label>
+              <textarea name="address" placeholder="{{ 'address' }}" class="full" id="address"></textarea>
+            </div>
+
+            <div class="fields">
+              <div class="field">
+                <label for="regi_city" name="city">{{ 'customer.addresses.city' | t }}</label>
+                <select
+                  name="city"
+                  id="regi_city"
+                  placeholder="{{ 'customer.addresses.city' | t }}"
+                  class="full"
+                  onchange="getCityDistricts(this.value)"
+                >
+                  <option value="">{{ 'customer.addresses.city' | t }}</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="district">{{ 'customer.addresses.district' | t }}</label>
+                <select
+                  name="district"
+                  placeholder="{{ 'customer.addresses.district' | t }}"
+                  id="district"
+                  class="full"
+                >
+                  <option value="">{{ 'customer.addresses.district' | t }}</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="button" class="button full" id="regi_button">
               <span>{{ 'customer.login_page.submit_register' | t }}</span>
             </button>
+
+            <div style="visibility:hidden;height:0">
+              <div class="fields">
+                <div class="field">
+                  <label for="first_name">{{ 'customer.login_page.first_name' | t }}</label>
+                  <input
+                    type="text"
+                    name="customer[first_name]"
+                    class="full"
+                    value="{% if form.first_name %}{{ form.first_name }}{% endif %}"
+                    placeholder="{{ 'customer.login_page.first_name' | t }}"
+                  >
+                </div>
+                <div class="field">
+                  <label for="last_name">{{ 'customer.login_page.last_name' | t }}</label>
+                  <input
+                    type="text"
+                    name="customer[last_name]"
+                    class="full"
+                    value="{% if form.last_name %}{{ form.last_name }}{% endif %}"
+                    placeholder="{{ 'customer.login_page.last_name' | t }}"
+                  >
+                </div>
+              </div>
+              <div class="field">
+                <label for="email">{{ 'customer.login_page.email' | t }}</label>
+                <input
+                  type="email"
+                  name="customer[email]"
+                  class="full {% if form.errors contains 'email' %}invalid{% endif %}"
+                  value=""
+                  placeholder="{{ 'customer.login_page.email' | t }}"
+                >
+              </div>
+              <div class="field">
+                <label for="password">{{ 'customer.login_page.password' | t }}</label>
+                <input
+                  type="password"
+                  name="customer[password]"
+                  class="full"
+                  value=""
+                  placeholder="{{ 'customer.login_page.password' | t }}"
+                >
+              </div>
+
+              <button type="submit" class="button full">
+                <span>{{ 'customer.login_page.submit_register' | t }}</span>
+              </button>
+            </div>
           </div>
-      </div>
         {% endform %}
         <div class="switch-login-section">
           {{ 'customer.login_page.already_have_an_account' | t }}
