@@ -182,37 +182,45 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
 
+    document.getElementById("regi_button").addEventListener("click", function(event) {
+      // Prevent the default form submission behavior
+      event.preventDefault();
+
+      // Get the city value from the input element with ID "regi_city"
       const city = document.getElementById("regi_city").value;
-    
-      let userData = `{"city":${city},}`;
-      
+
+      // Create an object with the city data
+      const userData = {
+        city: city
+      };
+
+      // Convert the object to a JSON string
+      const jsonData = JSON.stringify(userData);
+
+      // Define the API URL
       const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/getCityDistricts/0';
-      
+
       // Use the fetch function to make a GET request to the API
       fetch(apiUrl, {
         method: 'GET',
-       
       })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        
-        return response.json();
-      })
-      .then(data => {
-        console.log(userData);
-      
-      })
-      .catch(error => {
-        // Handle errors that may occur during the fetch operation
-        console.error('Error fetching data:', error);
-      });
-
-    // document.getElementById("regi_button").addEventListener("click", function(event) {
-    // });
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log(data); // Logging the response data from the API
+        })
+        .catch(error => {
+          // Handle errors that may occur during the fetch operation
+          console.error('Error fetching data:', error);
+        });
+    });
   });
 </script>
+
 
 <script>
   function openPopup() {
