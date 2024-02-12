@@ -206,7 +206,7 @@
         data.response.forEach((item) => {
           city += `<option value="${item.id}">${item.city_name}</option>`;
         });
-        city.innerHtml = city;
+        document.getElementById("regi_city").innerHtml = city;
       })
       .catch(error => {
         // Handle errors that may occur during the fetch operation
