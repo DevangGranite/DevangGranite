@@ -210,6 +210,9 @@ input.full.numeric {
     left: 0;
     top: 1px;
 }
+.thb-register-form h6 {
+    text-align: center;
+}
 
 @media screen and (max-width: 575px) {
     .create_form_wrapper {
