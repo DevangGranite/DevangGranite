@@ -203,7 +203,8 @@
       .then(data => {
         console.log('data', data.response);
         let city = '<option>Select City</option>';
-        data.response.forEach((item) => {
+        data.response.forEach(function (item) {
+          console.log('city name',item.city_name);
           city += `<option value="${item.id}">${item.city_name}</option>`;
         });
         document.getElementById("regi_city").innerHtml = city;
