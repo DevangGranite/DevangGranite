@@ -12,8 +12,9 @@
               {{ form.errors | default_errors }}
             </div>
           {% endif %}
-
-          <div class="fields create_form_wrapper">
+<div class="create_form_wrapper">
+          
+            <div class="fields">
             <div class="field">
               <input
                 type="text"
@@ -152,6 +153,7 @@
               <span>{{ 'customer.login_page.submit_register' | t }}</span>
             </button>
           </div>
+      </div>
         {% endform %}
         <div class="switch-login-section">
           {{ 'customer.login_page.already_have_an_account' | t }}
