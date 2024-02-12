@@ -36,20 +36,6 @@
               
             </div>
           </div>
-
-          <div class="field">
-            <label for="number">{{ 'Mobile' }}</label>
-            <input
-              type="number"
-              placeholder="{{ 'Mobile' }}"
-              class="full numeric"
-              name="number"
-              id="mobile"
-              pattern="[0-9]*"
-              inputmode="numeric"
-            >
-            
-          </div>
             <div class="field">
               <label for="email">{{ 'customer.login_page.email' | t }}</label>
               <input
@@ -74,7 +60,19 @@
               
             </div>          
 
-          
+          <div class="field">
+            <label for="number">{{ 'Mobile' }}</label>
+            <input
+              type="number"
+              placeholder="{{ 'Mobile' }}"
+              class="full numeric"
+              name="number"
+              id="mobile"
+              pattern="[0-9]*"
+              inputmode="numeric"
+            >
+            
+          </div>
 
           <div class="field" onclick="openPopup()">
             <label for="streetAddress">Street Address</label>
