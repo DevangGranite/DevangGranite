@@ -155,6 +155,22 @@ input.full.numeric {
     border: 1px solid #8A8F95;
     background: #fff;
 }
+.create_form_wrapper .field--country_codee {
+    display: flex;
+    border: 1px solid #8A8F95;
+    min-height: 72px;
+    background: #fff;
+    align-items: center;
+}
+
+.create_form_wrapper .field--country_codee span {
+    padding: 0 28px 0 41px;
+    color: red;
+}
+.create_form_wrapper .field--country_codee input#mobile {
+    border: none;
+    margin-bottom: 0;
+}
 
 @media screen and (max-width: 575px) {
     .create_form_wrapper {
