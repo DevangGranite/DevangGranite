@@ -104,11 +104,8 @@
           </div>
 
           <div class="field">
-            <select name="district" placeholder="{{ 'District' | t }}" id="district" class="full">
+            <select name="district" placeholder="{{ 'District' | t }}" id="district" class="full" onchange="getCityDistricts(this.id)">
               <option value="">Select District</option>
-              <option value="district1">District 1</option>
-              <option value="district2">District 2</option>
-              <option value="district3">District 3</option>
             </select>
             <label for="district">{{ 'District' }}</label>
           </div>
@@ -180,11 +177,15 @@
   /*** city and dis Start ***/
   document.addEventListener("DOMContentLoaded", function() {
 
-      const city = document.getElementById("regi_city").value;
+      getCityDistricts(0);
+
+    // document.getElementById("regi_button").addEventListener("click", function(event) {
+    // });
+  });
+
+  function getCityDistricts(id){
     
-      let userData = `{"city":${city},}`;
-      
-      const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/getCityDistricts/0';
+      const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/getCityDistricts/'+id;
       
       // Use the fetch function to make a GET request to the API
       fetch(apiUrl, {
@@ -200,21 +201,25 @@
       })
       .then(data => {
         console.log('data', data.response);
-        let city = "<option>{{ 'customer.addresses.city' | t }}</option>";
-        data.response.forEach(function (item) {
-          city += `<option value="${item.id}">${item.city_name}</option>`;
-        });
-        
-        document.getElementById("regi_city").innerHTML = city;
+        if(id == 0){
+          let city = "<option>{{ 'customer.addresses.city' | t }}</option>";
+          data.response.forEach(function (item) {
+            city += `<option value="${item.id}">${item.city_name}</option>`;
+          });
+          document.getElementById("regi_city").innerHTML = city;
+        }else{
+          let districts = "<option>{{ 'customer.addresses.city' | t }}</option>";
+          data.response.forEach(function (item) {
+            districts += `<option value="${item.id}">${item.city_name}</option>`;
+          });
+          document.getElementById("regi_city").innerHTML = districts;
+        }
       })
       .catch(error => {
         // Handle errors that may occur during the fetch operation
         console.error('Error fetching data:', error);
       });
-
-    // document.getElementById("regi_button").addEventListener("click", function(event) {
-    // });
-  });
+  }
 /*** city and dis end ***/
 
 /*** Pop up start ***/
