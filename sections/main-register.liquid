@@ -347,18 +347,6 @@ function validateAndSwitch(input, nextFieldId) {
         document.getElementById(nextFieldId).focus();
     }
 }
-  // JavaScript functions for handling popup open and close
-    function openPopup() {
-      const popup = document.getElementById('popup');
-      popup.classList.add('visible');
-      document.body.classList.add('popup-opened'); // Optionally, you can add a class to the body
-    }
-
-    function closePopup() {
-      const popup = document.getElementById('popup');
-      popup.classList.remove('visible');
-      document.body.classList.remove('popup-opened'); // Optionally, remove the class from the body
-    }
   
 /*** Pop up End OTP ***/
 
@@ -388,6 +376,7 @@ function validateAndSwitch(input, nextFieldId) {
     // Function to open the popup
     function openPopup() {
       document.getElementById('popup').style.display = 'block';
+      popupElement.classList.add('test');
 
       // Initialize the map when the popup is opened
       initMap();
