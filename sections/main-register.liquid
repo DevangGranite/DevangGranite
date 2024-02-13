@@ -347,6 +347,16 @@ function validateAndSwitch(input, nextFieldId) {
         document.getElementById(nextFieldId).focus();
     }
 }
+   // JavaScript functions for handling popup open and close
+    function openPopup() {
+      document.getElementById('popup').classList.add('open');
+      document.body.classList.add('popup-opened'); // Optionally, you can add a class to the body
+    }
+
+    function closePopup() {
+      document.getElementById('popup').classList.remove('open');
+      document.body.classList.remove('popup-opened'); // Optionally, remove the class from the body
+    }
   
 /*** Pop up End OTP ***/
 
