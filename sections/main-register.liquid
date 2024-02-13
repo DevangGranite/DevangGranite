@@ -83,6 +83,15 @@
               {% render 'svg-icons' with 'location' %}
             </div>
           </div>
+
+          <div id="popup_map" class="popup-map">
+    <div class="popup-content">
+        <label for="additionalDetails">Additional Details</label>
+        <textarea name="additionalDetails" id="additionalDetails"></textarea>
+        <button onclick="savePopupMap(event)">Save</button>
+        <button onclick="closePopup()">Close</button>
+    </div>
+</div>
           
           <div class="field-area">
             <div id="popup">
@@ -282,21 +291,26 @@ function validateAndSwitch(input, nextFieldId) {
   /*** Pop up start MAP ***/
 
   function openPopup() {
-    document.getElementById('popup').style.display = 'block';
-  }
+    var popup = document.getElementById('popup_map');
+    var overlay = document.createElement('div');
+    overlay.className = 'overlay';
+    document.body.appendChild(overlay);
+    popup.style.display = 'block';
+    overlay.style.display = 'block';
+}
 
-  function closePopup() {
-    document.getElementById('popup').style.display = 'none';
-  }
+function closePopup() {
+    var popup = document.getElementById('popup_map');
+    var overlay = document.querySelector('.overlay');
+    popup.style.display = 'none';
+    overlay.style.display = 'none';
+}
 
-  function savePopup(event) {
-    // Add logic here to handle the data entered in the popup
-    // For now, let's just close the popup without refreshing the page
-    closePopup();
-
-    // Prevent the default form submission behavior
+function savePopupMap(event) {
+    // Add your save logic here
     event.preventDefault();
-  }
+    closePopup();
+}
   
   /*** Pop up end MAP ***/
 </script>
