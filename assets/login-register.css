@@ -132,12 +132,8 @@ input.full.numeric {
   max-width: 450px;
 }
 
-.thb-form-container .create_form_wrapper input:-internal-autofill-selected {
-    background-color:#fff;
-}
-
 .thb-form-container .create_form_wrapper input:-webkit-autofill{
-    -webkit-text-fill-color: #fff !important;
+     background-color:#fff;
 }
 
   /* Style for the map container */
