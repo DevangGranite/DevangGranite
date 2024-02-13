@@ -136,6 +136,12 @@ input.full.numeric {
      transition: background-color 5000s ease-in-out 0s;
 }
 
+.close-icon {
+    position: absolute;
+    right: 20px;
+    top: 18px;
+}
+
   /* Style for the map container */
   #map {
     height: 300px;
