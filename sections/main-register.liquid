@@ -92,12 +92,12 @@
                 <div class="popup-otp-wrapper">
                     <label for="OneTimePassword">One Time Password</label>
                     <div class="popup-otp-input-box">
-                      <input type="text" name="OneTimePassword" id="OneTimePassword1" oninput="validateInput(this)">
-                      <input type="text" name="OneTimePassword" id="OneTimePassword2" oninput="validateInput(this)">
-                      <input type="text" name="OneTimePassword" id="OneTimePassword3" oninput="validateInput(this)">
-                      <input type="text" name="OneTimePassword" id="OneTimePassword4" oninput="validateInput(this)">
-                      <input type="text" name="OneTimePassword" id="OneTimePassword5" oninput="validateInput(this)">
-                  </div>
+    <input type="text" name="OneTimePassword" id="OneTimePassword1" maxlength="1" oninput="validateAndSwitch(this, 'OneTimePassword2')">
+    <input type="text" name="OneTimePassword" id="OneTimePassword2" maxlength="1" oninput="validateAndSwitch(this, 'OneTimePassword3')">
+    <input type="text" name="OneTimePassword" id="OneTimePassword3" maxlength="1" oninput="validateAndSwitch(this, 'OneTimePassword4')">
+    <input type="text" name="OneTimePassword" id="OneTimePassword4" maxlength="1" oninput="validateAndSwitch(this, 'OneTimePassword5')">
+    <input type="text" name="OneTimePassword" id="OneTimePassword5" maxlength="1" oninput="validateAndSwitch(this, null)">
+</div>
                     <p class="timing">Resend code in <span>56s</span></p>
                     <button onclick="savePopup(event)">Validate your Mobile Number</button>
                   </div>
@@ -263,13 +263,18 @@
     // Prevent the default form submission behavior
     event.preventDefault();
   }
-  function validateInput(input) {
+function validateAndSwitch(input, nextFieldId) {
     // Remove non-numeric characters
     input.value = input.value.replace(/[^0-9a-zA-Z]/g, '');
 
     // Ensure only one character is entered
     if (input.value.length > 1) {
         input.value = input.value.charAt(0);
+    }
+
+    // Switch focus to the next input field
+    if (input.value.length === 1 && nextFieldId) {
+        document.getElementById(nextFieldId).focus();
     }
 }
   
