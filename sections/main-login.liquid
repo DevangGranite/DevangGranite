@@ -55,7 +55,9 @@
             </div>
           <div class="devider"><span>or</span></div>
             <div class="switch-login-section">
-              <a href="#">Need Help?</a> We’re here to assist.             
+              Need Help? We’re here to assist.
+              {% assign text_button_title = 'Need Help? We’re here to assist.' | t %}
+              {% render 'text-button', url: routes.account_register_url, title: text_button_title %}
               <div>              
               </div>
             </div>
