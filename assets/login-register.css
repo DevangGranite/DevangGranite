@@ -132,6 +132,10 @@ input.full.numeric {
   max-width: 450px;
 }
 
+.thb-form-container .create_form_wrapper input:-internal-autofill-selected {
+    background-color:#fff;
+}
+
   /* Style for the map container */
   #map {
     height: 300px;
