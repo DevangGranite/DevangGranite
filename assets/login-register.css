@@ -275,12 +275,14 @@ input.full.numeric {
 }
 
 #main-content .field-area h1.popup-title {
-  font-size: 24px;
-  line-height: 30px;
-  margin: 0 0 8px 0;
-  text-transform: capitalize;
-  color: #2461cc;
-  text-align: center;
+    font-size: 24px;
+    line-height: 30px;
+    margin: 0 0 8px;
+    text-transform: capitalize;
+    color: #2461cc;
+    text-align: center;
+    font-weight: 400;
+    font-family: Rubik, sans-serif;
 }
 
 #main-content .field-area p.popup-subtitle {
