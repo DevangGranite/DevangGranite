@@ -372,3 +372,75 @@ input.full.numeric {
     padding: 10px;
   }
 }
+/* login page */
+
+ .thb-login-form .custom_login {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}   
+ .thb-login-form div#MOmyHeader {
+    display: none;
+}
+.fields.login--page {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 56px 40px;
+    background: #EFF2F6;
+}
+.thb-login-form .customer--login h4 {
+    font-size: 32px;
+    line-height: 37px;
+    font-weight: 400;
+    color: #2461CC;
+    text-align: start;
+    text-transform: capitalize;
+}
+.thb-form-container .customer--login p {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #2C2D2E;
+    margin-bottom: 20px;
+    text-align: start;
+}
+.thb-form-container .customer--login .switch-login-section {
+    text-align: left;
+}
+.custom_login .field label {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    color: #001489;
+}
+.custom_login .field--login--mobile {
+    display: flex;
+    border: 1px solid #8a8f95;
+    min-height: 72px;
+    background: #fff;
+    align-items: center;
+    border-radius: 8px;
+}
+.custom_login .field--login--mobile span {
+    padding: 0 11px 0 41px;
+    color: #2461cc;
+}
+.custom_login .field--login--mobile input {
+    margin-bottom: 0;
+    padding: 12px 17px;
+    min-height: 72px;
+    border: none;
+}
+.login--page button.button.full {
+    background: #2461CC;
+}
+@media screen and (max-width: 767px) {
+    .thb-login-form .custom_login {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .fields.login--page {
+        padding: 24px 24px 17px;
+    }
+}
