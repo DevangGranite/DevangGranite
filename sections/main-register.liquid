@@ -413,6 +413,18 @@
     // Function to update the location information
     function updateLocation(location) {
       // Update the input field with the selected location
+      let apiAdd = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${location.lat()}&longitude=${location.lng()}&localityLanguage=en`
+fetch(apiAdd)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data.city);
+    })
+    .catch(error => {});
       document.getElementById('locationInput').value = location.lat() + ', ' + location.lng();
 
       // Display selected location as text
