@@ -34,22 +34,6 @@
               {{ 'customer.login_page.email' | t }}
             </label>
           </div>
-          <div class="field">
-              <label for="number">{{ 'customer.login_page.Mobile' | t }}</label>
-              <div class="field--country_codee">
-                <span>+971</span>
-                <input
-                  type="number"
-                  placeholder="{{ 'customer.login_page.mobile'| t }}"
-                  class="full numeric"
-                  name="number"
-                  id="mobile"
-                  pattern="[0-9]*"
-                  inputmode="numeric"
-                  required
-                >
-              </div>
-            </div>
           <button type="submit" class="button full">
             <span>{{ 'customer.login_page.submit' | t | escape }}</span>
           </button>
@@ -82,6 +66,22 @@
             >
             <label for="customer_email">{{ 'customer.login_page.email' | t }}</label>
           </div>
+        <div class="field">
+              <label for="number">{{ 'customer.login_page.Mobile' | t }}</label>
+              <div class="field--country_codee">
+                <span>+971</span>
+                <input
+                  type="number"
+                  placeholder="{{ 'customer.login_page.mobile'| t }}"
+                  class="full numeric"
+                  name="number"
+                  id="mobile"
+                  pattern="[0-9]*"
+                  inputmode="numeric"
+                  required
+                >
+              </div>
+            </div>
           <div class="field">
             <input
               type="password"
