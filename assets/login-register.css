@@ -116,6 +116,9 @@ input.full.numeric {
 .field {
   margin-bottom: 15px;
 }
+
+/* 12-02 */
+
 #popup_otp {
   display: none;
   position: fixed;
@@ -131,8 +134,6 @@ input.full.numeric {
   width: 100%;
   max-width: 450px;
 }
-
-/* 12-02 */
 
 .thb-form-container p {
   font-size: 14px;
