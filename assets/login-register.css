@@ -386,6 +386,7 @@ input.full.numeric {
     flex-direction: column;
     padding: 32px 56px 40px;
     background: #EFF2F6;
+    border-radius: 16px;
 }
 .thb-login-form .customer--login h4 {
     font-size: 32px;
@@ -436,7 +437,11 @@ input.full.numeric {
     border: none;
 }
 .login--page button.button.full {
-    background: #2461CC;
+    background: #2461cc;
+    min-height: 64px;
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 400;
 }
 .thb-form-container  .cus-login {
     max-width: 1024px;
