@@ -141,6 +141,10 @@
 
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&libraries=places"></script>
 <div id="map"></div>
+            <div id="locationField">
+  <input id="autocomplete" placeholder="Enter your address"
+         onFocus="geolocate()" type="text"/>
+</div>
 <script>
   function showMap() {
     // Create a new map centered on a default location
