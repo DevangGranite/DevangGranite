@@ -426,8 +426,9 @@
           document.getElementbyId('locationText').innderText = data.results[0]['formatted_address'];
           document.getElementById('locationInput').value = data.results[0]['formatted_address'];
       })
-      .catch(error => {});
-        console.error('Error fetching data');
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
       }
       /** END  get address form lag and lng **/ 
     // Function to handle Enter key on the address input field
