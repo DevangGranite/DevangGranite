@@ -413,6 +413,19 @@
     // Function to update the location information
     function updateLocation(location) {
       // Update the input field with the selected location
+      let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?&latlng=location.lat(),location.lng()`
+      
+fetch(apiAdd)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {});
       document.getElementById('locationInput').value = location.lat() + ', ' + location.lng();
 
       // Display selected location as text
@@ -459,7 +472,7 @@
 
           // Update the location information
           updateLocation(location);
-        } 
+        }
       });
     }
 
