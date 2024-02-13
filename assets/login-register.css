@@ -116,7 +116,7 @@ input.full.numeric {
 .field {
   margin-bottom: 15px;
 }
-#popup {
+#popup_otp {
   display: none;
   position: fixed;
   top: 50%;

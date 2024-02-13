@@ -85,7 +85,7 @@
           </div>
           
           <div class="field-area">
-            <div id="popup">
+            <div id="popup_otp">
               <div class="popup-wrapper">
                 <h1 class="popup-title">Validate your Mobile Number</h1>
                 <p class="popup-subtitle">We sent a code to your Mobile Phone.</p>
@@ -246,7 +246,7 @@
   }
 /*** city and dis end ***/
 
-/*** Pop up start ***/
+/*** Pop up start OTP ***/
   function openPopup() {
     document.getElementById('popup').style.display = 'block';
   }
@@ -277,6 +277,26 @@ function validateAndSwitch(input, nextFieldId) {
         document.getElementById(nextFieldId).focus();
     }
 }
+/*** Pop up End OTP ***/
+
+  /*** Pop up start MAP ***/
+
+  function openPopup() {
+    document.getElementById('popup').style.display = 'block';
+  }
+
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+  }
+
+  function savePopup(event) {
+    // Add logic here to handle the data entered in the popup
+    // For now, let's just close the popup without refreshing the page
+    closePopup();
+
+    // Prevent the default form submission behavior
+    event.preventDefault();
+  }
   
-/*** Pop up End ***/
+  /*** Pop up end MAP ***/
 </script>
