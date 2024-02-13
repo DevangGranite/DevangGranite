@@ -318,6 +318,7 @@
 
 /*** Pop up start OTP ***/
 function openOTPPopup() {
+  var otpPopupHtml = document.getElementsByTagName('html');
     var otpPopupElement = document.getElementById('otppopup');
 
     if (otpPopupElement) {
@@ -332,6 +333,7 @@ function openOTPPopup() {
 }
 
 function closeOTPPopup() {
+    var otpPopupHtml = document.getElementsByTagName('html');
     var otpPopupElement = document.getElementById('otppopup');
 
     if (otpPopupElement) {
@@ -396,6 +398,7 @@ function validateAndSwitch(input, nextFieldId) {
 
     // Function to open the popup
    function openPopup() {
+    var otpPopupHtml = document.getElementsByTagName('html');
     var popupElement = document.getElementById('popup');
 
     if (popupElement) {
@@ -403,7 +406,7 @@ function validateAndSwitch(input, nextFieldId) {
         popupElement.style.display = 'block';
 
         // Add a class to the element
-        popupElement.classList.add('popup-overlap');
+        otpPopupHtml.classList.add('popup-overlap');
 
         // Check if initMap function is defined before calling
         if (typeof initMap === 'function') {
@@ -421,6 +424,7 @@ function validateAndSwitch(input, nextFieldId) {
     // Function to close the popup
   
     function closePopup() {
+    var otpPopupHtml = document.getElementsByTagName('html');
     var popupElement = document.getElementById('popup');
 
     if (popupElement) {
