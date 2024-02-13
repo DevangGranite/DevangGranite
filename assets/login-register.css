@@ -513,6 +513,12 @@ html.popup-overlap body:before {
     position: fixed;
 }
 
+@media only screen and (min-width: 768px) {
+    .thb-login-form .custom_login {
+        gap:100px;
+    }
+}
+
 @media screen and (max-width: 767px) {
    .thb-form-container .customer--login .switch-login-section.desk {
         display: none;
