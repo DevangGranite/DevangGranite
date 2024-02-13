@@ -4,6 +4,7 @@
     <div class="thb-form-container">      
       <div class="thb-login-form" id="login">
         {% form 'customer_login', novalidate: 'novalidate' %}
+          <div class="custom_login">
           <div class="customer--login">
           <h4>{{ 'customer.login_page.login' | t }}</h4>
           <p>{{ 'customer.login_page.login_description' | t }}</p>
@@ -43,7 +44,8 @@
               <span>{{ 'customer.login_page.sign_in' | t }}</span>
             </button>
           </div>
-          </div>         
+          </div>
+            </div>
         {% endform %}
       </div>
     </div>
