@@ -320,7 +320,7 @@ input.full.numeric {
 #main-content .field-area .popup-otp-input-box {
   display: flex;
   flex-wrap: wrap;
-  gap: 21px;
+  gap: 10px;
 }
 #main-content .field-area .popup-otp-input-box input {
   max-width: 64px;
