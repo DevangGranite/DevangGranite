@@ -500,6 +500,10 @@ input.full.numeric {
     z-index: 0;
 }
 
+html.popup-overlap {
+    overflow: hidden;
+}
+
 html.popup-overlap body:before {
     content: "";
     width: 100%;
