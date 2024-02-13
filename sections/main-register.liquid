@@ -413,7 +413,7 @@
     // Function to update the location information
     function updateLocation(location) {
       // Update the input field with the selected location
-      let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?&latlng=location.lat(),location.lng()`
+      let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?&latlng=${location.lat()},${location.lng()}`
       
 fetch(apiAdd)
     .then(response => {
