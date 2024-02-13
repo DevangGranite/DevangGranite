@@ -420,6 +420,17 @@
 
       // Display real-time coordinates text
       document.getElementById('coordinatesText').innerText = 'Real-time Coordinates: ' + location.lat() + ', ' + location.lng();
+
+      // Reverse geocode to get the address
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ 'location': location }, function(results, status) {
+        if (status == 'OK' && results[0]) {
+          // Display the address
+          document.getElementById('addressText').innerText = 'Address: ' + results[0].formatted_address;
+        } else {
+          alert('Reverse geocode was not successful for the following reason: ' + status);
+        }
+      });
     }
 
     // Function to handle Enter key on the address input field
