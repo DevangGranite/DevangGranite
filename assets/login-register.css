@@ -136,6 +136,10 @@ input.full.numeric {
     background-color:#fff;
 }
 
+.thb-form-container .create_form_wrapper input:-webkit-autofill{
+    -webkit-text-fill-color: #fff !important;
+}
+
   /* Style for the map container */
   #map {
     height: 300px;
