@@ -317,13 +317,34 @@
 /*** city and dis end ***/
 
 /*** Pop up start OTP ***/
-  function openOTPPopup() {
-    document.getElementById('otppopup').style.display = 'block';
-  }
+function openOTPPopup() {
+    var otpPopupElement = document.getElementById('otppopup');
 
-  function closeOtpPopup() {
-    document.getElementById('otppopup').style.display = 'none';
-  }
+    if (otpPopupElement) {
+        // Set display property to 'block'
+        otpPopupElement.style.display = 'block';
+
+        // Add a class to the element
+        otpPopupElement.classList.add('popup-overlap');
+    } else {
+        console.error("Element with ID 'otppopup' not found");
+    }
+}
+
+function closeOTPPopup() {
+    var otpPopupElement = document.getElementById('otppopup');
+
+    if (otpPopupElement) {
+        // Remove the class from the element
+        otpPopupElement.classList.remove('popup-overlap');
+
+        // Set display property to 'none'
+        otpPopupElement.style.display = 'none';
+    } else {
+        console.error("Element with ID 'otppopup' not found");
+    }
+}
+
 
   function saveOtpPopup(event) {
     // Add logic here to handle the data entered in the popup
