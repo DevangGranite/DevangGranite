@@ -374,6 +374,9 @@
       google.maps.event.addListener(map, 'click', function(event) {
         // Update the input field with the selected location
         document.getElementById('locationInput').value = event.latLng.lat() + ', ' + event.latLng.lng();
+
+        // Display selected location as text
+        document.getElementById('locationText').innerText = 'Selected Location: ' + event.latLng.lat() + ', ' + event.latLng.lng();
       });
     }
 
