@@ -294,6 +294,7 @@
   "customer": {
     "login_page": {
       "login": "Login",
+      "login_desc": "Conveniently log in using your mobile number.",
       "login_description": "We'll send a verification code to the number provided to ensure it's really you. Once verified, you'll gain instant access to your account.",
       "create_account": "Create an account",
       "create_account_dec": "Welcome to the new Al Ain Water",
