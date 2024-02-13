@@ -114,6 +114,24 @@
               <div class="location_icon" onclick="openPopup()">
                 {% render 'svg-icons' with 'location' %}
               </div>
+               <!-- Popup content -->
+            <div id="popup">
+              <!-- Input field for address -->
+              <label for="addressInput">Address</label>
+              <input type="text" id="addressInput" placeholder="Enter address" onkeydown="handleEnterKey(event)">
+
+              <!-- Container for the map -->
+              <div id="map"></div>
+
+              <!-- Display selected location as text -->
+              <div id="locationText"></div>
+
+              <!-- Button to show map based on address -->
+              <button type="button" onclick="showMapForAddress()">Show on Map</button>
+
+              <!-- Close button -->
+              <button type="button" onclick="closePopup()">Close</button>
+            </div>
             </div>
 
             <!--
@@ -168,29 +186,6 @@
                 </div>
               </div>
             -->
-
-            <!-- Input field to trigger the popup -->
-            <label for="locationInput">Location</label>
-            <input type="text" id="locationInput" onclick="openPopup()" readonly>
-
-            <!-- Popup content -->
-            <div id="popup">
-              <!-- Input field for address -->
-              <label for="addressInput">Address</label>
-              <input type="text" id="addressInput" placeholder="Enter address" onkeydown="handleEnterKey(event)">
-
-              <!-- Container for the map -->
-              <div id="map"></div>
-
-              <!-- Display selected location as text -->
-              <div id="locationText"></div>
-
-              <!-- Button to show map based on address -->
-              <button type="button" onclick="showMapForAddress()">Show on Map</button>
-
-              <!-- Close button -->
-              <button type="button" onclick="closePopup()">Close</button>
-            </div>
 
             <div class="field">
               <label for="address" name="address">{{ 'customer.login_page.address2' | t }}</label>
