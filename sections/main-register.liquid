@@ -333,7 +333,7 @@ function openOTPPopup() {
 }
 
 function closeOTPPopup() {
-    var otpPopupHtml = document.getElementByTagName('html');
+    var otpPopupHtml = document.getElementsByTagName( 'html' )[0];
     var otpPopupElement = document.getElementById('otppopup');
 
     if (otpPopupElement) {
@@ -398,7 +398,7 @@ function validateAndSwitch(input, nextFieldId) {
 
     // Function to open the popup
    function openPopup() {
-    var otpPopupHtml = document.getElementByTagName('html');
+    var otpPopupHtml = document.getElementsByTagName( 'html' )[0];
     var popupElement = document.getElementById('popup');
 
     if (popupElement) {
@@ -424,7 +424,7 @@ function validateAndSwitch(input, nextFieldId) {
     // Function to close the popup
   
     function closePopup() {
-    var otpPopupHtml = document.getElementByTagName('html');
+    var otpPopupHtml = document.getElementsByTagName( 'html' )[0];
     var popupElement = document.getElementById('popup');
 
     if (popupElement) {
