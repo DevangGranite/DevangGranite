@@ -346,7 +346,7 @@ input.full.numeric {
 #main-content .field-area .popup-otp-wrapper p.timing span {
   color: #001489;
 }
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 767px) {
   .field-area p.popup-subtitle {
     margin: 0 0 52px 0;
   }
@@ -365,5 +365,9 @@ input.full.numeric {
   }
   .field-area .popup-wrapper {
     padding: 32px 7px 24px 7px;
+  }
+  #main-content .field-area .popup-otp-input-box input {
+    height: 50px;
+    padding: 10px;
   }
 }
