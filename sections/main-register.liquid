@@ -139,6 +139,23 @@
               </div>
             </div>
 
+            <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&callback=initMap">
+</script>
+<input type="text" id="locationInput" onclick="showMap()">
+<script>
+  function showMap() {
+    // Create a new map centered on a default location
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: -34.397, lng: 150.644},
+      zoom: 8
+    });
+
+    // You can customize the map further based on your needs
+  }
+</script>
+
+
             <div class="field">
               <label for="address" name="address">{{ 'customer.login_page.address2' | t }}</label>
               <textarea
