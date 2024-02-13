@@ -220,6 +220,8 @@ input.full.numeric {
   position: absolute;
   top: calc(50% - 9px);
   right: 18px;
+  background: #ffffff;
+  padding: 0 0px 0 5px;
 }
 .thb-form-container .create_form_wrapper select {
   -webkit-appearance: auto;
