@@ -133,7 +133,7 @@ input.full.numeric {
 }
 
 .thb-form-container .create_form_wrapper input:-webkit-autofill{
-     background-color:#fff;
+     transition: background-color 5000s ease-in-out 0s;
 }
 
   /* Style for the map container */
