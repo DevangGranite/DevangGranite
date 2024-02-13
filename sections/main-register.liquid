@@ -382,7 +382,7 @@ function validateAndSwitch(input, nextFieldId) {
         popupElement.style.display = 'block';
 
         // Add a class to the element
-        popupElement.classList.add('yourClassName');
+        popupElement.classList.add('popup-overlap');
 
         // Check if initMap function is defined before calling
         if (typeof initMap === 'function') {
@@ -398,8 +398,29 @@ function validateAndSwitch(input, nextFieldId) {
 
 
     // Function to close the popup
+   function openPopup() {
+    var popupElement = document.getElementById('popup');
+
+    if (popupElement) {
+        // Set display property to 'none'
+       document.getElementById('popup').style.display = 'none';
+
+        // remove a class to the element
+        popupElement.classList.remove('popup-overlap');
+
+        // Check if initMap function is defined before calling
+        if (typeof initMap === 'function') {
+            // Initialize the map when the popup is opened
+            initMap();
+        } else {
+            console.error("initMap function is not defined");
+        }
+    } else {
+        console.error("Element with ID 'popup' not found");
+    }
+}
     function closePopup() {
-      document.getElementById('popup').style.display = 'none';
+      
     }
 
     // Function to update the location information
