@@ -318,7 +318,7 @@
 
 /*** Pop up start OTP ***/
 function openOTPPopup() {
-  var otpPopupHtml = document.getElementsByTagName('html');
+    var otpPopupHtml = document.getElementByTagName('html');
     var otpPopupElement = document.getElementById('otppopup');
 
     if (otpPopupElement) {
@@ -333,7 +333,7 @@ function openOTPPopup() {
 }
 
 function closeOTPPopup() {
-    var otpPopupHtml = document.getElementsByTagName('html');
+    var otpPopupHtml = document.getElementByTagName('html');
     var otpPopupElement = document.getElementById('otppopup');
 
     if (otpPopupElement) {
@@ -398,7 +398,7 @@ function validateAndSwitch(input, nextFieldId) {
 
     // Function to open the popup
    function openPopup() {
-    var otpPopupHtml = document.getElementsByTagName('html');
+    var otpPopupHtml = document.getElementByTagName('html');
     var popupElement = document.getElementById('popup');
 
     if (popupElement) {
@@ -424,7 +424,7 @@ function validateAndSwitch(input, nextFieldId) {
     // Function to close the popup
   
     function closePopup() {
-    var otpPopupHtml = document.getElementsByTagName('html');
+    var otpPopupHtml = document.getElementByTagName('html');
     var popupElement = document.getElementById('popup');
 
     if (popupElement) {
