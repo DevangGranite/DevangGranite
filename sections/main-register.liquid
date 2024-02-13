@@ -91,12 +91,12 @@
                 <p class="popup-subtitle">We sent a code to your Mobile Phone.</p>
                 <div class="popup-otp-wrapper">
                     <label for="OneTimePassword">One Time Password</label>
-                   <div class="popup-otp-input-box">
-    <input type="text" name="OneTimePassword" id="OneTimePassword1" maxlength="1" oninput="validateAndSwitch(this, 'OneTimePassword2')" onpaste="handlePaste(event, 'OneTimePassword2')">
-    <input type="text" name="OneTimePassword" id="OneTimePassword2" maxlength="1" oninput="validateAndSwitch(this, 'OneTimePassword3')" onpaste="handlePaste(event, 'OneTimePassword3')">
-    <input type="text" name="OneTimePassword" id="OneTimePassword3" maxlength="1" oninput="validateAndSwitch(this, 'OneTimePassword4')" onpaste="handlePaste(event, 'OneTimePassword4')">
-    <input type="text" name="OneTimePassword" id="OneTimePassword4" maxlength="1" oninput="validateAndSwitch(this, 'OneTimePassword5')" onpaste="handlePaste(event, 'OneTimePassword5')">
-    <input type="text" name="OneTimePassword" id="OneTimePassword5" maxlength="1" oninput="validateAndSwitch(this, null)" onpaste="handlePaste(event, null)">
+                    <div class="popup-otp-input-box">
+    <input type="text" name="OneTimePassword" id="OneTimePassword1" maxlength="1" oninput="validateAndSwitch(this, 'OneTimePassword2')">
+    <input type="text" name="OneTimePassword" id="OneTimePassword2" maxlength="1" oninput="validateAndSwitch(this, 'OneTimePassword3')">
+    <input type="text" name="OneTimePassword" id="OneTimePassword3" maxlength="1" oninput="validateAndSwitch(this, 'OneTimePassword4')">
+    <input type="text" name="OneTimePassword" id="OneTimePassword4" maxlength="1" oninput="validateAndSwitch(this, 'OneTimePassword5')">
+    <input type="text" name="OneTimePassword" id="OneTimePassword5" maxlength="1" oninput="validateAndSwitch(this, null)">
 </div>
                     <p class="timing">Resend code in <span>56s</span></p>
                     <button onclick="savePopup(event)">Validate your Mobile Number</button>
@@ -276,17 +276,6 @@ function validateAndSwitch(input, nextFieldId) {
     if (input.value.length === 1 && nextFieldId) {
         document.getElementById(nextFieldId).focus();
     }
-}
-
-function handlePaste(event, nextFieldId) {
-    // Get the pasted text
-    var pastedText = (event.clipboardData || window.clipboardData).getData('text');
-
-    // Validate and set the value
-    validateAndSwitch(event.target, nextFieldId);
-    
-    // Prevent the default paste behavior
-    event.preventDefault();
 }
   
 /*** Pop up End ***/
