@@ -48,7 +48,7 @@
         "heading": "Latest News",
         "marker_style": "style1",
         "description": "",
-        "blog": "news",
+        "blog": "news", 
         "post_limit": 3,
         "columns_desktop": 3,
         "mobile_swipe": true,
