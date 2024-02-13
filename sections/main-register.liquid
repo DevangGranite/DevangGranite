@@ -138,43 +138,13 @@
                 </div>
               </div>
             </div> -->
+            
 
-            <!-- Add this script tag to your HTML file -->
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&callback=initMap"></script>
-
-
-           <div id="popup">
-  <label for="additionalDetails">Additional Details</label>
-  <textarea name="additionalDetails" id="additionalDetails"></textarea>
-  <button onclick="openMapPopup()">Save</button>
-</div>
-
-<!-- Add a hidden map container -->
-<div id="mapPopup" style="display: none; width: 400px; height: 300px;"></div>
-
-<script>
-  function openMapPopup() {
-    // Get the textarea value if needed
-    var additionalDetails = document.getElementById("additionalDetails").value;
-
-    // Show the map popup
-    document.getElementById("mapPopup").style.display = "block";
-
-    // Initialize the map (call this function after showing the map)
-    initMap();
-  }
-
-  function initMap() {
-    // Replace the coordinates with the desired location
-    var map = new google.maps.Map(document.getElementById("mapPopup"), {
-      center: { lat: 37.7749, lng: -122.4194 }, // Example: San Francisco, CA
-      zoom: 13
-    });
-
-    // You can add markers, polygons, or other features to the map here
-  }
-</script>
-
+            <div id="popup">
+            <label for="additionalDetails">Additional Details</label>
+            <textarea name="additionalDetails" id="additionalDetails"></textarea>
+            <button onclick="savePopup(event)">Save</button>
+          </div>
 
             <div class="field">
               <label for="address" name="address">{{ 'customer.login_page.address2' | t }}</label>
@@ -364,22 +334,22 @@
 
   /*** Pop up start MAP ***/
 
-  // function openPopup() {
-  //   document.getElementById('popup').style.display = 'block';
-  // }
+  function openPopup() {
+    document.getElementById('popup').style.display = 'block';
+  }
 
-  // function closePopup() {
-  //   document.getElementById('popup').style.display = 'none';
-  // }
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+  }
 
-  // function savePopup(event) {
-  //   // Add logic here to handle the data entered in the popup
-  //   // For now, let's just close the popup without refreshing the page
-  //   closePopup();
+  function savePopup(event) {
+    // Add logic here to handle the data entered in the popup
+    // For now, let's just close the popup without refreshing the page
+    closePopup();
 
-  //   // Prevent the default form submission behavior
-  //   event.preventDefault();
-  // }
+    // Prevent the default form submission behavior
+    event.preventDefault();
+  }
   
   /*** Pop up end MAP ***/
 </script>
