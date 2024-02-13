@@ -108,12 +108,17 @@
                 type="text"
                 name="streetAddress"
                 id="streetAddress"
-                placeholder="{{ 'customer.login_page.address_place' | t }}"                
+                placeholder="{{ 'customer.login_page.address_place' | t }}"
+                readonly
               >
               <div class="location_icon" onclick="openPopup()">
                 {% render 'svg-icons' with 'location' %}
               </div>
-               <!-- Popup content -->
+              <!-- Input field to trigger the popup -->
+            <label for="locationInput">Location</label>
+            <input type="text" id="locationInput" onclick="openPopup()" readonly>
+
+            <!-- Popup content -->
             <div id="popup">
               <!-- Input field for address -->
               <label for="addressInput">Address</label>
@@ -184,7 +189,7 @@
                   </div>
                 </div>
               </div>
-            -->
+            -->          
 
             <div class="field">
               <label for="address" name="address">{{ 'customer.login_page.address2' | t }}</label>
