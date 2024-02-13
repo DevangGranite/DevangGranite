@@ -275,8 +275,8 @@ input.full.numeric {
 }
 
 #main-content .field-area h1.popup-title {
-  font-size: 32px;
-  line-height: 35px;
+  font-size: 24px;
+  line-height: 30px;
   margin: 0 0 8px 0;
   text-transform: capitalize;
   color: #2461cc;
@@ -284,8 +284,8 @@ input.full.numeric {
 }
 
 #main-content .field-area p.popup-subtitle {
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 18px;
   font-weight: 400;
   color: #595a5e;
   text-transform: capitalize;
