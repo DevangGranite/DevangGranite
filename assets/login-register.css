@@ -500,6 +500,15 @@ input.full.numeric {
     z-index: 0;
 }
 
+html.popup-overlap body:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 100;
+    position: fixed;
+}
+
 @media screen and (max-width: 767px) {
    .thb-form-container .customer--login .switch-login-section.desk {
         display: none;
