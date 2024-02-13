@@ -4,7 +4,8 @@
     <div class="thb-form-container">
       <div class="thb-register-form">
         {% form 'create_customer', novalidate: 'novalidate' %}
-          <h4>{{ 'customer.login_page.create_account' | t }}</h4>
+          <h5>{{ 'customer.login_page.create_account' | t }}</h5>
+          <h4>{{ 'customer.login_page.create_account_dec' | t }}</h4>
           <p>{{ 'customer.login_page.create_account_description' | t }}</p>
           {% if form.errors %}
             <div class="form-notification error">
@@ -12,19 +13,20 @@
               {{ form.errors | default_errors }}
             </div>
           {% endif %}
-
-          <div class="fields">
+        <div class="create_form_wrapper">          
+            <div class="fields">
             <div class="field">
+              <label for="first_name">{{ 'customer.login_page.first_name' | t }}</label>
               <input
                 type="text"
                 name="customer[first_name]"
                 class="full"
                 value="{% if form.first_name %}{{ form.first_name }}{% endif %}"
                 placeholder="{{ 'customer.login_page.first_name' | t }}"
-              >
-              <label for="first_name">{{ 'customer.login_page.first_name' | t }}</label>
+              >              
             </div>
             <div class="field">
+              <label for="last_name">{{ 'customer.login_page.last_name' | t }}</label>
               <input
                 type="text"
                 name="customer[last_name]"
@@ -32,57 +34,54 @@
                 value="{% if form.last_name %}{{ form.last_name }}{% endif %}"
                 placeholder="{{ 'customer.login_page.last_name' | t }}"
               >
-              <label for="last_name">{{ 'customer.login_page.last_name' | t }}</label>
+              
             </div>
           </div>
           <div class="field">
-            <input
-              type="email"
-              name="customer[email]"
-              class="full {% if form.errors contains 'email' %}invalid{% endif %}"
-              value=""
-              placeholder="{{ 'customer.login_page.email' | t }}"
-            >
-            <label for="email">{{ 'customer.login_page.email' | t }}</label>
-          </div>
-          <div class="field">
-            <input
-              type="password"
-              name="customer[password]"
-              class="full"
-              value=""
-              placeholder="{{ 'customer.login_page.password' | t }}"
-            >
-            <label for="password">{{ 'customer.login_page.password' | t }}</label>
-          </div>
-
-          <div class="field">
-            <input
-              type="password"
-              name="customer[confirm_password]"
-              class="full"
-              value=""
-              placeholder="{{ 'customer.login_page.confirm_password' | t }}"
-            >
-            <label for="confirm_password">{{ 'customer.login_page.confirm_password' | t }}</label>
-          </div>
-
-          <div class="field">
-            <input
+            <label for="number">{{ 'customer.login_page.Mobile'| t }}</label>
+            <div class="field--country_codee">
+              <span>+971</span>
+              <input
               type="number"
-              placeholder="{{ 'Mobile' }}"
+              placeholder= "{{ 'customer.login_page.mobile'| t }}"
               class="full numeric"
               name="number"
               id="mobile"
               pattern="[0-9]*"
               inputmode="numeric"
+              required
             >
-            <label for="number">{{ 'Mobile' }}</label>
+            </div>
+            
           </div>
-
+            <div class="field">
+              <label for="email">{{ 'customer.login_page.email' | t }}</label>
+              <input
+                type="email"
+                name="customer[email]"
+                class="full {% if form.errors contains 'email' %}invalid{% endif %}"
+                value=""
+                placeholder="{{ 'customer.login_page.email_place' | t }}"
+              >              
+            </div>
+            
+            <div class="field">
+              <label for="confirm_email">{{ 'customer.login_page.confirm_email' | t }}</label>
+              <input
+                type="email"
+                name="customer[confirm_email]"
+                class="full {% if form.errors contains 'confirm_email' %}invalid{% endif %}"
+                value=""
+                placeholder="{{ 'customer.login_page.confirm_email_place' | t }}"
+              >              
+            </div>          
+          
           <div class="field" onclick="openPopup()">
-            <label for="streetAddress">Street Address</label>
-            <input type="text" name="streetAddress" id="streetAddress" readonly>
+            <label for="streetAddress">{{ 'customer.login_page.address' | t }}</label>
+            <input type="text" name="streetAddress" id="streetAddress"  placeholder="{{ 'customer.login_page.address_place' | t }}" readonly>
+            <div class="location_icon">
+              {% render 'svg-icons' with 'location' %}
+            </div>
           </div>
 
           <div id="popup">
@@ -92,30 +91,29 @@
           </div>
 
           <div class="field">
-            <textarea name="address" placeholder="{{ 'address' }}" class="full" id="address"></textarea>
-            <label for="address" name="address">{{ 'Address' }}</label>
+            <label for="address" name="address">{{ 'customer.login_page.address2' | t }}</label>
+            <textarea name="address" placeholder="{{ 'customer.login_page.address2_place' | t }}" class="full" id="address" ></textarea>            
           </div>
-
+          
+         <div class="fields">
           <div class="field">
-            <select name="city" id="regi_city" placeholder="{{ 'customer.addresses.city' | t }}" class="full">
-              <option value="">{{ 'customer.addresses.city' | t }}</option>
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
-            </select>
             <label for="regi_city" name="city">{{ 'customer.addresses.city' | t }}</label>
+            <select name="city" id="regi_city" placeholder="{{ 'customer.addresses.city_reg' | t }}" class="full" onchange="getCityDistricts(this.value)">
+              <option value="">{{ 'customer.addresses.city_reg' | t }}</option>
+            </select>          
           </div>
 
           <div class="field">
-            <select name="district" placeholder="{{ 'District' | t }}" id="district" class="full">
-              <option value="">Select District</option>
-              <option value="district1">District 1</option>
-              <option value="district2">District 2</option>
-              <option value="district3">District 3</option>
-            </select>
-            <label for="district">{{ 'District' }}</label>
+            <label for="district">{{ 'customer.addresses.district' | t }}</label>
+            <select name="district" placeholder="{{ 'customer.addresses.district_reg' | t }}" id="district" class="full">
+              <option value="">{{ 'customer.addresses.district_reg' | t }}</option>
+            </select>            
           </div>
-
+       </div>
+          <div class="terms_condition-checkbox">
+            <input type="checkbox"value="" required/>
+            <span>I accept and agree to the <a href="#">Terms and Condition</a></span>
+          </div>
           <button type="button" class="button full" id="regi_button">
             <span>{{ 'customer.login_page.submit_register' | t }}</span>
           </button>
@@ -123,6 +121,7 @@
           <div style="visibility:hidden;height:0">
             <div class="fields">
               <div class="field">
+                  <label for="first_name">{{ 'customer.login_page.first_name' | t }}</label>
                 <input
                   type="text"
                   name="customer[first_name]"
@@ -130,9 +129,10 @@
                   value="{% if form.first_name %}{{ form.first_name }}{% endif %}"
                   placeholder="{{ 'customer.login_page.first_name' | t }}"
                 >
-                <label for="first_name">{{ 'customer.login_page.first_name' | t }}</label>
+              
               </div>
               <div class="field">
+                <label for="last_name">{{ 'customer.login_page.last_name' | t }}</label>
                 <input
                   type="text"
                   name="customer[last_name]"
@@ -140,10 +140,11 @@
                   value="{% if form.last_name %}{{ form.last_name }}{% endif %}"
                   placeholder="{{ 'customer.login_page.last_name' | t }}"
                 >
-                <label for="last_name">{{ 'customer.login_page.last_name' | t }}</label>
+                
               </div>
             </div>
             <div class="field">
+              <label for="email">{{ 'customer.login_page.email' | t }}</label>
               <input
                 type="email"
                 name="customer[email]"
@@ -151,9 +152,10 @@
                 value=""
                 placeholder="{{ 'customer.login_page.email' | t }}"
               >
-              <label for="email">{{ 'customer.login_page.email' | t }}</label>
+              
             </div>
             <div class="field">
+              <label for="password">{{ 'customer.login_page.password' | t }}</label>
               <input
                 type="password"
                 name="customer[password]"
@@ -161,13 +163,14 @@
                 value=""
                 placeholder="{{ 'customer.login_page.password' | t }}"
               >
-              <label for="password">{{ 'customer.login_page.password' | t }}</label>
+              
             </div>
-
+           
             <button type="submit" class="button full">
               <span>{{ 'customer.login_page.submit_register' | t }}</span>
             </button>
           </div>
+      </div>
         {% endform %}
         <div class="switch-login-section">
           {{ 'customer.login_page.already_have_an_account' | t }}
@@ -180,13 +183,18 @@
 </div>
 
 <script>
+  /*** city and dis Start ***/
   document.addEventListener("DOMContentLoaded", function() {
 
-      const city = document.getElementById("regi_city").value;
-    
-      let userData = `{"city":${city},}`;
-      
-      const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/getCity/0';
+      getCityDistricts(0);
+
+    // document.getElementById("regi_button").addEventListener("click", function(event) {
+    // });
+  });
+
+  function getCityDistricts(id){
+      // alert(id);
+      const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/getCityDistricts/'+id;
       
       // Use the fetch function to make a GET request to the API
       fetch(apiUrl, {
@@ -201,20 +209,29 @@
         return response.json();
       })
       .then(data => {
-        console.log(userData);
-      
+        // console.log('data', data.response);
+        if(id == 0){
+          let city = "<option>{{ 'customer.addresses.city_reg' | t }}</option>";
+          data.response.forEach(function (item) {
+            city += `<option value="${item.id}">${item.city_name}</option>`;
+          });
+          document.getElementById("regi_city").innerHTML = city;
+        }else{
+          let districts = "<option>{{ 'customer.addresses.district_reg' | t }}</option>";
+          data.response.forEach(function (item) {
+            districts += `<option value="${item.id}">${item.district_name}</option>`;
+          });
+          document.getElementById("district").innerHTML = districts;
+        }
       })
       .catch(error => {
         // Handle errors that may occur during the fetch operation
         console.error('Error fetching data:', error);
       });
+  }
+/*** city and dis end ***/
 
-    // document.getElementById("regi_button").addEventListener("click", function(event) {
-    // });
-  });
-</script>
-
-<script>
+/*** Pop up start ***/
   function openPopup() {
     document.getElementById('popup').style.display = 'block';
   }
@@ -231,4 +248,6 @@
     // Prevent the default form submission behavior
     event.preventDefault();
   }
+  
+/*** Pop up End ***/
 </script>
