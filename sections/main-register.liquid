@@ -388,11 +388,12 @@
 
       // Add a click event listener to the map to capture the selected location
       google.maps.event.addListener(map, 'click', function(event) {
-        // Update the input field with the selected location
-        document.getElementById('locationInput').value = event.latLng.lat() + ', ' + event.latLng.lng();
+        updateLocation(event.latLng);
+      });
 
-        // Display selected location as text
-        document.getElementById('locationText').innerText = 'Selected Location: ' + event.latLng.lat() + ', ' + event.latLng.lng();
+      // Add a dragend event listener to the map to capture the dragged location
+      google.maps.event.addListener(map, 'dragend', function() {
+        updateLocation(map.getCenter());
       });
     }
 
@@ -409,35 +410,16 @@
       document.getElementById('popup').style.display = 'none';
     }
 
-    // Function to show map based on entered address
-    function showMapForAddress() {
-      var address = document.getElementById('addressInput').value;
+    // Function to update the location information
+    function updateLocation(location) {
+      // Update the input field with the selected location
+      document.getElementById('locationInput').value = location.lat() + ', ' + location.lng();
 
-      // Use Google Maps Geocoding API to convert the address into latitude and longitude
-      var geocoder = new google.maps.Geocoder();
-      geocoder.geocode({ 'address': address }, function(results, status) {
-        if (status == 'OK' && results[0]) {
-          var location = results[0].geometry.location;
+      // Display selected location as text
+      document.getElementById('locationText').innerText = 'Selected Location: ' + location.lat() + ', ' + location.lng();
 
-          // Update the input field with the selected location
-          document.getElementById('locationInput').value = location.lat() + ', ' + location.lng();
-
-          // Display selected location as text
-          document.getElementById('locationText').innerText = 'Selected Location: ' + location.lat() + ', ' + location.lng();
-
-          // Set the map center to the geocoded location
-          map.setCenter(location);
-
-          // Optionally, you can add a marker to the map
-          var marker = new google.maps.Marker({
-            map: map,
-            position: location,
-            title: 'Selected Location'
-          });
-        } else {
-          alert('Geocode was not successful for the following reason: ' + status);
-        }
-      });
+      // Display real-time coordinates text
+      document.getElementById('coordinatesText').innerText = 'Real-time Coordinates: ' + location.lat() + ', ' + location.lng();
     }
 
     // Function to handle Enter key on the address input field
@@ -446,9 +428,35 @@
         // Prevent the default Enter key behavior (form submission)
         event.preventDefault();
 
-        // Show map based on entered address
-        showMapForAddress();
+        // Update location based on entered address
+        updateLocationForAddress();
       }
+    }
+
+    // Function to update the location based on entered address
+    function updateLocationForAddress() {
+      var address = document.getElementById('addressInput').value;
+
+      // Use Google Maps Geocoding API to convert the address into latitude and longitude
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ 'address': address }, function(results, status) {
+        if (status == 'OK' && results[0]) {
+          var location = results[0].geometry.location;
+
+          // Update the map center
+          map.setCenter(location);
+
+          // Update the location information
+          updateLocation(location);
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    }
+
+    // Function to show map based on entered address
+    function showMapForAddress() {
+      updateLocationForAddress();
     }
   
   /*** Pop up end MAP ***/
