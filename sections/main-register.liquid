@@ -342,17 +342,17 @@
 
 /*** Pop up start OTP ***/
   function openOTPPopup() {
-    document.getElementById('popup').style.display = 'block';
+    document.getElementById('otppopup').style.display = 'block';
   }
 
-  function closePopup() {
-    document.getElementById('popup').style.display = 'none';
+  function closeOtpPopup() {
+    document.getElementById('otppopup').style.display = 'none';
   }
 
-  function savePopup(event) {
+  function saveOtpPopup(event) {
     // Add logic here to handle the data entered in the popup
     // For now, let's just close the popup without refreshing the page
-    closePopup();
+    closeOtpPopup();
 
     // Prevent the default form submission behavior
     event.preventDefault();
