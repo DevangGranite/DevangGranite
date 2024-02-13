@@ -1,5 +1,5 @@
 {{ 'login-register.css' | asset_url | stylesheet_tag }}
-<style>
+ <style>
     /* Style for the popup */
     #popup {
       display: none;
@@ -17,6 +17,11 @@
       height: 300px;
       width: 100%;
       margin-bottom: 10px;
+    }
+
+    /* Style for the location text */
+    #locationText {
+      font-weight: bold;
     }
   </style>
 <div class="row">
@@ -169,7 +174,11 @@
     <!-- Container for the map -->
     <div id="map"></div>
 
-    <button onclick="savePopup()">Save</button>
+    <!-- Display selected location as text -->
+    <div id="locationText"></div>
+
+    <!-- Close button -->
+    <button onclick="closePopup()">Close</button>
   </div>
 
             <div class="field">
@@ -391,13 +400,6 @@
     // Function to close the popup
     function closePopup() {
       document.getElementById('popup').style.display = 'none';
-    }
-
-    // Function to save the popup (you can add your logic here)
-    function savePopup() {
-      // Add logic here to handle the selected location
-      // For now, let's just close the popup without refreshing the page
-      closePopup();
     }
   
   /*** Pop up end MAP ***/
