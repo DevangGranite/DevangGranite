@@ -436,6 +436,9 @@ input.full.numeric {
 .login--page button.button.full {
     background: #2461CC;
 }
+.thb-form-container  .cus-login {
+    max-width: 1024px;
+}
 @media screen and (max-width: 767px) {
     .thb-login-form .custom_login {
         grid-template-columns: repeat(1, 1fr);
