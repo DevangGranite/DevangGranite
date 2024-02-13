@@ -132,6 +132,18 @@ input.full.numeric {
   max-width: 450px;
 }
 
+  /* Style for the map container */
+  #map {
+    height: 300px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  /* Style for the location text */
+  #locationText {
+    font-weight: bold;
+  }
+
 /* 12-02 */
 
 .thb-form-container p {
