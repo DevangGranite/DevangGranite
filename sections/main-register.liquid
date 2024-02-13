@@ -1,4 +1,5 @@
 {{ 'login-register.css' | asset_url | stylesheet_tag }}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&libraries=places"></script>
  <style>
     /* Style for the popup */
     #popup {
@@ -163,9 +164,7 @@
                 </div>
               </div>
             </div> -->
-            
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&libraries=places"></script>
-            
+                       
               <!-- Input field to trigger the popup -->
   <label for="locationInput">Location</label>
   <input type="text" id="locationInput" onclick="openPopup()" readonly>
