@@ -274,7 +274,7 @@ input.full.numeric {
   max-width: 560px;
 }
 
-.field-area h1.popup-title {
+#main-content .field-area h1.popup-title {
   font-size: 32px;
   line-height: 35px;
   margin: 0 0 8px 0;
@@ -283,7 +283,7 @@ input.full.numeric {
   text-align: center;
 }
 
-.field-area p.popup-subtitle {
+#main-content .field-area p.popup-subtitle {
   font-size: 16px;
   line-height: 20px;
   font-weight: 400;
@@ -292,13 +292,13 @@ input.full.numeric {
   margin: 0 0 24px 0;
   text-align: center;
 }
-.field-area .popup-otp-wrapper {
+#main-content .field-area .popup-otp-wrapper {
   background: #eff2f6;
   padding: 32px 52px 40px 56px;
   border-radius: 15px;
 }
 
-.field-area #popup button {
+#main-content .field-area #popup button {
   font-size: 20px;
   line-height: 22px;
   font-weight: 500;
@@ -309,7 +309,7 @@ input.full.numeric {
   border: 1px solid #2461cc;
   width: 100%;
 }
-.field-area .popup-otp-wrapper label {
+#main-content .field-area .popup-otp-wrapper label {
     font-size: 14px;
     line-height: 18px;
     font-weight: 400;
@@ -317,12 +317,12 @@ input.full.numeric {
     margin-bottom: 8px;
     display: inline-block;
 }
-.field-area .popup-otp-input-box {
+#main-content .field-area .popup-otp-input-box {
   display: flex;
   flex-wrap: wrap;
   gap: 21px;
 }
-.field-area .popup-otp-input-box input {
+#main-content .field-area .popup-otp-input-box input {
   max-width: 64px;
   min-height: 72px;
   border: 1px solid #001489;
@@ -332,7 +332,7 @@ input.full.numeric {
   line-height: 22px;
   font-weight: 400;
 }
-.field-area .popup-otp-wrapper p.timing {
+#main-content .field-area .popup-otp-wrapper p.timing {
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
@@ -340,7 +340,7 @@ input.full.numeric {
   margin: 16px 0;
   text-align: start;
 }
-.field-area .popup-otp-wrapper p.timing span {
+#main-content .field-area .popup-otp-wrapper p.timing span {
   color: #001489;
 }
 @media screen and (max-width: 575px) {
