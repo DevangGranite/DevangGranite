@@ -318,7 +318,7 @@
 
 /*** Pop up start OTP ***/
 function openOTPPopup() {
-    var otpPopupElement = document.getElementsByTagName('otppopup');
+    var otpPopupElement = document.getElementById('otppopup');
 
     if (otpPopupElement) {
         // Set display property to 'block'
@@ -332,7 +332,7 @@ function openOTPPopup() {
 }
 
 function closeOTPPopup() {
-    var otpPopupElement = document.getElementsByTagName('otppopup');
+    var otpPopupElement = document.getElementById('otppopup');
 
     if (otpPopupElement) {
         // Remove the class from the element
