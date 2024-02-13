@@ -103,13 +103,13 @@
             </div>
 
             <div class="field">
-              <label for="streetAddress">{{ 'customer.login_page.address' | t }}</label>
+              <label for="addressInput">{{ 'customer.login_page.address' | t }}</label>
               <input
                 type="text"
-                name="streetAddress"
-                id="streetAddress"
+                name="addressInput"
+                id="addressInput"
                 placeholder="{{ 'customer.login_page.address_place' | t }}"
-                readonly
+                onkeydown="handleEnterKey(event)"
               >
               <div class="location_icon" onclick="openPopup()">
                 {% render 'svg-icons' with 'location' %}
@@ -120,10 +120,7 @@
 
             <!-- Popup content -->
             <div id="popup">
-              <!-- Input field for address -->
-              <label for="addressInput">Address</label>
-              <input type="text" id="addressInput" placeholder="Enter address" onkeydown="handleEnterKey(event)">
-
+              
               <!-- Container for the map -->
               <div id="map"></div>
 
