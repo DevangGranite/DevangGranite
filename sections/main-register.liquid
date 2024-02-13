@@ -277,6 +277,22 @@ function validateAndSwitch(input, nextFieldId) {
         document.getElementById(nextFieldId).focus();
     }
 }
+
+function handlePaste(event, nextFieldId) {
+    // Get the pasted text
+    var pastedText = (event.clipboardData || window.clipboardData).getData('text');
+
+    // Validate and set the value
+    event.target.value = pastedText.charAt(0);
+
+    // Switch focus to the next input field
+    if (pastedText.length === 1 && nextFieldId) {
+        document.getElementById(nextFieldId).focus();
+    }
+
+    // Prevent the default paste behavior
+    event.preventDefault();
+}
   
 /*** Pop up End ***/
 </script>
