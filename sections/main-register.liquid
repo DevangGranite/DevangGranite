@@ -92,12 +92,12 @@
                 <div class="popup-otp-wrapper">
                     <label for="OneTimePassword">One Time Password</label>
                     <div class="popup-otp-input-box">
-                        <input type="text" name="OneTimePassword" id="OneTimePassword">
-                        <input type="text" name="OneTimePassword" id="OneTimePassword">
-                        <input type="text" name="OneTimePassword" id="OneTimePassword">
-                        <input type="text" name="OneTimePassword" id="OneTimePassword">
-                        <input type="text" name="OneTimePassword" id="OneTimePassword">
-                    </div>
+                      <input type="text" name="OneTimePassword" id="OneTimePassword1" oninput="validateInput(this)">
+                      <input type="text" name="OneTimePassword" id="OneTimePassword2" oninput="validateInput(this)">
+                      <input type="text" name="OneTimePassword" id="OneTimePassword3" oninput="validateInput(this)">
+                      <input type="text" name="OneTimePassword" id="OneTimePassword4" oninput="validateInput(this)">
+                      <input type="text" name="OneTimePassword" id="OneTimePassword5" oninput="validateInput(this)">
+                  </div>
                     <p class="timing">Resend code in <span>56s</span></p>
                     <button onclick="savePopup(event)">Validate your Mobile Number</button>
                   </div>
@@ -263,6 +263,15 @@
     // Prevent the default form submission behavior
     event.preventDefault();
   }
+  function validateInput(input) {
+    // Remove non-numeric characters
+    input.value = input.value.replace(/[^0-9a-zA-Z]/g, '');
+
+    // Ensure only one character is entered
+    if (input.value.length > 1) {
+        input.value = input.value.charAt(0);
+    }
+}
   
 /*** Pop up End ***/
 </script>
