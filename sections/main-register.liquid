@@ -318,7 +318,7 @@
 
 /*** Pop up start OTP ***/
 function openOTPPopup() {
-    var otpPopupHtml = document.getElementByTagName('html');
+    var otpPopupHtml = document.getElementsByTagName( 'html' )[0];
     var otpPopupElement = document.getElementById('otppopup');
 
     if (otpPopupElement) {
