@@ -414,6 +414,8 @@ input.full.numeric {
     line-height: 18px;
     font-weight: 400;
     color: #001489;
+    padding: 0;
+    height: auto;
 }
 .custom_login .field--login--mobile {
     display: flex;
