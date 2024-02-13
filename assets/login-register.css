@@ -459,6 +459,7 @@ input.full.numeric {
     padding: 12px 17px;
     min-height: 72px;
     border: none;
+    outline: 0;
 }
 .login--page button.button.full {
     background: #2461cc;
