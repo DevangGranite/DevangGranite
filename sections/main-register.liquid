@@ -374,13 +374,28 @@ function validateAndSwitch(input, nextFieldId) {
     }
 
     // Function to open the popup
-    function openPopup() {
-      document.getElementById('popup').style.display = 'block';
-      popupElement.classList.add('test');
+   function openPopup() {
+    var popupElement = document.getElementById('popup');
 
-      // Initialize the map when the popup is opened
-      initMap();
+    if (popupElement) {
+        // Set display property to 'block'
+        popupElement.style.display = 'block';
+
+        // Add a class to the element
+        popupElement.classList.add('yourClassName');
+
+        // Check if initMap function is defined before calling
+        if (typeof initMap === 'function') {
+            // Initialize the map when the popup is opened
+            initMap();
+        } else {
+            console.error("initMap function is not defined");
+        }
+    } else {
+        console.error("Element with ID 'popup' not found");
     }
+}
+
 
     // Function to close the popup
     function closePopup() {
