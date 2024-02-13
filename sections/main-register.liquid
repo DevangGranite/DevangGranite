@@ -84,26 +84,32 @@
             </div>
           </div>
 
+          <!-- <div id="popup">
+            <label for="additionalDetails">Additional Details</label>
+            <textarea name="additionalDetails" id="additionalDetails"></textarea>
+            <button onclick="savePopup(event)">Save</button>
+          </div> -->
+          
           <div class="field-area">
-              <div id="popup" style="display: block;">
-                  <div class="popup-wrapper">
-                      <h1 class="popup-title">Validate your Mobile Number</h1>
-                      <p class="popup-subtitle">We sent a code to your Mobile Phone.</p>
-                      <div class="popup-otp-wrapper">
-                          <label for="OneTimePassword">One Time Password</label>
-                          <div class="popup-otp-input-box">
-                              <input type="text" name="OneTimePassword" id="OneTimePassword">
-                              <input type="text" name="OneTimePassword" id="OneTimePassword">
-                              <input type="text" name="OneTimePassword" id="OneTimePassword">
-                              <input type="text" name="OneTimePassword" id="OneTimePassword">
-                              <input type="text" name="OneTimePassword" id="OneTimePassword">
-                          </div>
-                          <p class="timing">Resend code in <span>56s</span></p>
-                          <button onclick="savePopup(event)">Validate your Mobile Number</button>
-                      </div>
-                  </div>
-              </div>
-          </div>
+        <div id="popup">
+            <div class="popup-wrapper">
+                <h1 class="popup-title">Validate your Mobile Number</h1>
+                <p class="popup-subtitle">We sent a code to your Mobile Phone.</p>
+                <div class="popup-otp-wrapper">
+                    <label for="OneTimePassword">One Time Password</label>
+                    <div class="popup-otp-input-box">
+                        <input type="text" name="OneTimePassword" id="OneTimePassword">
+                        <input type="text" name="OneTimePassword" id="OneTimePassword">
+                        <input type="text" name="OneTimePassword" id="OneTimePassword">
+                        <input type="text" name="OneTimePassword" id="OneTimePassword">
+                        <input type="text" name="OneTimePassword" id="OneTimePassword">
+                    </div>
+                    <p class="timing">Resend code in <span>56s</span></p>
+                    <button onclick="savePopup(event)">Validate your Mobile Number</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
           <div class="field">
             <label for="address" name="address">{{ 'customer.login_page.address2' | t }}</label>
