@@ -446,7 +446,19 @@ input.full.numeric {
 .thb-form-container  .cus-login {
     max-width: 1024px;
 }
+.thb-form-container .customer--login .switch-login-section.desk {
+        display: block;}
+.thb-form-container .custom_login .switch-login-section.mob {
+    display: none;
+}
+
 @media screen and (max-width: 767px) {
+   .thb-form-container .customer--login .switch-login-section.desk {
+        display: none;
+    }
+    .thb-form-container .custom_login .switch-login-section.mob {
+        display: block;
+    }
     .thb-login-form .custom_login {
         grid-template-columns: repeat(1, 1fr);
     }
