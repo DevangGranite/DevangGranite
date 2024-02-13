@@ -113,13 +113,14 @@
               >
               <div class="location_icon" onclick="openPopup()">
                 {% render 'svg-icons' with 'location' %}
-              </div>
-              <!-- Input field to trigger the popup -->
-            <label for="locationInput">Location</label>
-            <input type="text" id="locationInput" onclick="openPopup()" readonly>
+              </div>             
 
             <!-- Popup content -->
-            <div id="popup">              
+            <div id="popup">
+              <!-- Input field for address -->
+              <label for="addressInput">Address</label>
+              <input type="text" id="addressInput" placeholder="Enter address" onkeydown="handleEnterKey(event)">
+
               <!-- Container for the map -->
               <div id="map"></div>
 
