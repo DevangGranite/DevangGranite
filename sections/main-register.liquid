@@ -414,25 +414,25 @@
     function updateLocation(location) {
       // Update the input field with the selected location
       let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${location.lat()},${location.lng()}`
-      
-fetch(apiAdd)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log(data);
-    })
-    .catch(error => {});
-      document.getElementById('locationInput').value = location.lat() + ', ' + location.lng();
-
-      // Display selected location as text
-      document.getElementById('locationText').innerText = 'Selected Location: ' + location.lat() + ', ' + location.lng();
-      
-    }
-
+    /** get address form lag and lng **/ 
+    fetch(apiAdd)
+      .then(response => {
+          if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+      })
+      .then(data => {
+          console.log(data.results[0]);
+      })
+      .catch(error => {});
+        document.getElementById('locationInput').value = location.lat() + ', ' + location.lng();
+  
+        // Display selected location as text
+        document.getElementById('locationText').innerText = 'Selected Location: ' + location.lat() + ', ' + location.lng();
+        
+      }
+      /** END  get address form lag and lng **/ 
     // Function to handle Enter key on the address input field
     function handleEnterKey(event) {
       if (event.key === 'Enter') {
