@@ -323,14 +323,15 @@ input.full.numeric {
   gap: 10px;
 }
 #main-content .field-area .popup-otp-input-box input {
-  max-width: 64px;
-  min-height: 72px;
-  border: 1px solid #001489;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 20px;
-  line-height: 22px;
-  font-weight: 400;
+    border: 1px solid #001489;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    width: calc(20% - 10px);
+    min-height: inherit;
+    height: 60px;
+    margin-bottom: 0;
 }
 #main-content .field-area .popup-otp-wrapper p.timing {
   font-size: 14px;
