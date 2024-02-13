@@ -21,19 +21,7 @@
               {{ form.errors | default_errors }}
             </div>
           {% endif %}
-          <!-- <div class="field">
-            <input
-              type="email"
-              name="customer[email]"
-              class="full {% if form.errors contains 'form' %}invalid{% endif %}"
-              value=""
-              autocomplete="email"
-              autocorrect="off"
-              autocapitalize="off"
-              placeholder="{{ 'customer.login_page.email' | t }}"
-            >
-            <label for="customer_email">{{ 'customer.login_page.email' | t }}</label>
-          </div> -->
+          <div class="fields login--page">
         <div class="field">
               <label for="number">{{ 'customer.login_page.Mobile' | t }}</label>
               <div class="field--login--mobile">
@@ -49,23 +37,13 @@
                   required
                 >
               </div>
-            </div>
-          <!-- <div class="field">
-            <input
-              type="password"
-              name="customer[password]"
-              class="full {% if form.errors contains 'form' %}invalid{% endif %}"
-              value=""
-              placeholder="{{ 'customer.login_page.password' | t }}"
-            >
-            <label for="customer_password">{{ 'customer.login_page.password' | t }}</label>
-          </div> -->
+            </div>          
           <div class="field">
             <button type="submit" class="button full">
               <span>{{ 'customer.login_page.sign_in' | t }}</span>
             </button>
           </div>
-         
+          </div>         
         {% endform %}
       </div>
     </div>
