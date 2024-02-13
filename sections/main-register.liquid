@@ -423,7 +423,7 @@
           return response.json();
       })
       .then(data => {
-          document.getElementbyId('locationText').innderText = data.results[0]['formatted_address'];
+          document.getElementById('locationText').innderText = data.results[0]['formatted_address'];
           document.getElementById('locationInput').value = data.results[0]['formatted_address'];
       })
       .catch(error => {
