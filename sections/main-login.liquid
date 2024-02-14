@@ -180,16 +180,11 @@
       
     });
 
+      function checkButtonState() {
         var mobileInput = document.getElementById('mobile');
         var registerButton = document.getElementById('registerButton');
 
-        // Remove non-numeric characters
-        var numericValue = mobileInput.value.replace(/\D/g, '');
-
-        // Update the input value with the numeric value
-        mobileInput.value = numericValue;
-
-        if (numericValue.length === 10) {
+        if (mobileInput.value.trim().length === 10) {
             registerButton.removeAttribute('disabled');
         } else {
             registerButton.setAttribute('disabled', 'disabled');
