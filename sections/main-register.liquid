@@ -87,16 +87,16 @@
             </div>
 
             <div class="field">
-              <label for="confirm_email">{{ 'customer.login_page.confirm_email' | t }}</label>
-              <input
-                type="email"
-                name="customer[confirm_email]"
-                class="full {% if form.errors contains 'confirm_email' %}invalid{% endif %}"
-                value=""
-                placeholder="{{ 'customer.login_page.confirm_email_place' | t }}"
-                required
-              >
-            </div>
+    <label for="email">{{ 'customer.login_page.email' | t }}</label>
+    <input
+      type="email"
+      name="customer[email]"
+      class="full {% if form.errors contains 'email' %}invalid{% endif %}"
+      value=""
+      placeholder="{{ 'customer.login_page.email_place' | t }}"
+      required
+    >
+  </div>
 
             <div class="field">
               <label for="locationInput">{{ 'customer.login_page.address' | t }}</label>
