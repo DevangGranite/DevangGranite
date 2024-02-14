@@ -7,7 +7,8 @@
       <div class="thb-login-form cus-login" id="login">
         {% form 'customer_login', novalidate: 'novalidate' %}
           
-          <div class="custom_login" style="display:block;">
+          <div class="custom_login_container" style="display:block;">
+            <div class="custom_login" >
           <div class="customer--login">
           <h4>{{ 'customer.login_page.login' | t }}</h4>
           <p><strong>{{ 'customer.login_page.login_desc' | t }}</strong></p>    
@@ -58,6 +59,7 @@
               </div>
             </div>
             </div>
+          </div>
 
 <!-- OTP start -->
         
