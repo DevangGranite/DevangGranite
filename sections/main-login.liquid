@@ -160,10 +160,14 @@
 <script>
     document.getElementById('registerButton').addEventListener('click', function() {
         var customLoginElement = document.querySelector('.custom_login.otp');
+        var customLoginotpElement = document.querySelector('.custom_login');
         if (customLoginElement.style.display === 'none' || customLoginElement.style.display === '') {
             customLoginElement.style.display = 'block';
+            customLoginotpElement.style.display = 'none';
         } else {
             customLoginElement.style.display = 'none';
+          customLoginotpElement.style.display = 'block';
         }
+      
     });
 </script>
