@@ -257,37 +257,14 @@ function validateAndSwitch(input, nextFieldId) {
   
 /*** Pop up end MAP ***/  
 
- function validateInputt(inputValue) {
-    const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
+  function validateInputt() {
     
-    // Use the fetch function to make a POST request to the API
-    fetch(apiUrl, {
-        method: 'POST',
-        body: JSON.stringify({ mobile: inputValue }),
-        headers: {
-            'Content-Type': 'application/json'
-        },
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        
-        return response.json();
-    })
-    .then(data => {
-        console.log('MSS Test', data);
-        // Handle the response as needed, for example, show a success message or update UI
-    })
-    .catch(error => {
-        // Handle errors that may occur during the fetch operation
-        console.error('Error fetching data:', error);
-    });
+      var mobileInput = document.getElementById('mobile');
+      var registerButton = document.getElementById('registerButton');
 
-    // Remove non-numeric characters
-    var mobileInput = document.getElementById('mobile');
-    var numericValue = inputValue.replace(/\D/g, '');
+      // Remove non-numeric characters
+      var numericValue = mobileInput.value.replace(/\D/g, '');
 
-    // Update the input value with the numeric value
-    mobileInput.value = numericValue;
-}
+      // Update the input value with the numeric value
+      mobileInput.value = numericValue;
+  }
