@@ -206,54 +206,7 @@
     <span>{{ 'customer.login_page.submit_register' | t }}</span>
 </button>
 
-            <div style="visibility:hidden;height:0">
-              <div class="fields">
-                <div class="field">
-                  <label for="first_name">{{ 'customer.login_page.first_name' | t }}</label>
-                  <input
-                    type="text"
-                    name="customer[first_name]"
-                    class="full"
-                    value="{% if form.first_name %}{{ form.first_name }}{% endif %}"
-                    placeholder="{{ 'customer.login_page.first_name' | t }}"
-                  >
-                </div>
-                <div class="field">
-                  <label for="last_name">{{ 'customer.login_page.last_name' | t }}</label>
-                  <input
-                    type="text"
-                    name="customer[last_name]"
-                    class="full"
-                    value="{% if form.last_name %}{{ form.last_name }}{% endif %}"
-                    placeholder="{{ 'customer.login_page.last_name' | t }}"
-                  >
-                </div>
-              </div>
-              <div class="field">
-                <label for="email">{{ 'customer.login_page.email' | t }}</label>
-                <input
-                  type="email"
-                  name="customer[email]"
-                  class="full {% if form.errors contains 'email' %}invalid{% endif %}"
-                  value=""
-                  placeholder="{{ 'customer.login_page.email' | t }}"
-                >
-              </div>
-              <div class="field">
-                <label for="password">{{ 'customer.login_page.password' | t }}</label>
-                <input
-                  type="password"
-                  name="customer[password]"
-                  class="full"
-                  value=""
-                  placeholder="{{ 'customer.login_page.password' | t }}"
-                >
-              </div>
-
-              <button type="submit" class="button full">
-                <span>{{ 'customer.login_page.submit_register' | t }}</span>
-              </button>
-            </div>
+            
           </div>
         {% endform %}
         <div class="switch-login-section">
@@ -265,34 +218,3 @@
     </div>
   </div>
 </div>
-
-<script>
-function openOTPPopup() {
-    const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
-    const mobileNumber = '{mobile_number}'; // Replace with the actual mobile number
-    
-    // Use the fetch function to make a POST request to the API
-    fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ mobile: mobileNumber }),
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('MSS Test', data);
-        // You can handle the API response data here, such as showing a success message or triggering further actions.
-    })
-    .catch(error => {
-        // Handle errors that may occur during the fetch operation
-        console.error('Error fetching data:', error);
-        // You can also handle the error, display an error message, or take other appropriate actions.
-    });
-}
-</script>
