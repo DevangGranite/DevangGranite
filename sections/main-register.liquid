@@ -5,25 +5,7 @@
   <div class="small-12 columns">
     <div class="thb-form-container">
       <div class="thb-register-form">
-        {% form 'create_customer' %}
-            <script>
-    function validateForm() {
-      var email = document.getElementsByName('customer[email]')[0].value;
-      var confirmEmail = document.getElementsByName('customer[confirm_email]')[0].value;
-
-      if (email === '' || confirmEmail === '') {
-        alert('Both email fields are required.');
-        return false;
-      }
-
-      if (email !== confirmEmail) {
-        alert('Emails do not match.');
-        return false;
-      }
-
-      return true;
-    }
-  </script>
+        {% form 'create_customer', novalidate: 'novalidate' %}
           <h5>{{ 'customer.login_page.create_account' | t }}</h5>
           <h4>{{ 'customer.login_page.create_account_dec' | t }}</h4>
           <p>{{ 'customer.login_page.create_account_description' | t }}</p>
@@ -87,16 +69,16 @@
             </div>
 
             <div class="field">
-    <label for="email">{{ 'customer.login_page.email' | t }}</label>
-    <input
-      type="email"
-      name="customer[email]"
-      class="full {% if form.errors contains 'email' %}invalid{% endif %}"
-      value=""
-      placeholder="{{ 'customer.login_page.email_place' | t }}"
-      required
-    >
-  </div>
+              <label for="confirm_email">{{ 'customer.login_page.confirm_email' | t }}</label>
+              <input
+                type="email"
+                name="customer[confirm_email]"
+                class="full {% if form.errors contains 'confirm_email' %}invalid{% endif %}"
+                value=""
+                placeholder="{{ 'customer.login_page.confirm_email_place' | t }}"
+                required
+              >
+            </div>
 
             <div class="field">
               <label for="locationInput">{{ 'customer.login_page.address' | t }}</label>
