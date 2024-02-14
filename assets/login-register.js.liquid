@@ -84,36 +84,19 @@ function closeOTPPopup() {
     event.preventDefault();
   }
 function validateAndSwitch(input, nextFieldId) {
-        // Remove non-numeric characters
-        input.value = input.value.replace(/[^0-9a-zA-Z]/g, '');
+    // Remove non-numeric characters
+    input.value = input.value.replace(/[^0-9a-zA-Z]/g, '');
 
-        // Ensure only one character is entered
-        if (input.value.length > 1) {
-            input.value = input.value.charAt(0);
-        }
-
-        // Switch focus to the next input field
-        if (input.value.length === 1 && nextFieldId) {
-            document.getElementById(nextFieldId).focus();
-        }
-
-        // Check if all input fields are filled
-        var allInputsFilled = true;
-        var inputs = document.querySelectorAll('.popup-otp-input-box input');
-        inputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                allInputsFilled = false;
-            }
-        });
-
-        // Enable or disable the submit button based on all inputs being filled
-        var submitButton = document.getElementById('submitButton');
-        if (allInputsFilled) {
-            submitButton.removeAttribute('disabled');
-        } else {
-            submitButton.setAttribute('disabled', 'disabled');
-        }
+    // Ensure only one character is entered
+    if (input.value.length > 1) {
+        input.value = input.value.charAt(0);
     }
+
+    // Switch focus to the next input field
+    if (input.value.length === 1 && nextFieldId) {
+        document.getElementById(nextFieldId).focus();
+    }
+}
   
 /*** Pop up End OTP ***/
 
@@ -238,14 +221,13 @@ function validateAndSwitch(input, nextFieldId) {
   
 /*** Pop up end MAP ***/  
 
-    function validateInputt() {
+    function checkButtonState() {
         var mobileInput = document.getElementById('mobile');
         var registerButton = document.getElementById('registerButton');
 
-        // Remove non-numeric characters
-        var numericValue = mobileInput.value.replace(/\D/g, '');
-
-        // Update the input value with the numeric value
-        mobileInput.value = numericValue;
-
-    }   
+        if (mobileInput.value.trim().length === 10) {
+            registerButton.removeAttribute('disabled');
+        } else {
+            registerButton.setAttribute('disabled', 'disabled');
+        }
+    }
