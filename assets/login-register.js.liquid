@@ -84,7 +84,18 @@ function closeOTPPopup() {
     event.preventDefault();
   }
 function validateAndSwitch(input, nextFieldId) {
-    
+    // Remove non-numeric characters
+    input.value = input.value.replace(/[^0-9a-zA-Z]/g, '');
+
+    // Ensure only one character is entered
+    if (input.value.length > 1) {
+        input.value = input.value.charAt(0);
+    }
+
+    // Switch focus to the next input field
+    if (input.value.length === 1 && nextFieldId) {
+        document.getElementById(nextFieldId).focus();
+    }
 }
   
 /*** Pop up End OTP ***/
@@ -221,43 +232,3 @@ function validateAndSwitch(input, nextFieldId) {
         mobileInput.value = numericValue;
 
     }   
-
-        function validateAndSwitch(input, nextInputId) {
-          // Remove non-numeric characters
-    input.value = input.value.replace(/[^0-9a-zA-Z]/g, '');
-
-    // Ensure only one character is entered
-    if (input.value.length > 1) {
-        input.value = input.value.charAt(0);
-    }
-
-    // Switch focus to the next input field
-    if (input.value.length === 1 && nextFieldId) {
-        document.getElementById(nextFieldId).focus();
-    }
-        var inputValue = input.value.trim();
-        var submitButton = document.getElementById('submitButton');
-        var allInputsFilled = true;
-
-        // Check if all input fields are filled
-        var inputs = document.querySelectorAll('.popup-otp-input-box input');
-        inputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                allInputsFilled = false;
-            }
-        });
-
-        if (inputValue !== '') {
-            if (nextInputId) {
-                var nextInput = document.getElementById(nextInputId);
-                nextInput.focus();
-            }
-        }
-
-        // Enable or disable the submit button based on all inputs being filled
-        if (allInputsFilled) {
-            submitButton.removeAttribute('disabled');
-        } else {
-            submitButton.setAttribute('disabled', 'disabled');
-        }
-    }
