@@ -42,18 +42,18 @@
               <label for="number">{{ 'customer.login_page.Mobile' | t }}</label>
               <div class="field--country_codee">
                 <span>+971</span>
-          <input
-    type="tel"
-    placeholder="{{ 'customer.login_page.mobile'| t }}"
-    class="full numeric"
-    name="number"
-    id="mobile"
-    pattern="[0-9]*"
-    inputmode="numeric"
-    required
-    maxlength="10"
-    oninput="validateInputt(this.value);"
->
+                <input
+                  type="tel"
+                  placeholder="{{ 'customer.login_page.mobile'| t }}"
+                  class="full numeric"
+                  name="number"
+                  id="mobile"
+                  pattern="[0-9]*"
+                  inputmode="numeric"
+                  required
+                  maxlength="10"
+                  oninput="validateInputt(this.value);"
+              >
               </div>
             </div>
             <div class="field">
@@ -64,6 +64,7 @@
                 class="full {% if form.errors contains 'email' %}invalid{% endif %}"
                 value=""
                 placeholder="{{ 'customer.login_page.email_place' | t }}"
+                required
               >
             </div>
 
@@ -75,6 +76,7 @@
                 class="full {% if form.errors contains 'confirm_email' %}invalid{% endif %}"
                 value=""
                 placeholder="{{ 'customer.login_page.confirm_email_place' | t }}"
+                required
               >
             </div>
 
