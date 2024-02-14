@@ -1,176 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Page Title</title>
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-  <link rel="stylesheet" href="{{ 'login-register.css' | asset_url }}" />
-  {{ 'login-register.js' | asset_url | script_tag }}
-</head>
-<body>
+{{ 'login-register.css' | asset_url | stylesheet_tag }}
+{{ 'login-register.js' | asset_url | script_tag }}
 
 <div class="row">
   <div class="small-12 columns">
-    <div class="thb-form-container">
+    <div class="thb-form-container">      
       <div class="thb-login-form cus-login" id="login">
         {% form 'customer_login', novalidate: 'novalidate' %}
           <div class="custom_login">
-            <div class="customer--login">
-              <h4>{{ 'customer.login_page.login' | t }}</h4>
-              <p><strong>{{ 'customer.login_page.login_desc' | t }}</strong></p>
-              <p>{{ 'customer.login_page.login_description' | t }}</p>
-              <div class="switch-login-section desk">
-                {{ 'customer.login_page.dont_have_an_account' | t }}
-                {% assign text_button_title = 'customer.login_page.create_account' | t %}
-                {% render 'text-button', url: routes.account_register_url, title: text_button_title %}
-                <div>
-                </div>
+          <div class="customer--login">
+          <h4>{{ 'customer.login_page.login' | t }}</h4>
+          <p><strong>{{ 'customer.login_page.login_desc' | t }}</strong></p>    
+          <p>{{ 'customer.login_page.login_description' | t }}</p>
+          <div class="switch-login-section desk">
+              {{ 'customer.login_page.dont_have_an_account' | t }}
+              {% assign text_button_title = 'customer.login_page.create_account' | t %}
+              {% render 'text-button', url: routes.account_register_url, title: text_button_title %}
+              <div>              
               </div>
             </div>
-            {% if form.errors %}
-              <div class="form-notification error">
-                {% render 'svg-icons' with 'thb-error' %}
-                {{ form.errors | default_errors }}
-              </div>
-            {% endif %}
-            <div class="fields login--page">
-              <div class="field">
-                <label for="number">{{ 'customer.login_page.Mobile' | t }}</label>
-                <div class="field--login--mobile">
-                  <span>+971</span>
-                  <input
-                    type="number"
-                    placeholder="{{ 'customer.login_page.mobile'| t }}"
-                    class="full numeric"
-                    name="number"
-                    id="mobile"
-                    pattern="[0-9]*"
-                    inputmode="numeric"
-                    required
-                  >
-                </div>
-              </div>
-              <p>Will we SMS you a one-time password for verification.</p>
-              <div class="field">
-                <button type="button" class="button full next">
-                  <span>{{ 'customer.login_page.submit_register' | t }}</span>
-                </button>
-              </div>
+          </div>
+          {% if form.errors %}
+            <div class="form-notification error">
+              {% render 'svg-icons' with 'thb-error' %}
+              {{ form.errors | default_errors }}
             </div>
+          {% endif %}
+          <div class="fields login--page">
+        <div class="field">
+              <label for="number">{{ 'customer.login_page.Mobile' | t }}</label>
+              <div class="field--login--mobile">
+                <span>+971</span>
+                <input
+                  type="number"
+                  placeholder="{{ 'customer.login_page.mobile'| t }}"
+                  class="full numeric"
+                  name="number"
+                  id="mobile"
+                  pattern="[0-9]*"
+                  inputmode="numeric"
+                  required
+                >
+              </div>
+            </div>   
+            <p>Will we SMS you a one time password for verification.</p>
+          <div class="field">
+             <button type="button" class="button full" id="regi_button" onclick="openOTPPopup()">
+              <span>{{ 'customer.login_page.submit_register' | t }}</span>
+            </button>
+          </div>            
+          </div>
             <div class="switch-login-section mob">
               {{ 'customer.login_page.dont_have_an_account' | t }}
               {% assign text_button_title = 'customer.login_page.create_account' | t %}
               {% render 'text-button', url: routes.account_register_url, title: text_button_title %}
-              <div>
+              <div>              
               </div>
             </div>
-          </div>
-          <div class="devider"><span>or</span></div>
-          <div class="switch-login-section">
-            {% assign text_button_title = 'Need Help?' %}
-            {% render 'text-button', url: '#', title: text_button_title %}
-            We’re here to assist.
-            <div>
             </div>
-          </div>
+          <div class="devider"><span>or</span></div>
+            <div class="switch-login-section">              
+              {% assign text_button_title = 'Need Help?' %}             
+              {% render 'text-button', url: #, title: text_button_title %}
+               We’re here to assist.
+              <div>              
+              </div>
+            </div>
         {% endform %}
       </div>
     </div>
   </div>
 </div>
-
-<script>
-  // jQuery time
-  var current_fs, next_fs, previous_fs; //fieldsets
-  var left, opacity, scale; //fieldset properties which we will animate
-  var animating; //flag to prevent quick multi-click glitches
-
-  $(".next").click(function() {
-    if (animating) return false;
-    animating = true;
-
-    current_fs = $(this).parent();
-    next_fs = $(this).parent().next();
-
-    // activate next step on progressbar using the index of next_fs
-    $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-
-    // show the next fieldset
-    next_fs.show();
-    // hide the current fieldset with style
-    current_fs.animate(
-      { opacity: 0 },
-      {
-        step: function(now, mx) {
-          // as the opacity of current_fs reduces to 0 - stored in "now"
-          // 1. scale current_fs down to 80%
-          scale = 1 - (1 - now) * 0.2;
-          // 2. bring next_fs from the right(50%)
-          left = (now * 50) + "%";
-          // 3. increase opacity of next_fs to 1 as it moves in
-          opacity = 1 - now;
-          current_fs.css({
-            transform: "scale(" + scale + ")",
-            position: "absolute",
-          });
-          next_fs.css({ left: left, opacity: opacity });
-        },
-        duration: 800,
-        complete: function() {
-          current_fs.hide();
-          animating = false;
-        },
-        // this comes from the custom easing plugin
-        easing: "easeInOutBack",
-      }
-    );
-  });
-
-  $(".previous").click(function() {
-    if (animating) return false;
-    animating = true;
-
-    current_fs = $(this).parent();
-    previous_fs = $(this).parent().prev();
-
-    // de-activate current step on progressbar
-    $("#progressbar li")
-      .eq($("fieldset").index(current_fs))
-      .removeClass("active");
-
-    // show the previous fieldset
-    previous_fs.show();
-    // hide the current fieldset with style
-    current_fs.animate(
-      { opacity: 0 },
-      {
-        step: function(now, mx) {
-          // as the opacity of current_fs reduces to 0 - stored in "now"
-          // 1. scale previous_fs from 80% to 100%
-          scale = 0.8 + (1 - now) * 0.2;
-          // 2. take current_fs to the right(50%) - from 0%
-          left = ((1 - now) * 50) + "%";
-          // 3. increase opacity of previous_fs to 1 as it moves in
-          opacity = 1 - now;
-          current_fs.css({ left: left });
-          previous_fs.css({
-            transform: "scale(" + scale + ")",
-            opacity: opacity,
-          });
-        },
-        duration: 800,
-        complete: function() {
-          current_fs.hide();
-          animating = false;
-        },
-        // this comes from the custom easing plugin
-        easing: "easeInOutBack",
-      }
-    );
-  });
-</script>
-
-</body>
-</html>
