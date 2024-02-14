@@ -231,11 +231,6 @@ function validateAndSwitch(input, nextFieldId) {
         // Update the input value with the numeric value
         mobileInput.value = numericValue;
 
-        if (numericValue.length === 10) {
-            registerButton.removeAttribute('disabled');
-        } else {
-            registerButton.setAttribute('disabled', 'disabled');
-        }
     }
 
     
