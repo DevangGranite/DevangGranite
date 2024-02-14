@@ -1,14 +1,10 @@
  /*** city and dis Start ***/
   document.addEventListener("DOMContentLoaded", function() {
-
       getCityDistricts(0);
-
-    // document.getElementById("regi_button").addEventListener("click", function(event) {
-    // });
   });
 
   function getCityDistricts(id){
-      // alert(id);
+
       const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/getCityDistricts/'+id;
       
       // Use the fetch function to make a GET request to the API
@@ -24,7 +20,7 @@
         return response.json();
       })
       .then(data => {
-        // console.log('data', data.response);
+
         if(id == 0){
           let city = "<option>{{ 'customer.addresses.city_reg' | t }}</option>";
           data.response.forEach(function (item) {
@@ -45,6 +41,7 @@
       });
   }
 /*** city and dis end ***/
+
 
 /*** Pop up start OTP ***/
 function openOTPPopup() {
@@ -103,7 +100,7 @@ function validateAndSwitch(input, nextFieldId) {
   
 /*** Pop up End OTP ***/
 
-  /*** Pop up start MAP ***/
+/*** Pop up start MAP ***/
 
    var map;
 
@@ -222,4 +219,4 @@ function validateAndSwitch(input, nextFieldId) {
       updateLocationForAddress();
     }
   
-  /*** Pop up end MAP ***/
+/*** Pop up end MAP ***/
