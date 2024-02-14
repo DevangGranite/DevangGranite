@@ -44,7 +44,7 @@
             </div>   
             <p>Will we SMS you a one time password for verification.</p>
           <div class="field">
-             <button type="button" class="button full">
+             <button type="button" class="button full" id="registerButton">
               <span>{{ 'customer.login_page.submit_register' | t }}</span>
             </button>
           </div>            
@@ -157,3 +157,13 @@
     </div>
   </div>
 </div>
+<script>
+    document.getElementById('registerButton').addEventListener('click', function() {
+        var customLoginElement = document.querySelector('.custom_login.otp');
+        if (customLoginElement.style.display === 'none' || customLoginElement.style.display === '') {
+            customLoginElement.style.display = 'block';
+        } else {
+            customLoginElement.style.display = 'none';
+        }
+    });
+</script>
