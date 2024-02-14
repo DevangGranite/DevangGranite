@@ -45,19 +45,55 @@
 
 /*** Pop up start OTP ***/
 function openOTPPopup() {
-    var otpPopupHtml = document.getElementsByTagName( 'html' )[0];
-    var otpPopupElement = document.getElementById('otppopup');
+    var mobileInput = document.getElementById('mobile');
+    var numericValue = mobileInput.value.replace(/\D/g, '');
 
-    if (otpPopupElement) {
-        // Set display property to 'block'
-        otpPopupElement.style.display = 'block';
+    // Check if the mobile number has 10 digits
+    if (numericValue.length === 10) {
+        const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
 
-        // Add a class to the element
-        otpPopupHtml.classList.add('popup-overlap');
+        // Use the fetch function to make a POST request to the API
+        fetch(apiUrl, {
+            method: 'POST',
+            body: JSON.stringify({ mobile: numericValue }),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.status}`);
+            }
+            
+            return response.json();
+        })
+        .then(data => {
+            console.log('MSS Test', data);
+
+            // Continue with the popup logic
+            var otpPopupHtml = document.getElementsByTagName('html')[0];
+            var otpPopupElement = document.getElementById('otppopup');
+
+            if (otpPopupElement) {
+                // Set display property to 'block'
+                otpPopupElement.style.display = 'block';
+
+                // Add a class to the element
+                otpPopupHtml.classList.add('popup-overlap');
+            } else {
+                console.error("Element with ID 'otppopup' not found");
+            }
+        })
+        .catch(error => {
+            // Handle errors that may occur during the fetch operation
+            console.error('Error fetching data:', error);
+        });
     } else {
-        console.error("Element with ID 'otppopup' not found");
+        // Handle the case where the mobile number does not have 10 digits
+        console.error('Mobile number must have 10 digits');
     }
 }
+
 
 function closeOTPPopup() {
     var otpPopupHtml = document.getElementsByTagName( 'html' )[0];
