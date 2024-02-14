@@ -43,15 +43,17 @@
               <div class="field--country_codee">
                 <span>+971</span>
                 <input
-                  type="number"
-                  placeholder="{{ 'customer.login_page.mobile'| t }}"
-                  class="full numeric"
-                  name="number"
-                  id="mobile"
-                  pattern="[0-9]*"
-                  inputmode="numeric"
-                  required
-                >
+                type="tel"
+                placeholder="{{ 'customer.login_page.mobile'| t }}"
+                class="full numeric"
+                name="number"
+                id="mobile"
+                pattern="[0-9]*"
+                inputmode="numeric"
+                required
+                maxlength="10"
+                oninput="checkButtonState()"
+            >
               </div>
             </div>
             <div class="field">
