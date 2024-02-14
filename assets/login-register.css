@@ -548,4 +548,5 @@ html.popup-overlap body:before {
 
 #main-content .otp-container .field-area .popup-otp-input-box input {
     background-color:#fff;
+    padding: 0;
 }
