@@ -166,24 +166,26 @@
 </div>
 
 <script>
-  
- document.getElementById('registerButton').addEventListener('click', function () {
-    var customLoginElement = document.querySelector('.otp-container');
-    var customLoginotpElement = document.querySelector('.custom_login_container');
-
-    // Toggle the display of elements
-    if (customLoginElement.style.display === 'none' || customLoginElement.style.display === '') {
-        customLoginElement.style.display = 'block';
-        customLoginotpElement.style.display = 'none';
-    } else {
-        customLoginElement.style.display = 'none';
+  document.getElementById('registerButton').addEventListener('click', function() {
+      var customLoginElement = document.querySelector('.otp-container');
+      var customLoginotpElement = document.querySelector('.custom_login_container');
+      if (customLoginElement.style.display === 'none' || customLoginElement.style.display === '') {
+          customLoginElement.style.display = 'block';
+          customLoginotpElement.style.display = 'none';
+      } else {
+          customLoginElement.style.display = 'none';
         customLoginotpElement.style.display = 'block';
-    }
+      }
 
-    // Validate input and make API call
-    var mobileInput = document.getElementById('mobile');
-    var apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
+  });
 
+const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
+
+// Declare mobileInput outside the validateInput function
+var mobileInput = document.getElementById('mobile');
+var registerButton = document.getElementById('registerButton');
+
+function validateInput() {
     // Remove non-numeric characters
     var numericValue = mobileInput.value.replace(/\D/g, '');
 
@@ -191,28 +193,30 @@
     mobileInput.value = numericValue;
 
     if (numericValue.length === 10) {
-        // API call
-        fetch(apiUrl, {
-            method: 'POST',
-            body: JSON.stringify({ mobile: numericValue }),
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Network response was not ok: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('MSS Test', data);
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
+        registerButton.removeAttribute('disabled');
     } else {
-        // Disable the button if input is not valid
-        this.setAttribute('disabled', 'disabled');
+        registerButton.setAttribute('disabled', 'disabled');
     }
-});
+}
 
+registerButton.addEventListener('click', function () {
+    // API call
+    fetch(apiUrl, {
+        method: 'POST',
+        body: JSON.stringify({ mobile: mobileInput.value }),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('MSS Test', data);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+});
 
 </script>
