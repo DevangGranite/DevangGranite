@@ -360,7 +360,7 @@ input.full.numeric {
     text-align: center;
     font-size: 14px;
     font-weight: 400;
-    width: calc(20% - 10px);
+    width: calc(17% - 10px);
     min-height: inherit;
     height: 60px;
     margin-bottom: 0;
@@ -397,7 +397,7 @@ input.full.numeric {
     padding: 32px 7px 24px 7px;
   }
   #main-content .field-area .popup-otp-input-box input {
-    height: 50px;
+    height: 40px;
     padding: 10px;
   }
 }
