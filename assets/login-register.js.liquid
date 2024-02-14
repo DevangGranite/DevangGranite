@@ -220,3 +220,48 @@ function validateAndSwitch(input, nextFieldId) {
     }
   
 /*** Pop up end MAP ***/  
+
+  const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
+
+    // Use the fetch function to make a GET request to the API
+    function sendOTP(mobileNumber) {
+        fetch(apiUrl, {
+            method: 'POST',
+            body: JSON.stringify({ mobile: mobileNumber }),
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok: ${response.status}`);
+                }
+
+                return response.json();
+            })
+            .then(data => {
+                console.log('MSS Test', data);
+            })
+            .catch(error => {
+                // Handle errors that may occur during the fetch operation
+                console.error('Error fetching data:', error);
+            });
+    }
+
+    function validateInputt() {
+        var mobileInput = document.getElementById('mobile');
+
+        // Remove non-numeric characters
+        var numericValue = mobileInput.value.replace(/\D/g, '');
+
+        // Ensure only one character is entered
+        if (numericValue.length > 1) {
+            numericValue = numericValue.charAt(0);
+        }
+
+        // Update the input value with the numeric value
+        mobileInput.value = numericValue;
+
+        // Assuming 'input.id' is the ID of the current input field
+        if (mobileInput.id === 'mobile' && numericValue.length === 10) {
+            // If mobile number is complete, trigger the OTP sending function
+            sendOTP(numericValue);
+        }
+    }
