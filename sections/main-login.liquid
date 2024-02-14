@@ -1,177 +1,72 @@
 {{ 'login-register.css' | asset_url | stylesheet_tag }}
 {{ 'login-register.js' | asset_url | script_tag }}
 
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    .slider-container {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: hidden;
-    }
-
-    .slider-slide {
-      flex: 0 0 100%;
-      transition: transform 0.5s ease-in-out;
-      opacity: 0;
-      display: none;
-    }
-
-    .slider-slide.active {
-      opacity: 1;
-      display: block;
-    }
-  </style>
-</head>
-
-<body>
-
-  <div class="row">
-    <div class="small-12 columns">
-      <div class="thb-form-container">
-        <div class="slider-container">
-          <!-- Content for the first slide -->
-          <div class="slider-slide active" id="slide1">
-            <div class="thb-login-form cus-login" id="login">
-              {% form 'customer_login', novalidate: 'novalidate' %}
-              <div class="custom_login">
-                <div class="customer--login">
-                  <h4>{{ 'customer.login_page.login' | t }}</h4>
-                  <p><strong>{{ 'customer.login_page.login_desc' | t }}</strong></p>
-                  <p>{{ 'customer.login_page.login_description' | t }}</p>
-                  <div class="switch-login-section desk">
-                    {{ 'customer.login_page.dont_have_an_account' | t }}
-                    {% assign text_button_title = 'customer.login_page.create_account' | t %}
-                    {% render 'text-button', url: routes.account_register_url, title: text_button_title %}
-                    <div>
-                    </div>
-                  </div>
-                </div>
-                {% if form.errors %}
-                  <div class="form-notification error">
-                    {% render 'svg-icons' with 'thb-error' %}
-                    {{ form.errors | default_errors }}
-                  </div>
-                {% endif %}
-                <div class="fields login--page">
-                  <div class="field">
-                    <label for="number">{{ 'customer.login_page.Mobile' | t }}</label>
-                    <div class="field--login--mobile">
-                      <span>+971</span>
-                      <input
-                        type="number"
-                        placeholder="{{ 'customer.login_page.mobile'| t }}"
-                        class="full numeric"
-                        name="number"
-                        id="mobile"
-                        pattern="[0-9]*"
-                        inputmode="numeric"
-                        required
-                      >
-                    </div>
-                  </div>
-                  <p>Will we SMS you a one-time password for verification.</p>
-                  <div class="field">
-                    <button type="button" class="button full" id="regi_button" onclick="openOTPPopup()">
-                      <span>{{ 'customer.login_page.submit_register' | t }}</span>
-                    </button>
-                  </div>
-                </div>
-                <div class="switch-login-section mob">
-                  {{ 'customer.login_page.dont_have_an_account' | t }}
-                  {% assign text_button_title = 'customer.login_page.create_account' | t %}
-                  {% render 'text-button', url: routes.account_register_url, title: text_button_title %}
-                  <div>
-                  </div>
-                </div>
+<div class="row">
+  <div class="small-12 columns">
+    <div class="thb-form-container">      
+      <div class="thb-login-form cus-login" id="login">
+        {% form 'customer_login', novalidate: 'novalidate' %}
+          <div class="custom_login">
+          <div class="customer--login">
+          <h4>{{ 'customer.login_page.login' | t }}</h4>
+          <p><strong>{{ 'customer.login_page.login_desc' | t }}</strong></p>    
+          <p>{{ 'customer.login_page.login_description' | t }}</p>
+          <div class="switch-login-section desk">
+              {{ 'customer.login_page.dont_have_an_account' | t }}
+              {% assign text_button_title = 'customer.login_page.create_account' | t %}
+              {% render 'text-button', url: routes.account_register_url, title: text_button_title %}
+              <div>              
               </div>
-              {% endform %}
             </div>
           </div>
-
-          <!-- Content for the second slide -->
-          <div class="slider-slide" id="slide2">
-            <div class="thb-login-form cus-login" id="login">
-              {% form 'customer_login', novalidate: 'novalidate' %}
-              <!-- Duplicate the content from the first slide -->
-              <div class="custom_login">
-                <div class="customer--login">
-                  <h4>{{ 'customer.login_page.login' | t }}</h4>
-                  <p><strong>{{ 'customer.login_page.login_desc' | t }}</strong></p>
-                  <p>{{ 'customer.login_page.login_description' | t }}</p>
-                  <div class="switch-login-section desk">
-                    {{ 'customer.login_page.dont_have_an_account' | t }}
-                    {% assign text_button_title = 'customer.login_page.create_account' | t %}
-                    {% render 'text-button', url: routes.account_register_url, title: text_button_title %}
-                    <div>
-                    </div>
-                  </div>
-                </div>
-                {% if form.errors %}
-                  <div class="form-notification error">
-                    {% render 'svg-icons' with 'thb-error' %}
-                    {{ form.errors | default_errors }}
-                  </div>
-                {% endif %}
-                <div class="fields login--page">
-                  <div class="field">
-                    <label for="number">{{ 'customer.login_page.Mobile' | t }}</label>
-                    <div class="field--login--mobile">
-                      <span>+971</span>
-                      <input
-                        type="number"
-                        placeholder="{{ 'customer.login_page.mobile'| t }}"
-                        class="full numeric"
-                        name="number"
-                        id="mobile"
-                        pattern="[0-9]*"
-                        inputmode="numeric"
-                        required
-                      >
-                    </div>
-                  </div>
-                  <p>Will we SMS you a one-time password for verification.</p>
-                  <div class="field">
-                    <button type="button" class="button full" id="regi_button" onclick="openOTPPopup()">
-                      <span>{{ 'customer.login_page.submit_register' | t }}</span>
-                    </button>
-                  </div>
-                </div>
-                <div class="switch-login-section mob">
-                  {{ 'customer.login_page.dont_have_an_account' | t }}
-                  {% assign text_button_title = 'customer.login_page.create_account' | t %}
-                  {% render 'text-button', url: routes.account_register_url, title: text_button_title %}
-                  <div>
-                  </div>
-                </div>
-              </div>
-              {% endform %}
+          {% if form.errors %}
+            <div class="form-notification error">
+              {% render 'svg-icons' with 'thb-error' %}
+              {{ form.errors | default_errors }}
             </div>
+          {% endif %}
+          <div class="fields login--page">
+        <div class="field">
+              <label for="number">{{ 'customer.login_page.Mobile' | t }}</label>
+              <div class="field--login--mobile">
+                <span>+971</span>
+                <input
+                  type="number"
+                  placeholder="{{ 'customer.login_page.mobile'| t }}"
+                  class="full numeric"
+                  name="number"
+                  id="mobile"
+                  pattern="[0-9]*"
+                  inputmode="numeric"
+                  required
+                >
+              </div>
+            </div>   
+            <p>Will we SMS you a one time password for verification.</p>
+          <div class="field">
+             <button type="button" class="button full" id="regi_button" onclick="openOTPPopup()">
+              <span>{{ 'customer.login_page.submit_register' | t }}</span>
+            </button>
+          </div>            
           </div>
-        </div>
-
-        <!-- Add more slides as needed -->
-
-        <!-- Button to change the slide -->
-        <button type="button" class="button full" onclick="changeSlide()">
-          <span>{{ 'customer.login_page.submit_register' | t }}</span>
-        </button>
-
+            <div class="switch-login-section mob">
+              {{ 'customer.login_page.dont_have_an_account' | t }}
+              {% assign text_button_title = 'customer.login_page.create_account' | t %}
+              {% render 'text-button', url: routes.account_register_url, title: text_button_title %}
+              <div>              
+              </div>
+            </div>
+            </div>
+          <div class="devider"><span>or</span></div>
+            <div class="switch-login-section">              
+              {% assign text_button_title = 'Need Help?' %}             
+              {% render 'text-button', url: #, title: text_button_title %}
+               We’re here to assist.
+              <div>              
+              </div>
+            </div>
+        {% endform %}
       </div>
     </div>
   </div>
-
-  <script>
-    function changeSlide() {
-      var currentSlide = document.querySelector('.slider-slide.active');
-      var nextSlide = currentSlide.nextElementSibling;
-
-      if (!nextSlide) {
-        nextSlide = document.querySelector('.slider-slide:first-child');
-      }
-
-      currentSlide.classList.remove('active');
-      nextSlide.classList.add('active');
-    }
-  </script>
+</div>
