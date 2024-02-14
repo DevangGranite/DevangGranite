@@ -534,3 +534,9 @@ html.popup-overlap body:before {
         padding: 24px 24px 17px;
     }
 }
+
+
+.otp-container .fields.login--page .popup-wrapper {
+    padding: 0;
+    background: transparent;
+}
