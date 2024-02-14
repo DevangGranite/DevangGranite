@@ -232,3 +232,19 @@ function validateAndSwitch(input, nextFieldId) {
         mobileInput.value = numericValue;
 
     }   
+
+        function validateAndSwitch(input, nextInputId) {
+        var inputValue = input.value.trim();
+        var submitButton = document.getElementById('submitButton');
+
+        if (inputValue !== '') {
+            if (nextInputId) {
+                var nextInput = document.getElementById(nextInputId);
+                nextInput.focus();
+            } else {
+                submitButton.removeAttribute('disabled');
+            }
+        } else {
+            submitButton.setAttribute('disabled', 'disabled');
+        }
+    }
