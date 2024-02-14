@@ -232,3 +232,13 @@ function validateAndSwitch(input, nextFieldId) {
         mobileInput.value = numericValue;
 
     }   
+       function checkButtonState() {
+        var mobileInput = document.getElementById('mobile');
+        var registerButton = document.getElementById('OneTimePassword1','OneTimePassword2','OneTimePassword3','OneTimePassword4','OneTimePassword5');
+
+        if (mobileInput.value.trim() !== '') {
+            registerButton.removeAttribute('disabled');
+        } else {
+            registerButton.setAttribute('disabled', 'disabled');
+        }
+    }
