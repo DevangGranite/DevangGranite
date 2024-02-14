@@ -569,3 +569,6 @@ html.popup-overlap body:before {
     opacity: 0.5;
     cursor: not-allowed;
 }
+.popup-overlap div#main-content {
+    clip-path: none !important;
+}
