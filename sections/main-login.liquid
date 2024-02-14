@@ -38,11 +38,10 @@
                 class="full numeric"
                 name="number"
                 id="mobile"
-                pattern="[0-9]*"
                 inputmode="numeric"
                 required
                 maxlength="10"
-                oninput="checkButtonState()"
+                oninput="validateInput()"
             >
         </div>
     </div>
@@ -180,11 +179,17 @@
       
     });
 
-      function checkButtonState() {
+        function validateInput() {
         var mobileInput = document.getElementById('mobile');
         var registerButton = document.getElementById('registerButton');
 
-        if (mobileInput.value.trim().length === 10) {
+        // Remove non-numeric characters
+        var numericValue = mobileInput.value.replace(/\D/g, '');
+
+        // Update the input value with the numeric value
+        mobileInput.value = numericValue;
+
+        if (numericValue.length === 10) {
             registerButton.removeAttribute('disabled');
         } else {
             registerButton.setAttribute('disabled', 'disabled');
