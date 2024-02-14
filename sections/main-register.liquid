@@ -306,7 +306,8 @@
         // Handle errors that may occur during the fetch operation
         console.error('Error fetching data:', error);
       });
-
+  
+var mobileInput = document.getElementById('mobile');
   var verifyOTP = document.getElementById('verifyOtpbtn');
   verifyOTP.addEventListener('click', function () {
   var OTP = document.getElementById('OneTimePassword1').value+document.getElementById('OneTimePassword2').value+document.getElementById('OneTimePassword3').value+document.getElementById('OneTimePassword4').value+document.getElementById('OneTimePassword5').value+document.getElementById('OneTimePassword6').value;
