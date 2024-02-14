@@ -32,15 +32,14 @@
         <label for="number">{{ 'customer.login_page.Mobile' | t }}</label>
         <div class="field--login--mobile">
             <span>+971</span>
-           <input
-                type="tel" <!-- Change type to "tel" for telephone numbers -->
+            <input
+                type="number"
                 placeholder="{{ 'customer.login_page.mobile'| t }}"
                 class="full numeric"
                 name="number"
                 id="mobile"
-                pattern="[0-9]{10}" <!-- Set pattern to allow only 10 digits -->
+                pattern="[0-9]*"
                 inputmode="numeric"
-                maxlength="10" <!-- Set maxlength to limit input to 10 characters -->
                 required
                 oninput="checkButtonState()"
             >
