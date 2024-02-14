@@ -249,3 +249,29 @@ function validateAndSwitch(input, nextFieldId) {
         mobileInput.value = numericValue;
 
     }   
+
+     function validateInput() {
+        var mobileInput = document.getElementById('mobile');
+        var errorMessage = document.getElementById('error-message');
+
+        // Check if the input is empty
+        if (mobileInput.value.trim() === '') {
+            errorMessage.innerText = 'Please enter a valid mobile number.';
+            errorMessage.style.display = 'block';
+        } else {
+            errorMessage.innerText = ''; // Clear the error message
+            errorMessage.style.display = 'none';
+        }
+    }
+
+    function openOTPPopup() {
+        // Validate input before proceeding
+        validateInput();
+
+        // Your existing openOTPPopup() code goes here...
+        // For example, you might want to check if there are no validation errors before opening the OTP popup.
+        // If validation passes, proceed with opening the OTP popup.
+    }
+
+    // Add event listener to the button
+    document.getElementById('regi_button').addEventListener('click', openOTPPopup);
