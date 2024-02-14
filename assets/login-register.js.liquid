@@ -112,14 +112,22 @@ function closeOTPPopup() {
 }
 
 
-  function saveOtpPopup(event) {
-    // Add logic here to handle the data entered in the popup
-    // For now, let's just close the popup without refreshing the page
-    closeOtpPopup();
+ function saveOtpPopup(event) {
+  // Add logic here to handle the data entered in the popup
+  // For now, let's just close the popup without refreshing the page
+  closeOtpPopup();
 
-    // Prevent the default form submission behavior
-    event.preventDefault();
-  }
+  // Prevent the default form submission behavior
+  event.preventDefault();
+}
+
+function closeOtpPopup() {
+  // Implement the logic to close your OTP popup here
+  // This could involve hiding the popup or removing it from the DOM
+  // For example:
+  // document.getElementById("yourPopupId").style.display = "none";
+}
+
 function validateAndSwitch(input, nextFieldId) {
     // Remove non-numeric characters
     input.value = input.value.replace(/[^0-9a-zA-Z]/g, '');
