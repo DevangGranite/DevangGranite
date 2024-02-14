@@ -325,22 +325,5 @@ function validateAndSwitch(input, nextFieldId) {
         // Start the timer
         startTimer(timerDuration, timerElement);
     }
-     function openOTPPopup() {
-        // Disable the button to prevent multiple clicks
-        document.getElementById('regi_button').setAttribute('disabled', 'true');
-
-        // Get the timer element
-        const timerElement = document.getElementById('timer');
-
-        // Set the duration of the timer in seconds (in this case, 60 seconds)
-        const timerDuration = 60;
-
-        // Start the timer
-        startTimer(timerDuration, timerElement);
-
-        // Add your additional logic for opening the OTP popup here
-        // For example, you can show a modal or perform any other action
-        console.log('Opening OTP popup...');
-    }
     
 /*** Timer end ***/
