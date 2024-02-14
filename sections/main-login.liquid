@@ -181,10 +181,11 @@
 
 const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
 
-function validateInput() {
-    var mobileInput = document.getElementById('mobile');
-    var registerButton = document.getElementById('registerButton');
+// Declare mobileInput outside the validateInput function
+var mobileInput = document.getElementById('mobile');
+var registerButton = document.getElementById('registerButton');
 
+function validateInput() {
     // Remove non-numeric characters
     var numericValue = mobileInput.value.replace(/\D/g, '');
 
@@ -198,7 +199,7 @@ function validateInput() {
     }
 }
 
-document.getElementById('registerButton').addEventListener('click', function () {
+registerButton.addEventListener('click', function () {
     // API call
     fetch(apiUrl, {
         method: 'POST',
