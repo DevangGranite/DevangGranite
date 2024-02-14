@@ -536,11 +536,16 @@ html.popup-overlap body:before {
 }
 
 
-.otp-container .fields.login--page .popup-wrapper {
+#main-content .otp-container .fields.login--page .popup-wrapper {
     padding: 0;
     background: transparent;
 }
 
-#main-content .field-area .popup-otp-input-box input {
+#main-content .otp-container .fields.login--page .popup-wrapper .popup-otp-wrapper {
+    background: transparent;
+    padding: 0;
+}
+
+#main-content .otp-container .field-area .popup-otp-input-box input {
     background-color:#fff;
 }
