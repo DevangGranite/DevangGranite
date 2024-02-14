@@ -26,79 +26,43 @@
             </div>
           {% endif %}
         <div class="fields login--page">
-        <div class="field">
-              <label for="number">{{ 'customer.login_page.Mobile' | t }}</label>
-              <div class="field--login--mobile">
-                <span>+971</span>
-                <input
-                  type="number"
-                  placeholder="{{ 'customer.login_page.mobile'| t }}"
-                  class="full numeric"
-                  name="number"
-                  id="mobile"
-                  pattern="[0-9]*"
-                  inputmode="numeric"
-                  required
-                >
-              </div>
-            </div>   
-            <p>Will we SMS you a one time password for verification.</p>
-            <div class="field-area">
-                <div id="otppopup">
-                  <div class="popup-wrapper">
-                    <h1 class="popup-title">Validate your Mobile Number</h1>
-                    <p class="popup-subtitle">We sent a code to your Mobile Phone.</p>
-                    <div class="popup-otp-wrapper">
-                      <label for="OneTimePassword">One Time Password</label>
-                      <div class="popup-otp-input-box">
-                        <input
-                          type="text"
-                          name="OneTimePassword"
-                          id="OneTimePassword1"
-                          maxlength="1"
-                          oninput="validateAndSwitch(this, 'OneTimePassword2')"
-                        >
-                        <input
-                          type="text"
-                          name="OneTimePassword"
-                          id="OneTimePassword2"
-                          maxlength="1"
-                          oninput="validateAndSwitch(this, 'OneTimePassword3')"
-                        >
-                        <input
-                          type="text"
-                          name="OneTimePassword"
-                          id="OneTimePassword3"
-                          maxlength="1"
-                          oninput="validateAndSwitch(this, 'OneTimePassword4')"
-                        >
-                        <input
-                          type="text"
-                          name="OneTimePassword"
-                          id="OneTimePassword4"
-                          maxlength="1"
-                          oninput="validateAndSwitch(this, 'OneTimePassword5')"
-                        >
-                        <input
-                          type="text"
-                          name="OneTimePassword"
-                          id="OneTimePassword5"
-                          maxlength="1"
-                          oninput="validateAndSwitch(this, null)"
-                        >
-                      </div>
-                      <p class="timing">Resend code in <span>56s</span></p>
-                      <button onclick="saveOtpPopup(event)">Validate your Mobile Number</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          <div class="field">
-             <button type="button" class="button full" id="regi_button" onclick="openOTPPopup()">
-              <span>{{ 'customer.login_page.submit_register' | t }}</span>
-            </button>
-          </div>            
-          </div>
+    <div class="field">
+        <label for="number">{{ 'customer.login_page.Mobile' | t }}</label>
+        <div class="field--login--mobile">
+            <span>+971</span>
+            <input
+                type="number"
+                placeholder="{{ 'customer.login_page.mobile'| t }}"
+                class="full numeric"
+                name="number"
+                id="mobile"
+                pattern="[0-9]*"
+                inputmode="numeric"
+                required
+            >
+        </div>
+    </div>
+    <p>Will we SMS you a one-time password for verification.</p>
+
+    <!-- OTP Fields -->
+    <div class="field" id="otpFields" style="display: none;">
+        <label for="OneTimePassword">One Time Password</label>
+        <div class="popup-otp-input-box">
+            <input type="text" name="OneTimePassword" maxlength="1" oninput="validateAndSwitch(this)">
+            <input type="text" name="OneTimePassword" maxlength="1" oninput="validateAndSwitch(this)">
+            <input type="text" name="OneTimePassword" maxlength="1" oninput="validateAndSwitch(this)">
+            <input type="text" name="OneTimePassword" maxlength="1" oninput="validateAndSwitch(this)">
+            <input type="text" name="OneTimePassword" maxlength="1" oninput="validateAndSwitch(this)">
+        </div>
+        <p class="timing">Resend code in <span>56s</span></p>
+    </div>
+
+    <div class="field">
+        <button type="button" class="button full" id="regi_button" onclick="toggleOTPFields()">
+            <span>{{ 'customer.login_page.submit_register' | t }}</span>
+        </button>
+    </div>
+</div>
             <div class="switch-login-section mob">
               {{ 'customer.login_page.dont_have_an_account' | t }}
               {% assign text_button_title = 'customer.login_page.create_account' | t %}
@@ -120,3 +84,64 @@
     </div>
   </div>
 </div>
+
+Sure, you can use the nextElementSibling property in JavaScript to navigate to the next sibling element. Here's the modified code:
+
+html
+Copy code
+<div class="fields login--page">
+    <div class="field">
+        <label for="number">{{ 'customer.login_page.Mobile' | t }}</label>
+        <div class="field--login--mobile">
+            <span>+971</span>
+            <input
+                type="number"
+                placeholder="{{ 'customer.login_page.mobile'| t }}"
+                class="full numeric"
+                name="number"
+                id="mobile"
+                pattern="[0-9]*"
+                inputmode="numeric"
+                required
+            >
+        </div>
+    </div>
+    <p>Will we SMS you a one-time password for verification.</p>
+
+    <!-- OTP Fields -->
+    <div class="field" id="otpFields" style="display: none;">
+        <label for="OneTimePassword">One Time Password</label>
+        <div class="popup-otp-input-box">
+            <input type="text" name="OneTimePassword" maxlength="1" oninput="validateAndSwitch(this)">
+            <input type="text" name="OneTimePassword" maxlength="1" oninput="validateAndSwitch(this)">
+            <input type="text" name="OneTimePassword" maxlength="1" oninput="validateAndSwitch(this)">
+            <input type="text" name="OneTimePassword" maxlength="1" oninput="validateAndSwitch(this)">
+            <input type="text" name="OneTimePassword" maxlength="1" oninput="validateAndSwitch(this)">
+        </div>
+        <p class="timing">Resend code in <span>56s</span></p>
+    </div>
+
+    <div class="field">
+        <button type="button" class="button full" id="regi_button" onclick="toggleOTPFields()">
+            <span>{{ 'customer.login_page.submit_register' | t }}</span>
+        </button>
+    </div>
+</div>
+
+<script>
+    function toggleOTPFields() {
+        var otpFields = document.getElementById('otpFields');
+        otpFields.style.display = 'block';
+        // You can add logic here to trigger OTP sending and countdown timer.
+    }
+
+    function validateAndSwitch(currentInput) {
+        // Add your validation logic if needed
+        if (currentInput.value.length === currentInput.maxLength) {
+            var nextInput = currentInput.nextElementSibling;
+            if (nextInput) {
+                nextInput.focus();
+            }
+        }
+    }
+</script>
