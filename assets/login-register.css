@@ -565,7 +565,7 @@ html.popup-overlap body:before {
     opacity: 0.5;
     cursor: not-allowed;
 }
-#submitButton:disabled {
+#verifyOtpbtn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
