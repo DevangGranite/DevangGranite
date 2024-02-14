@@ -219,4 +219,46 @@ registerButton.addEventListener('click', function () {
         });
 });
 
+   const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/verifyOTP';
+
+    function verifyOTP() {
+        // Get the user input from the mobile number input field
+        const userMobileNumber = document.getElementById('mobileNumberInput').value;
+
+        // Use the fetch function to make a POST request to the API
+        fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                mobileNo: userMobileNumber,
+                otp: '000011', // You can replace this with the actual OTP value if needed
+            }),
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok: ${response.status}`);
+                }
+
+                return response.json();
+            })
+            .then(data => {
+                console.log('Verify OTP API Response:', data);
+                // Handle the response data as needed
+
+                // Enable the submitButton after successful OTP verification
+                document.getElementById('submitButton').disabled = false;
+            })
+            .catch(error => {
+                // Handle errors that may occur during the fetch operation
+                console.error('Error fetching data:', error);
+            });
+    }
+
+    // Attach the verifyOTP function to the button's click event
+    document.getElementById('submitButton').addEventListener('click', verifyOTP);
+
+
+  
 </script>
