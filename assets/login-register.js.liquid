@@ -48,8 +48,8 @@ function openOTPPopup() {
     var mobileInput = document.getElementById('mobile');
     var numericValue = mobileInput.value.replace(/\D/g, '');
 
-    // Check if the mobile number has 10 digits
-    if (numericValue.length === 10) {
+    // Check if the mobile number has 9 digits
+    if (numericValue.length === 9) {
         const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
 
         // Use the fetch function to make a POST request to the API
@@ -89,9 +89,9 @@ function openOTPPopup() {
             console.error('Error fetching data:', error);
         });
     } else {
-        // Handle the case where the mobile number does not have 10 digits
-     // alert('Mobile number must have 10 digits');
-        console.error('Mobile number must have 10 digits');
+        // Handle the case where the mobile number does not have 9 digits
+     // alert('Mobile number must have 9 digits');
+        console.error('Mobile number must have 9 digits');
     }
 }
 
