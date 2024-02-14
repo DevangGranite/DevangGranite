@@ -323,7 +323,8 @@
       "address2_place": "Enter Apt \/ Villa Number & Building \/ Villa Name",
       "validate": "Validate your mobile number",
       "validate_desc": "We sent a code to the following number",
-      "validate_description": "Not your number?"
+      "validate_description": "Not your number?",
+      "varify": "Verify Mobile Number"
     },
     "recover_password": {
       "title": "Reset your password",
