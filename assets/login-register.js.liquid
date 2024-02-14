@@ -83,20 +83,37 @@ function closeOTPPopup() {
     // Prevent the default form submission behavior
     event.preventDefault();
   }
-function validateAndSwitch(input, nextFieldId) {
-    // Remove non-numeric characters
-    input.value = input.value.replace(/[^0-9a-zA-Z]/g, '');
+   function validateAndSwitch(input, nextFieldId, submitButtonId) {
+        // Remove non-numeric characters
+        input.value = input.value.replace(/[^0-9a-zA-Z]/g, '');
 
-    // Ensure only one character is entered
-    if (input.value.length > 1) {
-        input.value = input.value.charAt(0);
-    }
+        // Ensure only one character is entered
+        if (input.value.length > 1) {
+            input.value = input.value.charAt(0);
+        }
 
-    // Switch focus to the next input field
-    if (input.value.length === 1 && nextFieldId) {
-        document.getElementById(nextFieldId).focus();
+        // Switch focus to the next input field
+        if (input.value.length === 1 && nextFieldId) {
+            document.getElementById(nextFieldId).focus();
+        }
+
+        // Check if all input fields are filled
+        var allInputsFilled = true;
+        var inputs = document.querySelectorAll('.popup-otp-input-box input');
+        inputs.forEach(function (input) {
+            if (input.value.trim() === '') {
+                allInputsFilled = false;
+            }
+        });
+
+        // Enable or disable the submit button based on all inputs being filled
+        var submitButton = document.getElementById(submitButtonId);
+        if (allInputsFilled) {
+            submitButton.removeAttribute('disabled');
+        } else {
+            submitButton.setAttribute('disabled', 'disabled');
+        }
     }
-}
   
 /*** Pop up End OTP ***/
 
