@@ -66,6 +66,9 @@ function openOTPPopup() {
         .then(data => {
             console.log('MSS Test', data);
             // Handle the API response data, such as showing a success message or triggering further actions.
+            
+            // Open your popup here (you can use a library or implement your own popup logic)
+            openPopup();
         })
         .catch(error => {
             // Handle errors that may occur during the fetch operation
@@ -82,6 +85,14 @@ function isValidMobileNumber(number) {
     // Implement your validation logic here
     // For example, check if the number is numeric and has the required length
     return /^\d{10}$/.test(number);
+}
+
+function openPopup() {
+    // Implement your popup logic here (you can use a library or create your own)
+    // For example, you can display a modal, overlay, or a custom popup element
+    // Ensure that the popup is styled and positioned as desired
+    alert('Popup opened!');
+    // You can replace the above line with your actual popup implementation
 }
 
 function closeOTPPopup() {
