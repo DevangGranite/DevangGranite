@@ -306,6 +306,7 @@
         console.error('Error fetching data:', error);
       });
 
+  var verifyOTP = document.getElementById('verifyOtpbtn');
   verifyOTP.addEventListener('click', function () {
   var OTP = document.getElementById('OneTimePassword1').value+document.getElementById('OneTimePassword2').value+document.getElementById('OneTimePassword3').value+document.getElementById('OneTimePassword4').value+document.getElementById('OneTimePassword5').value+document.getElementById('OneTimePassword6').value;
     const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/veryfyOTP';
