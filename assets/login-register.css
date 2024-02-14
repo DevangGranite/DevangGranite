@@ -229,15 +229,7 @@ input.full.numeric {
 .create_form_wrapper .field--country_codee input#mobile {
   border: none;
   margin-bottom: 0;
-      border: none;
-    margin-bottom: 0;
-    padding: 12px 17px;
-    margin-bottom: 0;
-    margin-bottom: 0;
-    padding: 12px 17px;
-    min-height: 72px;
-    border: none;
-    
+  outline: 0;
 }
 .thb-form-container .create_form_wrapper select {
   appearance: auto;
