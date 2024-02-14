@@ -45,14 +45,17 @@
 
 /*** Pop up start OTP ***/
 function openOTPPopup() {
-    // Assuming you have a popup with the id 'otppopup', you can display it here
-    var otpPopup = document.getElementById('otppopup');
+    var otpPopupHtml = document.getElementsByTagName( 'html' )[0];
+    var otpPopupElement = document.getElementById('otppopup');
 
-    if (otpPopup) {
-        // Toggle the visibility of the OTP popup
-        otpPopup.style.display = 'block';
+    if (otpPopupElement) {
+        // Set display property to 'block'
+        otpPopupElement.style.display = 'block';
+
+        // Add a class to the element
+        otpPopupHtml.classList.add('popup-overlap');
     } else {
-        console.error('OTPPopup not found');
+        console.error("Element with ID 'otppopup' not found");
     }
 }
 
