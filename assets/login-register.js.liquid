@@ -1,0 +1,225 @@
+ /*** city and dis Start ***/
+  document.addEventListener("DOMContentLoaded", function() {
+
+      getCityDistricts(0);
+
+    // document.getElementById("regi_button").addEventListener("click", function(event) {
+    // });
+  });
+
+  function getCityDistricts(id){
+      // alert(id);
+      const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/getCityDistricts/'+id;
+      
+      // Use the fetch function to make a GET request to the API
+      fetch(apiUrl, {
+        method: 'GET',
+       
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Network response was not ok: ${response.status}`);
+        }
+        
+        return response.json();
+      })
+      .then(data => {
+        // console.log('data', data.response);
+        if(id == 0){
+          let city = "<option>{{ 'customer.addresses.city_reg' | t }}</option>";
+          data.response.forEach(function (item) {
+            city += `<option value="${item.id}">${item.city_name}</option>`;
+          });
+          document.getElementById("regi_city").innerHTML = city;
+        }else{
+          let districts = "<option>{{ 'customer.addresses.district_reg' | t }}</option>";
+          data.response.forEach(function (item) {
+            districts += `<option value="${item.id}">${item.district_name}</option>`;
+          });
+          document.getElementById("district").innerHTML = districts;
+        }
+      })
+      .catch(error => {
+        // Handle errors that may occur during the fetch operation
+        console.error('Error fetching data:', error);
+      });
+  }
+/*** city and dis end ***/
+
+/*** Pop up start OTP ***/
+function openOTPPopup() {
+    var otpPopupHtml = document.getElementsByTagName( 'html' )[0];
+    var otpPopupElement = document.getElementById('otppopup');
+
+    if (otpPopupElement) {
+        // Set display property to 'block'
+        otpPopupElement.style.display = 'block';
+
+        // Add a class to the element
+        otpPopupHtml.classList.add('popup-overlap');
+    } else {
+        console.error("Element with ID 'otppopup' not found");
+    }
+}
+
+function closeOTPPopup() {
+    var otpPopupHtml = document.getElementsByTagName( 'html' )[0];
+    var otpPopupElement = document.getElementById('otppopup');
+
+    if (otpPopupElement) {
+        // Remove the class from the element
+        otpPopupHtml.classList.remove('popup-overlap');
+
+        // Set display property to 'none'
+        otpPopupElement.style.display = 'none';
+    } else {
+        console.error("Element with ID 'otppopup' not found");
+    }
+}
+
+
+  function saveOtpPopup(event) {
+    // Add logic here to handle the data entered in the popup
+    // For now, let's just close the popup without refreshing the page
+    closeOtpPopup();
+
+    // Prevent the default form submission behavior
+    event.preventDefault();
+  }
+function validateAndSwitch(input, nextFieldId) {
+    // Remove non-numeric characters
+    input.value = input.value.replace(/[^0-9a-zA-Z]/g, '');
+
+    // Ensure only one character is entered
+    if (input.value.length > 1) {
+        input.value = input.value.charAt(0);
+    }
+
+    // Switch focus to the next input field
+    if (input.value.length === 1 && nextFieldId) {
+        document.getElementById(nextFieldId).focus();
+    }
+}
+  
+/*** Pop up End OTP ***/
+
+  /*** Pop up start MAP ***/
+
+   var map;
+
+    // Function to initialize the map
+    function initMap() {
+      // Create a new map instance and set its properties
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 0, lng: 0 }, // Set the initial map center
+        zoom: 10, // Set the initial zoom level
+      });
+
+      // Add a click event listener to the map to capture the selected location
+      google.maps.event.addListener(map, 'click', function(event) {
+        updateLocation(event.latLng);
+      });
+
+      // Add a dragend event listener to the map to capture the dragged location
+      google.maps.event.addListener(map, 'dragend', function() {
+        updateLocation(map.getCenter());
+      });
+    }
+
+    // Function to open the popup
+   function openPopup() {
+    var otpPopupHtml = document.getElementsByTagName( 'html' )[0];
+    var popupElement = document.getElementById('popup');
+
+    if (popupElement) {
+        // Set display property to 'block'
+        popupElement.style.display = 'block';
+
+        // Add a class to the element
+        otpPopupHtml.classList.add('popup-overlap');
+
+        // Check if initMap function is defined before calling
+        if (typeof initMap === 'function') {
+            // Initialize the map when the popup is opened
+            initMap();
+        } else {
+            console.error("initMap function is not defined");
+        }
+    } else {
+        console.error("Element with ID 'popup' not found");
+    }
+}
+    // Function to close the popup
+  
+    function closePopup() {
+    var otpPopupHtml = document.getElementsByTagName( 'html' )[0];
+    var popupElement = document.getElementById('popup');
+
+    if (popupElement) {
+        // Remove the class from the element
+        otpPopupHtml.classList.remove('popup-overlap');
+
+        // Set display property to 'none'
+        popupElement.style.display = 'none';
+    } else {
+        console.error("Element with ID 'popup' not found");
+    }
+}
+
+    // Function to update the location information
+    function updateLocation(location) {
+      // Update the input field with the selected location
+      let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${location.lat()},${location.lng()}`
+    /** get address form lag and lng **/ 
+    fetch(apiAdd)
+      .then(response => {
+          if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+      })
+      .then(data => {
+          document.getElementById('locationText').innderText = data.results[0]['formatted_address'];
+          document.getElementById('locationInput').value = data.results[0]['formatted_address'];
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+      }
+      /** END  get address form lag and lng **/ 
+    // Function to handle Enter key on the address input field
+    function handleEnterKey(event) {
+      if (event.key === 'Enter') {
+        // Prevent the default Enter key behavior (form submission)
+        event.preventDefault();
+
+        // Update location based on entered address
+        updateLocationForAddress();
+      }
+    }
+
+    // Function to update the location based on entered address
+    function updateLocationForAddress() {
+      var address = document.getElementById('addressInput').value;
+
+      // Use Google Maps Geocoding API to convert the address into latitude and longitude
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ 'address': address }, function(results, status) {
+        if (status == 'OK' && results[0]) {
+          var location = results[0].geometry.location;
+
+          // Update the map center
+          map.setCenter(location);
+
+          // Update the location information
+          updateLocation(location);
+        }
+      });
+    }
+
+    // Function to show map based on entered address
+    function showMapForAddress() {
+      updateLocationForAddress();
+    }
+  
+  /*** Pop up end MAP ***/
