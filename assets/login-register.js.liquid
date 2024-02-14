@@ -84,18 +84,7 @@ function closeOTPPopup() {
     event.preventDefault();
   }
 function validateAndSwitch(input, nextFieldId) {
-    // Remove non-numeric characters
-    input.value = input.value.replace(/[^0-9a-zA-Z]/g, '');
-
-    // Ensure only one character is entered
-    if (input.value.length > 1) {
-        input.value = input.value.charAt(0);
-    }
-
-    // Switch focus to the next input field
-    if (input.value.length === 1 && nextFieldId) {
-        document.getElementById(nextFieldId).focus();
-    }
+    
 }
   
 /*** Pop up End OTP ***/
@@ -234,6 +223,18 @@ function validateAndSwitch(input, nextFieldId) {
     }   
 
         function validateAndSwitch(input, nextInputId) {
+          // Remove non-numeric characters
+    input.value = input.value.replace(/[^0-9a-zA-Z]/g, '');
+
+    // Ensure only one character is entered
+    if (input.value.length > 1) {
+        input.value = input.value.charAt(0);
+    }
+
+    // Switch focus to the next input field
+    if (input.value.length === 1 && nextFieldId) {
+        document.getElementById(nextFieldId).focus();
+    }
         var inputValue = input.value.trim();
         var submitButton = document.getElementById('submitButton');
         var allInputsFilled = true;
