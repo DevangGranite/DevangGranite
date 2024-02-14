@@ -275,6 +275,7 @@ function validateAndSwitch(input, nextFieldId) {
   
 /*** Pop up end MAP ***/  
 
+/*** Reg mobile field start ***/
   function validateInputt() {
     
       var mobileInput = document.getElementById('mobile');
@@ -286,3 +287,43 @@ function validateAndSwitch(input, nextFieldId) {
       // Update the input value with the numeric value
       mobileInput.value = numericValue;
   }
+/*** Reg mobile field end ***/
+
+/*** Timer start ***/
+
+   let timer;
+    
+    // Function to start the countdown timer
+    function startTimer(duration, display) {
+        let timeLeft = duration;
+        timer = setInterval(function () {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+
+            const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            display.textContent = formattedTime;
+
+            if (--timeLeft < 0) {
+                clearInterval(timer);
+                // Enable the button when the timer reaches zero
+                document.getElementById('registerButton').removeAttribute('disabled');
+            }
+        }, 1000);
+    }
+
+    // Function to start the timer when the button is clicked
+    function startTimerOnClick() {
+        // Disable the button to prevent multiple clicks
+        document.getElementById('registerButton').setAttribute('disabled', 'true');
+
+        // Get the timer element
+        const timerElement = document.getElementById('timer');
+
+        // Set the duration of the timer in seconds (in this case, 60 seconds)
+        const timerDuration = 60;
+
+        // Start the timer
+        startTimer(timerDuration, timerElement);
+    }
+    
+/*** Timer end ***/
