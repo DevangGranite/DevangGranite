@@ -540,3 +540,15 @@ html.popup-overlap body:before {
     padding: 0;
     background: transparent;
 }
+
+#main-content .field-area .popup-otp-input-box input {
+    border: 1px solid #001489;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    width: calc(20% - 10px);
+    min-height: inherit;
+    height: 60px;
+    margin-bottom: 0;
+}
