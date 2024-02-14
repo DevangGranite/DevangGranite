@@ -51,7 +51,7 @@
                   pattern="[0-9]*"
                   inputmode="numeric"
                   required
-                  maxlength="10"
+                  maxlength="9"
                   oninput="validateInputt(this.value);"
               >
               </div>
@@ -157,6 +157,14 @@
                           type="text"
                           name="OneTimePassword"
                           id="OneTimePassword5"
+                          maxlength="1"
+                          oninput="validateAndSwitch(this, null)"
+                          autocomplete="off"
+                        >
+                        <input
+                          type="text"
+                          name="OneTimePassword"
+                          id="OneTimePassword6"
                           maxlength="1"
                           oninput="validateAndSwitch(this, null)"
                           autocomplete="off"
