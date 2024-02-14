@@ -222,9 +222,8 @@ input.full.numeric {
   align-items: center;
   border-radius: 6px;
 }
-.create_form_wrapper .field--country_codee:focus,
-.create_form_wrapper .field--country_codee:focus-visible {
-    outline: 0.8px solid rgb(16,16,16);
+.create_form_wrapper .field--country_codee:focus-within {
+	outline: .8px solid rgb(16,16,16);
 }
 
 .create_form_wrapper .field--country_codee span {
