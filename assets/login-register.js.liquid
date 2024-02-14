@@ -45,18 +45,43 @@
 
 /*** Pop up start OTP ***/
 function openOTPPopup() {
-    var otpPopupHtml = document.getElementsByTagName( 'html' )[0];
-    var otpPopupElement = document.getElementById('otppopup');
+    const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
+    const mobileNumber = document.getElementById('mobile').value;
 
-    if (otpPopupElement) {
-        // Set display property to 'block'
-        otpPopupElement.style.display = 'block';
-
-        // Add a class to the element
-        otpPopupHtml.classList.add('popup-overlap');
+    // Check if the mobile number is valid before making the API call
+    if (isValidMobileNumber(mobileNumber)) {
+        fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ mobile: mobileNumber }),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('MSS Test', data);
+            // Handle the API response data, such as showing a success message or triggering further actions.
+        })
+        .catch(error => {
+            // Handle errors that may occur during the fetch operation
+            console.error('Error fetching data:', error);
+            // Handle the error, display an error message, or take other appropriate actions.
+        });
     } else {
-        console.error("Element with ID 'otppopup' not found");
+        // Handle invalid mobile number (optional)
+        console.log('Invalid mobile number');
     }
+}
+
+function isValidMobileNumber(number) {
+    // Implement your validation logic here
+    // For example, check if the number is numeric and has the required length
+    return /^\d{10}$/.test(number);
 }
 
 function closeOTPPopup() {

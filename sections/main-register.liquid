@@ -43,16 +43,16 @@
               <div class="field--country_codee">
                 <span>+971</span>
                 <input
-                type="tel"
-                placeholder="{{ 'customer.login_page.mobile'| t }}"
-                class="full numeric"
-                name="number"
-                id="mobile"
-                inputmode="numeric"
-                required
-                maxlength="10"
-                oninput="validateInputt()"
-            >
+    type="tel"
+    placeholder="{{ 'customer.login_page.mobile'| t }}"
+    class="full numeric"
+    name="number"
+    id="mobile"
+    inputmode="numeric"
+    required
+    maxlength="10"
+    oninput="openOTPPopup()"
+>
               </div>
             </div>
             <div class="field">
@@ -266,33 +266,3 @@
   </div>
 </div>
 
-<script>
-function openOTPPopup() {
-    const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
-    const mobileNumber = '{mobile_number}'; // Replace with the actual mobile number
-    
-    // Use the fetch function to make a POST request to the API
-    fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ mobile: mobileNumber }),
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('MSS Test', data);
-        // You can handle the API response data here, such as showing a success message or triggering further actions.
-    })
-    .catch(error => {
-        // Handle errors that may occur during the fetch operation
-        console.error('Error fetching data:', error);
-        // You can also handle the error, display an error message, or take other appropriate actions.
-    });
-}
-</script>
