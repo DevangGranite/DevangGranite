@@ -32,7 +32,7 @@
                   <label for="number">{{ 'customer.login_page.Mobile' | t }}</label>
                   <div class="field--login--mobile">
                     <span>+971</span>
-                    <input
+                   <input
                       type="tel"
                       placeholder="{{ 'customer.login_page.mobile'| t }}"
                       class="full numeric"
@@ -42,14 +42,16 @@
                       required
                       maxlength="10"
                       oninput="validateInput()"
-                    >
+                  >
+
                   </div>
                 </div>
                 <p>Will we SMS you a one-time password for verification.</p>
                 <div class="field">
                   <button type="button" class="button full" id="registerButton" disabled>
-                    <span>{{ 'customer.login_page.varify' | t }}</span>
+                      <span>{{ 'customer.login_page.varify' | t }}</span>
                   </button>
+
                 </div>
               </div>
               <div class="switch-login-section mob">
@@ -177,20 +179,43 @@
 
   });
 
-      function validateInput() {
-      var mobileInput = document.getElementById('mobile');
-      var registerButton = document.getElementById('registerButton');
+const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
 
-      // Remove non-numeric characters
-      var numericValue = mobileInput.value.replace(/\D/g, '');
+function validateInput() {
+    var mobileInput = document.getElementById('mobile');
+    var registerButton = document.getElementById('registerButton');
 
-      // Update the input value with the numeric value
-      mobileInput.value = numericValue;
+    // Remove non-numeric characters
+    var numericValue = mobileInput.value.replace(/\D/g, '');
 
-      if (numericValue.length === 10) {
-          registerButton.removeAttribute('disabled');
-      } else {
-          registerButton.setAttribute('disabled', 'disabled');
-      }
-  }
+    // Update the input value with the numeric value
+    mobileInput.value = numericValue;
+
+    if (numericValue.length === 10) {
+        registerButton.removeAttribute('disabled');
+    } else {
+        registerButton.setAttribute('disabled', 'disabled');
+    }
+}
+
+document.getElementById('registerButton').addEventListener('click', function () {
+    // API call
+    fetch(apiUrl, {
+        method: 'POST',
+        body: JSON.stringify({ mobile: mobileInput.value }),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('MSS Test', data);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+});
+
 </script>
