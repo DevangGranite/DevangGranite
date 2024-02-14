@@ -184,7 +184,7 @@
         var mobileInput = document.getElementById('mobile');
         var registerButton = document.getElementById('registerButton');
 
-        if (mobileInput.value.trim() !== '') {
+        if (mobileInput.value.trim().length === 10) {
             registerButton.removeAttribute('disabled');
         } else {
             registerButton.setAttribute('disabled', 'disabled');
