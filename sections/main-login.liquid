@@ -32,8 +32,8 @@
         <label for="number">{{ 'customer.login_page.Mobile' | t }}</label>
         <div class="field--login--mobile">
             <span>+971</span>
-             <input
-                type="tel"
+            <input
+                type="number"
                 placeholder="{{ 'customer.login_page.mobile'| t }}"
                 class="full numeric"
                 name="number"
@@ -41,7 +41,7 @@
                 pattern="[0-9]*"
                 inputmode="numeric"
                 required
-                maxlength="10"
+                oninput="checkButtonState()"
             >
         </div>
     </div>
