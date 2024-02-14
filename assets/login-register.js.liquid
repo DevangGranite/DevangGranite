@@ -220,14 +220,3 @@ function validateAndSwitch(input, nextFieldId) {
     }
   
 /*** Pop up end MAP ***/  
-
-    function checkButtonState() {
-        var mobileInput = document.getElementById('mobile');
-        var registerButton = document.getElementById('registerButton');
-
-        if (mobileInput.value.trim().length === 10) {
-            registerButton.removeAttribute('disabled');
-        } else {
-            registerButton.setAttribute('disabled', 'disabled');
-        }
-    }
