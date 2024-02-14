@@ -132,7 +132,16 @@ function validateAndSwitch(input, nextFieldId) {
     if (input.value.length === 1 && nextFieldId) {
         document.getElementById(nextFieldId).focus();
     }
+
+    // Check if all input fields are filled
+    var allInputsFilled = Array.from(document.querySelectorAll('.your-input-class')).every(function (input) {
+        return input.value.length === 1;
+    });
+
+    // Enable or disable the submit button based on the status of all input fields
+    document.getElementById('submitButton').disabled = !allInputsFilled;
 }
+
   
 /*** Pop up End OTP ***/
 
