@@ -47,26 +47,6 @@
 function openOTPPopup() {
     var mobileInput = document.getElementById('mobile');
     var numericValue = mobileInput.value.replace(/\D/g, '');
- let timer;
-  let timeLeft = duration;
-        timer = setInterval(function () {
-            const minutes = Math.floor(timeLeft / 60);
-            const seconds = timeLeft % 60;
-
-            const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-            display.textContent = formattedTime;
-
-            if (--timeLeft < 0) {
-                clearInterval(timer);
-                // Enable the link and reset onclick when the timer finishes
-                const resendLink = document.getElementById('resendLink');
-                resendLink.classList.remove('disabled-link');
-                resendLink.setAttribute('onclick', 'startTimerOnClick()'); // Restore onclick
-                display.style.display = 'none';
-            }else{
-              display.style.display = 'block';
-            }
-        }, 1000);
 
     // Check if the mobile number has 9 digits
     if (numericValue.length === 9) {
