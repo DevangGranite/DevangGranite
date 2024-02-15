@@ -116,7 +116,8 @@ input.full.numeric {
 .field {
   margin-bottom: 15px;
 }
-#popup, #otppopup {
+#popup,
+#otppopup {
   display: none;
   position: fixed;
   top: 50%;
@@ -132,27 +133,27 @@ input.full.numeric {
   max-width: 450px;
 }
 
-.thb-form-container .create_form_wrapper input:-webkit-autofill{
-     transition: background-color 5000s ease-in-out 0s;
+.thb-form-container .create_form_wrapper input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .close-icon {
-    position: absolute;
-    right: 20px;
-    top: 18px;
+  position: absolute;
+  right: 20px;
+  top: 18px;
 }
 
-  /* Style for the map container */
-  #map {
-    height: 300px;
-    width: 100%;
-    margin-bottom: 10px;
-  }
+/* Style for the map container */
+#map {
+  height: 300px;
+  width: 100%;
+  margin-bottom: 10px;
+}
 
-  /* Style for the location text */
-  #locationText {
-    font-weight: bold;
-  }
+/* Style for the location text */
+#locationText {
+  font-weight: bold;
+}
 
 /* 12-02 */
 
@@ -223,7 +224,7 @@ input.full.numeric {
   border-radius: 6px;
 }
 .create_form_wrapper .field--country_codee:focus-within {
-	outline: .8px solid rgb(16,16,16);
+  outline: 0.8px solid rgb(16, 16, 16);
 }
 
 .create_form_wrapper .field--country_codee span {
@@ -298,21 +299,21 @@ input.full.numeric {
 /* location popup */
 
 .field-area .popup-wrapper {
-    background: #fff;
-    padding: 32px 24px 24px;
-    max-width: 560px;
-    border-radius: 24px;
+  background: #fff;
+  padding: 32px 24px 24px;
+  max-width: 560px;
+  border-radius: 24px;
 }
 
 #main-content .field-area h1.popup-title {
-    font-size: 24px;
-    line-height: 30px;
-    margin: 0 0 8px;
-    text-transform: capitalize;
-    color: #2461cc;
-    text-align: center;
-    font-weight: 400;
-    font-family: Rubik, sans-serif;
+  font-size: 24px;
+  line-height: 30px;
+  margin: 0 0 8px;
+  text-transform: capitalize;
+  color: #2461cc;
+  text-align: center;
+  font-weight: 400;
+  font-family: Rubik, sans-serif;
 }
 
 #main-content .field-area p.popup-subtitle {
@@ -342,12 +343,12 @@ input.full.numeric {
   width: 100%;
 }
 #main-content .field-area .popup-otp-wrapper label {
-    font-size: 14px;
-    line-height: 18px;
-    font-weight: 400;
-    color: #001489;
-    margin-bottom: 8px;
-    display: inline-block;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  color: #001489;
+  margin-bottom: 8px;
+  display: inline-block;
 }
 #main-content .field-area .popup-otp-input-box {
   display: flex;
@@ -355,15 +356,15 @@ input.full.numeric {
   gap: 10px;
 }
 #main-content .field-area .popup-otp-input-box input {
-    border: 1px solid #001489;
-    border-radius: 8px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 400;
-    width: calc(17% - 10px);
-    min-height: inherit;
-    height: 60px;
-    margin-bottom: 0;
+  border: 1px solid #001489;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  width: calc(17% - 10px);
+  min-height: inherit;
+  height: 60px;
+  margin-bottom: 0;
 }
 #main-content .field-area .popup-otp-wrapper p.timing {
   font-size: 14px;
@@ -403,228 +404,237 @@ input.full.numeric {
 }
 /* login page */
 
- .thb-login-form .custom_login {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}   
- .thb-login-form div#MOmyHeader {
-    display: none;
+.thb-login-form .custom_login {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.thb-login-form div#MOmyHeader {
+  display: none;
 }
 .fields.login--page {
-    display: flex;
-    flex-direction: column;
-    padding: 32px 56px 40px;
-    background: #EFF2F6;
-    border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 56px 40px;
+  background: #eff2f6;
+  border-radius: 16px;
 }
 .thb-login-form .customer--login h4 {
-    font-size: 32px;
-    line-height: 37px;
-    font-weight: 400;
-    color: #2461CC;
-    text-align: start;
-    text-transform: capitalize;
+  font-size: 32px;
+  line-height: 37px;
+  font-weight: 400;
+  color: #2461cc;
+  text-align: start;
+  text-transform: capitalize;
 }
 .thb-form-container .customer--login p {
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 400;
-    color: #2C2D2E;
-    margin-bottom: 20px;
-    text-align: start;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #2c2d2e;
+  margin-bottom: 20px;
+  text-align: start;
 }
 .thb-form-container .customer--login .switch-login-section {
-    text-align: left;
+  text-align: left;
 }
 .custom_login .field label {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 8px;
-    font-size: 14px;
-    line-height: 18px;
-    font-weight: 400;
-    color: #001489;
-    padding: 0;
-    height: auto;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  color: #001489;
+  padding: 0;
+  height: auto;
 }
 .custom_login .field--login--mobile {
-    display: flex;
-    border: 1px solid #8a8f95;
-    min-height: 72px;
-    background: #fff;
-    align-items: center;
-    border-radius: 8px;
+  display: flex;
+  border: 1px solid #8a8f95;
+  min-height: 72px;
+  background: #fff;
+  align-items: center;
+  border-radius: 8px;
 }
 .custom_login .field--login--mobile span {
-    padding: 0 11px 0 41px;
-    color: #2461cc;
+  padding: 0 11px 0 41px;
+  color: #2461cc;
 }
 .custom_login .field--login--mobile input {
-    margin-bottom: 0;
-    padding: 12px 17px;
-    min-height: 72px;
-    border: none;
-    outline: 0;
+  margin-bottom: 0;
+  padding: 12px 17px;
+  min-height: 72px;
+  border: none;
+  outline: 0;
 }
 .login--page button.button.full {
-    background: #2461cc;
-    min-height: 64px;
-    font-size: 20px;
-    line-height: 22px;
-    font-weight: 400;
+  background: #2461cc;
+  min-height: 64px;
+  font-size: 20px;
+  line-height: 22px;
+  font-weight: 400;
 }
-.thb-form-container  .cus-login {
-    max-width: 1024px;
+.thb-form-container .cus-login {
+  max-width: 1024px;
 }
 .thb-form-container .customer--login .switch-login-section.desk {
-        display: block;}
+  display: block;
+}
 .thb-form-container .custom_login .switch-login-section.mob {
-    display: none;
+  display: none;
 }
 .devider {
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    margin-top: 50px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  margin-top: 50px;
 }
 
 .devider span {
-    z-index: 1;
-    background: #fff;
-    padding: 0 10px;
-    position: relative;
-    color: #000000;
+  z-index: 1;
+  background: #fff;
+  padding: 0 10px;
+  position: relative;
+  color: #000000;
 }
 .devider::after {
-    content: '';
-    width: 100%;
-    height: 1px;
-    background: #8A8F95;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    z-index: 0;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #8a8f95;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  z-index: 0;
 }
 
 html.popup-overlap {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 html.popup-overlap body:before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 100;
-    position: fixed;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  position: fixed;
 }
 
 @media only screen and (min-width: 768px) {
-    .thb-login-form .custom_login {
-        gap:100px;
-    }
+  .thb-login-form .custom_login {
+    gap: 100px;
+  }
 }
 
 @media screen and (max-width: 767px) {
-   .thb-form-container .customer--login .switch-login-section.desk {
-        display: none;
-    }
-    .thb-form-container .custom_login .switch-login-section.mob {
-        display: block;
-    }
-    .thb-login-form .custom_login {
-        grid-template-columns: repeat(1, 1fr);
-    }
-    .fields.login--page {
-        padding: 24px 24px 17px;
-    }
+  .thb-form-container .customer--login .switch-login-section.desk {
+    display: none;
+  }
+  .thb-form-container .custom_login .switch-login-section.mob {
+    display: block;
+  }
+  .thb-login-form .custom_login {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .fields.login--page {
+    padding: 24px 24px 17px;
+  }
 }
-
 
 #main-content .otp-container .fields.login--page .popup-wrapper {
-    padding: 0;
-    background: transparent;
+  padding: 0;
+  background: transparent;
 }
 
-#main-content .otp-container .fields.login--page .popup-wrapper .popup-otp-wrapper {
-    background: transparent;
-    padding: 0;
+#main-content
+  .otp-container
+  .fields.login--page
+  .popup-wrapper
+  .popup-otp-wrapper {
+  background: transparent;
+  padding: 0;
 }
 
 #main-content .otp-container .field-area .popup-otp-input-box input {
-    background-color:#fff;
-    padding: 0;
+  background-color: #fff;
+  padding: 0;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .fields.login--page {
-        padding: 32px 30px 40px;
-    }
+  .fields.login--page {
+    padding: 32px 30px 40px;
+  }
 }
 #registerButton:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 #verifyOtpbtn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 .popup-overlap div#main-content {
-    clip-path: none !important;
+  clip-path: none !important;
 }
 
 .custom_login .field--login--mobile input:-webkit-autofill,
 .fields.login--page input.full:-webkit-autofill {
-     transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .fields.login--page input.full {
-    background-color:#fff;
+  background-color: #fff;
 }
 
 .thb-form-container .number-capture {
-    display: flex;
-    align-items: center;
-    letter-spacing:1.5px;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 1.5px;
+  gap: 15px;
 }
 
 .thb-form-container .number-capture > div {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 @media only screen and (min-width: 768px) {
-    .thb-form-container .number-capture {
-        font-size: 18px;
-    }
+  .thb-form-container .number-capture {
+    font-size: 18px;
+  }
 }
 
 @media only screen and (max-width: 767px) {
   .thb-form-container .number-capture {
-      margin-bottom: 20px;
-      font-size: 16px;
+    margin-bottom: 20px;
+    font-size: 16px;
   }
   .thb-form-container .customer--login p strong {
-      font-weight: 400;
+    font-weight: 400;
   }
 }
 
-  .disabled-link {
-        color: gray;
-        pointer-events: none;
-        text-decoration: none;
-    }
+.disabled-link {
+  color: gray;
+  pointer-events: none;
+  text-decoration: none;
+}
 
-    .disabled-link:hover {
-        color: gray !important;
-        text-decoration: none !important;
-    }
+.disabled-link:hover {
+  color: gray !important;
+  text-decoration: none !important;
+}
 
-    .timing {
-        display: flex;
-        align-items: center;
-    }
+.timing {
+  display: flex;
+  align-items: center;
+}
 
-    #timer {
-        margin-left: 5px;
-    }
+#timer {
+  margin-left: 5px;
+}
+.button.full[disabled] {
+  background-color: #95a5a6; /* Set your desired disabled background color */
+  color: #ccc; /* Set your desired disabled text color */
+  cursor: not-allowed;
+}
