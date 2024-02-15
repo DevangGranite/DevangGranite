@@ -50,7 +50,26 @@ function openOTPPopup() {
 
     // Check if the mobile number has 9 digits
     if (numericValue.length === 9) {
-      
+        const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
+
+        // Use the fetch function to make a POST request to the API
+        fetch(apiUrl, {
+            method: 'POST',
+            body: JSON.stringify({ mobile: numericValue }),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.status}`);
+            }
+            
+            return response.json();
+        })
+        .then(data => {
+            console.log('MSS Test', data);
+
             // Continue with the popup logic
             var otpPopupHtml = document.getElementsByTagName('html')[0];
             var otpPopupElement = document.getElementById('otppopup');
