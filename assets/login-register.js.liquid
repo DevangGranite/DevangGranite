@@ -360,3 +360,50 @@ function validateAndSwitch(input, nextFieldId) {
     }
     
 /*** Timer end ***/
+
+/*** Timer start ***/
+
+       let timer_reg; // Declare timer_reg as a global variable
+
+    // Function to start the countdown timer_reg
+    function startTimer(duration, display) {
+        let timeLeft = duration;
+        timer_reg = setInterval(function () {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+
+            const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            display.textContent = formattedTime;
+
+            if (--timeLeft < 0) {
+                clearInterval(timer_reg);
+                // Enable the link and reset onclick when the timer_reg finishes
+                const resendLink = document.getElementById('resendLink');
+                resendLink.classList.remove('disabled-link');
+                resendLink.setAttribute('onclick', 'startTimer_regOnClick()'); // Restore onclick
+                display.style.display = 'none';
+            }else{
+              display.style.display = 'block';
+            }
+        }, 1000);
+    }
+
+    // Function to start the timer_reg when the button is clicked
+    function startTimer_regOnClick() {
+        // Disable the link to prevent multiple clicks
+        const resendLink = document.getElementById('resendLink');
+        resendLink.classList.add('disabled-link');
+        resendLink.removeAttribute('onclick'); // Remove onclick to disable further clicks
+
+        // Get the timer_reg element
+        const timerElement = document.getElementById('timer_reg');
+
+        // Set the duration of the timer_reg in seconds (in this case, 60 seconds)
+        const timerDuration = 60;
+
+        // Start or restart the timer_reg
+        startTimer(timerDuration, timerElement);
+
+    }
+    
+/*** Timer end ***/
