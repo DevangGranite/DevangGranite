@@ -28,6 +28,7 @@
                   placeholder="{{ 'customer.login_page.first_name' | t }}"
                 >
               </div>
+              <div id="firstNameError" style="color: red;"></div>
               <div class="field">
                 <label for="last_name">{{ 'customer.login_page.last_name' | t }}</label>
                 <input
@@ -38,7 +39,7 @@
                   value="{% if form.last_name %}{{ form.last_name }}{% endif %}"
                   placeholder="{{ 'customer.login_page.last_name' | t }}"
                 >
-                <div id="firstNameError" style="color: red;"></div>
+                <div id="lastNameError" style="color: red;"></div>
               </div>
             </div>
             <div class="field">
