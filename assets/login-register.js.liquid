@@ -5,7 +5,7 @@
 
   function getCityDistricts(id){
 
-      const apiUrl = 'https://alainappuat.gdadmin.org/customerApiv3/getCityDistricts/'+id;
+      const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/getCityDistricts/'+id;
       
       // Use the fetch function to make a GET request to the API
       fetch(apiUrl, {
@@ -20,7 +20,7 @@
         return response.json();
       })
       .then(data => {
-        console.log('City list',data);
+
         if(id == 0){
           let city = "<option>{{ 'customer.addresses.city_reg' | t }}</option>";
           data.response.forEach(function (item) {
