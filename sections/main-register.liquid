@@ -169,7 +169,9 @@
                           autocomplete="off"
                         >
                       </div>
-                      <p class="timing">Resend code in <span id="timer">60</span>s</p>                     
+                      <p class="timing">
+                          <a id="resendLink" onclick="startTimerOnClick()">Resend code </a><span id="timer"></span>
+                      </p>                     
                       <button type="button" onclick="saveOtpPopup(event)" class="button full" id="verifyOtpbtn" disabled>
                       <span>Validate your Mobile Number</span>
                       </button>
