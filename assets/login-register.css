@@ -608,3 +608,18 @@ html.popup-overlap body:before {
       font-weight: 400;
   }
 }
+
+.disabled-link {
+        color: gray;
+        pointer-events: none;
+        text-decoration: none;
+    }
+
+    .timing {
+        display: flex;
+        align-items: center;
+    }
+
+    #timer {
+        margin-left: 5px;
+    }
