@@ -582,8 +582,12 @@ html.popup-overlap body:before {
     background-color:#fff;
 }
 
-.number-capture {
+.thb-form-container .number-capture {
     display: flex;
     align-items: center;
     gap: 15px;
+}
+
+.thb-form-container .number-capture > div {
+    margin-top: 0;
 }
