@@ -375,25 +375,93 @@ function validateAndSwitch(input, nextFieldId) {
 /*** validation form reg page start ***/
 
 function validation_form(){
- var first_nameInput = document.getElementById('first_name');
- var last_nameInput = document.getElementById('last_name');
- var emailInput = document.getElementById('email');
- var confirm_emailInput = document.getElementById('confirm_email');
- var locationInputInput = document.getElementById('locationInput');
- var regi_cityInput = document.getElementById('regi_city');
- var districtInput = document.getElementById('district');
+ // var first_nameInput = document.getElementById('first_name');
+ // var last_nameInput = document.getElementById('last_name');
+ // var emailInput = document.getElementById('email');
+ // var confirm_emailInput = document.getElementById('confirm_email');
+ // var locationInputInput = document.getElementById('locationInput');
+ // var regi_cityInput = document.getElementById('regi_city');
+ // var districtInput = document.getElementById('district');
 
-  if(!first_nameInput.value){
-      alert('fill first name');
-    }else if(!last_nameInput.value){
-    alert('fill last name');
-    }
+  // if(!first_nameInput.value){
+  //     alert('fill first name');
+  //   }else if(!last_nameInput.value){
+  //   alert('fill last name');
+  //   }
   
  // if(first_nameInput.value && last_nameInput.value && emailInput.value && confirm_emailInput.value && locationInputInput.value && regi_cityInput.value && districtInput.value ){  
  // }else{
     
  //    alert('fill');
  // }
+
+
+  
+  function validateForm() {
+    // Validate First Name
+    var firstName = document.getElementById('first_name').value;
+    if (firstName.trim() === '') {
+      alert('Please enter your First Name');
+      return false;
+    }
+
+    // Validate Last Name
+    var lastName = document.getElementById('last_name').value;
+    if (lastName.trim() === '') {
+      alert('Please enter your Last Name');
+      return false;
+    }
+
+    // Validate Mobile Number
+    var mobile = document.getElementById('mobile').value;
+    if (mobile.trim() === '' || isNaN(mobile) || mobile.length !== 9) {
+      alert('Please enter a valid Mobile Number');
+      return false;
+    }
+
+    // Validate Email Address
+    var email = document.getElementById('email').value;
+    if (email.trim() === '' || !isValidEmail(email)) {
+      alert('Please enter a valid Email Address');
+      return false;
+    }
+
+    // Validate Confirm Email Address
+    var confirmEmail = document.getElementById('confirm_email').value;
+    if (confirmEmail.trim() === '' || confirmEmail !== email) {
+      alert('Email Addresses do not match');
+      return false;
+    }
+
+    // Validate Address
+    var address = document.getElementById('locationInput').value;
+    if (address.trim() === '') {
+      alert('Please enter your Address');
+      return false;
+    }
+
+    // Add more field validations as needed
+
+    // Validate Checkbox (Terms and Conditions)
+    var checkboxReg = document.getElementById('checkbox_reg');
+    if (!checkboxReg.checked) {
+      alert('Please accept the Terms and Conditions');
+      return false;
+    }
+
+    return true; // If all validations pass
+  }
+
+  function isValidEmail(email) {
+    // Simple email validation regex
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  // You can call validateForm() on form submission
+  // Example: <form onsubmit="return validateForm();" ...>
+
+  
 }
  
  /*** validation form reg page end ***/
