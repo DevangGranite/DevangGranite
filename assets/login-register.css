@@ -638,3 +638,9 @@ html.popup-overlap body:before {
   color: #ccc; /* Set your desired disabled text color */
   cursor: not-allowed;
 }
+
+
+.form-error {
+    font-size: 13px;
+    color:red;
+}
