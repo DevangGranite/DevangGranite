@@ -311,10 +311,12 @@ function validateAndSwitch(input, nextFieldId) {
         }, 1000);
     }
 
-    // Function to start the timer when the button is clicked
-    function startTimerOnClick() {
-        // Disable the button to prevent multiple clicks
-        document.getElementById('registerButton').setAttribute('disabled', 'true');
+// Function to start the timer when the button is clicked
+      function startTimerOnClick() {
+        // Disable the link to prevent multiple clicks
+        const resendLink = document.getElementById('resendLink');
+        resendLink.classList.add('disabled-link');
+        resendLink.removeAttribute('onclick'); // Remove onclick to disable further clicks
 
         // Get the timer element
         const timerElement = document.getElementById('timer');
@@ -324,14 +326,29 @@ function validateAndSwitch(input, nextFieldId) {
 
         // Start the timer
         startTimer(timerDuration, timerElement);
-      
-      // Get the input value
+
+        // Get the input value
         var inputValue = document.getElementById('mobile').value;
 
         // Display the captured value in the div
-          document.getElementById('capturedValue').innerText = '+971 ' + inputValue;
-          document.getElementById('capturedValuemob').innerText = '+971 ' + inputValue;
+        document.getElementById('capturedValue').innerText = '+971 ' + inputValue;
+        document.getElementById('capturedValuemob').innerText = '+971 ' + inputValue;
+    }
 
+    function startTimer(duration, displayElement) {
+        let timer = duration;
+        const intervalId = setInterval(function () {
+            displayElement.textContent = timer;
+
+            if (--timer < 0) {
+                // Enable the link and reset onclick when the timer finishes
+                const resendLink = document.getElementById('resendLink');
+                resendLink.classList.remove('disabled-link');
+                resendLink.setAttribute('onclick', 'startTimerOnClick()'); // Restore onclick
+                displayElement.style.display = 'none';
+                clearInterval(intervalId);
+            }
+        }, 1000);
     }
     
 /*** Timer end ***/
