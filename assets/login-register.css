@@ -597,4 +597,7 @@ html.popup-overlap body:before {
       margin-bottom: 20px;
       font-size: 16px;
   }
+  .thb-form-container .customer--login p strong {
+      font-weight: 400;
+  }
 }
