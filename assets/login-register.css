@@ -581,3 +581,9 @@ html.popup-overlap body:before {
 .fields.login--page input.full {
     background-color:#fff;
 }
+
+.number-capture {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
