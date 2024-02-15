@@ -254,6 +254,7 @@ const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
 // Declare mobileInput outside the validateInput function
 var mobileInput = document.getElementById('mobile');
 var registerButton = document.getElementById('registerButton');
+var resendLinkButton = document.getElementById('resendLink'); 
 var verifyOTP = document.getElementById('verifyOtpbtn');
 
 function validateInput() {
@@ -271,6 +272,25 @@ function validateInput() {
 }
 
 registerButton.addEventListener('click', function () {
+    // API call
+    fetch(apiUrl, {
+        method: 'POST',
+        body: JSON.stringify({ mobile: mobileInput.value }),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('MSS Test', data);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+});
+resendLinkButton.addEventListener('click', function () {
     // API call
     fetch(apiUrl, {
         method: 'POST',
