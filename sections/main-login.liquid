@@ -326,7 +326,12 @@ verifyOTP.addEventListener('click', function () {
         return response.json();
       })
       .then(data => {
-        console.log('MSS Test',data.response['0'].country);
+        console.log('MSS Test',data.response['0'].email_id);
+        if (data.response['0'].email_id == "") {
+          document.querySelector('.custom_email_container').style.display = 'block';
+          document.querySelector('.otp-container').style.display = 'none';
+        }
+          
       
       })
       .catch(error => {
