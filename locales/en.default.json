@@ -326,7 +326,8 @@
       "validate_description": "Not your number?",
       "varify": "Verify Mobile Number",
       "email_check_login": "Confirm & add your email address",
-      "email_check_login_desc": "To keep your account secure, we also require your email address."
+      "email_check_login_desc": "To keep your account secure, we also require your email address.",
+      "add_email": "Add Email Address"
     },
     "recover_password": {
       "title": "Reset your password",
