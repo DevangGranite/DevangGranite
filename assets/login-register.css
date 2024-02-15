@@ -585,6 +585,7 @@ html.popup-overlap body:before {
 .thb-form-container .number-capture {
     display: flex;
     align-items: center;
+    letter-spacing:1.5px;
     gap: 15px;
 }
 
