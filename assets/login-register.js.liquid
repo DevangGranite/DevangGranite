@@ -311,7 +311,9 @@ function validateAndSwitch(input, nextFieldId) {
                 const resendLink = document.getElementById('resendLink');
                 const resendLink1 = document.getElementById('resendLink1');
                 resendLink.classList.remove('disabled-link');
+               resendLink1.classList.remove('disabled-link');
                 resendLink.setAttribute('onclick', 'startTimerOnClick()'); // Restore onclick
+              resendLink1.setAttribute('onclick', 'startTimerOnClick()'); // Restore onclick
                 display.style.display = 'none';
             }else{
               display.style.display = 'block';
@@ -326,6 +328,8 @@ function validateAndSwitch(input, nextFieldId) {
         const resendLink1 = document.getElementById('resendLink1');
         resendLink.classList.add('disabled-link');
         resendLink.removeAttribute('onclick'); // Remove onclick to disable further clicks
+      resendLink1.classList.add('disabled-link');
+        resendLink1.removeAttribute('onclick'); // Remove onclick to disable further clicks
 
         // Get the timer element
         const timerElement = document.getElementById('timer');
