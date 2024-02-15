@@ -237,30 +237,7 @@
 </div>
 
 <script>
-  const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
-
-  var regi_buttonButton = document.getElementById('regi_button'); 
-  
-      regi_buttonButton.addEventListener('click', function () {
-    // API call
-    fetch(apiUrl, {
-        method: 'POST',
-        body: JSON.stringify({ mobile: mobileInput.value }),
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Network response was not ok: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('MSS Test', data);
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
-});
-  
+ 
 var mobileInput = document.getElementById('mobile');
   var verifyOTP = document.getElementById('verifyOtpbtn');
   verifyOTP.addEventListener('click', function () {
