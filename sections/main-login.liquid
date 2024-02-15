@@ -74,13 +74,11 @@
                   <strong>{{ 'customer.login_page.validate_desc' | t }}</strong>
                 </p>
                 <div class="switch-login-section desk">
-                  mob
-                  {{ 'customer.login_page.validate_description' | t }}
-
-                  {% assign text_button_title = 'customer.login_page.validate_description' | t %}
-                  {% render 'text-button', url: routes.account_login_url, title: text_button_title %}
-                  <div></div>
-                </div>
+    mob {{ 'customer.login_page.validate_description' | t }}
+    {% assign text_button_title = 'customer.login_page.validate_description' | t %}
+    {% render 'text-button', url: routes.account_login_url, title: text_button_title %}
+    <div></div>
+</div>
               </div>
               {% if form.errors %}
                 <div class="form-notification error">
