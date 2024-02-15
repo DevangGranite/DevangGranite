@@ -27,7 +27,7 @@
                   value="{% if form.first_name %}{{ form.first_name }}{% endif %}"
                   placeholder="{{ 'customer.login_page.first_name' | t }}"
                 >
-                <div id="firstNameError" style="color: red;"></div>
+                <div id="firstNameError" class="form-error"></div>
               </div>
               
               <div class="field">
@@ -59,7 +59,7 @@
                   oninput="validateInputt()"
                 >
               </div>
-              <div id="mobileError" style="color: red;"></div>
+              <div id="mobileError" class="form-error"></div>
             </div>
             <div class="field">
               <label for="email">{{ 'customer.login_page.email' | t }}</label>
@@ -73,7 +73,7 @@
                 required
               >
             </div>
-            <div id="emailError" style="color: red;"></div>
+            <div id="emailError" class="form-error"></div>
             <div class="field">
               <label for="confirm_email">{{ 'customer.login_page.confirm_email' | t }}</label>
               <input
@@ -86,7 +86,7 @@
                 required
               >
             </div>
-            <div id="confirm_email" style="color: red;"></div>
+            <div id="confirm_email" class="form-error"></div>
             <div class="field">
               <label for="locationInput">{{ 'customer.login_page.address' | t }}</label>
               <input
@@ -118,7 +118,7 @@
                 <!-- Close button -->
                 <button type="button" class="close-icon" onclick="closePopup()">&#128473;</button>
               </div>
-              <div id="locationInputError" style="color: red;"></div>
+              <div id="locationInputError" class="form-error"></div>
             </div>
 
             <div class="field-area">
@@ -211,7 +211,7 @@
                 >
                   <option value="">{{ 'customer.addresses.city_reg' | t }}</option>
                 </select>
-                <div id="regiCityError" style="color: red;"></div>
+                <div id="regiCityError" class="form-error"></div>
               </div>
 
               <div class="field">
@@ -224,7 +224,7 @@
                 >
                   <option value="">{{ 'customer.addresses.district_reg' | t }}</option>
                 </select>
-                <div id="districtError" style="color: red;"></div>
+                <div id="districtError" class="form-error"></div>
               </div>
             </div>
             <div class="terms_condition-checkbox">
