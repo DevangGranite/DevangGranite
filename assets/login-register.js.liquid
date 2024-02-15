@@ -291,8 +291,8 @@ function validateAndSwitch(input, nextFieldId) {
 
 /*** Timer start ***/
 
-   let timer;
-    
+       let timer; // Declare timer as a global variable
+
     // Function to start the countdown timer
     function startTimer(duration, display) {
         let timeLeft = duration;
@@ -305,14 +305,17 @@ function validateAndSwitch(input, nextFieldId) {
 
             if (--timeLeft < 0) {
                 clearInterval(timer);
-                // Enable the button when the timer reaches zero
-                document.getElementById('registerButton').removeAttribute('disabled');
+                // Enable the link and reset onclick when the timer finishes
+                const resendLink = document.getElementById('resendLink');
+                resendLink.classList.remove('disabled-link');
+                resendLink.setAttribute('onclick', 'startTimerOnClick()'); // Restore onclick
+                display.style.display = 'none';
             }
         }, 1000);
     }
 
-// Function to start the timer when the button is clicked
-      function startTimerOnClick() {
+    // Function to start the timer when the button is clicked
+    function startTimerOnClick() {
         // Disable the link to prevent multiple clicks
         const resendLink = document.getElementById('resendLink');
         resendLink.classList.add('disabled-link');
@@ -324,7 +327,7 @@ function validateAndSwitch(input, nextFieldId) {
         // Set the duration of the timer in seconds (in this case, 60 seconds)
         const timerDuration = 60;
 
-        // Start the timer
+        // Start or restart the timer
         startTimer(timerDuration, timerElement);
 
         // Get the input value
@@ -333,22 +336,6 @@ function validateAndSwitch(input, nextFieldId) {
         // Display the captured value in the div
         document.getElementById('capturedValue').innerText = '+971 ' + inputValue;
         document.getElementById('capturedValuemob').innerText = '+971 ' + inputValue;
-    }
-
-    function startTimer(duration, displayElement) {
-        let timer = duration;
-        const intervalId = setInterval(function () {
-            displayElement.textContent = timer;
-
-            if (--timer < 0) {
-                // Enable the link and reset onclick when the timer finishes
-                const resendLink = document.getElementById('resendLink');
-                resendLink.classList.remove('disabled-link');
-                resendLink.setAttribute('onclick', 'startTimerOnClick()'); // Restore onclick
-                displayElement.style.display = 'none';
-                clearInterval(intervalId);
-            }
-        }, 1000);
     }
     
 /*** Timer end ***/
