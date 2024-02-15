@@ -48,7 +48,7 @@ function openOTPPopup() {
     startTimerOnClick();
     var mobileInput = document.getElementById('mobile');
     var numericValue = mobileInput.value.replace(/\D/g, '');
-   
+   var resendLinkButton = document.getElementById('resendLink'); 
 
     // Check if the mobile number has 9 digits
     if (numericValue.length === 9) {
@@ -95,7 +95,7 @@ function openOTPPopup() {
      // alert('Mobile number must have 9 digits');
         console.error('Mobile number must have 9 digits');
     }
-  resendLink_regButton.addEventListener('click', function () {
+  resendLinkButton.addEventListener('click', function () {
     // API call
     fetch(apiUrl, {
         method: 'POST',
