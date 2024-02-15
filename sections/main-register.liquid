@@ -170,8 +170,8 @@
                         >
                       </div>
                       <p class="timing">
-                          <a id="resendLink1" onclick="startTimerOnClick()">Resend code </a><span id="timer"></span>
-                      </p>                    
+                          <a id="resendLink" onclick="startTimerOnClick()">Resend code </a><span id="timer"></span>
+                      </p>                     
                       <button type="button" onclick="saveOtpPopup(event)" class="button full" id="verifyOtpbtn" disabled>
                       <span>Validate your Mobile Number</span>
                       </button>
@@ -237,42 +237,25 @@
 </div>
 
 <script>
+  const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
 
-  var resendLinkButton1 = document.getElementById('resendLink1'); 
-  resendLinkButton1.addEventListener('click', function () {
-    // API call
-    fetch(apiUrl, {
-        method: 'POST',
-        body: JSON.stringify({ mobile: mobileInput.value }),
-    })
+        // Use the fetch function to make a POST request to the API
+        fetch(apiUrl, {
+            method: 'POST',
+            body: JSON.stringify({ mobile: numericValue }),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Network response was not ok: ${response.status}`);
             }
+            
             return response.json();
         })
         .then(data => {
             console.log('MSS Test', data);
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
-});
-
-  
-  const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
-      
-      // Use the fetch function to make a GET request to the API
-   
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        
-        return response.json();
-      })
-      .then(data => {
-        console.log('MSS Test',data);
       
       })
       .catch(error => {
