@@ -80,6 +80,9 @@ function openOTPPopup() {
 
                 // Add a class to the element
                 otpPopupHtml.classList.add('popup-overlap');
+
+                // Start the 1-minute timer
+                startTimer();
             } else {
                 console.error("Element with ID 'otppopup' not found");
             }
@@ -90,10 +93,25 @@ function openOTPPopup() {
         });
     } else {
         // Handle the case where the mobile number does not have 9 digits
-     // alert('Mobile number must have 9 digits');
         console.error('Mobile number must have 9 digits');
     }
 }
+
+function startTimer1() {
+    var duration = 60; // 60 seconds = 1 minute
+    var timerDisplay = document.getElementById('timer_display');
+
+    var timer = setInterval(function () {
+        timerDisplay.innerHTML = duration;
+        duration--;
+
+        if (duration < 0) {
+            clearInterval(timer);
+            alert('Timer expired!');
+        }
+    }, 1000); // Update every 1000 milliseconds (1 second)
+}
+
 
 
 function closeOTPPopup() {
