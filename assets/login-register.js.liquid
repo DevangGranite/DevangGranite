@@ -338,6 +338,7 @@ function validateAndSwitch(input, nextFieldId) {
 
     // Function to start the timer when the button is clicked
     function startTimerOnClick() {
+       function captured_value();
         // Disable the link to prevent multiple clicks
         const resendLink = document.getElementById('resendLink');
         resendLink.classList.add('disabled-link');
@@ -350,14 +351,15 @@ function validateAndSwitch(input, nextFieldId) {
         const timerDuration = 60;
 
         // Start or restart the timer
-        startTimer(timerDuration, timerElement);
-
-        // // Get the input value
-        // var inputValue = document.getElementById('mobile').value;
-
-        // // Display the captured value in the div
-        // document.getElementById('capturedValue').innerText = '+971 ' + inputValue;
-        // document.getElementById('capturedValuemob').innerText = '+971 ' + inputValue;
+        startTimer(timerDuration, timerElement);  
     }
     
 /*** Timer end ***/
+ function captured_value() {
+     // Get the input value
+        var inputValue = document.getElementById('mobile').value;
+
+        // Display the captured value in the div
+        document.getElementById('capturedValue').innerText = '+971 ' + inputValue;
+        document.getElementById('capturedValuemob').innerText = '+971 ' + inputValue;
+ }
