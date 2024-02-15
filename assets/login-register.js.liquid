@@ -310,6 +310,8 @@ function validateAndSwitch(input, nextFieldId) {
                 resendLink.classList.remove('disabled-link');
                 resendLink.setAttribute('onclick', 'startTimerOnClick()'); // Restore onclick
                 display.style.display = 'none';
+            }else{
+              display.style.display = 'block';
             }
         }, 1000);
     }
