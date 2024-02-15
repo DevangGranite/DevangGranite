@@ -73,14 +73,18 @@
                   <strong>{{ 'customer.login_page.validate_desc' | t }}</strong>
                 </p>
                 <div class="switch-login-section desk">
+                  <div class="number-capture">
                   <div id="capturedValue"></div>
                   {% assign text_button_title = 'customer.login_page.validate_description' | t %}
                   {% render 'text-button', url: routes.account_login_url, title: text_button_title %}
+                  </div>
                 </div>
                 <div class="switch-login-section mob">
-                  <div id="capturedValuemob"></div>
-                  {% assign text_button_title = 'customer.login_page.validate_description' | t %}
-                  {% render 'text-button', url: routes.account_login_url, title: text_button_title %}
+                    <div class="number-capture">
+                      <div id="capturedValuemob"></div>
+                      {% assign text_button_title = 'customer.login_page.validate_description' | t %}
+                      {% render 'text-button', url: routes.account_login_url, title: text_button_title %}
+                    </div>
                 </div>
               </div>
               {% if form.errors %}
