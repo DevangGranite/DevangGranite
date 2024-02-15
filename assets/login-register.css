@@ -572,3 +572,8 @@ html.popup-overlap body:before {
 .popup-overlap div#main-content {
     clip-path: none !important;
 }
+
+.custom_login .field--login--mobile input:-webkit-autofill,
+.fields.login--page input.full:-webkit-autofill {
+     transition: background-color 5000s ease-in-out 0s;
+}
