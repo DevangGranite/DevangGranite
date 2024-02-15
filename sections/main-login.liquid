@@ -311,7 +311,7 @@ resendLinkButton.addEventListener('click', function () {
 
 verifyOTP.addEventListener('click', function () {
   var OTP = document.getElementById('OneTimePassword1').value+document.getElementById('OneTimePassword2').value+document.getElementById('OneTimePassword3').value+document.getElementById('OneTimePassword4').value+document.getElementById('OneTimePassword5').value+document.getElementById('OneTimePassword6').value;
-    const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/veryfyOTP';
+    const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/verifyOTP';
       
       // Use the fetch function to make a GET request to the API
       fetch(apiUrl, {
