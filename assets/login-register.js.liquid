@@ -361,7 +361,7 @@ function validateAndSwitch(input, nextFieldId) {
     
 /*** Timer end ***/
 
-/*** Timer start ***/
+/*** Timer start reg ***/
 
        let timer_reg; // Declare timer_reg as a global variable
 
@@ -388,22 +388,22 @@ function validateAndSwitch(input, nextFieldId) {
         }, 1000);
     }
 
-    // Function to start the timer_reg when the button is clicked
-    function startTimer_regOnClick() {
-        // Disable the link to prevent multiple clicks
-        const resendLink_reg = document.getElementById('resendLink_reg');
-        resendLink_reg.classList.add('disabled-link');
-        resendLink_reg.removeAttribute('onclick'); // Remove onclick to disable further clicks
+    // // Function to start the timer_reg when the button is clicked
+    // function startTimer_regOnClick() {
+    //     // Disable the link to prevent multiple clicks
+    //     const resendLink_reg = document.getElementById('resendLink_reg');
+    //     resendLink_reg.classList.add('disabled-link');
+    //     resendLink_reg.removeAttribute('onclick'); // Remove onclick to disable further clicks
 
-        // Get the timer_reg element
-        const timerElement = document.getElementById('timer_reg');
+    //     // Get the timer_reg element
+    //     const timerElement = document.getElementById('timer_reg');
 
-        // Set the duration of the timer_reg in seconds (in this case, 60 seconds)
-        const timerDuration = 60;
+    //     // Set the duration of the timer_reg in seconds (in this case, 60 seconds)
+    //     const timerDuration = 60;
 
-        // Start or restart the timer_reg
-        startTimer(timerDuration, timerElement);
+    //     // Start or restart the timer_reg
+    //     startTimer(timerDuration, timerElement);
 
-    }
+    // }
     
-/*** Timer end ***/
+/*** Timer end reg***/
