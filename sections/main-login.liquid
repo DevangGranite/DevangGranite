@@ -326,7 +326,7 @@ verifyOTP.addEventListener('click', function () {
         return response.json();
       })
       .then(data => {
-        console.log('MSS Test',data);
+        console.log('MSS Test',data.response['0'].country);
       
       })
       .catch(error => {
