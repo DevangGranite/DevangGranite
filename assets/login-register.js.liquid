@@ -47,7 +47,7 @@
 function openOTPPopup() {
     var mobileInput = document.getElementById('mobile');
     var numericValue = mobileInput.value.replace(/\D/g, '');
-
+ let timer;
   let timeLeft = duration;
         timer = setInterval(function () {
             const minutes = Math.floor(timeLeft / 60);
