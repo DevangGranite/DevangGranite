@@ -592,6 +592,12 @@ html.popup-overlap body:before {
     margin-top: 0;
 }
 
+@media only screen and (min-width: 768px) {
+    .thb-form-container .number-capture {
+        font-size: 18px;
+    }
+}
+
 @media only screen and (max-width: 767px) {
   .thb-form-container .number-capture {
       margin-bottom: 20px;
