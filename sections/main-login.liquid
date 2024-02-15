@@ -179,6 +179,7 @@
                   {{ form.errors | default_errors }}
                 </div>
               {% endif %}
+          <div class="fields login--page">
              <div class="field">
               <label for="email">{{ 'customer.login_page.email' | t }}</label>
               <input
@@ -202,6 +203,7 @@
                 required
               >
             </div>
+          </div>
               <div class="switch-login-section mob">
                 {{ 'customer.login_page.dont_have_an_account' | t }}
                 {% assign text_button_title = 'customer.login_page.create_account' | t %}
