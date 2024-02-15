@@ -324,7 +324,9 @@
       "validate": "Validate your mobile number",
       "validate_desc": "We sent a code to the following number",
       "validate_description": "Not your number?",
-      "varify": "Verify Mobile Number"
+      "varify": "Verify Mobile Number",
+      "email_check_login": "Confirm & add your email address",
+      "email_check_login_desc": "To keep your account secure, we also require your email address."
     },
     "recover_password": {
       "title": "Reset your password",
