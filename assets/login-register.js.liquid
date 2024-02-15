@@ -367,26 +367,86 @@ function validateAndSwitch(input, nextFieldId) {
 
 /*** validation form reg page start ***/
 
-function validation_form(){
- // var first_nameInput = document.getElementById('first_name');
- // var last_nameInput = document.getElementById('last_name');
- // var emailInput = document.getElementById('email');
- // var confirm_emailInput = document.getElementById('confirm_email');
- // var locationInputInput = document.getElementById('locationInput');
- // var regi_cityInput = document.getElementById('regi_city');
- // var districtInput = document.getElementById('district');
+function validateForm() {
+    var isValid = true;
 
-  // if(!first_nameInput.value){
-  //     alert('fill first name');
-  //   }else if(!last_nameInput.value){
-  //   alert('fill last name');
-  //   }
-  
- // if(first_nameInput.value && last_nameInput.value && emailInput.value && confirm_emailInput.value && locationInputInput.value && regi_cityInput.value && districtInput.value ){  
- // }else{
-    
- //    alert('fill');
- // }
+    isValid = isValid && validateField('first_name', 'firstNameError', 'Please enter your First Name');
+    isValid = isValid && validateField('last_name', 'lastNameError', 'Please enter your Last Name');
+    isValid = isValid && validateEmailField('email', 'emailError', 'Please enter a valid Email Address');
+    isValid = isValid && validateConfirmEmailField('confirm_email', 'email', 'confirmEmailError', 'Email Addresses do not match');
+    isValid = isValid && validateField('locationInput', 'locationInputError', 'Please enter your Address');
+    isValid = isValid && validateSelectField('regi_city', 'regiCityError', 'Please select your City');
+    isValid = isValid && validateSelectField('district', 'districtError', 'Please select your District');
+
+    return isValid;
 }
+
+function validateField(inputId, errorId, errorMessage) {
+    var input = document.getElementById(inputId);
+    var errorElement = document.getElementById(errorId);
+    var value = input.value.trim();
+
+    if (value === '') {
+        errorElement.innerHTML = errorMessage;
+        console.error(errorMessage);
+        return false;
+    } else {
+        errorElement.innerHTML = '';
+        return true;
+    }
+}
+
+function validateEmailField(inputId, errorId, errorMessage) {
+    var input = document.getElementById(inputId);
+    var errorElement = document.getElementById(errorId);
+    var email = input.value.trim();
+
+    if (email === '' || !isValidEmail(email)) {
+        errorElement.innerHTML = errorMessage;
+        console.error(errorMessage);
+        return false;
+    } else {
+        errorElement.innerHTML = '';
+        return true;
+    }
+}
+
+function validateConfirmEmailField(inputId, referenceInputId, errorId, errorMessage) {
+    var input = document.getElementById(inputId);
+    var errorElement = document.getElementById(errorId);
+    var confirmEmail = input.value.trim();
+    var referenceEmail = document.getElementById(referenceInputId).value.trim();
+
+    if (confirmEmail === '' || confirmEmail !== referenceEmail) {
+        errorElement.innerHTML = errorMessage;
+        console.error(errorMessage);
+        return false;
+    } else {
+        errorElement.innerHTML = '';
+        return true;
+    }
+}
+
+function validateSelectField(inputId, errorId, errorMessage) {
+    var input = document.getElementById(inputId);
+    var errorElement = document.getElementById(errorId);
+    var value = input.value;
+
+    if (value === '' || value === 'Select your city' || value === 'Select your district') {
+        errorElement.innerHTML = errorMessage;
+        console.error(errorMessage);
+        return false;
+    } else {
+        errorElement.innerHTML = '';
+        return true;
+    }
+}
+
+function isValidEmail(email) {
+    // Simple email validation regex
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
  
  /*** validation form reg page end ***/
