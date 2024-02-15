@@ -609,10 +609,15 @@ html.popup-overlap body:before {
   }
 }
 
-.disabled-link {
+  .disabled-link {
         color: gray;
         pointer-events: none;
         text-decoration: none;
+    }
+
+    .disabled-link:hover {
+        color: gray !important;
+        text-decoration: none !important;
     }
 
     .timing {
