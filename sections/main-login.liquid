@@ -77,6 +77,11 @@
                   {% assign text_button_title = 'customer.login_page.validate_description' | t %}
                   {% render 'text-button', url: routes.account_login_url, title: text_button_title %}                 
                 </div>
+                <div class="switch-login-section mob">
+                <div id="capturedValue"></div>                  
+                  {% assign text_button_title = 'customer.login_page.validate_description' | t %}
+                  {% render 'text-button', url: routes.account_login_url, title: text_button_title %} 
+              </div>
               </div>
               {% if form.errors %}
                 <div class="form-notification error">
@@ -152,11 +157,7 @@
                   </button>
                 </div>
               </div>
-              <div class="switch-login-section mob">
-                <div id="capturedValue"></div>                  
-                  {% assign text_button_title = 'customer.login_page.validate_description' | t %}
-                  {% render 'text-button', url: routes.account_login_url, title: text_button_title %} 
-              </div>
+              
             </div>
           </div>
           <!-- OTP End -->
