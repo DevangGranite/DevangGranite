@@ -385,6 +385,9 @@ function validation_form(){
  
  if(first_nameInput.value && last_nameInput.value && emailInput.value && confirm_emailInput.value && locationInputInput.value && regi_cityInput.value && districtInput.value ){  
  }else{
+    if(!first_nameInput.value){
+      alert('fill first name');
+    }
     alert('fill');
  }
 }
