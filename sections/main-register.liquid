@@ -223,13 +223,13 @@
                 </select>
               </div>
             </div>
-            <div class="terms_condition-checkbox">
-              <input id="checkbox_reg" type="checkbox" value="" required>
-              <span>I accept and agree to the <a href="#">Terms and Condition</a></span>
-            </div>
-            <button type="button" class="button full" id="regi_button" onclick="openOTPPopup()">
-              <span>{{ 'customer.login_page.submit_register' | t }}</span>
-            </button>            
+           <div class="terms_condition-checkbox">
+    <input id="checkbox_reg" type="checkbox" value="" onchange="updateButtonState()" required>
+    <span>I accept and agree to the <a href="#">Terms and Condition</a></span>
+</div>
+           <button type="button" class="button full" id="regi_button" onclick="openOTPPopup()" disabled>
+    <span>{{ 'customer.login_page.submit_register' | t }}</span>
+</button>           
           </div>
         {% endform %}
         <div class="switch-login-section">
