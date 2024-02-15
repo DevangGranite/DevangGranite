@@ -46,7 +46,7 @@
 /*** Pop up start OTP ***/
 function openOTPPopup() {
     startTimerOnClick();
-    validation_form();
+    validateForm();
     var mobileInput = document.getElementById('mobile');
     var numericValue = mobileInput.value.replace(/\D/g, '');
     var resendLinkButton = document.getElementById('resendLink');
