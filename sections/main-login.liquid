@@ -153,10 +153,9 @@
                 </div>
               </div>
               <div class="switch-login-section mob">
-                {{ 'customer.login_page.dont_have_an_account' | t }}
-                {% assign text_button_title = 'customer.login_page.create_account' | t %}
-                {% render 'text-button', url: routes.account_register_url, title: text_button_title %}
-                <div></div>
+                <div id="capturedValue"></div>                  
+                  {% assign text_button_title = 'customer.login_page.validate_description' | t %}
+                  {% render 'text-button', url: routes.account_login_url, title: text_button_title %} 
               </div>
             </div>
           </div>
