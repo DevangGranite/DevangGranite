@@ -46,7 +46,7 @@
 /*** Pop up start OTP ***/
 function openOTPPopup() {
     startTimerOnClick();
-   
+    validation_form();
     var mobileInput = document.getElementById('mobile');
     var numericValue = mobileInput.value.replace(/\D/g, '');
    var resendLinkButton = document.getElementById('resendLink'); 
@@ -90,7 +90,7 @@ function openOTPPopup() {
         .catch(error => {
             // Handle errors that may occur during the fetch operation
             console.error('Error fetching data:', error);
-        });      
+        });
     } else {
         // Handle the case where the mobile number does not have 9 digits
      // alert('Mobile number must have 9 digits');
@@ -394,5 +394,6 @@ function validation_form(){
     
  //    alert('fill');
  // }
-
+}
+ 
  /*** validation form reg page end ***/
