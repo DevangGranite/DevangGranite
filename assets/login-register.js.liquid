@@ -312,9 +312,9 @@ function validateAndSwitch(input, nextFieldId) {
     }
 
     // Function to start the timer when the button is clicked
-     function startTimerOnClick() {
-        // Disable the link to prevent multiple clicks
-        document.getElementById('resendLink').setAttribute('disabled', 'true');
+    function startTimerOnClick() {
+        // Disable the button to prevent multiple clicks
+        document.getElementById('registerButton').setAttribute('disabled', 'true');
 
         // Get the timer element
         const timerElement = document.getElementById('timer');
@@ -324,27 +324,14 @@ function validateAndSwitch(input, nextFieldId) {
 
         // Start the timer
         startTimer(timerDuration, timerElement);
-
-        // Get the input value
+      
+      // Get the input value
         var inputValue = document.getElementById('mobile').value;
 
         // Display the captured value in the div
-        document.getElementById('capturedValue').innerText = '+971 ' + inputValue;
-        document.getElementById('capturedValuemob').innerText = '+971 ' + inputValue;
-    }
+          document.getElementById('capturedValue').innerText = '+971 ' + inputValue;
+          document.getElementById('capturedValuemob').innerText = '+971 ' + inputValue;
 
-    function startTimer(duration, displayElement) {
-        let timer = duration;
-        const intervalId = setInterval(function () {
-            displayElement.textContent = timer;
-
-            if (--timer < 0) {
-                // Enable the link and hide the timer when the timer finishes
-                document.getElementById('resendLink').removeAttribute('disabled');
-                displayElement.style.display = 'none';
-                clearInterval(intervalId);
-            }
-        }, 1000);
     }
     
 /*** Timer end ***/
