@@ -47,18 +47,18 @@
               <div class="field--country_codee">
                 <span>+971</span>
                 <input
-                      type="tel"
-                      placeholder="{{ 'customer.login_page.mobile'| t }}"
-                      class="full numeric"
-                      name="number"
-                      id="mobile"
-                      inputmode="numeric"
-                      required
-                      maxlength="9"
-                      oninput="validateInputt()"
-                  >               
+                  type="tel"
+                  placeholder="{{ 'customer.login_page.mobile'| t }}"
+                  class="full numeric"
+                  name="number"
+                  id="mobile"
+                  inputmode="numeric"
+                  required
+                  maxlength="9"
+                  oninput="validateInputt()"
+                >
               </div>
-               <div id="mobileError" style="color: red;"></div>
+              <div id="mobileError" style="color: red;"></div>
             </div>
             <div class="field">
               <label for="email">{{ 'customer.login_page.email' | t }}</label>
@@ -72,7 +72,7 @@
                 required
               >
             </div>
-
+            <div id="emailError" style="color: red;"></div>
             <div class="field">
               <label for="confirm_email">{{ 'customer.login_page.confirm_email' | t }}</label>
               <input
@@ -85,6 +85,7 @@
                 required
               >
             </div>
+            <div id="confirm_email" style="color: red;"></div>
             <div class="field">
               <label for="locationInput">{{ 'customer.login_page.address' | t }}</label>
               <input
@@ -96,96 +97,96 @@
               >
               <div class="location_icon" onclick="openPopup()">
                 {% render 'svg-icons' with 'location' %}
-              </div>           
+              </div>
 
-            <!-- Popup content -->
-            <div id="popup">
-              <!-- Input field for address -->
-              <label for="addressInput">Address</label>
-              <input type="text" id="addressInput" placeholder="Enter address" onkeydown="handleEnterKey(event)">
+              <!-- Popup content -->
+              <div id="popup">
+                <!-- Input field for address -->
+                <label for="addressInput">Address</label>
+                <input type="text" id="addressInput" placeholder="Enter address" onkeydown="handleEnterKey(event)">
 
-              <!-- Container for the map -->
-              <div id="map"></div>
+                <!-- Container for the map -->
+                <div id="map"></div>
 
-              <!-- Display selected location as text -->
-              <div id="locationText"></div>
+                <!-- Display selected location as text -->
+                <div id="locationText"></div>
 
-              <!-- Button to show map based on address -->
-              <button type="button" onclick="showMapForAddress()">Show on Map</button>
+                <!-- Button to show map based on address -->
+                <button type="button" onclick="showMapForAddress()">Show on Map</button>
 
-              <!-- Close button -->
-              <button type="button" class="close-icon" onclick="closePopup()">&#128473;</button>
+                <!-- Close button -->
+                <button type="button" class="close-icon" onclick="closePopup()">&#128473;</button>
+              </div>
+              <div id="locationInputError" style="color: red;"></div>
             </div>
-            </div>
 
-              <div class="field-area">
-                <div id="otppopup">
-                  <div class="popup-wrapper">
-                    <h1 class="popup-title">Validate your Mobile Number</h1>
-                    <p class="popup-subtitle">We sent a code to your Mobile Phone.</p>
-                    <div class="popup-otp-wrapper">
-                      <label for="OneTimePassword">One Time Password</label>
-                      <div class="popup-otp-input-box">
-                        <input
-                          type="text"
-                          name="OneTimePassword"
-                          id="OneTimePassword1"
-                          maxlength="1"
-                          oninput="validateAndSwitch(this, 'OneTimePassword2')"
-                          autocomplete="off"
-                        >
-                        <input
-                          type="text"
-                          name="OneTimePassword"
-                          id="OneTimePassword2"
-                          maxlength="1"
-                          oninput="validateAndSwitch(this, 'OneTimePassword3')"
-                          autocomplete="off"
-                        >
-                        <input
-                          type="text"
-                          name="OneTimePassword"
-                          id="OneTimePassword3"
-                          maxlength="1"
-                          oninput="validateAndSwitch(this, 'OneTimePassword4')"
-                          autocomplete="off"
-                        >
-                        <input
-                          type="text"
-                          name="OneTimePassword"
-                          id="OneTimePassword4"
-                          maxlength="1"
-                          oninput="validateAndSwitch(this, 'OneTimePassword5')"
-                          autocomplete="off"
-                        >
-                        <input
-                          type="text"
-                          name="OneTimePassword"
-                          id="OneTimePassword5"
-                          maxlength="1"
-                          oninput="validateAndSwitch(this, 'OneTimePassword6')"
-                          autocomplete="off"
-                        >
-                        <input
-                          type="text"
-                          name="OneTimePassword"
-                          id="OneTimePassword6"
-                          maxlength="1"
-                          oninput="validateAndSwitch(this, null)"
-                          autocomplete="off"
-                        >
-                      </div>
-                      <p class="timing">
-                          <a id="resendLink" onclick="startTimer_OnClick()">Resend code </a> <span id="timer"></span>
-                      </p>                     
-                      <button type="button" onclick="saveOtpPopup(event)" class="button full" id="verifyOtpbtn" disabled>
-                      <span>Validate your Mobile Number</span>
-                      </button>
+            <div class="field-area">
+              <div id="otppopup">
+                <div class="popup-wrapper">
+                  <h1 class="popup-title">Validate your Mobile Number</h1>
+                  <p class="popup-subtitle">We sent a code to your Mobile Phone.</p>
+                  <div class="popup-otp-wrapper">
+                    <label for="OneTimePassword">One Time Password</label>
+                    <div class="popup-otp-input-box">
+                      <input
+                        type="text"
+                        name="OneTimePassword"
+                        id="OneTimePassword1"
+                        maxlength="1"
+                        oninput="validateAndSwitch(this, 'OneTimePassword2')"
+                        autocomplete="off"
+                      >
+                      <input
+                        type="text"
+                        name="OneTimePassword"
+                        id="OneTimePassword2"
+                        maxlength="1"
+                        oninput="validateAndSwitch(this, 'OneTimePassword3')"
+                        autocomplete="off"
+                      >
+                      <input
+                        type="text"
+                        name="OneTimePassword"
+                        id="OneTimePassword3"
+                        maxlength="1"
+                        oninput="validateAndSwitch(this, 'OneTimePassword4')"
+                        autocomplete="off"
+                      >
+                      <input
+                        type="text"
+                        name="OneTimePassword"
+                        id="OneTimePassword4"
+                        maxlength="1"
+                        oninput="validateAndSwitch(this, 'OneTimePassword5')"
+                        autocomplete="off"
+                      >
+                      <input
+                        type="text"
+                        name="OneTimePassword"
+                        id="OneTimePassword5"
+                        maxlength="1"
+                        oninput="validateAndSwitch(this, 'OneTimePassword6')"
+                        autocomplete="off"
+                      >
+                      <input
+                        type="text"
+                        name="OneTimePassword"
+                        id="OneTimePassword6"
+                        maxlength="1"
+                        oninput="validateAndSwitch(this, null)"
+                        autocomplete="off"
+                      >
                     </div>
+                    <p class="timing">
+                      <a id="resendLink" onclick="startTimer_OnClick()">Resend code </a> <span id="timer"></span>
+                    </p>
+                    <button type="button" onclick="saveOtpPopup(event)" class="button full" id="verifyOtpbtn" disabled>
+                      <span>Validate your Mobile Number</span>
+                    </button>
                   </div>
                 </div>
               </div>
-                     
+            </div>
 
             <div class="field">
               <label for="address" name="address">{{ 'customer.login_page.address2' | t }}</label>
@@ -209,6 +210,7 @@
                 >
                   <option value="">{{ 'customer.addresses.city_reg' | t }}</option>
                 </select>
+                <div id="regiCityError" style="color: red;"></div>
               </div>
 
               <div class="field">
@@ -221,15 +223,16 @@
                 >
                   <option value="">{{ 'customer.addresses.district_reg' | t }}</option>
                 </select>
+                <div id="districtError" style="color: red;"></div>
               </div>
             </div>
-           <div class="terms_condition-checkbox">
-    <input id="checkbox_reg" type="checkbox" value="" onchange="updateButtonState()" required>
-    <span>I accept and agree to the <a href="#">Terms and Condition</a></span>
-</div>
-           <button type="button" class="button full" id="regi_button" onclick="openOTPPopup()" disabled>
-    <span>{{ 'customer.login_page.submit_register' | t }}</span>
-</button>           
+            <div class="terms_condition-checkbox">
+              <input id="checkbox_reg" type="checkbox" value="" onchange="updateButtonState()" required>
+              <span>I accept and agree to the <a href="#">Terms and Condition</a></span>
+            </div>
+            <button type="button" class="button full" id="regi_button" onclick="openOTPPopup()" disabled>
+              <span>{{ 'customer.login_page.submit_register' | t }}</span>
+            </button>
           </div>
         {% endform %}
         <div class="switch-login-section">
