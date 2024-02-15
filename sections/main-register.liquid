@@ -240,13 +240,13 @@
   const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
 
         // Use the fetch function to make a POST request to the API
-        fetch(apiUrl, {
-            method: 'POST',
-            body: JSON.stringify({ mobile: numericValue }),
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        })
+        // fetch(apiUrl, {
+        //     method: 'POST',
+        //     body: JSON.stringify({ mobile: numericValue }),
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        // })
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Network response was not ok: ${response.status}`);
