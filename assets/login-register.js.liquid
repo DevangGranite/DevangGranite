@@ -94,6 +94,25 @@ function openOTPPopup() {
      // alert('Mobile number must have 9 digits');
         console.error('Mobile number must have 9 digits');
     }
+  resendLink_regButton.addEventListener('click', function () {
+    // API call
+    fetch(apiUrl, {
+        method: 'POST',
+        body: JSON.stringify({ mobile: mobileInput.value }),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('MSS Test', data);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+});
 }
 
 
