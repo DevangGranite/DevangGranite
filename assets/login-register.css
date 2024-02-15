@@ -577,3 +577,7 @@ html.popup-overlap body:before {
 .fields.login--page input.full:-webkit-autofill {
      transition: background-color 5000s ease-in-out 0s;
 }
+
+.fields.login--page input.full {
+    background-color:#fff;
+}
