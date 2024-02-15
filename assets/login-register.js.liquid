@@ -378,9 +378,9 @@ function validateAndSwitch(input, nextFieldId) {
             if (--timeLeft < 0) {
                 clearInterval(timer_reg);
                 // Enable the link and reset onclick when the timer_reg finishes
-                const resendLink = document.getElementById('resendLink');
-                resendLink.classList.remove('disabled-link');
-                resendLink.setAttribute('onclick', 'startTimer_regOnClick()'); // Restore onclick
+                const resendLink_reg = document.getElementById('resendLink_reg');
+                resendLink_reg.classList.remove('disabled-link');
+                resendLink_reg.setAttribute('onclick', 'startTimer_regOnClick()'); // Restore onclick
                 display.style.display = 'none';
             }else{
               display.style.display = 'block';
@@ -391,9 +391,9 @@ function validateAndSwitch(input, nextFieldId) {
     // Function to start the timer_reg when the button is clicked
     function startTimer_regOnClick() {
         // Disable the link to prevent multiple clicks
-        const resendLink = document.getElementById('resendLink');
-        resendLink.classList.add('disabled-link');
-        resendLink.removeAttribute('onclick'); // Remove onclick to disable further clicks
+        const resendLink_reg = document.getElementById('resendLink_reg');
+        resendLink_reg.classList.add('disabled-link');
+        resendLink_reg.removeAttribute('onclick'); // Remove onclick to disable further clicks
 
         // Get the timer_reg element
         const timerElement = document.getElementById('timer_reg');
