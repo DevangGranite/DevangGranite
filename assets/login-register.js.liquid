@@ -291,6 +291,8 @@ function validateAndSwitch(input, nextFieldId) {
 
 /*** Timer start ***/
 
+var resendLinkButton1 = document.getElementById('resendLink1'); 
+
        let timer; // Declare timer as a global variable
 
     // Function to start the countdown timer
@@ -307,6 +309,7 @@ function validateAndSwitch(input, nextFieldId) {
                 clearInterval(timer);
                 // Enable the link and reset onclick when the timer finishes
                 const resendLink = document.getElementById('resendLink');
+                const resendLink1 = document.getElementById('resendLink1');
                 resendLink.classList.remove('disabled-link');
                 resendLink.setAttribute('onclick', 'startTimerOnClick()'); // Restore onclick
                 display.style.display = 'none';
@@ -320,6 +323,7 @@ function validateAndSwitch(input, nextFieldId) {
     function startTimerOnClick() {
         // Disable the link to prevent multiple clicks
         const resendLink = document.getElementById('resendLink');
+        const resendLink1 = document.getElementById('resendLink1');
         resendLink.classList.add('disabled-link');
         resendLink.removeAttribute('onclick'); // Remove onclick to disable further clicks
 
@@ -339,5 +343,24 @@ function validateAndSwitch(input, nextFieldId) {
         document.getElementById('capturedValue').innerText = '+971 ' + inputValue;
         document.getElementById('capturedValuemob').innerText = '+971 ' + inputValue;
     }
+resendLinkButton1.addEventListener('click', function () {
+    // API call
+    fetch(apiUrl, {
+        method: 'POST',
+        body: JSON.stringify({ mobile: mobileInput.value }),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('MSS Test', data);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+});
     
 /*** Timer end ***/
