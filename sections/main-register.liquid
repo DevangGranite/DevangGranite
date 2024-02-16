@@ -285,7 +285,9 @@
             if(data.errors){
                 closeOTPPopup();
                 if(data.errors.email)
-                  document.getElementById('emailError').innerText = "Email has already been taken."
+                  document.getElementById('emailError').innerText = "Email has already been taken.";
+                else
+                  window.location = `/account/login/multipass/${data.token}`;
             }
           })
           .catch(error => {
