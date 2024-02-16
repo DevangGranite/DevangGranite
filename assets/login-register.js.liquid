@@ -46,7 +46,7 @@
 /*** Pop up start OTP ***/
 function openOTPPopup() {
     startTimerOnClick();
-    validateForm();
+    // validateForm();
     var mobileInput = document.getElementById('mobile');
     var numericValue = mobileInput.value.replace(/\D/g, '');
     var resendLinkButton = document.getElementById('resendLink');
@@ -428,7 +428,7 @@ function validateConfirmEmailField(inputId, referenceInputId, errorId, errorMess
 }
 
 function validateSelectField(inputId, errorId, errorMessage) {
-  alert(errorId);
+  // alert(errorId);
     var input = document.getElementById(inputId);
     var errorElement = document.getElementById(errorId);
     var value = input.value;
