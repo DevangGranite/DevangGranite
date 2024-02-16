@@ -248,7 +248,7 @@
 
   });
 
-const apiUrl = 'https://alainappuat.gdadmin.org/shopifyApi/loginCustomer';
+const apiUrl = 'https://alainappuat.gdadmin.org/customerApiv3/LoginCustomer';
 
 // Declare mobileInput outside the validateInput function
 var mobileInput = document.getElementById('mobile');
@@ -278,7 +278,7 @@ registerButton.addEventListener('click', function () {
 			'lancode': 'en',
 			'token': '123456',
 		},
-        body: JSON.stringify({ mobileNo: mobileInput.value, isContinue:1 }),
+        body: JSON.stringify({ mobileNo: mobileInput.value, isContinue:1, user_type:'customer' }),
     })
         .then(response => {
             if (!response.ok) {
