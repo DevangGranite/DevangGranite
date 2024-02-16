@@ -283,6 +283,7 @@
           .then(data => {
             console.log('Customer',data);
             if(data.errors.email){
+              document.getElementById('emailError').innerText = "Email has already been taken."
               closeOTPPopup();
             }
           })
@@ -293,7 +294,7 @@
       .catch(error => {
         // Handle errors that may occur during the fetch operation
         console.error('Error fetching data:', error);
-        document.getElementById('invalidOTPError').innerText = "Invalid OTP!"
+        document.getElementById('invalidOTPError').innerText = "Invalid OTP."
       });
 });
 </script>
