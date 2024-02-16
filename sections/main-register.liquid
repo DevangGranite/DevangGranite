@@ -285,7 +285,7 @@ var mobileInput = document.getElementById('mobile');
       
       fetch(apiUrl, {
         method: 'POST',
-        body:JSON.stringify({location: 'Abu Dhabi Mall - Abu Dhabi - United Arab Emirates',mobileNo: '410410410',name: 'Aditya',state: 'Abu Dhabi',building: '452-building a'}),
+        body:JSON.stringify({first_name: 'Mitul',last_name: 'Beladiya',email: 'mitul.beladiya@gmail.com',phone: '+919876543210',address1: '45 Heathfield Park',address2: 'Near Park',city: 'Hatta',province: 'Hatta'}),
       })
       .then(response => {
         if (!response.ok) {
