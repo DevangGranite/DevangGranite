@@ -282,9 +282,10 @@
           })
           .then(data => {
             console.log('Customer',data);
-            if(data.errors.email){
-              document.getElementById('emailError').innerText = "Email has already been taken."
-              closeOTPPopup();
+            if(data.errors){
+                closeOTPPopup();
+                if(data.errors.email)
+                  document.getElementById('emailError').innerText = "Email has already been taken."
             }
           })
           .catch(error => {
