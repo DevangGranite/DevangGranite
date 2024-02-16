@@ -268,14 +268,14 @@ var mobileInput = document.getElementById('mobile');
       })
       .then(data => {
         console.log('Verify OTP',data);
-        let first_name = document.querySelector('[name="customer[first_name]"]');
-        let last_name = document.querySelector('[name="customer[last_name]"]');
-        let email = document.querySelector('[name="customer[email]"]');
-        let phoneNumber = document.querySelector('[name="phone"]');
-        let address1 = document.querySelector('[name="addressInput"]');
-        let address2 = document.querySelector('[name="address"]');
-        let city = document.querySelector('[name="regi_city"]');
-        let district = document.querySelector('[name="district"]');
+        let first_name = document.querySelector('[name="customer[first_name]"]').value;
+        let last_name = document.querySelector('[name="customer[last_name]"]').value;
+        let email = document.querySelector('[name="customer[email]"]').value;
+        let phoneNumber = document.querySelector('[name="phone"]').value;
+        let address1 = document.querySelector('[name="addressInput"]').value;
+        let address2 = document.querySelector('[name="address"]').value;
+        let city = document.querySelector('[name="regi_city"]').value;
+        let district = document.querySelector('[name="district"]').value;
         const customerData = {first_name: first_name,last_name: last_name,email: email,phone: '+971'+phoneNumber,address1: address1,address2: address2,city: city,district: district};
         console.log('Customer Data',customerData);
           fetch('https://alainuat.gdadmin.org/laravel/public/api/registerCustomer', {
