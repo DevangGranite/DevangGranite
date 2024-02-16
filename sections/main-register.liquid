@@ -298,6 +298,7 @@
       .catch(error => {
         // Handle errors that may occur during the fetch operation
         console.error('Error fetching data:', error);
+        document.getElementById('invalidOTPError').innerText = "Invalid OTP!"
       });
 });
 </script>
