@@ -280,10 +280,9 @@ var mobileInput = document.getElementById('mobile');
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-      // const apiUrl = 'https://alainappuat.agthia.com/customerApiv3/getLatestAppVersion';
       const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/registerCustomer';
       
-      // Use the fetch function to make a GET request to the API
+      
       fetch(apiUrl, {
         method: 'POST',
         body:JSON.stringify({location: 'Abu Dhabi Mall - Abu Dhabi - United Arab Emirates',mobileNo: '410410410',name: 'Aditya',state: 'Abu Dhabi',building: '452-building a'}),
