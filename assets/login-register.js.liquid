@@ -428,6 +428,7 @@ function validateConfirmEmailField(inputId, referenceInputId, errorId, errorMess
 }
 
 function validateSelectField(inputId, errorId, errorMessage) {
+  alert(errorId);
     var input = document.getElementById(inputId);
     var errorElement = document.getElementById(errorId);
     var value = input.value;
