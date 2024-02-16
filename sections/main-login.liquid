@@ -274,6 +274,10 @@ registerButton.addEventListener('click', function () {
     // API call
     fetch(apiUrl, {
         method: 'POST',
+        headers: {
+			'lancode': 'en',
+			'token': '123456',
+		},
         body: JSON.stringify({ mobileNo: mobileInput.value, isContinue:1 }),
     })
         .then(response => {
