@@ -272,6 +272,7 @@ function validateAndSwitch(input, nextFieldId) {
       geocoder.geocode({ 'address': address }, function(results, status) {
         if (status == 'OK' && results[0]) {
           var location = results[0].geometry.location;
+Skip to content
 
           // Update the map center
           map.setCenter(location);
@@ -437,7 +438,7 @@ function validateSelectField(inputId, errorId, errorMessage) {
         console.error(errorMessage);
         return false;
     } else {
-        errorElement.innerHTML = '';
+        // errorElement.innerHTML = '';
         return true;
     }
 }
