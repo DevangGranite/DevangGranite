@@ -272,7 +272,6 @@ function validateAndSwitch(input, nextFieldId) {
       geocoder.geocode({ 'address': address }, function(results, status) {
         if (status == 'OK' && results[0]) {
           var location = results[0].geometry.location;
-Skip to content
 
           // Update the map center
           map.setCenter(location);
