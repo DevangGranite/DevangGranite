@@ -268,11 +268,17 @@ var mobileInput = document.getElementById('mobile');
       })
       .then(data => {
         console.log('Verify OTP',data);
+        let first_name = document.querySelector('[name="customer[first_name]"]');
+        let last_name = document.querySelector('[name="customer[last_name]"]');
+        let email = document.querySelector('[name="customer[email]"]');
+        let phone = document.querySelector('[name="number"]');
+        let address1 = document.querySelector('[name="addressInput"]');
+        let address2 = document.querySelector('[name="address"]');
         let city = document.querySelector('[name="regi_city"]');
         let district = document.querySelector('[name="district"]');
           fetch('https://alainuat.gdadmin.org/laravel/public/api/registerCustomer', {
             method: 'POST',
-            body:JSON.stringify({first_name: 'Mitul',last_name: 'Beladiya',email: 'mitul.beladiya@gmail.com',phone: '+919876543210',address1: '45 Heathfield Park',address2: 'Near Park',city: city,district: district}),
+            body:JSON.stringify({first_name: first_name,last_name: last_name,email: email,phone: '+971'+phone,address1: address1,address2: address2,city: city,district: district}),
           })
           .then(response => {
             if (!response.ok) {
@@ -282,7 +288,7 @@ var mobileInput = document.getElementById('mobile');
             return response.json();
           })
           .then(data => {
-            console.log('MSS Test',data);
+            console.log('Customer',data);
           
           })
           .catch(error => {
