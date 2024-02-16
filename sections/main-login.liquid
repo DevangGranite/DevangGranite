@@ -274,7 +274,7 @@ registerButton.addEventListener('click', function () {
     // API call
     fetch(apiUrl, {
         method: 'POST',
-        body: JSON.stringify({ mobile: mobileInput.value }),
+        body: JSON.stringify({ mobileNo: mobileInput.value, isContinue:1 }),
     })
         .then(response => {
             if (!response.ok) {
