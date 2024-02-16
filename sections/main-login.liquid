@@ -248,7 +248,7 @@
 
   });
 
-const apiUrl = 'https://alainappuat.gdadmin.org/customerApiv3/LoginCustomer';
+const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
 
 // Declare mobileInput outside the validateInput function
 var mobileInput = document.getElementById('mobile');
@@ -274,11 +274,7 @@ registerButton.addEventListener('click', function () {
     // API call
     fetch(apiUrl, {
         method: 'POST',
-        headers: {
-			'lancode': 'en',
-			'token': '123456',
-		},
-        body: JSON.stringify({ mobileNo: mobileInput.value, isContinue:1, user_type:'customer' }),
+        body: JSON.stringify({ mobile: mobileInput.value }),
     })
         .then(response => {
             if (!response.ok) {
