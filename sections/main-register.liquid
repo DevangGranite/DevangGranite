@@ -282,7 +282,7 @@
           })
           .then(data => {
             console.log('Customer',data);
-            if(data.customer.errors.email){
+            if(data.errors.email){
               closeOTPPopup();
             }
           })
