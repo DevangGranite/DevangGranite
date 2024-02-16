@@ -272,7 +272,7 @@ var mobileInput = document.getElementById('mobile');
         let district = document.querySelector('[name="district"]');
           fetch('https://alainuat.gdadmin.org/laravel/public/api/registerCustomer', {
             method: 'POST',
-            body:JSON.stringify({first_name: 'Mitul',last_name: 'Beladiya',email: 'mitul.beladiya@gmail.com',phone: '+919876543210',address1: '45 Heathfield Park',address2: 'Near Park',city: city,province: district}),
+            body:JSON.stringify({first_name: 'Mitul',last_name: 'Beladiya',email: 'mitul.beladiya@gmail.com',phone: '+919876543210',address1: '45 Heathfield Park',address2: 'Near Park',city: city,district: district}),
           })
           .then(response => {
             if (!response.ok) {
