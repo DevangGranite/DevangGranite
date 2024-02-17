@@ -281,7 +281,7 @@
             return response.json();
           })
           .then(data => {
-            let responce = json.parse(data);
+            let responce = JSON.parse(data);
             console.log('Customer',responce.customer.errors);
             if(data.customer['errors']){
                 closeOTPPopup();
