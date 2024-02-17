@@ -282,7 +282,7 @@
           })
           .then(data => {
             console.log('Customer',data);
-            if(data.customer.errors){
+            if(data.customer['errors']){
                 closeOTPPopup();
                 window.location.href = `/account/login/multipass/${data.token}`;
                 if(data.customer.errors.email)
