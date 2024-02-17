@@ -282,10 +282,12 @@
           })
           .then(data => {
             let responce = JSON.parse(data.customer);
+            let token = json.parse(data.token);
+            console.log('Token',token);
             if(responce.errors){
                 closeOTPPopup();
-                window.location.href = `/account/login/multipass/${data.token}`;
-                if(data.customer.errors.email)
+                window.location.href = `/account/login/multipass/${token}`;
+                if(responce.errors.email)
                   document.getElementById('emailError').innerText = "Email has already been taken.";
                 else
                   window.location = `/account/login/multipass/${data.token}`;
