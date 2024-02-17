@@ -290,6 +290,10 @@ resendLinkButton.addEventListener('click', function () {
     // API call
     fetch('https://alainappuat.gdadmin.org/shopifyApi/loginCustomer', {
         method: 'POST',
+        headers: {
+          'lancode': 'en',
+          'token': '123456',
+        },
         body: JSON.stringify({ mobile: mobileInput.value }),
     })
         .then(response => {
