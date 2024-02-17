@@ -247,8 +247,6 @@
       }
   });
 
-const apiUrl = 'https://alainappuat.gdadmin.org/shopifyApi/loginCustomer';
-
 // Declare mobileInput outside the validateInput function
 var mobileInput = document.getElementById('mobile');
 var registerButton = document.getElementById('registerButton');
@@ -271,7 +269,7 @@ function validateInput() {
 
 registerButton.addEventListener('click', function () {
     // API call
-    fetch(apiUrl, {
+    fetch('https://alainappuat.gdadmin.org/shopifyApi/loginCustomer', {
         method: 'POST',
         body: JSON.stringify({ mobile: mobileInput.value }),
     })
@@ -290,7 +288,7 @@ registerButton.addEventListener('click', function () {
 });
 resendLinkButton.addEventListener('click', function () {
     // API call
-    fetch(apiUrl, {
+    fetch('https://alainappuat.gdadmin.org/shopifyApi/loginCustomer', {
         method: 'POST',
         body: JSON.stringify({ mobile: mobileInput.value }),
     })
