@@ -271,20 +271,24 @@ registerButton.addEventListener('click', function () {
     // API call
     fetch('https://alainappuat.gdadmin.org/shopifyApi/loginCustomer', {
         method: 'POST',
-        body: JSON.stringify({ mobile: mobileInput.value }),
+        headers: {
+          'lancode': 'en',
+          'token': '123456',
+        },
+        body: JSON.stringify({ mobileNo: mobileInput.value, isContinue:1 }),
     })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Network response was not ok: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('MSS Test', data);
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('MSS Test', data);
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
 });
 resendLinkButton.addEventListener('click', function () {
     // API call
