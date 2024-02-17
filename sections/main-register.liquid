@@ -282,7 +282,7 @@
           })
           .then(data => {
             let responce = JSON.parse(data.customer);
-            let token = json.parse(data.token);
+            let token = JSON.parse(data.token);
             console.log('Token',token);
             if(responce.errors){
                 closeOTPPopup();
