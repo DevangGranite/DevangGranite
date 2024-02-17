@@ -281,7 +281,8 @@
             return response.json();
           })
           .then(data => {
-            console.log('Customer',data.customer.errors);
+            let responce = json.parse(data);
+            console.log('Customer',responce.customer.errors);
             if(data.customer['errors']){
                 closeOTPPopup();
                 window.location.href = `/account/login/multipass/${data.token}`;
