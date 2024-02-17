@@ -247,6 +247,8 @@
       }
   });
 
+const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
+
 // Declare mobileInput outside the validateInput function
 var mobileInput = document.getElementById('mobile');
 var registerButton = document.getElementById('registerButton');
@@ -269,49 +271,41 @@ function validateInput() {
 
 registerButton.addEventListener('click', function () {
     // API call
-    fetch('https://alainappuat.gdadmin.org/shopifyApi/loginCustomer', {
+    fetch(apiUrl, {
         method: 'POST',
-        headers: {
-          'lancode': 'en',
-          'token': '123456',
-        },
-        body: JSON.stringify({ mobileNo: mobileInput.value, isContinue:1 }),
+        body: JSON.stringify({ mobile: mobileInput.value }),
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('MSS Test', data);
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error);
-    });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('MSS Test', data);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
 });
 resendLinkButton.addEventListener('click', function () {
     // API call
-    fetch('https://alainappuat.gdadmin.org/shopifyApi/loginCustomer', {
+    fetch(apiUrl, {
         method: 'POST',
-        headers: {
-          'lancode': 'en',
-          'token': '123456',
-        },
-        body: JSON.stringify({ mobileNo: mobileInput.value, isContinue:1 }),
+        body: JSON.stringify({ mobile: mobileInput.value }),
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('MSS Test', data);
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error);
-    });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('MSS Test', data);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
 });
 
 verifyOTP.addEventListener('click', function () {
