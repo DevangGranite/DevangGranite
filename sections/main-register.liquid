@@ -284,7 +284,7 @@
             console.log('Customer',data);
             if(data.customer.errors){
                 closeOTPPopup();
-                window.location = `/account/login/multipass/${data.token}`;
+                window.location.href = `/account/login/multipass/${data.token}`;
                 if(data.customer.errors.email)
                   document.getElementById('emailError').innerText = "Email has already been taken.";
                 else
