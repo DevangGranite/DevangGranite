@@ -294,18 +294,18 @@ resendLinkButton.addEventListener('click', function () {
         method: 'POST',
         body: JSON.stringify({ mobile: mobileInput.value }),
     })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Network response was not ok: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('MSS Test', data);
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('MSS Test', data);
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
 });
 
 verifyOTP.addEventListener('click', function () {
@@ -329,7 +329,25 @@ verifyOTP.addEventListener('click', function () {
         if (data.response['0'].email_id == "") {
           document.querySelector('.custom_email_container').style.display = 'block';
           document.querySelector('.otp-container').style.display = 'none';
-        }    
+        }else{
+          /** customer login **/
+          fetch(`https://alainuat.gdadmin.org/laravel/public/api/login/${data.response['0'].email_id}`, {
+              method: 'GET',
+          })
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error(`Network response was not ok: ${response.status}`);
+              }
+              return response.json();
+          })
+          .then(data => {
+              console.log('Login', data);
+          })
+          .catch(error => {
+              console.error('Error fetching data:', error);
+          });
+          /** end customer login **/
+        }  
       })
       .catch(error => {
         // Handle errors that may occur during the fetch operation
