@@ -334,6 +334,7 @@ verifyOTP.addEventListener('click', function () {
       .then(data => {
         console.log('Verify Login OTP',data);
         if (data.response['0'].email_id == "") {
+          let user_id = data.response['0'].id;
           document.querySelector('.custom_email_container').style.display = 'block';
           document.querySelector('.otp-container').style.display = 'none';
         }else{
@@ -364,7 +365,10 @@ verifyOTP.addEventListener('click', function () {
 
 
 function updateEmail(){
-  
+  fetch('https://alainuat.gdadmin.org/laravel/public/api/custoemr/update', {
+    method:'POST',
+    body:{email:document.getElementById('customer_email'),user_id:}
+  })
 }
 
 /** End Verify OTP **/
