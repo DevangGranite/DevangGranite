@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "zero_balance_my_wallet",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,4 +1,5 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
+<<<<<<< HEAD
  
 <div class="section-spacing-bottom">
 	  <div class="small-12 large-8 columns myaccount-content">
@@ -67,6 +68,87 @@
 			 {{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})
 			{%- endcapture -%}
 			{%- render 'text-button', url: routes.account_addresses_url, title: text_button_title -%}
+=======
+
+<div class="customer-content-spacing short-width-row">
+	<div class="customer-content--wrapper">
+		<div class="customer-welcome--wrapper">
+			<div>
+				<div class="customer-name">{{ 'customer.dashboard.welcome' | t }} {{ customer.first_name }}</div>
+				<div class="customer-help">{{ 'customer.dashboard.help' | t }}</div>
+			</div>
+			<div class="customer-welcome-links--wrapper">
+				<div class="customer-welcome-img--wrapper">
+					<div class="customer-welcome-img--background"><img src="{{ 'account-manage-subscriptions.png' | file_url }}" alt="{{ 'customer.dashboard.subscriptions' | t }}"></div>
+					<a class="customer-welcome--link" href="{{ routes.account_url | append: '?view=manage-subscriptions' }}" target="_blank">{{ 'customer.dashboard.subscriptions' | t }}</a>
+				</div>
+				<div class="customer-welcome-img--wrapper">
+					<div class="customer-welcome-img--background"><img src="{{ 'account-top-up.png' | file_url }}" alt="Top Up Wallet"></div>
+					<a class="customer-welcome--link" href="#" target="_blank">Top Up Wallet</a>
+				</div>
+				<div class="customer-welcome-img--wrapper">
+					<div class="customer-welcome-img--background"><img src="{{ 'account-catalog.png' | file_url }}" alt="View Catalogue"></div>
+					<a class="customer-welcome--link" href="{{ routes.collections_url }}" target="_blank">View Catalogue</a>
+				</div>
+			</div>
+		</div>
+
+		{% render 'account-wallet-balance' %}
+		{% render 'account-my-rewards' %}
+
+	  <div>
+			<div class="account-order-history--wrapper">
+				<h4>{{ 'customer.orders.title' | t }}</h4>
+				<div class="account-order-history--link">
+					<a href="#">View all </a>&nbsp;>
+				</div>
+			</div>
+			{%- if customer.orders.size > 0 -%}
+				<div class="account-order-history-table--wrapper">
+					<table class="account-order-history--table no-borders">
+						<thead>
+						<tr>
+							<th id="ColumnOrder" scope="col" role="columnheader">{{ 'customer.orders.order_number' | t }}</th>
+							<th id="ColumnDate" scope="col" role="columnheader">{{ 'customer.orders.date' | t }}</th>
+							<th id="ColumnPayment" scope="col" role="columnheader">{{ 'customer.orders.payment_status' | t }}</th>
+							<th id="ColumnFulfillment" scope="col" role="columnheader">{{ 'customer.orders.fulfillment_status' | t }}</th>
+							<th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.orders.total' | t }}</th>
+						</tr>
+						</thead>
+						<tbody role="rowgroup">
+						{% for order in customer.orders %}
+							<tr role="row">
+								<td
+										id="RowOrder"
+										role="cell"
+										headers="ColumnOrder"
+										data-label="{{ 'customer.orders.order_number' | t }}"
+								>
+									<a href="{{ order.customer_url }}" class="text-button" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">
+										{{ order.name }}
+									</a>
+								</td>
+								<td headers="RowOrder ColumnDate" role="cell" data-label="{{ 'customer.orders.date' | t }}">
+									{{ order.created_at | time_tag: format: 'date' }}
+								</td>
+								<td headers="RowOrder ColumnPayment" role="cell" data-label="{{ 'customer.orders.payment_status' | t }}">
+									{{ order.financial_status_label }}
+								</td>
+								<td headers="RowOrder ColumnFulfillment" role="cell" data-label="{{ 'customer.orders.fulfillment_status' | t }}">
+									{{ order.fulfillment_status_label }}
+								</td>
+								<td headers="RowOrder ColumnTotal" role="cell" data-label="{{ 'customer.orders.total' | t }}">
+									{{ order.total_price | money_with_currency }}</td>
+							</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			{%- else -%}
+			 <p>{{ 'customer.orders.none' | t }}</p>
+			{%- endif -%}
+			{% render 'pagination', paginate: paginate, pagination_type: 'paginated' %}
+>>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3
 	  </div>
 	</div>
 </div>
