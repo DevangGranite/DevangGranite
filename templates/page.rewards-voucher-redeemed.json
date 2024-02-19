@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "rewards-voucher-redeemed",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

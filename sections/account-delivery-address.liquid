@@ -1,0 +1,46 @@
+<script src="{{ 'account.js' | asset_url }}" defer="defer"></script>
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&libraries=places"></script>
+
+<account-delivery-address id="account-delivery-address">
+  <div class="account-edit-address--wrapper" aria-hidden="true">
+    <h4 class="account--title">Delivery Address</h4>
+    <form class="account-edit-address--form">
+      <div class="account-edit-address-input--wrapper">
+        <label for="full_address">Address</label>
+        <div class="account--relative">
+          <input id="full_address" name="full_address" type="text" value="Al Reem Island - Shams Abu Dhabi - Abu Dhabi - United Arab..." readonly>
+          <img class="account-location--picker" src="{{ 'account-location-picker.svg' | file_url }}" alt="Pick Address">
+          <div id="map-wrapper">
+            <div id="map"></div>
+          </div>
+        </div>
+      </div>
+      <div class="account-edit-address-input--wrapper">
+        <label for="address1">Apt / Villa Number & Building / Villa Name</label>
+        <input id="address1" name="address1" type="text" value="Sky Tower, 12th Floor">
+      </div>
+      <div class="account-edit-address-input--wrapper account-edit-address-input--double">
+        <div class="account-edit-address-input--half">
+          <label for="city">City</label>
+          <div class="account--relative">
+            <select id="city" name="city" type="text">
+              <option value="Al Reem Island" selected>Abu Dhabi</option>
+            </select>
+            <img class="account-input-dropdown--arrow" src="{{ 'account-dropdown-arrow.svg' | file_url }}" alt="">
+          </div>
+        </div>
+        <div class="account-edit-address-input--half">
+          <label for="district">District</label>
+          <div class="account--relative">
+            <select id="district" name="district" type="text">
+              <option value="Al Reem Island" selected>Al Reem Island</option>
+            </select>
+            <img class="account-input-dropdown--arrow" src="{{ 'account-dropdown-arrow.svg' | file_url }}" alt="">
+          </div>
+        </div>
+      </div>
+      <button disabled class="account-submit-address--button" type="submit">Update Address</button>
+    </form>
+  </div>
+</account-delivery-address>

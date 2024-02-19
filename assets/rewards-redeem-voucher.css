@@ -1,0 +1,307 @@
+.voucher_cards_blocks{
+  position: relative;
+}
+.voucher_cards_blocks .voucher_card_link{
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  position: absolute;
+}
+.cards_small_inline {
+  background: #EFF2F6;
+  padding-block: 56px;
+  margin-top: -30px;
+}
+.voucher_inner_cards{
+  max-width: 640px;
+  width: 100%;
+  margin-inline: auto;
+}
+.voucher_cards_title_main{
+  color: #2461CC;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+}
+.voucher_cards_title{
+  color: #1F1F20;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;  
+  margin-bottom: 8px;
+}
+.voucher_cards_blocks_inner_main{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.voucher_cards_blocks{
+  max-width: 200px;
+  width: 100%;
+  flex-shrink: 0;
+  border-radius: 8px;
+  opacity: 0.7;
+  background: #FFF;
+  padding: 10px;
+
+  display: flex;
+  gap: 15px;
+
+  align-items: center;
+}
+.voucher_cards_image{
+  max-width: 64px;
+  max-height: 64px;
+}
+.voucher_cards_image img{
+  width: 100%;
+}
+.voucher_cards_drops{
+  color: #2461CC;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  margin-bottom: 8px;
+}
+.voucher_cards_drops svg{
+  width: 6px;
+  height: 9px;
+  flex-shrink: 0;
+}
+
+  /*  */
+#shopify-section-{{ section.id }} {
+  padding-bottom: 100px;
+}
+.reward-redeem-voucher_card_main{
+  display: flex;
+}
+
+.reward-redeem-voucher_card_image{
+  max-width: 192px;
+  width: 100%;
+}
+.reward-redeem-voucher_card_image img{
+  width: 100%;
+}
+.reward-redeem-voucher_card_info{
+  max-width: 392px;
+  width: 100%;
+}
+.reward-redeem-voucher_detail{
+color: #53565A;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; 
+}
+.reward-redeem-voucher_detail{
+  color: #1F1F20;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; 
+  margin-bottom: 16px;
+}
+.reward-redeem-voucher_detail{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.reward-redeem-voucher_detail .count_drops_total{
+  width: 56px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #EFF2F6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reward-redeem-voucher_card_main{
+  justify-content: space-between;
+}
+.reward-redeem-voucher_detail .count_drops_total svg{
+  width: 10px;
+  height: 15px;
+}
+.reward-redeem-voucher_detail{
+  display: flex;
+}
+.reward-redeem-voucher-divider{
+  margin-block: 24px;
+  height: 1px;
+  display: block;
+  background: #1F1F20;
+  opacity: 0.2;
+}
+.reward-redeem-voucher-terms{
+  color: #2461CC;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; 
+  margin-bottom: 14px;
+}
+.reward-redeem-voucher-list ul li{
+  color: #6B6E71;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; 
+}
+.count_drops_total{
+        
+}
+.reward-redeem-voucher_button_red .reward-redeem-voucher_redeme_btn_atc{
+  height: 64px;
+  width: 100%;
+  border-radius: 8px;
+  background: #2461CC;
+
+  display: block;
+  color: #FFF;
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+        
+  .reward-redeem-voucher .reward-redeem-voucher_inner{
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(0,20,137,1) 100%);
+    
+  }
+  
+  .reward-redeem-voucher_main{
+    max-width: 1024px;
+    width: 100%;
+    margin-inline: auto;
+    padding: 24px;
+    padding-bottom: 50px;
+  }
+  .reward-redeem-voucher_data_main{
+    margin-inline: auto;
+    max-width: 1024px;
+    width: 100%;
+    padding: 24px;
+    padding-top: 32px;
+    margin-top: -32px;
+    border-radius: 16px;
+    background: #fff;
+    position: relative;
+    z-index: 1;
+  }
+  .reward-redeem-voucher_data_main{
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .reward-redeem-voucher_data_main_inner{
+    max-width: 640px;
+    width: 100%;
+    margin-inline: auto;
+  }
+  .reward-redeem-voucher_inner_top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .reward-redeem-voucher_back svg path,
+  .reward-redeem-voucher_help svg path{
+    stroke: #fff;
+  }
+  .reward-redeem-voucher_title{
+    color: #fff;
+  }
+  .reward-redeem-voucher_title{
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 118%; 
+  }
+  .reward-redeem-voucher_inner_bottom{
+     color: #FFF;
+     text-align: center;
+     font-size: 32px;
+     font-style: normal;
+     font-weight: 700;
+     line-height: 34px; 
+     margin-bottom: 32px;
+     margin-top: 10px;
+  }
+  .reward-redeem-voucher_main_data{
+    display: flex;
+    padding-block: 24px;
+  }
+   
+  .reward-redeem-voucher_inner_data_points a{
+    color: #2461CC;
+    text-align: right;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    text-decoration-line: underline;
+  }
+  .reward-redeem-voucher_main_data {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .reward-redeem-voucher_inner_data_range{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-block: 30px;
+    border-top: 1px solid rgba( 0,0,0,0.2 );
+    align-items: center;
+  }
+  .reward-redeem-voucher_inner_data_points_count{
+    color: #2461CC;
+    text-align: right;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+   .voucher_cards_blocks_inner_main {
+      overflow-x: auto;
+      gap: 20px;
+      padding-bottom: 20px;
+   }
+   .cards_small_inline {
+     padding-inline: 24px;
+   }
+  @media screen and ( max-width: 749px ){
+    .reward-redeem-voucher_inner_data_range{
+      flex-wrap: wrap;
+    }
+    .reward-redeem-voucher_title{
+      font-size: 20px;
+    }
+    .reward-redeem-voucher_card_main{
+      flex-direction: column;
+    }
+    .reward-redeem-voucher_card_image{
+      margin-inline: auto;
+    }
+    .reward-redeem-voucher_card_info{
+      margin-top: 25px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(88, 139, 191, 0.2);
+    }
+  }
+   
