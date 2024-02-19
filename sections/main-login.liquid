@@ -334,6 +334,7 @@ verifyOTP.addEventListener('click', function () {
     }  
   }).catch(error => {
     // Handle errors that may occur during the fetch operation
+    document.getElementById('invalidOTPError').innerText = "Invalid OTP."
     console.error('Error fetching data:', error);
   });
 });
