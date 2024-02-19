@@ -1,0 +1,145 @@
+{% comment %}
+{{ 'wallet_page_style.css' | asset_url | stylesheet_tag }}
+{% endcomment %}
+{{ 'rewards-redeem-voucher.css' | asset_url | stylesheet_tag }}
+<div class="reward-redeem-voucher">
+  <div class="reward-redeem-voucher_inner">
+    <div class="reward-redeem-voucher_main">
+      <div class="reward-redeem-voucher_inner_top">
+      <div class="reward-redeem-voucher_back">
+        {% render 'back_icon' %}
+      </div>
+      <div class="reward-redeem-voucher_title">Redeem Voucher</div>
+      <div class="reward-redeem-voucher_help">{% render 'help_icon' %}</div>
+    </div>
+    
+    </div>
+
+  </div>
+
+
+  <!--  -->
+
+    <div class="reward-redeem-voucher_data_main">
+      <div class="reward-redeem-voucher_data_main_inner">
+       <div class="reward-redeem-voucher_card_main">
+         <div class="reward-redeem-voucher_card_image">
+           <img class="reward-redeem-voucher_image" src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/Group_18461.png?v=1707940864">
+         </div>
+         <div class="reward-redeem-voucher_card_info">
+           <p class="reward-redeem-voucher_detail">Details</p>
+           <div class="reward-redeem-voucher_detail">20% Discount Code Voucher <span class="count_drops_total">{% render 'drop_icon' %}10</span></div>
+           <div class="reward-redeem-voucher_button_red"><a class="reward-redeem-voucher_redeme_btn_atc">Redeem Voucher</a></div>
+           <div class="reward-redeem-voucher-divider"></div>
+           <div class="reward-redeem-voucher-terms">Terms & Conditions</div>
+           <div class="reward-redeem-voucher-list">
+             <ul>
+               <li>Up to 2 uses per month</li>
+               <li>Coupon cannot be refunded once unlocked</li>
+             </ul>
+           </div>
+         </div>
+       </div>
+      </div>
+    </div>
+    <div class="cards_small_inline">
+      <div class="voucher_inner_cards">
+        <p class="voucher_cards_title_main">Similar Deals</p>
+        <div class="voucher_cards_blocks_inner_main">
+          <div class="voucher_cards_blocks">
+            <div class="voucher_cards_image"><img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/App_logo_3_10.png?v=1707945278"></div>
+            <div class="voucher_cards_info">
+              <p class="voucher_cards_title">2x Al Ain Water  5 Gallon</p>
+              <p class="voucher_cards_drops">{% render 'drop_icon' %} 10 Drops</p>
+            </div>
+            <a class="voucher_card_link" href="#"></a>
+          </div>
+
+          <div class="voucher_cards_blocks">
+            <div class="voucher_cards_image"><img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/App_logo_3_10.png?v=1707945278"></div>
+            <div class="voucher_cards_info">
+              <p class="voucher_cards_title">2x Al Ain Water  5 Gallon</p>
+              <p class="voucher_cards_drops">{% render 'drop_icon' %} 10 Drops</p>
+            </div>
+            <a class="voucher_card_link" href="#"></a>
+          </div>
+
+          <div class="voucher_cards_blocks">
+            <div class="voucher_cards_image"><img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/App_logo_3_10.png?v=1707945278"></div>
+            <div class="voucher_cards_info">
+              <p class="voucher_cards_title">2x Al Ain Water  5 Gallon</p>
+              <p class="voucher_cards_drops">{% render 'drop_icon' %} 10 Drops</p>
+            </div>
+            <a class="voucher_card_link" href="#"></a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+</div>
+
+ 
+{% schema %}
+  {
+    "name": "Clip the deal",
+    "settings": [
+      {
+	    "type": "text",
+	    "id": "heading",
+	    "label": "Heading",
+	    "default": "My Reward Drops"
+	  },
+      {
+	    "type": "text",
+	    "id": "heading_sec",
+	    "label": "Heading second",
+	    "default": "Blue Tier"
+	  },
+      {
+	    "type": "text",
+	    "id": "drop_title",
+	    "label": "Data title",
+	    "default": "Your Current Balance"
+	  },
+      {
+	    "type": "inline_richtext",
+	    "id": "date_exp",
+	    "label": "Expire date",
+	    "default": "<strong>5 Drops</strong> will expire on 1/11/23"
+	  },
+      {
+	    "type": "number",
+	    "id": "drop_points",
+	    "label": "Drop points",
+	    "default": 25
+	  },
+      {
+	    "type": "inline_richtext",
+	    "id": "drop_range",
+	    "label": "Expire date",
+	    "default": "25 drops until Green Tier"
+	  },
+      {
+	    "type": "text",
+	    "id": "h_label",
+	    "label": "Button label",
+	    "default": "Drop History"
+	  },
+      {
+	    "type": "url",
+	    "id": "h_link",
+	    "label": "Button link"
+	  },
+      {
+        "type": "color_background",
+        "id": "background_gradient",
+        "label": "Background color"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Clip the deal"
+      }
+    ]
+  }
+{% endschema %}

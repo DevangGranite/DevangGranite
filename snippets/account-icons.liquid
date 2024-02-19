@@ -1,0 +1,15 @@
+{% case icon %}
+  {% when 'close' %}
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.6562 6.3429L6.34254 17.6566" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <path d="M17.6562 17.6566L6.34254 6.34291" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  {% when 'quantity-plus' %}
+    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 4.2H7.4M4.2 1L4.2 7.4" stroke="#2461CC" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+  {% when 'quantity-minus' %}
+    <svg width="8" height="2" viewBox="0 0 8 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 1.19995H7.4" stroke="#2461CC" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+{% endcase %}

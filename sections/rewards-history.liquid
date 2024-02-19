@@ -1,0 +1,225 @@
+{{ 'rewards_history.css' | asset_url | stylesheet_tag }}
+ 
+
+ <div class="reward_history_main">
+  <div class="reward_history_inner">
+    <div class="reward_history_inner_main">
+      <div class="reward_history_inner_top">
+      <div class="reward_history_back">
+        {% render 'back_icon' %}
+      </div>
+      <div class="reward_history_title">Rewards History</div>
+      <div class="reward_history_help">{% render 'help_icon' %}</div>
+    </div>
+    <div class="reward_history_inner_bottom">
+       Blue Tier
+    </div>
+    </div>
+
+  </div>
+
+    
+</div>
+  <div class="reward_history_main_data">
+      <div class="reward_history_data_inner">
+        <div class="reward_history_inner_main_data">
+      <div class="reward_history_data_inner_top">
+        <div class="reward_history_data_title_main">
+           Your Current Balance
+        </div>
+        <div class="reward_history_data_drops_details">5 Drops will expire on 1/11/23</div>
+      </div>
+      <div class="reward_history_inner_data_points_count">
+        {% render 'drop_icon' %}
+        10
+      </div>
+    </div>
+      </div>
+
+    <div class="reward_history_data_inner bordered">
+        <div class="reward_history_inner_main_data">
+      <div class="reward_history_data_inner_top">
+        <div class="reward_history_total_data_main">
+           Total accumulated so far
+        </div>
+        <div class="reward_history_data_date_details">From 1st Dec 22 to 30th Nov 23</div>
+      </div>
+      <div class="reward_history_points_count">
+        27
+      </div>
+    </div>
+      </div>
+    
+  </div>
+
+   
+  <div class="tabs_main my_wallet_data_blocks_main">
+
+        <!-- Blocks_month -->
+  <div class="table_purchase_history_year">Purchase History <b>2024</b> </div>
+  <div class="my_wallet_data_blocks_inner">
+    <div class="wallet_debited_month">January</div>
+
+    <div class="my_wallet_data_blocks">
+      <div class="my_wallet_data_blocks_icon">
+        {% render 'wallet_icon' %}
+      </div>
+      <div class="my_wallet_transection_type">
+        <span class="data_first">Top Up</span>
+        <span class="data_sec">12:05</span>
+      </div>
+       
+      <div class="my_wallet_bloks_price_main">
+        <span class="reward_history_bloks_drops_spend"> + 25 Drops</span>
+        <span class="my_wallet_bloks_price">AED 120.00</span>
+      </div>
+    </div>
+
+    <div class="my_wallet_data_blocks">
+      <div class="my_wallet_data_blocks_icon spent_drop_icon">
+        {% render 'drop_icon' %}
+      </div>
+      <div class="my_wallet_transection_type">
+        <span class="data_first">Spent</span>
+        <span class="data_sec">5 January 2023</span>
+      </div>
+       
+      <div class="my_wallet_bloks_price_main">
+        <span class="reward_history_bloks_drops_spend negative_value"> - 10 Drops</span>
+        <span class="my_wallet_bloks_price">Amazon</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Block_month -->
+
+  <div class="table_purchase_history_year">Purchase History <b>2023</b> </div>
+  <div class="my_wallet_data_blocks_inner">
+    <div class="wallet_debited_month">December</div>
+    <div class="my_wallet_data_blocks">
+      <div class="my_wallet_data_blocks_icon">
+        {% render 'wallet_icon' %}
+      </div>
+      <div class="my_wallet_transection_type">
+        <span class="data_first">Top Up</span>
+        <span class="data_sec">24 January 2022</span>
+      </div>
+       
+      <div class="my_wallet_bloks_price_main">
+        <span class="reward_history_bloks_drops_spend"> + 10 Drops</span>
+        <span class="my_wallet_bloks_price">AED 10.00</span>
+      </div> 
+    </div>
+    <div class="my_wallet_data_blocks">
+      <div class="my_wallet_data_blocks_icon">
+        {% render 'wallet_icon' %}
+      </div>
+      <div class="my_wallet_transection_type">
+        <span class="data_first">Top Up</span>
+        <span class="data_sec">18 January 2022</span>
+      </div>
+       
+      <div class="my_wallet_bloks_price_main">
+        <span class="reward_history_bloks_drops_spend"> + 40 Drops</span>
+        <span class="my_wallet_bloks_price">AED 200.00</span>
+      </div> 
+    </div>
+    <div class="my_wallet_data_blocks">
+      <div class="my_wallet_data_blocks_icon">
+        {% render 'wallet_icon' %}
+      </div>
+      <div class="my_wallet_transection_type">
+        <span class="data_first">Top Up</span>
+        <span class="data_sec">18 January 2022</span>
+      </div>
+       
+      <div class="my_wallet_bloks_price_main">
+        <span class="reward_history_bloks_drops_spend negative_value">- 20 Drops</span>
+        <span class="my_wallet_bloks_price">Carrefour</span>
+      </div> 
+    </div>
+
+    <div class="my_wallet_data_blocks">
+      <div class="my_wallet_data_blocks_icon">
+        {% render 'wallet_icon' %}
+      </div>
+      <div class="my_wallet_transection_type">
+        <span class="data_first">Top Up</span>
+        <span class="data_sec">8 January 2022</span>
+      </div>
+       
+      <div class="my_wallet_bloks_price_main">
+        <span class="reward_history_bloks_drops_spend">+ 5 Drops</span>
+        <span class="my_wallet_bloks_price">AED 20.00</span>
+      </div>
+    </div>
+
+    <div class="my_wallet_data_blocks">
+      <div class="my_wallet_data_blocks_icon">
+        {% render 'wallet_icon' %}
+      </div>
+      <div class="my_wallet_transection_type">
+        <span class="data_first">Top Up</span>
+        <span class="data_sec">5 January 2022</span>
+      </div>
+       
+      <div class="my_wallet_bloks_price_main">
+        <span class="reward_history_bloks_drops_spend"> + 10 Drops</span>
+        <span class="my_wallet_bloks_price">AED 50.00</span>
+      </div>
+    </div>
+  </div>
+ 
+
+
+  <div class="my_wallet_data_blocks_inner">
+    <div class="wallet_debited_month">November</div>
+
+    <div class="my_wallet_data_blocks">
+      <div class="my_wallet_data_blocks_icon">
+        {% render 'wallet_icon' %}
+      </div>
+      <div class="my_wallet_transection_type">
+        <span class="data_first">Top Up</span>
+        <span class="data_sec">12 November 2022</span>
+      </div>
+       
+      <div class="my_wallet_bloks_price_main">
+        <span class="reward_history_bloks_drops_spend"> + 10 Drops</span>
+        <span class="my_wallet_bloks_price">AED 50.00</span>
+      </div>
+    </div>
+
+    <div class="my_wallet_data_blocks">
+      <div class="my_wallet_data_blocks_icon spent_drop_icon">
+        {% render 'drop_icon' %}
+      </div>
+      <div class="my_wallet_transection_type">
+        <span class="data_first">Spent</span>
+        <span class="data_sec">5 November 2022</span>
+      </div>
+       
+      <div class="my_wallet_bloks_price_main">
+        <span class="reward_history_bloks_drops_spend"> + 5 Drops</span>
+        <span class="my_wallet_bloks_price">AED 20.00</span>
+      </div>
+    </div>
+  </div>
+
+    <div class="date_bottom_cards">Member since 4 Jan 2023</div>
+  </div>
+ 
+  
+
+
+{% schema %}
+  {
+    "name": "Rewards History",
+    "settings": []
+  }
+{% endschema %}
+
+
+
+ 
