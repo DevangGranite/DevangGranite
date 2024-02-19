@@ -368,7 +368,7 @@ verifyOTP.addEventListener('click', function () {
 function updateEmail(){
   fetch('https://alainuat.gdadmin.org/laravel/public/api/custoemr/update', {
     method:'POST',
-    body:JSON.stringify({email:document.getElementById('customer_email').value,user_id:user_id}),
+    body:JSON.stringify({email_id:document.getElementById('customer_email').value,user_id:user_id}),
   }).then(response => {
     if(!response.ok){
       throw new Error(`Network response was not ok: ${response.status}`)
