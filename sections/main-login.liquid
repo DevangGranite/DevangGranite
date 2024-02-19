@@ -339,23 +339,7 @@ verifyOTP.addEventListener('click', function () {
           document.querySelector('.custom_email_container').style.display = 'block';
           document.querySelector('.otp-container').style.display = 'none';
         }else{
-          /** customer login **/
-          fetch(`https://alainuat.gdadmin.org/laravel/public/api/login/${data.response['0'].email_id}`, {
-              method: 'GET',
-          })
-          .then(response => {
-              if (!response.ok) {
-                  throw new Error(`Network response was not ok: ${response.status}`);
-              }
-              return response.json();
-          })
-          .then(data => {
-              console.log('Login', data);
-          })
-          .catch(error => {
-              console.error('Error fetching data:', error);
-          });
-          /** end customer login **/
+          customerLogin(data.response['0'].email_id);
         }  
       })
       .catch(error => {
@@ -371,14 +355,35 @@ function updateEmail(){
     body:JSON.stringify({email_id:document.getElementById('customer_email').value,user_id:user_id}),
   }).then(response => {
     if(!response.ok){
-      throw new Error(`Network response was not ok: ${response.status}`)
+      throw new Error(`Network response was not ok: ${response.status}`);
     }
     return response.json();
   }).then(data => {
     console.log("Update email",data);
+    customerLogin(document.getElementById('customer_email').value);
   }).catch(error => {
     console.log('Error fetching data:',error);
   });
+}
+
+function customerLogin(email) {
+  /** customer login **/
+  fetch(`https://alainuat.gdadmin.org/laravel/public/api/login/${email}`, {
+      method: 'GET',
+  })
+  .then(response => {
+      if (!response.ok) {
+          throw new Error(`Network response was not ok: ${response.status}`);
+      }
+      return response.json();
+  })
+  .then(data => {
+      console.log('Login', data);
+  })
+  .catch(error => {
+      console.error('Error fetching data:', error);
+  });
+  /** end customer login **/
 }
 
 /** End Verify OTP **/
