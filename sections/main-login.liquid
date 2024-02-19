@@ -315,6 +315,7 @@ resendLinkButton.addEventListener('click', function () {
 /** End Resend OTP **/
 
 /** Verify OTP **/
+let user_id;
 verifyOTP.addEventListener('click', function () {
   var OTP = document.getElementById('OneTimePassword1').value+document.getElementById('OneTimePassword2').value+document.getElementById('OneTimePassword3').value+document.getElementById('OneTimePassword4').value+document.getElementById('OneTimePassword5').value+document.getElementById('OneTimePassword6').value;
     const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/verifyOTP';
@@ -334,7 +335,7 @@ verifyOTP.addEventListener('click', function () {
       .then(data => {
         console.log('Verify Login OTP',data);
         if (data.response['0'].email_id == "") {
-          let user_id = data.response['0'].id;
+          user_id = data.response['0'].id;
           document.querySelector('.custom_email_container').style.display = 'block';
           document.querySelector('.otp-container').style.display = 'none';
         }else{
@@ -367,8 +368,17 @@ verifyOTP.addEventListener('click', function () {
 function updateEmail(){
   fetch('https://alainuat.gdadmin.org/laravel/public/api/custoemr/update', {
     method:'POST',
-    body:{email:document.getElementById('customer_email'),user_id:}
-  })
+    body:{email:document.getElementById('customer_email'),user_id:user_id},
+  }).then(response => {
+    if(!response.ok){
+      throw new Error(`Network response was not ok: ${response.status}`)
+    }
+    return response.json();
+  }).then(data => {
+    console.log("Update email",data);
+  }).catch(error => {
+    console.log('Error fetching data:',error);
+  });
 }
 
 /** End Verify OTP **/
