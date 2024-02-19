@@ -272,7 +272,6 @@ function validateInput() {
 /** Send OTP **/
 registerButton.addEventListener('click', function () {
     // API call
-    sendOTP(mobileInput.value)
     fetch('https://alainuat.gdadmin.org/laravel/public/api/sendOTP', {
         method: 'POST',
         body: JSON.stringify({ mobile: mobileInput.value }),
