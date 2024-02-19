@@ -277,18 +277,16 @@ registerButton.addEventListener('click', function () {
         method: 'POST',
         body: JSON.stringify({ mobile: mobileInput.value }),
     })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Network response was not ok: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('MSS Test', data);
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.status}`);
+        }
+        return response.json();
+    }).then(data => {
+        console.log('MSS Test', data);
+    }).catch(error => {
+        console.error('Error fetching data:', error);
+    });
 });
 /** End Send OTP **/
 
@@ -298,17 +296,14 @@ resendLinkButton.addEventListener('click', function () {
     fetch(apiUrl, {
         method: 'POST',
         body: JSON.stringify({ mobile: mobileInput.value }),
-    })
-    .then(response => {
+    }).then(response => {
         if (!response.ok) {
             throw new Error(`Network response was not ok: ${response.status}`);
         }
         return response.json();
-    })
-    .then(data => {
+    }).then(data => {
         console.log('MSS Test', data);
-    })
-    .catch(error => {
+    }).catch(error => {
         console.error('Error fetching data:', error);
     });
 });
@@ -318,34 +313,27 @@ resendLinkButton.addEventListener('click', function () {
 let user_id;
 verifyOTP.addEventListener('click', function () {
   var OTP = document.getElementById('OneTimePassword1').value+document.getElementById('OneTimePassword2').value+document.getElementById('OneTimePassword3').value+document.getElementById('OneTimePassword4').value+document.getElementById('OneTimePassword5').value+document.getElementById('OneTimePassword6').value;
-    const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/verifyOTP';
-      
-      // Use the fetch function to make a GET request to the API
-      fetch(apiUrl, {
-        method: 'POST',
-        body:JSON.stringify({mobileNo: mobileInput.value,otp: OTP}),
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        
-        return response.json();
-      })
-      .then(data => {
-        console.log('Verify Login OTP',data);
-        if (data.response['0'].email_id == "") {
-          user_id = data.response['0'].id;
-          document.querySelector('.custom_email_container').style.display = 'block';
-          document.querySelector('.otp-container').style.display = 'none';
-        }else{
-          customerLogin(data.response['0'].email_id);
-        }  
-      })
-      .catch(error => {
-        // Handle errors that may occur during the fetch operation
-        console.error('Error fetching data:', error);
-      });
+  fetch('https://alainuat.gdadmin.org/laravel/public/api/verifyOTP', {
+    method: 'POST',
+    body:JSON.stringify({mobileNo: mobileInput.value,otp: OTP}),
+  }).then(response => {
+    if (!response.ok) {
+      throw new Error(`Network response was not ok: ${response.status}`);
+    }
+    return response.json();
+  }).then(data => {
+    console.log('Verify Login OTP',data);
+    if (data.response['0'].email_id == "") {
+      user_id = data.response['0'].id;
+      document.querySelector('.custom_email_container').style.display = 'block';
+      document.querySelector('.otp-container').style.display = 'none';
+    }else{
+      customerLogin(data.response['0'].email_id);
+    }  
+  }).catch(error => {
+    // Handle errors that may occur during the fetch operation
+    console.error('Error fetching data:', error);
+  });
 });
 
 
