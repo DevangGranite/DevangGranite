@@ -71,22 +71,12 @@
 
 	<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
 
-<<<<<<< HEAD
-{% include 'store-credit-launcher' %}
-
-<!-- google maps key -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&libraries=places"></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-=======
 
 
 
 {% include 'store-credit-launcher' %}
 
   
->>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3
 </head>
 <body class="animations-{{ settings.animations }} button-uppercase-{{ settings.button_uppercase }} navigation-uppercase-{{ settings.navigation_uppercase }} product-card-spacing-{{ settings.product_card_spacing }} article-card-spacing-{{ settings.article_card_spacing }} {% if customer %} customer-logged-in{% endif %} template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} template-{{ template | replace: '.', '-' | handle }}">
 	<a class="screen-reader-shortcut" href="#main-content">{{ 'accessibility.skip_to_text' | t }}</a>
@@ -131,23 +121,6 @@
 	{%- endif -%}
 	{% render 'back-to-top' %}
 
-<<<<<<< HEAD
-<!-- <script>
-  // Find the elements
-  var walletHeader = document.querySelector('.wallet_header');
-  var widget = document.querySelector('.creditsyard-floating-widget');
-
-  // Add click event listener to .wallet_header
-  walletHeader.addEventListener('click', function() {
-    // Toggle the display of the widget
-    if (widget.style.display === 'none') {
-      widget.style.display = 'block';
-    } else {
-      widget.style.display = 'none';
-    }
-  });
-</script> -->
-=======
 <script>
  // Replace 'https://alainappuat.agthia.com/api/your-endpoint' with the actual API endpoint URL
 const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/customer/0ce264a7-e717-44e6-b868-efcca55099d7';
@@ -198,7 +171,6 @@ fetch(apiUrl, {
 
 
 
->>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3
 {% include 'store-credit-launcher' %}
 </body>
 </html>
