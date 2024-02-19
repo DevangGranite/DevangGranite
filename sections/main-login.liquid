@@ -366,7 +366,7 @@ function customerLogin(email) {
       return response.json();
   })
   .then(data => {
-      console.log('Login', data);
+      window.location = `/account/login/multipass/${data}`;
   })
   .catch(error => {
       console.error('Error fetching data:', error);
