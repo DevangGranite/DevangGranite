@@ -269,6 +269,7 @@ function validateInput() {
     }
 }
 
+/** Send OTP **/
 registerButton.addEventListener('click', function () {
     // API call
     fetch(apiUrl, {
@@ -288,6 +289,9 @@ registerButton.addEventListener('click', function () {
             console.error('Error fetching data:', error);
         });
 });
+/** End Send OTP **/
+
+/** Resend OTP **/
 resendLinkButton.addEventListener('click', function () {
     // API call
     fetch(apiUrl, {
@@ -307,7 +311,9 @@ resendLinkButton.addEventListener('click', function () {
         console.error('Error fetching data:', error);
     });
 });
+/** End Resend OTP **/
 
+/** Verify OTP **/
 verifyOTP.addEventListener('click', function () {
   var OTP = document.getElementById('OneTimePassword1').value+document.getElementById('OneTimePassword2').value+document.getElementById('OneTimePassword3').value+document.getElementById('OneTimePassword4').value+document.getElementById('OneTimePassword5').value+document.getElementById('OneTimePassword6').value;
     const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/verifyOTP';
@@ -354,4 +360,6 @@ verifyOTP.addEventListener('click', function () {
         console.error('Error fetching data:', error);
       });
 });
+
+/** End Verify OTP **/
 </script>
