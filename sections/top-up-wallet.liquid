@@ -1,0 +1,39 @@
+{{ 'wallet_page_style.css' | asset_url | stylesheet_tag }}
+
+<div class="top_up_wallet_main_product">
+  <div class="row">
+    <div class="breadcrumbs_account"><a class=""href="">My Account  </a> >  Top Up Wallet</div>
+  </div>
+  <div class="top_up_wallet_innet row">
+    <div class="top_up_wallet_image">
+      <img class="top_up_wallet_image" src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/Group_18439_1.png?v=1707860376">
+    </div>
+    <div class="top_up_wallet_info">
+      <p class="top_up_wallet_brand">Al Ain Water</p>
+      <div class="top_up_wallet_title"><span>Top Up Wallet</span> <span class="top_up_wallet_price"><span class="price">Dhs. 100</span><span class="vat">(excl. VAT)</span></span></div>
+      
+      <div class="top_up_wallet_variant">
+      <div class="top_up_wallet_variant_inner">
+        <div class="top_up_wallet_var active">100</div>
+        <div class="top_up_wallet_var">200</div>
+        <div class="top_up_wallet_var">300</div>
+        <div class="top_up_wallet_var">500</div>
+        <div class="top_up_wallet_var">700</div>
+        <div class="top_up_wallet_var">1000</div>
+        <div class="top_up_wallet_var">1500</div>
+        <div class="top_up_wallet_var">2000</div>
+      </div>
+      </div>
+      <a class="top_up_now_button">Top Up Now</a>
+      <a class="top_up_now_button_earn_drop">{% render 'drop_icon' %}Top Up Now</a>
+    </div>    
+  </div>
+</div>
+  
+ 
+{% schema %}
+  {
+    "name": "Top Up Wallet",
+    "settings": []
+  }
+{% endschema %}

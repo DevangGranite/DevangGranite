@@ -1,0 +1,27 @@
+lb-product-page-cross-sell-ew {
+    display: none;
+    visibility: hidden;
+}
+.shopify-payment-button__button {
+    position: relative;
+}
+.shopify-payment-button__button:after {
+    content: "Subscribe (Delivery Every Week)";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: inherit;
+    padding: 5px;
+    font-size: 13px;
+}
+.single-add-to-cart-button {
+    font-size: 14px;
+}
+.product-information--inner variant-selects {
+    display: none;
+}
