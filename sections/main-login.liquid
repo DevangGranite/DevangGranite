@@ -329,7 +329,7 @@ verifyOTP.addEventListener('click', function () {
         if (data.response['0'].email_id == "") {
           document.querySelector('.custom_email_container').style.display = 'block';
           document.querySelector('.otp-container').style.display = 'none';
-        }      
+        }    
       })
       .catch(error => {
         // Handle errors that may occur during the fetch operation
