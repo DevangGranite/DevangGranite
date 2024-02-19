@@ -1,0 +1,24 @@
+{{- 'breadcrumbs.css' | asset_url | stylesheet_tag -}}
+<div class="small-12 account-subscription--wrapper">
+  <scroll-shadow>
+    <nav class="breadcrumbs account-breadcrumbs" aria-label="breadcrumbs">
+      <a href="{{ routes.account_url }}" title="{{ 'sections.breadcrumbs.my_account' | t | escape }}">{{ 'sections.breadcrumbs.my_account' | t }}</a>
+      {% if template contains 'manage-subscriptions' %}
+        <i>&#x3e;</i>
+        <a href="{{ routes.account_url | append: '?view=manage-subscriptions' }}" data-route="Manage Subscriptions">Manage Subscriptions</a>
+      {% endif %}
+      {% if template contains 'delivery-address' %}
+        <i>&#x3e;</i>
+        <a href="{{ routes.account_url | append: '?view=manage-subscriptions' }}" data-route="Manage Subscriptions">Manage Subscriptions</a>
+        <i>&#x3e;</i>
+        <a href="{{ routes.account_url | append: '?view=delivery-address' }}" data-route="Manage Subscriptions">Delivery Address</a>
+      {% endif %}
+    </nav>
+  </scroll-shadow>
+</div>
+{% schema %}
+{
+  "name": "Breadcrumbs",
+  "class": "breadcrumbs-section"
+}
+{% endschema %}

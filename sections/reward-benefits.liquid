@@ -1,0 +1,576 @@
+<style>
+  #shopify-section-{{ section.id }}{
+    padding-bottom: 60px;
+    margin-bottom: 100px;
+  }
+  .reward-benefits-content-main{
+    padding-inline: 16px;
+  }
+  .reward-benefits-banner{
+    background: linear-gradient(180deg, #FFF 0%, #93D7EF 92%);
+    padding-bottom: 60px;
+    
+  }
+  .reward-benefits-banner-inner{
+    max-width: 816px;
+    margin-inline: auto;
+  }
+  .reward-benefits-title{
+    color: #53565A;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 118%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-inline: 16px;
+  }
+  .reward-benefits-banner-header{
+    display: flex;
+    justify-content: space-between;
+    margin-block: 30px;
+    align-items: center;
+  }
+  
+  .reward-benefits-back,
+  .reward-benefits-help{
+    flex: 1;
+  }
+  .reward-benefits-image {
+    text-align: center;
+  }
+  .reward-benefits-image img{
+    max-width: 331.09px;
+    width: 100%;
+    margin-inline: auto;
+  }
+/*  */
+  .reward-benefits-content-inner{
+    max-width: 1024px;
+    width: 100%;
+    margin-inline: auto;
+    flex-shrink: 0;
+    border-radius: 16px 16px 0px 0px;
+     background: #FFF;
+    margin-top: -30px;
+    padding-top: 62px;
+  }
+  .reward-benefits-content-blocks{
+    max-width: 672px;
+    width: 100%;
+    margin-inline: auto;
+  }
+  .padding-inline{
+    padding-inoine: 20px; 
+  }
+  .reward-benefits-text{
+    color: #1F1F20;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; 
+  }
+  .reward-benefits-range-box{
+    border-radius: 16px;
+    background: #EFF2F6;
+    width: 100%;
+    height: 112px;
+    flex-shrink: 0;
+  }
+  .margin-bottom-content{
+    margin-bottom: 24px;
+    padding-inline: 16px;
+  }
+  .reward-benefits-title{
+    color: #001489;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 28px;
+  }
+  .reward-benefits-range-box{
+    position: relative;
+    padding-block: 24px;
+    padding-inline: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .reward-benefits_range_line{
+    width: 100%;
+    height: 8px;
+    border-radius: 16px;
+    background: linear-gradient(90deg, #2866D3 0%, #409D25 51.04%, #94998F 100.07%);
+    width: calc(100% - 15px);
+    margin-inline: auto;
+  }
+  .reward-benefits-range-main{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .reward-benefits-range-icons{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left:0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  .reward-benefits-icon-with-text{
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+    align-items: center;
+  }
+  .reward-benefits-icon-left{
+    max-width: 60px;
+    width: 60px;
+    height: 60px;
+  }
+  .reward-benefits-icon-left img{
+    width: 100%;
+  }
+  .reward-benefits-icon-text{
+    color: #1F1F20;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; 
+  } 
+  .reward-benefits-icon-heading{
+    color: #001489;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; 
+  }
+  .reward-benefits-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .reward-benefits-tiers-blue{
+    border-radius: 16px;
+    background: #2461CC;
+    margin-bottom: 16px;
+  }
+  .reward-benefits-tiers-green{
+    border-radius: 16px;
+    background:#007C2D;
+    margin-bottom: 16px;
+  }
+  .reward-benefits-tiers-black{
+    border-radius: 16px;
+    background: #6B6E71;
+    margin-bottom: 16px;
+  }
+  .reward-benefits-tires-heading{
+    padding-inline: 24px;
+    padding-block: 14px;
+    border-radius: 16px 16px 0px 0px;
+    background: rgb(31, 31, 32, 0.2);
+    
+    color: #FFF;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 28px; 
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .reward-benefits-tires-text{
+    padding-inline: 24px;
+    padding-block: 16px;
+  }
+  .reward-benefits-tires-text-first{
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; 
+    margin-bottom: 10px;
+  }
+  .reward-benefits-tires-text-sec{
+    color: #FFF;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; 
+  }
+  .reward-benefits-tiers-count{
+    color: #FFF;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+
+  /* Table Style */
+
+.reward-benefits-tires-compare-table {
+  margin-block: 30px;
+}
+.reward-benefits-tires-compare-table table tr {
+  /* box-shadow: inset 0 -1px 0 #fff; */
+}
+.reward-benefits-tires-compare-table table tbody tr:nth-child(odd) {
+  background: #fff;
+}
+
+.reward-benefits-tires-compare-table #tableEditor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+ 
+
+.reward-benefits-tires-compare-table table {
+  border-radius: 16px;
+  border: 1px solid #CDD5DD;
+  background: #EFF2F6;
+  
+  border-collapse: separate;
+  line-height: 1.65;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 4em;
+
+}
+/* Hover Effect */
+/* .reward-benefits-tires-compare-table tbody:hover td, .reward-benefits-tires-compare-table tbody:hover td:after {
+  color: transparent;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+.reward-benefits-tires-compare-table tbody:hover tr:hover td {
+  text-shadow: none;
+  cursor: pointer;
+  background: #d5d5e9;
+  color: #32373d;
+}
+.reward-benefits-tires-compare-table tbody:hover tr:hover td.desc {
+  color: currentColor;
+}
+.reward-benefits-tires-compare-table tbody:hover tr:hover td.no:after {
+  text-shadow: none;
+  color: #FF655D;
+}
+.reward-benefits-tires-compare-table tbody:hover tr:hover td.yes:after {
+  text-shadow: none;
+  color: #68c249;
+} */
+/* Hover Effect END */
+
+.reward-benefits-tires-compare-table caption {
+  margin: 2em auto;
+  font-size: 2em;
+}
+
+.reward-benefits-tires-compare-table th {
+  padding: 20px;
+  color: #211F3B;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px; 
+}
+
+.reward-benefits-tires-compare-table td {
+  padding: 20px;
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+.reward-benefits-tires-compare-table table th, 
+.reward-benefits-tires-compare-table table td{
+  border-color: transparent;
+}
+.reward-benefits-tires-compare-table .feature {
+  color: #211F3B;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; 
+  text-align: left;
+}
+
+/* .reward-benefits-tires-compare-table .yes, .reward-benefits-tires-compare-table .no {
+  font: 0/0 serif;
+  text-shadow: none;
+  color: transparent;
+} */
+/* .reward-benefits-tires-compare-table .yes:after, .reward-benefits-tires-compare-table .yes:before, .reward-benefits-tires-compare-table .no:after, .reward-benefits-tires-compare-table .no:before {
+  font-size: 22px;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  position: relative;
+} */
+
+/* .reward-benefits-tires-compare-table .yes:after {
+  content: "\f00c";
+  color: #88CF6F;
+} */
+
+/* .reward-benefits-tires-compare-table .no:after {
+  content: "\f00d";
+  color: #FF655D;
+} */
+
+/* .reward-benefits-tires-compare-table .desc {
+  font-size: 85%;
+  margin: .25em;
+} */
+
+.reward-benefits-tires-compare-table #tableEditor {
+  padding: 2em;
+  margin: 10vh 10vw;
+  background: #0888F0;
+}
+.reward-benefits-tires-compare-table #tableEditor td {
+  width: 100%;
+}
+.reward-benefits-tires-compare-table #features{
+  text-align: left;
+}
+.reward-benefits-tires-compare-table #tableEditor .features {
+  display: none;
+}
+.reward-benefits-tires-compare-table #blue{
+  color: #2C4B89;
+}
+.reward-benefits-tires-compare-table #green{
+  color: #01773A;
+}
+.reward-benefits-tires-compare-table #platinum{
+  color: #736F68;
+}
+.reward-benefits-tires-compare-table tbody td[headers="comp-1"],
+.reward-benefits-tires-compare-table tbody td[headers="comp-2"],
+.reward-benefits-tires-compare-table tbody td[headers="comp-3"]{
+  color: #6B6E71;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; 
+}
+
+  .reward-benefits-title.reward-benefits-title-bottom{
+    /* text-align: center;
+    justify-content: center; */
+  }
+
+  .reward-benefits-date-bottom{
+    color: #53565A;
+   
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; 
+    margin-top: 32px;
+    padding-inline: 16px;
+  }
+
+  @media screen and ( max-width: 749px ){
+    .reward-benefits-title.reward-benefits-title-bottom{
+    text-align: center;
+    justify-content: center;
+  }
+
+  .reward-benefits-date-bottom{
+    text-align: center;
+   }
+  }
+</style>
+
+<div class="reward-benefits-main-container">
+  <div class="reward-benefits-banner">
+    <div class="reward-benefits-banner-inner">
+       <div class="reward-benefits-banner-header">
+         <div class="reward-benefits-back">
+           {% render "back-black-icon" %}
+           
+         </div>
+         <div class="reward-benefits-title">Reward Benefits</div>
+         <div class="reward-benefits-help">
+           {% comment %}
+         {% render 'help_icon' %}
+         {% endcomment %}
+         </div>
+       </div>
+       <div class="reward-benefits-image">
+         <img class="" src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/Group_18462.png?v=1708127578">
+       </div>
+    </div>
+  </div>
+
+  <div class="reward-benefits-content-main">
+    <div class="reward-benefits-content-inner">
+      <div class="reward-benefits-content-blocks">
+        <div class="reward-benefits-text padding-inline margin-bottom-content">
+          We are excited to offer our valued customers the opportunity to earn rewards and access exclusive offers through our program. 
+        </div>
+        <div class="reward-benefits-range-box">
+          <div class="reward-benefits-range-main">
+            <div class="reward-benefits_range_line"></div>
+            <div class="reward-benefits-range-icons">
+              <span class="reward-benefits-range-first">{% render 'drop_icon_blue' %}</span>
+              <span class="reward-benefits-range-sec">{%render 'drop_icon_green' %}</span>
+              <span class="reward-benefits-range-third">{% render 'drop_icon_black' %}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reward-benefits-title">
+          Here's how it works
+        </div>
+        <div class="reward-benefits-text padding-inline margin-bottom-content">
+          By shopping with us and participating in the loyalty program, you can earn Drops, that can be redeemed for vouchers, discounts, and other perks.
+        </div>
+
+        <div class="reward-benefits-icon-with-text">
+          <div class="reward-benefits-icon-left"><img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/Ellipse_3009.svg?v=1708206440"></div>
+          <div class="reward-benefits-icon-text">
+            <div class="reward-benefits-icon-heading">Earn Drops</div>
+            <div class="reward-benefits-icon-text">Every time you spend AED 10 in our app, you will earn 1 Drop. </div>
+          </div>
+        </div>
+
+       <div class="reward-benefits-icon-with-text">
+          <div class="reward-benefits-icon-left"><img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/Ellipse_3009.svg?v=1708206440"></div>
+          <div class="reward-benefits-icon-text">
+            <div class="reward-benefits-icon-heading">Trade for vouchers</div>
+            <div class="reward-benefits-icon-text">These drops can be accumulated and later exchanged for discount vouchers.</div>
+          </div>
+        </div>
+
+       <div class="reward-benefits-icon-with-text">
+          <div class="reward-benefits-icon-left"><img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/Ellipse_3009.svg?v=1708206440"></div>
+          <div class="reward-benefits-icon-text">
+            <div class="reward-benefits-icon-heading">Upgrade</div>
+            <div class="reward-benefits-icon-text">The more drops you accumulate, the higher your loyalty tier with special benefits. </div>
+          </div>
+        </div>
+
+        <div class="reward-benefits-title">
+          There are three tiers in total
+           {% render 'drops-icon' %}
+        </div>
+
+        <div class="reward-benefits-tiers-blue">
+            <div class="reward-benefits-tires-heading">
+              Blue 
+              <span class="reward-benefits-tiers-count">0 - 30 {% render 'drop_icon_blue' %}</span>
+            </div>
+            <div class="reward-benefits-tires-text">
+              <div class="reward-benefits-tires-text-first">This is the first tier, and you will start here automatically.</div>
+              <div class="reward-benefits-tires-text-sec">As a Blue drops member, you will have access to selected Agthia water product offers.</div>
+            </div>
+        </div>
+
+        <div class="reward-benefits-tiers-green">
+            <div class="reward-benefits-tires-heading">
+              Blue 
+              <span class="reward-benefits-tiers-count">31 - 80 {% render 'drop_icon_green' %}</span>
+            </div>
+            <div class="reward-benefits-tires-text">
+              <div class="reward-benefits-tires-text-first">To reach the Green drops tier, you will need to accumulate 30 drops. </div>
+              <div class="reward-benefits-tires-text-sec">In addition to the offers available at the Blue drops tier, you will also have access to 15+ merchant partner  offers to choose from.</div>
+            </div>
+        </div>
+
+        <div class="reward-benefits-tiers-black">
+            <div class="reward-benefits-tires-heading">
+              Platinum
+              <span class="reward-benefits-tiers-count">81+ {% render 'drop_icon_black' %}</span>
+            </div>
+            <div class="reward-benefits-tires-text">
+              <div class="reward-benefits-tires-text-first">To reach the top tier, Platinum drops, you will need to accumulate 80 drops.</div>
+              <div class="reward-benefits-tires-text-sec">In addition to the offers available at the Blue and Green drops tiers, you will also have access to discounts on water products, 15+ merchant partners, and 10+ premium merchant partner offers.</div>
+            </div>
+        </div>
+
+        <div class="reward-benefits-tires-compare-table">
+          <table id="table">
+    <thead>
+      <th id="features" scope="col">Benefits</th>
+      <th id="blue" scope="col">Blue</th>
+      <th id="green" scope="col">Green</th>
+      <th id="platinum" scope="col">Platinum</th>
+    </thead>
+    <tbody>
+      <tr id="feature-1" scope="row">
+        <td headers="features" class="feature">Required Drops</td>
+        <td headers="comp-1" class="yes">0</td>
+        <td headers="comp-2" class="no">31</td>
+        <td headers="comp-3" class="yes">81</td>
+      </tr>
+      
+      <tr id="feature-2" scope="row">
+       <td headers="features" class="feature">Agthia Water Product Offers</td>
+        <td headers="comp-1" class="no">{% render "yes" %}</td>
+        <td headers="comp-2" class="no">{% render "yes" %}</td>
+        <td headers="comp-3" class="yes">{% render "yes" %}</td>
+      </tr>
+      
+      <tr id="feature-3" scope="row">
+       <td headers="features" class="feature">Merchant Partner Offers</td>
+        <td headers="comp-1" class="yes">{% render "no" %}</td>
+        <td headers="comp-2" class="yes">15+</td>
+        <td headers="comp-3" class="yes">15+</td>
+      </tr>
+      
+      <tr id="feature-4" scope="row">
+        <td headers="features" class="feature">Premium Merchant Partner Offers</td>
+        <td headers="comp-1" class="no">{% render "no" %}</td>
+        <td headers="comp-2" class="no">{% render "no" %}</td>
+        <td headers="comp-3" class="yes">10+</td>
+      </tr>
+      
+  
+      
+    
+      
+    </tbody>
+</table>
+        </div>
+        
+        <div class="reward-benefits-text padding-inline margin-bottom-content">
+          Remember, the more you shop and spend, the more Drops you will earn and the higher you will be upgraded in the loyalty program. 
+        </div>
+        <div class="reward-benefits-title reward-benefits-title-bottom">
+          Happy shopping!
+        </div>
+
+        <div class="reward-benefits-date-bottom">
+          Member since 4 Jan 2023
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}
