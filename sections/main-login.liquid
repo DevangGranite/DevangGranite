@@ -150,6 +150,7 @@
                             autocomplete="off"
                           >
                         </div>
+                        <div id="invalidOTPError" class="form-error"></div>
                       <p class="timing">
                           <a id="resendLink" onclick="startTimerOnClick()">Resend code </a><span id="timer"></span>
                       </p>
@@ -318,6 +319,7 @@ verifyOTP.addEventListener('click', function () {
     body:JSON.stringify({mobileNo: mobileInput.value,otp: OTP}),
   }).then(response => {
     if (!response.ok) {
+      document.getElementById('invalidOTPError').innerText = "Invalid OTP."
       throw new Error(`Network response was not ok: ${response.status}`);
     }
     return response.json();
