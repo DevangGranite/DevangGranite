@@ -6,6 +6,7 @@
 	endif
 -%}
 <div class="thb-secondary-area thb-header-right">
+<<<<<<< HEAD
   {% comment %}
   <a class="thb-secondary-area-item wallet_header">
      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -20,6 +21,8 @@
    </svg>
   </a>
   {% endcomment %}
+=======
+>>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3
 	<a class="thb-secondary-area-item thb-quick-search" href="{{ routes.search_url }}" title="{{ 'sections.header.search' | t }}">{%- render 'svg-icons' with 'search' -%}</a>
 	{%- if shop.customer_accounts_enabled -%}
     <a class="thb-secondary-area-item thb-secondary-myaccount" href="{{ profile_link | escape }}" title="{{ 'sections.header.my_account' | t }}">{%- render 'svg-icons' with 'myaccount' -%}</a>

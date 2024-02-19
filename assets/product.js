@@ -688,7 +688,11 @@ if (!customElements.get('product-slider')) {
  *  @function ProductForm
  */
 if (!customElements.get('product-form')) {
+<<<<<<< HEAD
   customElements.define('product-form', class ProductForm extends HTMLElement {
+=======
+  class ProductForm extends HTMLElement {
+>>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3
     constructor() {
       super();
 
@@ -774,6 +778,7 @@ if (!customElements.get('product-form')) {
         section: 'main-cart',
         selector: '.thb-cart-form'
       },
+<<<<<<< HEAD
       {
         id: 'Cart-Drawer',
         section: 'cart-drawer',
@@ -784,6 +789,18 @@ if (!customElements.get('product-form')) {
         section: 'cart-bubble',
         selector: '.thb-item-count'
       }];
+=======
+        {
+          id: 'Cart-Drawer',
+          section: 'cart-drawer',
+          selector: '.cart-drawer'
+        },
+        {
+          id: 'cart-drawer-toggle',
+          section: 'cart-bubble',
+          selector: '.thb-item-count'
+        }];
+>>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3
     }
     renderContents(parsedState) {
       this.getSectionsToRender().forEach((section => {
@@ -839,10 +856,108 @@ if (!customElements.get('product-form')) {
         this.errorMessage.textContent = errorMessage;
       }
     }
+<<<<<<< HEAD
   });
 }
 
 
+=======
+  }
+  customElements.define('product-form', ProductForm);
+
+
+  if (!customElements.get('product-form-subscription')) {
+    customElements.define('product-form-subscription', class ProductSubscriptionForm extends ProductForm {
+      constructor() {
+        super();
+        this.variants = document.getElementById(`variant-selects-${this.dataset.section}`);
+        this.checkSubscription();
+      }
+
+      checkOneTimePurchase() {
+        const event = new Event('change');
+
+        this.variants.querySelector('[value="One Time Purchase"]').checked = true;
+        this.variants.dispatchEvent(event);
+      }
+      checkSubscription() {
+        const event = new Event('change');
+
+        this.variants.querySelector('[value="Delivery Every Week"]').checked = true;
+        this.variants.dispatchEvent(event);
+      }
+      onSubmitHandler(evt) {
+        this.checkOneTimePurchase();
+
+        evt.preventDefault();
+
+        if (!this.form.reportValidity()) {
+          return;
+        }
+
+        const submitButtons = document.querySelectorAll('.single-add-to-cart-button');
+
+        submitButtons.forEach((submitButton) => {
+          if (submitButton.classList.contains('loading')) return;
+          submitButton.setAttribute('aria-disabled', true);
+          submitButton.classList.add('loading');
+        });
+
+        this.handleErrorMessage();
+
+        const config = {
+          method: 'POST',
+          headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+            'Accept': 'application/javascript'
+          }
+        };
+
+        let formData = new FormData(this.form);
+
+        formData.append('sections', this.getSectionsToRender().map((section) => section.section));
+        formData.append('sections_url', window.location.pathname);
+        config.body = formData;
+
+        fetch(`${theme.routes.cart_add_url}`, config)
+          .then((response) => response.json())
+          .then((response) => {
+            if (response.status) {
+              dispatchCustomEvent('product:variant-error', {
+                source: 'product-form',
+                productVariantId: formData.get('id'),
+                errors: response.description,
+                message: response.message
+              });
+              this.handleErrorMessage(response.description);
+              return;
+            }
+
+            this.renderContents(response);
+
+            dispatchCustomEvent('cart:item-added', {
+              product: response.hasOwnProperty('items') ? response.items[0] : response
+            });
+          })
+          .catch((e) => {
+            console.error(e);
+            this.checkSubscription();
+          })
+          .finally(() => {
+            submitButtons.forEach((submitButton) => {
+              submitButton.classList.remove('loading');
+              submitButton.removeAttribute('aria-disabled');
+              this.checkSubscription();
+            });
+          });
+      }
+    });
+  }
+}
+
+
+
+>>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3
 /**
  *  @class
  *  @function ProductAddToCartSticky
