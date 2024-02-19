@@ -105,9 +105,6 @@
   @media only screen and (min-width: 768px) {
     .image-with-text.grid--image-large.text_first {
       grid-template-columns: 4fr 6fr; } }
-<<<<<<< HEAD
-=======
 .image-with-text--heading--image {
   margin-bottom: 20px;
 }
->>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3

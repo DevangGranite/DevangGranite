@@ -16,6 +16,24 @@
         "display_description": true
       }
     },
+    "image_with_text_overlay_w4etgC": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/AAW_NewYearGreeting-0.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-450",
+        "mobile_height": "mobile-height-500",
+        "full_width": true,
+        "content_width": "small",
+        "content_position": "bottom-center",
+        "text_alignment": "center",
+        "text_color": "#FFFFFF",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
@@ -35,16 +53,16 @@
         "template--17918041260314__9e57bc14-72e8-48b3-81d3-9b209e520fd0-1678353048d7c75c7a-0": {
           "type": "media",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Voss_Banner.jpg",
+            "image": "shopify:\/\/shop_images\/Al-Ain-HOD-KV_4dec404e-ade1-4a3b-a14c-8ddcc94011a5.jpg",
             "slide_link": "",
             "use_video": false,
             "video_autoplay": true,
             "column": 2,
             "row": 1,
-            "subheading": "Voss Water",
-            "heading": "Premium\nNatural Water",
+            "subheading": "",
+            "heading": "",
             "heading_size": "h3",
-            "button_text": "Shop Now",
+            "button_text": "",
             "button_link": "shopify:\/\/collections\/voss-natural-mineral-water",
             "content_position": "middle-left",
             "text_alignment": "left",
@@ -59,19 +77,19 @@
         "template--17918041260314__9e57bc14-72e8-48b3-81d3-9b209e520fd0-1678353048d7c75c7a-1": {
           "type": "media",
           "settings": {
-            "image": "shopify:\/\/shop_images\/alain_plus.jpg",
+            "image": "shopify:\/\/shop_images\/2X_Image_4_-_Loyalty.jpg",
             "slide_link": "",
             "use_video": false,
             "video_autoplay": true,
             "column": 2,
             "row": 1,
-            "subheading": "Think Immunity",
-            "heading": "Media grid\nHeading",
+            "subheading": "",
+            "heading": "RECHARGE & INCREASE DROP POINTS",
             "heading_size": "h4",
-            "button_text": "Shop Now",
+            "button_text": "",
             "button_link": "shopify:\/\/collections\/plus-vit-d",
-            "content_position": "middle-left",
-            "text_alignment": "left",
+            "content_position": "top-center",
+            "text_alignment": "center",
             "color_bg": "#ffffff",
             "color_bg_gradient": "",
             "color_text": "#ffffff",
@@ -96,38 +114,22 @@
         "disable_bottom_spacing": false
       }
     },
-    "a923b0af-87bd-4fac-ac50-7c5ad000c0d0": {
-      "type": "rich-text",
-      "blocks": {
-        "template--17918041260314__a923b0af-87bd-4fac-ac50-7c5ad000c0d0-16783546709e4eefff-1": {
-          "type": "heading",
-          "settings": {
-            "text": "The Drinking Water Delivery Company",
-            "marker_style": "style1",
-            "size": "h3",
-            "marker_color": "#fd6262"
-          }
-        },
-        "template--17918041260314__a923b0af-87bd-4fac-ac50-7c5ad000c0d0-16783546709e4eefff-2": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Al Ain Water offers distribution and delivery services for mineral water in Abu Dhabi. We are your source for the best-quality drinking and mineral water.<\/p>",
-            "size": "text-size-regular"
-          }
-        }
-      },
-      "block_order": [
-        "template--17918041260314__a923b0af-87bd-4fac-ac50-7c5ad000c0d0-16783546709e4eefff-1",
-        "template--17918041260314__a923b0af-87bd-4fac-ac50-7c5ad000c0d0-16783546709e4eefff-2"
-      ],
+    "featured_blog_RpTDxj": {
+      "type": "featured-blog",
       "settings": {
-        "text_width": "medium",
-        "text_position": "center",
-        "text_alignment": "center",
-        "color_bg": "rgba(0,0,0,0)",
-        "color_heading": "#252f35",
-        "color_text": "#2c2d2e",
-        "color_links": "#2c2d2e",
+        "heading": "News and Updates",
+        "marker_style": "style1",
+        "description": "<p>Al Ain's Water and Product News<\/p>",
+        "blog": "news",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "mobile_swipe": true,
+        "image_ratio": "square",
+        "show_date": true,
+        "show_excerpt": true,
+        "show_read_more": true,
+        "show_view_all": true,
+        "marker_color": "#fd6262",
         "disable_top_spacing": false,
         "disable_bottom_spacing": false
       }
@@ -136,8 +138,9 @@
   "order": [
     "breadcrumbs",
     "template-header",
+    "image_with_text_overlay_w4etgC",
     "product-grid",
     "9e57bc14-72e8-48b3-81d3-9b209e520fd0",
-    "a923b0af-87bd-4fac-ac50-7c5ad000c0d0"
+    "featured_blog_RpTDxj"
   ]
 }

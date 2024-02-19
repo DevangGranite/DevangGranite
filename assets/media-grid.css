@@ -122,8 +122,6 @@
   z-index: 2; }
   .media-grid--content > *:last-child {
     margin-bottom: 0; }
-<<<<<<< HEAD
-=======
 .media-grid-heading--wrapper {
   color: #001489;
   font-weight: 500;
@@ -152,4 +150,3 @@
     margin-top: -66px;
   }
 }
->>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3

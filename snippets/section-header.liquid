@@ -1,9 +1,5 @@
 {%- if section_heading != blank or section_description != blank -%}
-<<<<<<< HEAD
-<div class="section-header">
-=======
 <div class="section-header"{% if use_image_for_heading %} style="width: max-content"{% endif %}>
->>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3
 	<div class="section-header--content">
 		{%- if section_heading -%}
 			<h3 class="section-header--title">
@@ -11,21 +7,14 @@
 			</h3>
 		{%- endif -%}
 		{%- if section_description != blank -%}
-<<<<<<< HEAD
-			<div class="section-header--description rte">
-=======
 			<div class="section-header--description rte" style="color: {{ text_color }};">
->>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3
 				{{ section_description }}
 			</div>
 		{%- endif -%}
 	</div>
-<<<<<<< HEAD
-=======
 	{% if use_image_for_heading %}
 		<img src="{{ heading_image | image_url }}" alt="{{ heading_image.alt }}">
 	{% endif %}
->>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3
 	{%- if section_heading_button -%}
 	<div class="section-header--button">
 		{% assign text_button_title = 'sections.featured_collection.shop_collection' | t: collection: section_heading_button.title %}

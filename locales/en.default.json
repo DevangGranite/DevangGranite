@@ -278,7 +278,9 @@
         "comment": "Comment",
         "send": "Send Message",
         "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
-        "error_heading": "Please adjust the following:"
+        "error_heading": "Please adjust the following:",
+        "order": "Order Number",
+        "account_id": "Account ID"
       },
       "map": {
         "location": "Location {{ index }}"
@@ -292,42 +294,47 @@
     "update_country": "Update country\/region"
   },
   "customer": {
+    "dashboard": {
+      "welcome": "Hi",
+      "help": "How can we help you today?",
+      "subscriptions": "Manage Subscriptions"
+    },
     "login_page": {
-      "login": "Login",
-      "login_desc": "Conveniently log in using your mobile number.",
-      "login_description": "We'll send a verification code to the number provided to ensure it's really you. Once verified, you'll gain instant access to your account.",
-      "create_account": "Create an account",
-      "create_account_dec": "Welcome to the new Al Ain Water",
-      "create_account_description": "To get started, please provide us with some essential information",
-      "email": "Email Address",
-      "email_place": "Enter your email address",
-      "confirm_email": "Confirm Email Address",
-      "confirm_email_place": "Please confirm your email address",
-      "forgot_password": "Forgot your password?",
-      "dont_have_an_account": "Don’t have an account?",
-      "password": "Password",
-      "confirm_password": "confirm password",
-      "Mobile": "Mobile Number",
-      "mobile": "Enter your mobile number",
-      "title": "Login",
-      "sign_in": "Varify Mobile Number",
-      "first_name": "First Name",
-      "last_name": "Last Name",
-      "submit_register": "Create an account",
-      "already_have_an_account": "Already have an account?",
-      "submit": "Submit",
-      "cancel": "Cancel",
+      "add_email": "Add Email Address",
       "address": "Address",
       "address_place": "Location",
       "address2": "Apt \/ Villa Number & Building \/ Villa Name",
       "address2_place": "Enter Apt \/ Villa Number & Building \/ Villa Name",
+      "already_have_an_account": "Already have an account?",
+      "cancel": "Cancel",
+      "confirm_email": "Confirm Email Address",
+      "confirm_email_place": "Please confirm your email address",
+      "confirm_password": "confirm password",
+      "create_account": "Create an account",
+      "create_account_dec": "Welcome to the new Al Ain Water",
+      "create_account_description": "To get started, please provide us with some essential information",
+      "dont_have_an_account": "Don’t have an account?",
+      "email": "Email Address",
+      "email_check_login": "Confirm & add your email address",
+      "email_check_login_desc": "To keep your account secure, we also require your email address.",
+      "email_place": "Enter your email address",
+      "first_name": "First Name",
+      "forgot_password": "Forgot your password?",
+      "last_name": "Last Name",
+      "login": "Login",
+      "login_desc": "Conveniently log in using your mobile number.",
+      "login_description": "We'll send a verification code to the number provided to ensure it's really you. Once verified, you'll gain instant access to your account.",
+      "mobile": "Enter your mobile number",
+      "Mobile": "Mobile Number",
+      "password": "Password",
+      "sign_in": "Varify Mobile Number",
+      "submit": "Submit",
+      "submit_register": "Create an account",
+      "title": "Login",
       "validate": "Validate your mobile number",
       "validate_desc": "We sent a code to the following number",
       "validate_description": "Not your number?",
-      "varify": "Verify Mobile Number",
-      "email_check_login": "Confirm & add your email address",
-      "email_check_login_desc": "To keep your account secure, we also require your email address.",
-      "add_email": "Add Email Address"
+      "varify": "Verify Mobile Number"
     },
     "recover_password": {
       "title": "Reset your password",
@@ -418,6 +425,11 @@
       "delete_confirm": "Are you sure you wish to delete this address?"
     }
   },
+  "dashboard": {
+    "help": "How can we help you today?",
+    "subscriptions": "Manage Subscriptions",
+    "welcome": "Hi"
+  },
   "gift_cards": {
     "issued": {
       "title": "Here's your {{ value }} gift card for {{ shop }}!",
@@ -444,6 +456,11 @@
       "message_label": "Message (optional)",
       "message": "Message",
       "max_characters": "{{ max_chars }} characters max"
+    }
+  },
+  "shopify": {
+    "links": {
+      "powered_by_shopify": " "
     }
   }
 }
