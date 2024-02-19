@@ -1,14 +1,40 @@
 {{- 'media-grid.css' | asset_url | stylesheet_tag -}}
 {%- liquid
+	assign short_width = section.settings.short_width
 	assign desktop_height = section.settings.desktop_height
 	assign mobile_height = section.settings.mobile_height
 	assign column_spacing = section.settings.column_spacing
-
+	assign heading_first = section.settings.heading_first
 	assign disable_top_spacing = section.settings.disable_top_spacing
 	assign disable_bottom_spacing = section.settings.disable_bottom_spacing
+	assign wrapper_background = section.settings.wrapper_background
+	assign shift_second_grid = section.settings.shift_second_grid
 -%}
+{% if wrapper_background != 'transparent' %}
+<style>
+	#shopify-section-{{ section.id }},
+	#shopify-section-{{ section.id }} .media-grid-heading--wrapper {
+		background: {{ section.settings.wrapper_background }};
+	}
+</style>
+{% endif %}
+{% if shift_second_grid %}
+	<style>
+		@media screen and (min-width: 768px) {
+			#shopify-section-{{ section.id }} .media-grid--item:nth-child(2) {
+				margin-top: 42px;
+			}
+		}
+	</style>
+{% endif %}
 <div class="media-grid section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
-	<div class="media-grid--inner column-spacing--{{ column_spacing }}" style="--desktop-height:{{ desktop_height | append: 'px' }}; --mobile-height:{{ mobile_height | append: 'px' }}">
+	{% if section.settings.use_heading_link %}
+		<div class="row{% if short_width %} customer-content--wrapper{% endif %} media-grid-heading--wrapper">
+			<h4>{{ section.settings.heading_text }}</h4>
+			<div><a href="#">{{ section.settings.link_text }}</a>&nbsp;></div>
+		</div>
+	{% endif %}
+	<div class="media-grid--inner{% if short_width %} customer-content--wrapper{% endif %} column-spacing--{{ column_spacing }}" style="--desktop-height:{{ desktop_height | append: 'px' }}; --mobile-height:{{ mobile_height | append: 'px' }}">
 		{%- for block in section.blocks -%}
 			{%- liquid
 				assign image = block.settings.image
@@ -48,12 +74,22 @@
 					{%- endif -%}
 				</div>
 				<div class="media-grid--content text-{{ text_alignment }}">
-					{% if block.settings.subheading != blank %}
-						<p class="subheading">{{ block.settings.subheading }}</p>
+					{% if heading_first %}
+						{% if block.settings.heading != blank %}
+							<h4 style="font-weight: {{ block.settings.heading_weight }}" class="{{ heading_size }}{% if block.settings.button_text == blank %} media-grid--heading-no-margin{% endif %}">{{ block.settings.heading | newline_to_br }}</h4>
+						{% endif %}
+						{% if block.settings.subheading != blank %}
+							<p class="subheading">{{ block.settings.subheading }}</p>
+						{% endif %}
+					{% else %}
+						{% if block.settings.subheading != blank %}
+							<p class="subheading">{{ block.settings.subheading }}</p>
+						{% endif %}
+						{% if block.settings.heading != blank %}
+							<h4 style="font-weight: {{ block.settings.heading_weight }}" class="{{ heading_size }}{% if block.settings.button_text == blank %} media-grid--heading-no-margin{% endif %}">{{ block.settings.heading | newline_to_br }}</h4>
+						{% endif %}
 					{% endif %}
-					{% if block.settings.heading != blank %}
-						<h4 class="{{ heading_size }}{% if block.settings.button_text == blank %} media-grid--heading-no-margin{% endif %}">{{ block.settings.heading | newline_to_br }}</h4>
-					{% endif %}
+
 					{% if block.settings.button_text != blank %}
 						{% render 'text-button', url: block.settings.button_link, title: block.settings.button_text %}
 					{% endif %}
@@ -72,6 +108,36 @@
     "name": "Media grid",
 		"class": "section-media-grid",
     "settings": [
+			{
+				"type": "checkbox",
+				"id": "shift_second_grid",
+				"label": "Shift second grid item?",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "use_heading_link",
+				"label": "Use Heading with Link",
+				"default": false
+			},
+			{
+				"type": "text",
+				"id": "heading_text",
+				"label": "Heading Text",
+				"default": "Top Offers"
+			},
+			{
+				"type": "text",
+				"id": "link_text",
+				"label": "Link Text",
+				"default": "View More"
+			},
+			{
+				"type": "color_background",
+				"id": "wrapper_background",
+				"label": "Section Wrapper Background",
+				"default": "transparent"
+			},
 			{
 				"type": "range",
 				"id": "desktop_height",
@@ -147,6 +213,18 @@
 				"id": "disable_bottom_spacing",
 				"default": false,
 				"label": "Remove bottom spacing"
+			},
+			{
+				"type": "checkbox",
+				"id": "short_width",
+				"label": "Make section short width (for account dashboard)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "heading_first",
+				"label": "Place Heding before the text",
+				"default": false
 			}
     ],
     "blocks": [
@@ -243,9 +321,22 @@
 							{
 								"value": "h4",
 								"label": "Small"
+							},
+							{
+								"value": "h6",
+								"label": "Extra Small"
 							}
 						],
 						"default": "h3"
+					},
+					{
+						"id": "heading_weight",
+						"label": "Heading weigh",
+						"type": "range",
+						"min": 300,
+						"max": 700,
+						"step": 100,
+						"default": 400
 					},
 					{
             "id": "button_text",

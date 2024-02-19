@@ -688,11 +688,7 @@ if (!customElements.get('product-slider')) {
  *  @function ProductForm
  */
 if (!customElements.get('product-form')) {
-<<<<<<< HEAD
-  customElements.define('product-form', class ProductForm extends HTMLElement {
-=======
   class ProductForm extends HTMLElement {
->>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3
     constructor() {
       super();
 
@@ -778,18 +774,6 @@ if (!customElements.get('product-form')) {
         section: 'main-cart',
         selector: '.thb-cart-form'
       },
-<<<<<<< HEAD
-      {
-        id: 'Cart-Drawer',
-        section: 'cart-drawer',
-        selector: '.cart-drawer'
-      },
-      {
-        id: 'cart-drawer-toggle',
-        section: 'cart-bubble',
-        selector: '.thb-item-count'
-      }];
-=======
         {
           id: 'Cart-Drawer',
           section: 'cart-drawer',
@@ -800,7 +784,6 @@ if (!customElements.get('product-form')) {
           section: 'cart-bubble',
           selector: '.thb-item-count'
         }];
->>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3
     }
     renderContents(parsedState) {
       this.getSectionsToRender().forEach((section => {
@@ -856,12 +839,6 @@ if (!customElements.get('product-form')) {
         this.errorMessage.textContent = errorMessage;
       }
     }
-<<<<<<< HEAD
-  });
-}
-
-
-=======
   }
   customElements.define('product-form', ProductForm);
 
@@ -957,7 +934,6 @@ if (!customElements.get('product-form')) {
 
 
 
->>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3
 /**
  *  @class
  *  @function ProductAddToCartSticky

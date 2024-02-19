@@ -3,22 +3,35 @@
 	assign section_heading = section.settings.heading
 	assign marker_style = section.settings.marker_style
 	assign section_description = section.settings.description
+	assign text_color = section.settings.color_text
 	assign center_align = section.settings.center_align
 	assign mobile_swipe = section.settings.mobile_swipe
 	assign disable_top_spacing = section.settings.disable_top_spacing
 	assign disable_bottom_spacing = section.settings.disable_bottom_spacing
-
+	assign short_width = section.settings.short_width
+	assign use_image_for_heading = section.settings.use_image_for_heading
+	assign heading_image = section.settings.heading_image
 	assign marker_color = section.settings.marker_color
 	assign color_logo_bg = section.settings.color_logo_bg | downcase
 	assign color_body_bg = settings.color_body_bg | downcase
-
+	assign gradient_background = section.settings.gradient_background
 	assign has_bg = true
 	if color_body_bg == color_logo_bg or color_logo_bg == 'transparent' or color_logo_bg == 'rgba(0,0,0,0)'
 		assign has_bg = false
 	endif
 -%}
-<div class="logo-list logo-list--centered-{{ center_align }} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
-	{% render 'section-header', section_heading: section_heading, section_description: section_description, marker_color: marker_color, marker_style: marker_style %}
+{% if gradient_background %}
+	<style>
+		#shopify-section-{{ section.id }} {
+			background: {{ gradient_background }};
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+		}
+	</style>
+{% endif %}
+
+<div class="logo-list{% if short_width %} customer-content--wrapper{% endif %} logo-list--centered-{{ center_align }} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}" style="--color-heading:{{ section.settings.color_heading }};">
+	{% render 'section-header', section_heading: section_heading, section_description: section_description, marker_color: marker_color, marker_style: marker_style, text_color: text_color, heading_image: heading_image, use_image_for_heading: use_image_for_heading %}
 	<div class="logo-list--inner{% if mobile_swipe %} swipe-on-mobile{% endif %}" style="--logo-columns: {{ section.settings.columns }}; --logo-bg: {{ color_logo_bg }};">
 		{% for block in section.blocks %}
 	    <a class="logo-list--logo {% if has_bg -%}logo-list--logo--has-bg{% endif %}" {% if block.settings.link %}href="{{ block.settings.link | escape }}" {% else %}aria-disabled{% endif %} {{ block.shopify_attributes }}>
@@ -45,6 +58,29 @@
 				"label": "Heading",
 				"default": "Logo list",
 				"info": "Wrap your text between | to add animated markers. For example: Animated |marker| will underline marker text."
+			},
+			{
+				"type": "checkbox",
+				"id": "short_width",
+				"label": "Make section short width (for account dashboard)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "use_image_for_heading",
+				"label": "Use Image for Heading?",
+				"default": false
+			},
+			{
+				"type": "image_picker",
+				"id": "heading_image",
+				"label": "Heading Image"
+			},
+			{
+				"type": "color_background",
+				"id": "gradient_background",
+				"label": "Section Wrapper Background",
+				"default": "transparent"
 			},
 			{
 				"type": "select",
@@ -128,6 +164,18 @@
 				"id": "marker_color",
 				"label": "Marker",
 				"default": "#FD6262"
+			},
+			{
+				"type": "color",
+				"id": "color_text",
+				"label": "Text",
+				"default": "#56585e"
+			},
+			{
+				"type": "color",
+				"id": "color_heading",
+				"label": "Text",
+				"default": "#2c2d2e"
 			}
     ],
     "blocks": [

@@ -627,8 +627,6 @@ code, .code-inline {
   margin-left: auto;
   display: flex;
   flex-flow: row wrap; }
-<<<<<<< HEAD
-=======
 .short-width-row {
   max-width: 1024px;
   margin-right: auto;
@@ -636,7 +634,6 @@ code, .code-inline {
   display: flex;
   flex-flow: row wrap;
 }
->>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3
   .row .row {
     margin-right: -0.25rem;
     margin-left: -0.25rem; }
@@ -1362,29 +1359,20 @@ summary {
 
 .row {
   padding: 0 11px; }
-<<<<<<< HEAD
-  @media only screen and (min-width: 768px) {
-    .row {
-=======
 .short-width-row {
   padding: 0 16px;
 }
   @media only screen and (min-width: 768px) {
     .row, .short-width-row  {
->>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3
       padding: 0 35px; } }
   .row .columns {
     padding: 0 4px; }
     @media only screen and (min-width: 768px) {
       .row .columns {
-<<<<<<< HEAD
-        padding: 0 15px; } }
-=======
         padding: 0 15px; }
     .customer-content--wrapper.row .columns {
       padding: 0;
     } }
->>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3
   .row.no-padding {
     padding: 0; }
   .row.full-width-row {
@@ -4062,13 +4050,9 @@ input[type="radio"], .field label, .custom-checkbox[type="checkbox"], .custom-ch
     isolation: isolate;
     overflow: hidden;
     padding-bottom: 100%; }
-<<<<<<< HEAD
-
-=======
 .column-spacing--none {
   grid-gap: 0;
 }
->>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3
 .column-spacing--small {
   grid-gap: 10px; }
 
@@ -4139,10 +4123,6 @@ input[type="radio"], .field label, .custom-checkbox[type="checkbox"], .custom-ch
       bottom: -20%; }
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3
 .wallet_header svg path{
   stroke: unset;
 }
@@ -4233,8 +4213,6 @@ line-height: 34px;
   width: 24%;
   margin-left: 1%;
   list-style: none;
-<<<<<<< HEAD
-=======
 }
 .shopify-block[id^="shopify-block-socialembed_instagram_feed_app_block"] {
   max-width: 1380px;
@@ -4250,5 +4228,4 @@ line-height: 34px;
   .shopify-block[id^="shopify-block-socialembed_instagram_feed_app_block"] {
     padding: 0 50px;
   }
->>>>>>> 65ec071d8c38594164dae0276424113b81c66bf3
 }

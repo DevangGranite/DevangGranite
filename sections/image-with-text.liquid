@@ -4,6 +4,7 @@
 {%- endif -%}
 {{- 'image-with-text.css' | asset_url | stylesheet_tag -}}
 {%- liquid
+	assign short_width = section.settings.short_width
 	assign full_width = section.settings.full_width
 	assign image = section.settings.image
 	assign use_video = section.settings.use_video
@@ -26,6 +27,10 @@
 		assign ratio = image.aspect_ratio
 	endif
 
+	if short_width == true and height == 'adapt' and image != blank
+		assign ratio = 1.2
+	endif
+
 	if height == 'adapt' and use_video
 	 	if video_hosted != blank
 			assign ratio = video_hosted.aspect_ratio
@@ -34,7 +39,12 @@
 		endif
 	endif
 -%}
-<div class="row{% if full_width %} full-width-row{% endif %}">
+<style>
+	#shopify-section-{{ section.id }} {
+		background: {{ section.settings.wrapper_background }};
+	}
+</style>
+<div class="row{% if short_width %} customer-content--wrapper{% endif %}{% if full_width %} full-width-row{% endif %}">
 	<div class="small-12 columns">
 		<div class="image-with-text column-spacing--{{ column_spacing }} grid--image-{{ desktop_image_width }} {{ desktop_layout }} {{ content_position }} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}" style="--color-bg:{{ color_bg }};--color-text:{{ color_text }};--color-text-rgb: {{ color_text.rgb | replace: ' ' , ',' }}; --solid-button-background: {{ color_text }}; --solid-button-background-hover: {{ color_text | color_darken: 7 }}; --solid-button-label: {{ color_bg }};--bg-body: {{ color_bg }};--color-border: {{ color_border }}">
 			<div class="image-with-text--image image-with-text--inner">
@@ -63,7 +73,7 @@
 					{%- endif -%}
 				</div>
 			</div>
-			<div class="image-with-text--content image-with-text--inner">
+			<div class="image-with-text--content image-with-text--inner"{% if section.settings.wrapper_background != 'transparent' %} style="background: transparent;" {% endif %}>
 				<div class="image-with-text--content--inner">
 					{%- for block in section.blocks -%}
 						{%- case block.type -%}
@@ -85,7 +95,11 @@
 								assign marker_color = block.settings.marker_color
 								assign text = block.settings.text | newline_to_br
 							-%}
-								<h3 class="{{ block.settings.heading_size }}" {{ block.shopify_attributes }}>{% render 'animated-marker-heading', heading: text, style: marker_style, color: marker_color %}</h3>
+								{% if block.settings.use_image_for_heading == true %}
+									<img class="image-with-text--heading--image" src="{{ block.settings.image_for_heading | image_url }}" alt="{{ block.settings.image_for_heading }}">
+								{% else %}
+									<h3 class="{{ block.settings.heading_size }}" {{ block.shopify_attributes }}>{% render 'animated-marker-heading', heading: text, style: marker_style, color: marker_color %}</h3>
+								{% endif %}
 							{%- when 'text' -%}
 								<div class="rte" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
 							{%- when 'button' -%}
@@ -125,6 +139,12 @@
 				"id": "image",
 				"label": "Image",
 				"info": "1340 x 1340 .jpg recommended."
+			},
+			{
+				"type": "color_background",
+				"id": "wrapper_background",
+				"label": "Section Wrapper Background",
+				"default": "transparent"
 			},
 			{
 				"type": "header",
@@ -213,6 +233,12 @@
 				"default": false
 			},
 			{
+				"type": "checkbox",
+				"id": "short_width",
+				"label": "Make section short width (for account dashboard)",
+				"default": false
+			},
+			{
 	      "type": "select",
 	      "id": "layout",
 	      "options": [
@@ -244,6 +270,10 @@
 	      "type": "select",
 	      "id": "column_spacing",
 	      "options": [
+					{
+						"value": "none",
+						"label": "None"
+					},
 	        {
 	          "value": "small",
 	          "label": "Small"
@@ -382,6 +412,17 @@
 							}
 						],
 						"default": "h3"
+					},
+					{
+						"type": "checkbox",
+						"id": "use_image_for_heading",
+						"label": "Use image for heading?",
+						"default": false
+					},
+					{
+						"type": "image_picker",
+						"id": "image_for_heading",
+						"label": "Image for heading"
 					},
 					{
 			      "type": "header",

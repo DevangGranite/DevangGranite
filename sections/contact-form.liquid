@@ -3,6 +3,10 @@
 	assign marker_style = section.settings.marker_style
 	assign section_description = section.settings.description
 	assign show_phone_number = section.settings.show_phone_number
+	assign show_comment = section.settings.show_comment
+	assign show_order = section.settings.show_order
+	assign show_name = section.settings.show_name
+	assign show_account_id = section.settings.show_account_id
 
 	assign marker_color = section.settings.marker_color
 
@@ -34,13 +38,23 @@
 				</div>
 				{% endif %}
 				<div class="row no-padding">
-					<div class="small-12 medium-6 columns">
-						<div class="field">
-							<input type="text" id="ContactFormName" name="contact[name]" class="full" placeholder="{{ 'sections.contact.form.name' | t | escape }}">
-							<label for="ContactFormName">{{ 'sections.contact.form.name' | t }}</label>
+					{% if show_name %}
+						<div class="small-12 medium-12 columns">
+							<div class="field">
+								<input required type="text" id="ContactFormName" name="contact[name]" class="full" placeholder="{{ 'sections.contact.form.name' | t | escape }}">
+								<label for="ContactFormName">{{ 'sections.contact.form.name' | t }}</label>
+							</div>
 						</div>
-					</div>
-					<div class="small-12 medium-6 columns">
+					{% endif %}
+					{%- if show_phone_number -%}
+						<div class="small-12 medium-12 columns">
+							<div class="field">
+								<input type="tel" id="ContactFormPhone" name="contact[phone]" class="full" placeholder="{{ 'sections.contact.form.phone' | t | escape }}">
+								<label for="ContactFormPhone">{{ 'sections.contact.form.phone' | t }}</label>
+							</div>
+						</div>
+					{%- endif -%}
+					<div class="small-12 medium-12 columns">
 						<div class="field">
 							<input
 							type="email"
@@ -53,14 +67,28 @@
 							<label for="ContactFormEmail">{{ 'sections.contact.form.email' | t }}</label>
 						</div>
 					</div>
-					{%- if show_phone_number -%}
-					<div class="small-12 medium-12 columns">
-						<div class="field">
-							<input type="tel" id="ContactFormPhone" name="contact[phone]" class="full" placeholder="{{ 'sections.contact.form.phone' | t | escape }}">
-								<label for="ContactFormPhone">{{ 'sections.contact.form.phone' | t }}</label>
+					{% if show_account_id %}
+						<div class="small-12 medium-12 columns">
+							<div class="field">
+								<input type="text" id="ContactFormAccountID" name="contact[account_id]" class="full" placeholder="{{ 'sections.contact.form.account_id' | t | escape }}">
+								<label for="ContactFormAccountID">{{ 'sections.contact.form.account_id' | t }}</label>
+							</div>
 						</div>
-					</div>
-					{%- endif -%}
+					{% endif %}
+					{% if show_order %}
+						<div class="small-12 medium-12 columns">
+							<div class="field">
+								<input
+										type="text"
+										name="contact[order_number]"
+										id="order-number"
+										class="full"
+										placeholder="{{ 'sections.contact.form.order' | t | escape }}"
+										required>
+								<label for="order-number">{{ 'sections.contact.form.order' | t }}</label>
+							</div>
+						</div>
+					{% endif %}
 					{%- for block in section.blocks -%}
 						{%- liquid
 							assign field_title = block.settings.title
@@ -106,13 +134,15 @@
 							{%- assign field_index = field_index | plus: 1 -%}
 						{%- endcase -%}
 					{%- endfor -%}
-					<div class="small-12 medium-12 columns">
-						<div class="field">
-							<textarea rows="10" id="ContactFormMessage" name="contact[body]" class="full" placeholder="{{ 'sections.contact.form.comment' | t | escape }}"></textarea>
-							<label for="ContactFormMessage">{{ 'sections.contact.form.comment' | t }}</label>
-						</div>
-					</div>
+					{% if show_comment %}
 						<div class="small-12 medium-12 columns">
+							<div class="field">
+								<textarea rows="10" id="ContactFormMessage" name="contact[body]" class="full" placeholder="{{ 'sections.contact.form.comment' | t | escape }}"></textarea>
+								<label for="ContactFormMessage">{{ 'sections.contact.form.comment' | t }}</label>
+							</div>
+						</div>
+					{% endif %}
+					<div class="small-12 medium-12 columns">
 						<button type="submit" class="button full"><span>{{ 'sections.contact.form.send' | t }}</span></button>
 					</div>
 				</div>
@@ -181,6 +211,30 @@
 				"id": "show_phone_number",
 				"default": true,
 				"label": "Show phone number"
+			},
+			{
+				"type": "checkbox",
+				"id": "show_comment",
+				"default": false,
+				"label": "Show Comment"
+			},
+			{
+				"type": "checkbox",
+				"id": "show_order",
+				"default": false,
+				"label": "Show Order"
+			},
+			{
+				"type": "checkbox",
+				"id": "show_name",
+				"default": true,
+				"label": "Show Name"
+			},
+			{
+				"type": "checkbox",
+				"id": "show_account_id",
+				"default": false,
+				"label": "Show Account ID"
 			},
 			{
         "type": "header",

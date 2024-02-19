@@ -11,7 +11,7 @@
 	assign product_limit = section.settings.product_limit
 	assign mobile_swipe = section.settings.mobile_swipe
 	assign show_progress_bar = section.settings.show_progress_bar
-
+	assign short_width = section.settings.short_width
 	assign marker_color = section.settings.marker_color
 
 	assign disable_top_spacing = section.settings.disable_top_spacing
@@ -45,7 +45,7 @@
 	endif
 -%}
 <div class="featured-collection{% if mobile_swipe %} swipe-on-mobile{% endif %} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
-	<div class="row">
+	<div class="row{% if short_width %} customer-content--wrapper{% endif %}">
 		<div class="small-12 columns">
 			{% render 'section-header', section_heading: section_heading, section_description: section_description, section_heading_button: section_heading_button, marker_color: marker_color, marker_style: marker_style %}
 			<div class="featured-collection__inner display-type--{{ display_type }}">
@@ -92,6 +92,12 @@
       "default": "Featured Collection",
 			"info": "Wrap your text between | to add animated markers. For example: Animated |marker| will underline marker text."
     },
+		{
+			"type": "checkbox",
+			"id": "short_width",
+			"label": "Make section short width (for account dashboard)",
+			"default": false
+		},
 		{
 			"type": "select",
 			"id": "marker_style",
