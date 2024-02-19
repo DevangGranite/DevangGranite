@@ -1,0 +1,939 @@
+ 
+  .my_wallet_data_blocks_main{
+    padding-inline: 15px;
+  }
+  .my_wallet_data_blocks_icon.spent_drop_icon svg{
+    width: 10px;
+    height: 16px;
+  }
+  .my_wallet_data_blocks_icon.spent_drop_icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #EFF2F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .reward_history_bloks_drops_spend.negative_value{
+    color: #DF1515;
+  }
+  .my_wallet_bloks_price_main{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    text-align: left;
+  }
+  .table_purchase_history_year {
+    max-width: 816px;
+    margin-inline: auto;
+    padding-inline: 24px;
+    padding-block: 8px;
+
+    color: #6B6E71;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; 
+  }
+  
+  .tabs_main.my_wallet_data_blocks_main{
+    background: #EFF2F6;
+  }
+  .reward_history_total_data_main{
+    color: #6B6E71;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  .reward_history_data_date_details{
+    color: #2461CC;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  .reward_history_points_count{
+  color: #3C3C3C;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 118%; 
+
+
+  border-radius: 8px;
+  background: var(--Neutral-Off-White, #EFF2F6);
+
+
+  width: 40px;
+  height: 40px;
+    
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  }
+  .reward_history_data_inner.bordered{
+    border-top: 1px solid rgba(31, 31, 32, 0.5);
+  }
+   .reward_history_main .reward_history_inner{
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(0,20,137,1) 100%);
+    
+  }
+  
+  .reward_history_inner_main{
+    max-width: 1024px;
+    width: 100%;
+    margin-inline: auto;
+    padding: 24px;
+  }
+    .reward_history_inner_top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .reward_history_inner_main_data{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .reward_history_back svg path,
+  .reward_history_help svg path{
+    stroke: #fff;
+  }
+
+  .reward_history_title{
+    color: #fff;
+  }
+  .reward_history_title{
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 118%; 
+  }
+ 
+    .reward_history_inner_bottom{
+     color: #FFF;
+     text-align: center;
+     font-size: 32px;
+     font-style: normal;
+     font-weight: 700;
+     line-height: 34px; 
+     margin-bottom: 32px;
+     margin-top: 10px;
+  }
+
+   .reward_history_main_data{
+    margin-inline: auto;
+    max-width: 1024px;
+    width: 100%;
+    padding: 24px;
+    padding-top: 32px;
+    margin-top: -32px;
+    border-radius: 16px 16px 0px 0px;
+    background: #fff;
+  }
+  .reward_history_data_inner{
+    max-width: 640px;
+    width: 100%;
+    margin-inline: auto;
+  }
+  .reward_history_inner_main_data{
+    display: flex;
+    padding-block: 30px;
+  }
+
+  .reward_history_data_title_main{
+    color: #2461CC;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+  }
+.reward_history_data_drops_details{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
+   .reward_history_inner_data_points_count{
+    color: #2461CC;
+    text-align: right;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  @media screen and ( max-width: 749px ){
+     .reward_history_title{
+      font-size: 20px;
+    }
+    .reward_history_data_title_main,
+    .reward_history_inner_data_points{
+      width: fit-content;
+    }
+    .reward_history_data_title_main{
+    color: #53565A;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    }
+  }
+/*  //////////// ______++++++++______\\\\\\\\\\*/
+ 
+.my_wallet_data_blocks_main{
+  padding-block: 70px;
+}
+.my_wallet_data_blocks_inner{
+  max-width: 816px;
+  /* height: 216px; */
+  border-radius: 8px;
+  margin-inline: auto;
+  background: #fff;
+  margin-bottom: 50px;
+  padding-block: 16px;
+}
+.wallet_debited_month{
+  color: #2461CC;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  max-width: 816px;
+  margin-inline: auto;
+  padding-inline: 24px;
+  padding-block: 8px;
+}
+.zero_wallet_top_up{
+  max-width: 816px;
+  margin-inline: auto;
+  border-radius: 8px;
+  background: #fff;
+}
+
+  .my_wallet_block_switch_buttons{
+    max-width: 816px;
+    margin-inline: auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: end;
+    aligin-items: center;
+    margin-bottom: 15px;
+    gap: 15px;
+  }
+  .my_wallet_data_blocks_icon{
+    display: flex;
+  }
+  .my_wallet_data_blocks{
+    display: flex;
+    padding-inline: 24px;
+    padding-block: 16px;
+    align-items: center;
+    border-bottom: 1px solid #EFF2F6;
+  }
+
+  .my_wallet_data_blocks_inner .my_wallet_data_blocks:last-child{
+    border-bottom: unset;
+  }
+  
+  .my_wallet_transection_type{
+    display: flex;
+    /* width: 168px; */
+    height: 24px;
+    flex-direction: column;
+    height: unset;
+    gap: unset;
+    /* flex-direction: column; */
+ 
+    margin-left: 50px;
+    gap: 0px;
+    
+  }
+  .data_first{
+   color: #6B6E71;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 20px;
+  }
+  .data_sec{
+   color: #6B6E71;
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 18px; 
+  }
+  .my_wallet_bloks_price_main{
+    margin-left: auto;
+  }
+.my_wallet_bloks_price_main .my_wallet_bloks_price{
+  color: #6B6E71;
+  text-align: right;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; 
+ 
+}
+.reward_history_bloks_drops_spend{
+  color: #1F1F20;
+  text-align: right;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; 
+}
+.my_wallet_bloks_price_main .my_wallet_bloks_price_currency{
+  color: #1F1F20;
+  text-align: right;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.my_wallet_block_switch_buttons .button_wallet_Debited{
+  border-radius: 33px;
+  color: #2461CC;
+  background: #FFF;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; 
+  padding-inline: 20px;
+  padding-block: 10px;
+}
+.my_wallet_block_switch_buttons .button_wallet_Credited{
+  border-radius: 33px;
+  color: #2461CC;
+  background: #FFF;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; 
+  padding-inline: 20px;
+  padding-block: 10px;
+}
+.my_wallet_block_switch_buttons .tab.active{
+  background: #2461CC;
+  color: #FFF;
+}
+.my_wallet_block_switch_buttons .tab:hover,
+.my_wallet_block_switch_buttons .button_wallet_Credited:hover{
+  background: #2461CC;
+  color: #FFF;
+}
+/*  */
+ 
+ 
+ 
+ 
+  
+   
+ 
+ 
+.orders_queue_title{
+  color: #FFF;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; 
+}
+ 
+  /* .tab-content.Credited_section_tab .my_wallet_bloks_price{
+    color: #00B140;
+  } */
+  .wallet_Credited_month {
+    color: #6B6E71;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px;
+    max-width: 816px;
+    margin-inline: auto;
+    padding-inline: 24px;
+    padding-block: 8px;
+}
+.tab-content {
+   display: none;
+}
+.tab-content.active{
+  display: block;
+}
+
+/* Top UP Wallet */
+
+.top_up_wallet_main_product{
+    margin-top: 30px;
+    margin-bottom: 100px;
+  }
+  .top_up_wallet_info,
+  .top_up_wallet_image{
+    flex: 1
+  }
+  .top_up_wallet_info{
+    max-width: 554px;
+    padding-left: 50px;
+  }
+  .top_up_wallet_innet{
+    display: flex;
+    /* align-items: center; */
+  }
+  .top_up_wallet_info{
+    
+  }
+  .top_up_wallet_brand{
+    color: #2461CC;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; 
+  }
+  .top_up_wallet_title{
+    color: #001489;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; 
+  }
+  .top_up_wallet_title{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    flex-direction: column;
+    gap: 25px;
+  }
+  .top_up_wallet_price span.price{
+    color: var(--Primary-Reflex-Blue, #001489);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; 
+  }
+  .top_up_wallet_price span.vat{
+    color: #001489;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 10px;
+    text-align: right;
+  }
+  .top_up_wallet_variant_inner{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 360px;
+    margin-bottom: 1.25rem;
+    
+  }
+  .top_up_wallet_var.active{
+    color: #FFF;
+    background: #2461CC;
+  }
+  .top_up_wallet_var{
+    border-radius: 8px;
+    border: 1px solid #CDD5DD;
+    background: #FFF;
+    color: #2461CC;
+    
+    width: calc(81.059px - 1px);
+    height: 64px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; 
+  }
+  .top_up_now_button{
+   display: flex;
+   max-width: 504px;
+    width: 100%;
+   height: 56px;
+   flex-direction: column;
+   justify-content: center;
+   flex-shrink: 0;
+
+   color: #FFF;
+   background-color: #2461CC;
+   text-align: center;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 20px; 
+
+   border-radius: 8px;
+   background: #2461CC;
+   margin-bottom: 1.25rem;
+  }
+  .top_up_now_button:hover{
+    color: #FFF;
+    background-color: #2461CC;
+  }
+  .top_up_now_button_earn_drop{
+    display: flex;
+    height: 40px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+
+    border-radius: 8px;
+    background: #fff;
+    
+    max-width: 504px;
+    width: 100%;
+    height: 40px;
+    flex-shrink: 0;
+    color: #3C3C3C;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; 
+    padding: 10px;
+  }
+  .top_up_now_button_earn_drop{
+    position:relative;
+  }
+  .top_up_now_button_earn_drop svg{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+  }
+  .breadcrumbs_account a{
+    color: #2461CC;
+    text-decoration: underline;
+  }
+  .breadcrumbs_account{
+    margin-bottom: 1.5rem;
+    color: #595A5E;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
+
+
+/* END Top UP Wallet */
+
+/* Zero Ballance Walet */
+ .zero_wallet_image{
+    position: relative;
+  }
+  .zero_wallet_img_positioned{
+    max-width: 320px;
+    width: 100%;
+    position: absolute;
+    top: -100px
+  }
+  .zero_wallet_top_up .zero_wallet_button,
+  .zero_wallet_top_up .zero_wallet_image{
+    flex: 1;
+  }
+  .zero_wallet_top_up{
+    margin-top: 150px;
+    margin-bottom: 150px;
+    min-height: 152px;
+    display: flex;
+    align-items: center;
+    padding: 24px;
+  }
+.zero_wallet_main_btn:hover{
+  color: #fff;
+  background: #2461CC;
+}
+.zero_wallet_main_btn{
+  color: #FFF;
+  background: #2461CC;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+
+  display: flex;
+  max-width: 352px;
+  width: 100%;
+  height: 56px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+
+  border-radius: 8px;
+  
+}
+/* Zero Balance My Wallet */
+
+/* Rewards redeem voucher + clip the deal */
+.card_redeme_main{
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 24px;
+  position: relative;
+}
+.card_redeme_main .lock_cart_block{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.card_heading{
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+.cards_redeme_main{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+
+.cards_title{
+  color: #1F1F20;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+.cards_points{
+  color: #2461CC;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; 
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.cards_redeme_inner{
+  width: calc(50% - 8px);
+  border-radius: 8px;
+  background: rgba(225, 225, 225, 0.9);
+}
+.cards_redeme_inner{
+  display: flex;
+  padding: 8px;
+  min-height: 136px;
+  align-items: center;
+}
+.cards_redeme_inner_text_points{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 8px;
+}
+.cards_redeme_inner_image{
+  width: 120.615px;
+}
+.cards_redeme_inner_image img{
+  width: 100%;
+}
+.date_bottom_cards{
+  width: 100%;
+  color: #53565A;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; 
+}
+/*  */
+
+  
+  .clip_the_deal_main .clip_the_deal_inner{
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(0,20,137,1) 100%);
+    
+  }
+  
+  .clip_the_deal_inner_main{
+    max-width: 1024px;
+    width: 100%;
+    margin-inline: auto;
+    padding: 24px;
+  }
+  .all_blocks_main_data{
+    margin-inline: auto;
+    max-width: 1024px;
+    width: 100%;
+    padding: 24px;
+    padding-top: 32px;
+    margin-top: -32px;
+    border-radius: 16px 16px 0px 0px;
+    background: #fff;
+  }
+  .all_blocks_main_data_inner{
+    max-width: 640px;
+    width: 100%;
+    margin-inline: auto;
+  }
+  .clip_the_deal_inner_top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .clip_the_deal_back svg path,
+  .clip_the_deal_help svg path{
+    stroke: #fff;
+  }
+  .clip_the_deal_title{
+    color: #fff;
+  }
+  .clip_the_deal_title{
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 118%; 
+  }
+  .clip_the_deal_inner_bottom{
+     color: #FFF;
+     text-align: center;
+     font-size: 32px;
+     font-style: normal;
+     font-weight: 700;
+     line-height: 34px; 
+     margin-bottom: 32px;
+     margin-top: 10px;
+  }
+  .clip_the_deal_inner_main_data{
+    display: flex;
+    padding-block: 30px;
+  }
+  .clip_the_deal_data_title_main{
+    color: #2461CC;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+  }
+  .clip_the_deal_data_drops_details{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  .clip_the_deal_data_drops_range{
+    max-width: 257px;
+    width: 100%;
+    height: 8px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: linear-gradient(90deg, #2866D3 61.5%, #409D25 100.07%);
+  }
+  .clip_the_deal_inner_data_points a{
+    color: #2461CC;
+    text-align: right;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    text-decoration-line: underline;
+  }
+  .clip_the_deal_inner_main_data {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .clip_the_deal_inner_data_range{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-block: 30px;
+    border-top: 1px solid rgba( 0,0,0,0.2 );
+    align-items: center;
+  }
+  .clip_the_deal_inner_data_points_count{
+    color: #2461CC;
+    text-align: right;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .range_drops_main.mobile{
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    height: 8px;
+    margin-top: 15px;
+  }
+  .range_drops_main.desktop{
+    width: 100%;
+    max-width: 300px;
+    position: relative;
+  }
+  .range_main{
+    width: 100%;
+    max-width: 328px;
+    border-radius: 16px;
+    height: 8px;
+    border: 0.3px solid rgba(0, 0, 0, 0.10);
+  }
+  .range_icon_move{
+    position: absolute;
+    right: -5px;
+    top: 100%;
+    transform: translateY(-50%);
+  }
+.my_wallet_transection_type{
+      
+}
+  @media screen and ( min-width: 750px ){
+    .clip_the_deal_data_drops_range.mobile{
+      display: none;
+    }
+    .range_drops_main.mobile{
+      display: none;
+    }
+  }
+/* END Rewards redeem voucher + clip the deal */
+  @media screen and ( min-width: 750px ){
+ 
+  }
+  @media screen and ( max-width: 749px ){
+    .my_wallet_transection_type{
+    margin-left: 25px;
+  }
+/* Rewards redeem voucher + clip the deal */
+
+ .range_drops_main.desktop{
+      display: none;
+    }
+    .clip_the_deal_inner_data_range{
+      flex-wrap: wrap;
+    }
+    .clip_the_deal_data_title_main,
+    .clip_the_deal_inner_data_points{
+      width: fit-content;
+    }
+    .clip_the_deal_data_title_main{
+    color: #53565A;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    }
+    .cards_redeme_inner .cards_redeme_inner_text_points{
+      gap: 8px;
+      margin-block: 15px;
+      text-align: center;
+    }
+    .cards_redeme_inner .cards_points{
+      justify-content: center;
+    }
+    .cards_redeme_inner{
+      flex-direction: column;
+    }
+    .clip_the_deal_data_drops_range{
+      width: 100%;
+      /* margin-top: 15px; */
+    }
+    
+    .clip_the_deal_data_drops_range.desktop{
+      display: none;
+    }
+    .clip_the_deal_title{
+      font-size: 20px;
+    }
+    
+/* END Rewards redeem voucher + clip the deal */
+/* Top UP Wallet */
+
+     .top_up_wallet_innet{
+        flex-direction: column;
+      }
+      .top_up_wallet_info{
+        padding-left: 0;
+      }
+      .top_up_wallet_info{
+        margin-top: 50px;
+      }
+      .top_up_wallet_title{
+        font-weight: 400;
+      }
+      .top_up_wallet_title{
+       flex-direction: row;
+      }
+      .top_up_wallet_image {
+       max-width: 250px;
+       margin-inline: auto;
+       display: block;
+      }
+    
+/* END Top UP Wallet */
+
+/* Zero Balance My Wallet*/
+
+   .zero_wallet_img_positioned{
+    position: unset;
+  }
+  .zero_wallet_button{
+    width: 100%;
+    margin-top: 50px;
+  } 
+  .zero_wallet_top_up{
+    position: relative;
+    z-index: 1;
+    border-radius: 16px 16px 0px 0px;
+    background: #fff;
+    margin-top: -30px;
+    margin-bottom: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+  }
+
+/* Zero Ballance My Wallet */
+
+
+    .my_wallet_block_switch_buttons{
+      justify-content: center;
+      margin-top: 0;
+    }
+ 
+ 
+   .my_wallet_data_blocks_inner {
+     background: #fff;
+     padding-block: 16px;
+    }
+    .my_wallet_data_blocks_inner .my_wallet_data_blocks{
+      border-bottom: 1px solid #fff;
+    }
+ 
+  
+    .my_wallet_data_blocks_main{
+      padding-top: 30px;
+      border-radius: 16px;
+      background: #fff;
+      margin-top: -26px;
+      position: relative;
+      z-index: 1;
+    }
+  }
