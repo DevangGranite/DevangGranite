@@ -187,6 +187,7 @@
                     type="email"
                     name="customer[email]"
                     class="full {% if form.errors contains 'email' %}invalid{% endif %}"
+                    id="customer_email"
                     value=""
                     placeholder="{{ 'customer.login_page.email_place' | t }}"
                     required
@@ -360,6 +361,11 @@ verifyOTP.addEventListener('click', function () {
         console.error('Error fetching data:', error);
       });
 });
+
+
+function updateEmail(){
+  
+}
 
 /** End Verify OTP **/
 </script>
