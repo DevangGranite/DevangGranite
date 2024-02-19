@@ -1,0 +1,840 @@
+<div class="clip_the_deal_main">
+  <div class="clip_the_deal_inner">
+    <div class="clip_the_deal_inner_main">
+      <div class="clip_the_deal_inner_top">
+      <div class="clip_the_deal_back">
+        {% render 'back_icon' %}
+      </div>
+      <div class="clip_the_deal_title">{{ section.settings.heading }}</div>
+      <div class="clip_the_deal_help">{% render 'help_icon' %}</div>
+    </div>
+    <div class="clip_the_deal_inner_bottom">
+       {{ section.settings.heading_sec }}
+    </div>
+    </div>
+
+  </div>
+
+
+  <!--  -->
+
+    <div class="all_blocks_main_data">
+      <div class="all_blocks_main_data_inner">
+        <div class="clip_the_deal_inner_main_data">
+      <div class="clip_the_deal_data_inner_top">
+        <div class="clip_the_deal_data_title_main">
+           {{ section.settings.drop_title }}
+        </div>
+        <div class="clip_the_deal_data_drops_details">{{ section.settings.date_exp }}</div>
+      </div>
+      <div class="clip_the_deal_inner_data_points_count">
+        {% render 'drop_icon' %}
+        {{ section.settings.drop_points }}
+      </div>
+    </div>
+      <!--  -->
+      <div class="clip_the_deal_inner_data_range">
+       
+        <div class="clip_the_deal_data_title_main">
+           {{ section.settings.drop_range }}
+        </div>
+        <div class="range_drops_main desktop">
+          <div class="range_main">
+            <div class="clip_the_deal_data_drops_range desktop">
+          </div>
+          </div>
+          <span class="range_icon_move">{% render 'drop_range' %}</span>
+        </div>
+        <div class="clip_the_deal_inner_data_points">
+         <a href="{{ section.settings.h_link }}">{{ section.settings.h_label }}</a>
+        </div>
+        <!-- <div class="clip_the_deal_data_drops_range mobile"></div> -->
+        <div class="range_drops_main mobile">
+          <div class="range_main">
+            <div class="clip_the_deal_data_drops_range mobile">
+          </div>
+          </div>
+          <span class="range_icon_move">{% render 'drop_range' %}</span>
+        </div>
+       </div>
+
+     
+   {% for block in section.blocks %}
+
+     {%- case block.type -%}
+       {% when 'blue_card' %}
+       <style>
+       .card_redeme_main_first_{{ block.id }}{
+         background: {% if block.settings.background_gradient != blank %} {{ block.settings.background_gradien }} {% else %} {{ block.settings.background }} {% endif %};
+       }
+       </style>
+
+      <div class="card_redeme_main card_redeme_main_first_{{ block.id }}">
+        <div class="card_redeme_main_inner" >
+          <div class="card_heading">{{ block.settings.heading }}</div>
+          <div class="cards_redeme_main">
+            {% if block.settings.show_a %}
+            <div class="cards_redeme_inner">
+              <div class="cards_redeme_inner_image">
+                <img src="{{ block.settings.image_a | img_url: "master" }}">
+              </div>
+              <div class="cards_redeme_inner_text_points">
+                <div class="cards_title">{{ block.settings.heading_a }}</div>
+                <div class="cards_points">{% render 'card_drops' %}{{ block.settings.drops_a }}</div>
+              </div>
+            </div>
+            {% endif %}
+            
+
+            {% if block.settings.show_b %}
+            <div class="cards_redeme_inner">
+              <div class="cards_redeme_inner_image">
+                <img src="{{ block.settings.image_b | img_url: "master" }}">
+              </div>
+              <div class="cards_redeme_inner_text_points">
+                <div class="cards_title">{{ block.settings.heading_b }}</div>
+                <div class="cards_points">{% render 'card_drops' %}{{ block.settings.drops_b }}</div>
+              </div>
+            </div>
+            {% endif %}
+
+            {% if block.settings.show_c %}
+            <div class="cards_redeme_inner">
+              <div class="cards_redeme_inner_image">
+                <img src="{{ block.settings.image_c | img_url: "master" }}">
+              </div>
+              <div class="cards_redeme_inner_text_points">
+                <div class="cards_title">{{ block.settings.heading_c }}</div>
+                <div class="cards_points">{% render 'card_drops' %}{{ block.settings.drops_c }}</div>
+              </div>
+            </div>
+            {% endif %}
+
+            {% if block.settings.show_d %}
+            <div class="cards_redeme_inner">
+              <div class="cards_redeme_inner_image">
+                <img src="{{ block.settings.image_d | img_url: "master" }}">
+              </div>
+              <div class="cards_redeme_inner_text_points">
+                <div class="cards_title">{{ block.settings.heading_d }}</div>
+                <div class="cards_points">{% render 'card_drops_lock' %}{{ block.settings.drops_d }}</div>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+    </div>
+
+        {% when 'green_card' %}
+
+        <style>
+        .card_redeme_main_sec_{{ block.id }}{
+          background: {% if block.settings.background_gradient != blank %} {{ block.settings.background_gradient }} {% else %} {{ block.settings.background }} {% endif %};
+        }
+       </style>
+
+        <div class="card_redeme_main card_redeme_main_sec_{{ block.id }}">
+        <div class="card_redeme_main_inner">
+          <div class="card_heading">{{ block.settings.heading }}</div>
+          <div class="lock_cart_block">{% render 'lock' %}</div>
+          <div class="cards_redeme_main">
+            {% if block.settings.show_a %}
+            <div class="cards_redeme_inner">
+              <div class="cards_redeme_inner_image">
+                <img src="{{ block.settings.image_a | img_url: "master" }}">
+              </div>
+              <div class="cards_redeme_inner_text_points">
+                <div class="cards_title">{{ block.settings.heading_a }}</div>
+                <div class="cards_points">{% render 'card_drops_lock' %}{{ block.settings.drops_a }}</div>
+              </div>
+            </div>
+            {% endif %}
+
+            {% if block.settings.show_b %}
+            <div class="cards_redeme_inner">
+              <div class="cards_redeme_inner_image">
+                <img src="{{ block.settings.image_b | img_url: "master" }}">
+              </div>
+              <div class="cards_redeme_inner_text_points">
+                <div class="cards_title">{{ block.settings.heading_b }}</div>
+                <div class="cards_points">{% render 'card_drops_lock' %}{{ block.settings.drops_b }}</div>
+              </div>
+            </div>
+            {% endif %}
+             
+          </div>
+        </div>
+    </div>
+
+        {% when 'black_card' %}
+        <style>
+          .card_redeme_main_third_{{ block.id }}{
+            background: {% if block.settings.background_gradient != blank %} {{ block.settings.background_gradient }} {% else %} {{ block.settings.background }} {% endif %};
+          }
+        </style>
+        <div class="card_redeme_main card_redeme_main_third_{{ block.id }}">
+        <div class="card_redeme_main_inner">
+          <div class="card_heading">{{ block.settings.heading }}</div>
+          <div class="lock_cart_block">{% render 'lock' %}</div>
+          <div class="cards_redeme_main">
+            {% if block.settings.show_a %}
+            <div class="cards_redeme_inner">
+              <div class="cards_redeme_inner_image">
+                <img src="{{ block.settings.image_a | img_url: "master" }}">
+              </div>
+              <div class="cards_redeme_inner_text_points">
+                <div class="cards_title">{{ block.settings.heading_a }}</div>
+                <div class="cards_points">{% render 'card_drops_lock' %}{{ block.settings.drops_a }}</div>
+              </div>
+            </div>
+            {% endif %}
+
+            {% if block.settings.show_b %}
+            <div class="cards_redeme_inner">
+              <div class="cards_redeme_inner_image">
+                <img src="{{ block.settings.image_b | img_url: "master" }}">
+              </div>
+              <div class="cards_redeme_inner_text_points">
+                <div class="cards_title">{{ block.settings.heading_b }}</div>
+                <div class="cards_points">{% render 'card_drops_lock' %}{{ block.settings.drops_b }}</div>
+              </div>
+            </div>
+            {% endif %}
+            
+          </div>
+        </div> 
+    </div>
+     {% endcase %}
+    {% endfor %}
+
+        <div class="date_bottom_cards">Member since 4 Jan 2023</div>
+      </div>
+    </div>
+  
+</div>
+
+<style>
+#shopify-section-{{ section.id }} {
+  padding-bottom: 100px;
+}
+
+.card_redeme_main{
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 24px;
+  position: relative;
+}
+.card_redeme_main .lock_cart_block{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.card_heading{
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+.cards_redeme_main{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+
+.cards_title{
+  color: #1F1F20;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+.cards_points{
+  color: #2461CC;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; 
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.cards_redeme_inner{
+  width: calc(50% - 8px);
+  border-radius: 8px;
+  background: rgba(225, 225, 225, 0.9);
+}
+.cards_redeme_inner{
+  display: flex;
+  padding: 8px;
+  min-height: 136px;
+  align-items: center;
+}
+.cards_redeme_inner_text_points{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 8px;
+}
+.cards_redeme_inner_image{
+  width: 120.615px;
+}
+.cards_redeme_inner_image img{
+  width: 100%;
+}
+.date_bottom_cards{
+  width: 100%;
+  color: #53565A;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; 
+}
+/*  */
+
+  
+  .clip_the_deal_main .clip_the_deal_inner{
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(0,20,137,1) 100%);
+    
+  }
+  
+  .clip_the_deal_inner_main{
+    max-width: 1024px;
+    width: 100%;
+    margin-inline: auto;
+    padding: 24px;
+  }
+  .all_blocks_main_data{
+    margin-inline: auto;
+    max-width: 1024px;
+    width: 100%;
+    padding: 24px;
+    padding-top: 32px;
+    margin-top: -32px;
+    border-radius: 16px 16px 0px 0px;
+    background: #fff;
+  }
+  .all_blocks_main_data_inner{
+    max-width: 640px;
+    width: 100%;
+    margin-inline: auto;
+  }
+  .clip_the_deal_inner_top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .clip_the_deal_back svg path,
+  .clip_the_deal_help svg path{
+    stroke: #fff;
+  }
+  .clip_the_deal_title{
+    color: #fff;
+  }
+  .clip_the_deal_title{
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 118%; 
+  }
+  .clip_the_deal_inner_bottom{
+     color: #FFF;
+     text-align: center;
+     font-size: 32px;
+     font-style: normal;
+     font-weight: 700;
+     line-height: 34px; 
+     margin-bottom: 32px;
+     margin-top: 10px;
+  }
+  .clip_the_deal_inner_main_data{
+    display: flex;
+    padding-block: 30px;
+  }
+  .clip_the_deal_data_title_main{
+    color: #2461CC;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+  }
+  .clip_the_deal_data_drops_details{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  .clip_the_deal_data_drops_range{
+    max-width: 257px;
+    width: 100%;
+    height: 8px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: linear-gradient(90deg, #2866D3 61.5%, #409D25 100.07%);
+  }
+  .clip_the_deal_inner_data_points a{
+    color: #2461CC;
+    text-align: right;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    text-decoration-line: underline;
+  }
+  .clip_the_deal_inner_main_data {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .clip_the_deal_inner_data_range{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-block: 30px;
+    border-top: 1px solid rgba( 0,0,0,0.2 );
+    align-items: center;
+  }
+  .clip_the_deal_inner_data_points_count{
+    color: #2461CC;
+    text-align: right;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .range_drops_main.mobile{
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    height: 8px;
+    margin-top: 15px;
+  }
+  .range_drops_main.desktop{
+    width: 100%;
+    max-width: 300px;
+    position: relative;
+  }
+  .range_main{
+    width: 100%;
+    max-width: 328px;
+    border-radius: 16px;
+    height: 8px;
+    border: 0.3px solid rgba(0, 0, 0, 0.10);
+  }
+  .range_icon_move{
+    position: absolute;
+    right: -5px;
+    top: 100%;
+    transform: translateY(-50%);
+  }
+  @media screen and ( min-width: 750px ){
+    .clip_the_deal_data_drops_range.mobile{
+      display: none;
+    }
+    .range_drops_main.mobile{
+      display: none;
+    }
+  }
+  @media screen and ( max-width: 749px ){
+    .range_drops_main.desktop{
+      display: none;
+    }
+    .clip_the_deal_inner_data_range{
+      flex-wrap: wrap;
+    }
+    .clip_the_deal_data_title_main,
+    .clip_the_deal_inner_data_points{
+      width: fit-content;
+    }
+    .clip_the_deal_data_title_main{
+    color: #53565A;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    }
+    .cards_redeme_inner .cards_redeme_inner_text_points{
+      gap: 8px;
+      margin-block: 15px;
+      text-align: center;
+    }
+    .cards_redeme_inner .cards_points{
+      justify-content: center;
+    }
+    .cards_redeme_inner{
+      flex-direction: column;
+    }
+    .clip_the_deal_data_drops_range{
+      width: 100%;
+      /* margin-top: 15px; */
+    }
+    
+    .clip_the_deal_data_drops_range.desktop{
+      display: none;
+    }
+    .clip_the_deal_title{
+      font-size: 20px;
+    }
+  }
+</style>
+{% schema %}
+  {
+    "name": "Clip the deal",
+    "settings": [
+      {
+	    "type": "text",
+	    "id": "heading",
+	    "label": "Heading",
+	    "default": "My Reward Drops"
+	  },
+      {
+	    "type": "text",
+	    "id": "heading_sec",
+	    "label": "Heading second",
+	    "default": "Blue Tier"
+	  },
+      {
+	    "type": "text",
+	    "id": "drop_title",
+	    "label": "Data title",
+	    "default": "Your Current Balance"
+	  },
+      {
+	    "type": "inline_richtext",
+	    "id": "date_exp",
+	    "label": "Expire date",
+	    "default": "<strong>5 Drops</strong> will expire on 1/11/23"
+	  },
+      {
+	    "type": "number",
+	    "id": "drop_points",
+	    "label": "Drop points",
+	    "default": 25
+	  },
+      {
+	    "type": "inline_richtext",
+	    "id": "drop_range",
+	    "label": "Expire date",
+	    "default": "25 drops until Green Tier"
+	  },
+      {
+	    "type": "text",
+	    "id": "h_label",
+	    "label": "Button label",
+	    "default": "Drop History"
+	  },
+      {
+	    "type": "url",
+	    "id": "h_link",
+	    "label": "Button link"
+	  },
+      {
+        "type": "color_background",
+        "id": "background_gradient",
+        "label": "Background color"
+      }
+    ],
+    "blocks": [
+	  {
+	  	"type": "blue_card",
+	  	"name": "Blue Products blocks",
+	  	"settings": [
+	  		{
+	  			"type": "inline_richtext",
+	  			"id": "heading",
+	  			"label": "Heading",
+	  			"default": "Blue Drop Redeemable Offers"
+	  		},
+            {
+	  			"type": "header",
+	  			"content": "Product First"
+	  		},
+            {
+	  			"type": "checkbox",
+	  			"id": "show_a",
+                "default": true,
+	  			"label": "Show First Product"
+	  		},
+            {
+	  			"type": "image_picker",
+	  			"id": "image_a",
+	  			"label": "Image"
+	  		},
+            {
+	  			"type": "text",
+	  			"id": "heading_a",
+                "default": "Al Ain Zero Water 5 Gallon",
+	  			"label": "Heading"
+	  		},
+            {
+	  			"type": "text",
+	  			"id": "drops_a",
+                "default": "6 Drops",
+	  			"label": "Drops"
+	  		},
+            {
+	  			"type": "header",
+	  			"content": "Product Second"
+	  		},
+            {
+	  			"type": "checkbox",
+	  			"id": "show_b",
+                "default": true,
+	  			"label": "Show Second Product"
+	  		},
+            {
+	  			"type": "image_picker",
+	  			"id": "image_b",
+	  			"label": "Image"
+	  		},
+            {
+	  			"type": "text",
+	  			"id": "heading_b",
+                "default": "2x Al Ain Water  5 Gallon",
+	  			"label": "Heading"
+	  		},
+            {
+	  			"type": "text",
+	  			"id": "drops_b",
+                "default": "10 Drops",
+	  			"label": "Drops"
+	  		},
+            {
+	  			"type": "header",
+	  			"content": "Product Third"
+	  		},
+            {
+	  			"type": "checkbox",
+	  			"id": "show_c",
+                "default": true,
+	  			"label": "Show Third Product"
+	  		},
+            {
+	  			"type": "image_picker",
+	  			"id": "image_c",
+	  			"label": "Image"
+	  		},
+            {
+	  			"type": "text",
+	  			"id": "heading_c",
+                "default": "20% Discount Code",
+	  			"label": "Heading"
+	  		},
+            {
+	  			"type": "text",
+	  			"id": "drops_c",
+                "default": "10 Drops",
+	  			"label": "Drops"
+	  		},
+            {
+	  			"type": "header",
+	  			"content": "Product Fourth"
+	  		},
+            {
+	  			"type": "checkbox",
+	  			"id": "show_d",
+                "default": true,
+	  			"label": "Show Fourth Product"
+	  		},
+            {
+	  			"type": "image_picker",
+	  			"id": "image_d",
+	  			"label": "Image"
+	  		},
+            {
+	  			"type": "text",
+	  			"id": "heading_d",
+                "default": "15% Discount Code ",
+	  			"label": "Heading"
+	  		},
+            {
+	  			"type": "text",
+	  			"id": "drops_d",
+                "default": "15 Drops",
+	  			"label": "Drops"
+	  		},
+            {
+              "type": "color",
+              "id": "background",
+              "label": "Background color",
+              "default": "#2461CC"
+            },
+            {
+              "type": "color_background",
+              "id": "background_gradient",
+              "label": "Background color"
+            }
+	  	]
+	  },
+      {
+	  	"type": "green_card",
+	  	"name": "Green Products blocks",
+	  	"settings": [
+	  		{
+	  			"type": "inline_richtext",
+	  			"id": "heading",
+	  			"label": "Heading",
+	  			"default": "Green Drop Offers"
+	  		},
+            {
+	  			"type": "header",
+	  			"content": "Product First"
+	  		},
+            {
+	  			"type": "checkbox",
+	  			"id": "show_a",
+                "default": true,
+	  			"label": "Show First Product"
+	  		},
+            {
+	  			"type": "image_picker",
+	  			"id": "image_a",
+	  			"label": "Image"
+	  		},
+            {
+	  			"type": "text",
+	  			"id": "heading_a",
+                "default": "20% Discount Voucher",
+	  			"label": "Heading"
+	  		},
+            {
+	  			"type": "text",
+	  			"id": "drops_a",
+                "default": "45 Drops",
+	  			"label": "Drops"
+	  		},
+            {
+	  			"type": "header",
+	  			"content": "Product Second"
+	  		},
+            {
+	  			"type": "checkbox",
+	  			"id": "show_b",
+                "default": true,
+	  			"label": "Show Second Product"
+	  		},
+            {
+	  			"type": "image_picker",
+	  			"id": "image_b",
+	  			"label": "Image"
+	  		},
+            {
+	  			"type": "text",
+	  			"id": "heading_b",
+                "default": "Buy 1 Get 1 Free",
+	  			"label": "Heading"
+	  		},
+            {
+	  			"type": "text",
+	  			"id": "drops_b",
+                "default": "80 Drops",
+	  			"label": "Drops"
+	  		},
+            {
+              "type": "color",
+              "id": "background",
+              "label": "Background color",
+              "default": "#007C2D"
+            },
+            {
+              "type": "color_background",
+              "id": "background_gradient",
+              "label": "Background color"
+            }
+	  	]
+	  },
+      {
+	  	"type": "black_card",
+	  	"name": "Black Products blocks",
+	  	"settings": [
+	  		{
+	  			"type": "inline_richtext",
+	  			"id": "heading",
+	  			"label": "Heading",
+	  			"default": "Platinum Drops Offers"
+	  		},
+            {
+	  			"type": "header",
+	  			"content": "Product First"
+	  		},
+            {
+	  			"type": "checkbox",
+	  			"id": "show_a",
+                "default": true,
+	  			"label": "Show First Product"
+	  		},
+            {
+	  			"type": "image_picker",
+	  			"id": "image_a",
+	  			"label": "Image"
+	  		},
+            {
+	  			"type": "text",
+	  			"id": "heading_a",
+                "default": "25% Discount Code",
+	  			"label": "Heading"
+	  		},
+            {
+	  			"type": "text",
+	  			"id": "drops_a",
+                "default": "120 Drops",
+	  			"label": "Drops"
+	  		},
+            {
+	  			"type": "header",
+	  			"content": "Product Second"
+	  		},
+            {
+	  			"type": "checkbox",
+	  			"id": "show_b",
+                "default": true,
+	  			"label": "Show Second Product"
+	  		},
+            {
+	  			"type": "image_picker",
+	  			"id": "image_b",
+	  			"label": "Image"
+	  		},
+            {
+	  			"type": "text",
+	  			"id": "heading_b",
+                "default": "30% Discount Code",
+	  			"label": "Heading"
+	  		},
+            {
+	  			"type": "text",
+	  			"id": "drops_b",
+                "default": "160 Drops",
+	  			"label": "Drops"
+	  		},
+            {
+              "type": "color",
+              "id": "background",
+              "label": "Background color",
+              "default": "#fff"
+            },
+            {
+              "type": "color_background",
+              "id": "background_gradient",
+              "label": "Background color"
+            }
+	  	]
+	  }
+    ],
+    "presets": [
+      {
+        "name": "Clip the deal"
+      }
+    ]
+  }
+{% endschema %}

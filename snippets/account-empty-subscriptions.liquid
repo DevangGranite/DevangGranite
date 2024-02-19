@@ -1,0 +1,10 @@
+<section id="account-subscriptions--empty">
+  <h4 class="account--title">Manage Subscriptions</h4>
+  <p class="account-font--medium">You don’t have any active subscription</p>
+  <picture>
+    <source srcset="{{ 'account-subscriptions-empty-mobile.jpg' | file_url }}" media="(max-width:767px)">
+    <source srcset="{{ 'account-subscriptions-empty.jpg' | file_url }}" media="(min-width:768px)">
+    <img class="account-subscription-empty--image" src="{{ 'account-subscriptions-empty.jpg' | file_url }}" alt="Subscriptions Empty">
+  </picture>
+  <a href="{{ routes.collections_url }}" class="account-proceed-shopping--button">Shop Now</a>
+</section>
