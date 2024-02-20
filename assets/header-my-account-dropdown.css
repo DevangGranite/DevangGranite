@@ -48,7 +48,8 @@
   display: block;
 }
 
-.my-account__wrapper .my-account-dropdown__wrapper li a:hover {
+.my-account__wrapper .my-account-dropdown__wrapper li a:hover,
+.my-account__wrapper .my-account-dropdown__wrapper li a.active {
   color: #2461cc;
 }
 
