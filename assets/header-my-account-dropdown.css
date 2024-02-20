@@ -82,7 +82,7 @@
 }
 
 .my-account__wrapper:hover .my-accont-link svg.arrow-icon path {
-  fill: var(--color-header-links, --color-accent);
+  stroke: var(--color-header-links, --color-accent);
 }
 
 .my-account__wrapper:hover .my-accont-link svg.arrow-icon {
@@ -90,7 +90,7 @@
 }
 
 .my-account__wrapper:hover .my-accont-link svg.arrow-icon path {
-    fill: #2461cc;
+    stroke: #2461cc;
 }
 
 
