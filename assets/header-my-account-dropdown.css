@@ -118,6 +118,9 @@
 
 
 @media only screen and (max-width: 767px) {
+    .mobile-menu-drawer .thb-mobile-menu-footer .thb-mobile-account-link + .thb-mobile-account-link {
+        display: none;
+    }
     .thb-secondary-area-item.my-account__wrapper {
         display: none;
     }
