@@ -43,7 +43,7 @@
 						<details class="link-container">
 							<summary class="parent-link">{{ link.title }}{%- if has_menu_badge -%}
 								{%- assign menu_badge_block = menu_badge_blocks[menu_badge_index] -%}
-								<span class="menu-item-badge" style="--menu-badge-bg: {{ menu_badge_block.settings.color_bg }};--menu-badge-text: {{ menu_badge_block.settings.color_text }};">{{ menu_badge_block.settings.text }}</span>
+								<span class="menu-item-badge" style="--menu-badge-bg: {{ menu_badge_block.settings.color_bg }};--menu-badge-text: {{ menu_badge_block.settings.color_text }};">{{ 'sections.header.my_account' | t }}</span>
 							{%- endif -%}<span class="link-forward">{%- render 'svg-icons' with 'thb-mobile-menu-forward' -%}</span></summary>
 							<ul class="sub-menu">
 								<li class="parent-link-back">
