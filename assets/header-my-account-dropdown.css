@@ -115,3 +115,10 @@
       position: relative;
   }
 }
+
+
+@media only screen and (max-width: 767px) {
+    .thb-secondary-area-item.my-account__wrapper {
+        display: none;
+    }
+}
