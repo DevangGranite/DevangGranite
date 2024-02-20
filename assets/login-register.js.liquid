@@ -391,10 +391,7 @@ function validateField(inputId, errorId, errorMessage) {
         errorElement.innerHTML = errorMessage;
         console.error(errorMessage);
         return false;
-    } else {
-        errorElement.innerHTML = '';
-        return true;
-    }
+    } 
 }
 
 function validateEmailField(inputId, errorId, errorMessage) {
