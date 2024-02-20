@@ -148,6 +148,10 @@
     stroke: #2461cc;
   }
 
+  .mobile-menu-drawer .thb-mobile-menu-footer {
+      margin-top: 20px;
+  }
+
   .mobile-menu-drawer .social-links {
       display: flex;
       justify-content: center;
