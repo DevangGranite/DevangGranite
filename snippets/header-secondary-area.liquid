@@ -18,6 +18,7 @@
     >
       {%- render 'svg-icons' with 'myaccount' -%}
     </a>
+    {% if customer %}
     <div class="thb-secondary-area-item my-account__wrapper">
       <div class="my-account-dropdown__wrapper">
         <a
@@ -50,6 +51,7 @@
         </ul>
       </div>
     </div>
+      {%- endif -%}
   {%- endif -%}
     <a
       class="thb-secondary-area-item thb-quick-search"
