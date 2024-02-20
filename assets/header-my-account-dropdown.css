@@ -124,4 +124,11 @@
     .thb-secondary-area-item.my-account__wrapper {
         display: none;
     }
+    .mobile-menu-drawer .thb-mobile-menu-footer .thb-mobile-account-logout svg {
+        height: 22px;
+        margin-right: 5px;
+    }
+    .mobile-menu-drawer .thb-mobile-menu-footer .thb-mobile-account-logout svg path {
+        fill: #2461cc;
+    }
 }
