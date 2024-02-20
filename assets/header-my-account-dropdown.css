@@ -24,8 +24,13 @@
   left: 0;
   width: 240px;
   border-radius: 8px;
-  background: #FFF;
-  box-shadow: 0px 2.767px 2.214px 0px rgba(0, 0, 0, 0.02), 0px 6.65px 5.32px 0px rgba(0, 0, 0, 0.03), 0px 12.522px 10.017px 0px rgba(0, 0, 0, 0.04), 0px 22.336px 17.869px 0px rgba(0, 0, 0, 0.04), 0px 41.778px 33.422px 0px rgba(0, 0, 0, 0.05), 0px 100px 80px 0px rgba(0, 0, 0, 0.07);
+  background: #fff;
+  box-shadow: 0px 2.767px 2.214px 0px rgba(0, 0, 0, 0.02),
+    0px 6.65px 5.32px 0px rgba(0, 0, 0, 0.03),
+    0px 12.522px 10.017px 0px rgba(0, 0, 0, 0.04),
+    0px 22.336px 17.869px 0px rgba(0, 0, 0, 0.04),
+    0px 41.778px 33.422px 0px rgba(0, 0, 0, 0.05),
+    0px 100px 80px 0px rgba(0, 0, 0, 0.07);
   display: none;
   font-size: 13px;
   padding: 24px 16px 16px 16px;
@@ -44,7 +49,7 @@
 .my-account__wrapper .my-account-dropdown__wrapper li a {
   padding: 8px 0;
   text-decoration: none;
-  color: #2C2D2E;
+  color: #2c2d2e;
   display: block;
 }
 
@@ -78,13 +83,11 @@
 }
 
 .my-account__wrapper .my-accont-link svg.arrow-icon {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
-
-
 .my-account__wrapper:hover .my-accont-link svg.arrow-icon {
-    transform: rotate(0deg);  
+  transform: rotate(0deg);
 }
 
 .my-account__wrapper .my-accont-link svg.arrow-icon path {
@@ -92,48 +95,56 @@
 }
 
 .my-account__wrapper .my-accont-link svg.header-user-icon path {
-  fill:var(--color-header-links, --color-accent);
+  fill: var(--color-header-links, --color-accent);
 }
 
 .my-account__wrapper:hover .my-accont-link svg.arrow-icon path {
-  stroke: #2461cc;  
+  stroke: #2461cc;
 }
 
 .my-account__wrapper:hover .my-accont-link svg.header-user-icon path {
   fill: #2461cc;
 }
 
-
 .my-account__wrapper .my-accont-link svg {
-    margin-right: 12px;
-    vertical-align: middle;
-}
-.mobile-menu .parent-link-back button {
-    color: #2461CC;
+  margin-right: 12px;
+  vertical-align: middle;
 }
 
 @media only screen and (min-width: 768px) {
   .thb-secondary-area {
-      position: relative;
+    position: relative;
   }
 }
 
-
 @media only screen and (max-width: 767px) {
-    .mobile-menu-drawer .thb-mobile-menu-footer .thb-mobile-account-link + .thb-mobile-account-link {
-        display: none;
-    }
-    .thb-secondary-area-item.my-account__wrapper {
-        display: none;
-    }
-    .mobile-menu-drawer .thb-mobile-menu-footer .thb-mobile-account-logout svg {
-        height: 22px;
-        margin-right: 5px;
-    }
-    .mobile-menu-drawer .thb-mobile-menu-footer .thb-mobile-account-link {
-        color: #2461cc;
-    }
-    .mobile-menu-drawer .thb-mobile-menu-footer .thb-mobile-account-link svg path {
-        fill: #2461cc;
-    }
+  .mobile-menu-drawer
+    .thb-mobile-menu-footer
+    .thb-mobile-account-link
+    + .thb-mobile-account-link {
+    display: none;
+  }
+  .thb-secondary-area-item.my-account__wrapper {
+    display: none;
+  }
+  .mobile-menu-drawer .thb-mobile-menu-footer .thb-mobile-account-logout svg {
+    height: 22px;
+    margin-right: 5px;
+  }
+  .mobile-menu-drawer .thb-mobile-menu-footer .thb-mobile-account-link {
+    color: #2461cc;
+  }
+  .mobile-menu-drawer
+    .thb-mobile-menu-footer
+    .thb-mobile-account-link
+    svg
+    path {
+    fill: #2461cc;
+  }
+  .mobile-menu .parent-link-back button {
+    color: #2461cc;
+  }
+  .mobile-menu .parent-link-back button svg path {
+    stroke: #2461cc;
+  }
 }
