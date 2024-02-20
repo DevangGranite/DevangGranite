@@ -135,6 +135,7 @@
     </ul>
 		{%- endif -%}
 		{%- if header_settings.mobile_secondary_menu != blank -%}
+          {% comment %}
 		<ul class="mobile-secondary-menu">
 			{%- for link in header_settings.mobile_secondary_menu.links -%}
 			  <li class="{% if link.active %} active{% endif %}">
@@ -142,6 +143,7 @@
 			  </li>
 		  {%- endfor -%}
     </ul>
+          {% endcomment %}
 		{%- endif -%}
 		{%- if header_settings.show_social_links -%}
 			{%- render 'social-links', show_label: false -%}
