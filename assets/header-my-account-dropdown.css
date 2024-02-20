@@ -52,6 +52,14 @@
   color: #2461cc;
 }
 
+.my-account__wrapper .my-account-dropdown__wrapper li:last-child a {
+  padding-bottom: 0;
+}
+
+.my-account__wrapper .my-account-dropdown__wrapper li:first-child a {
+  padding-top: 0;
+}
+
 .my-account__wrapper:hover .my-accont-link + ul {
   display: block;
 }
