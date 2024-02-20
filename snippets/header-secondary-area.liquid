@@ -12,7 +12,7 @@
 	<a class="thb-secondary-area-item thb-quick-search" href="{{ routes.search_url }}" title="{{ 'sections.header.search' | t }}">{%- render 'svg-icons' with 'search' -%}</a>
 	{%- if shop.customer_accounts_enabled -%}
     <a class="thb-secondary-area-item thb-secondary-myaccount" href="{{ profile_link | escape }}" title="{{ 'sections.header.my_account' | t }}">{%- render 'svg-icons' with 'myaccount' -%}</a>
-    <div class="my-account__wrapper">
+    <div class="thb-secondary-area-item my-account__wrapper">
       <div class="my-account-dropdown__wrapper">
         <a class="thb-secondary-area-item thb-secondary-myaccount my-accont-link" href="{{ profile_link | escape }}" title="{{ 'sections.header.my_account' | t }}">{%- render 'svg-icons' with 'myaccount' -%} My Account</a>
         <ul class="my-account-dropdown__wrapper-list">
