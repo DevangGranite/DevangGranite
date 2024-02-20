@@ -149,15 +149,8 @@
 		<div class="thb-mobile-menu-footer">
 			{%- if shop.customer_accounts_enabled -%}
 				{%- if customer -%}
-				  {%- assign profile_link = routes.account_url -%}
 				  {%- capture profile_text -%}
-				    {{ 'sections.header.my_account' | t }}
-                     
-					              <a title="Logout" href="{{ routes.account_logout_url }}">
-					                 {%- render 'svg-icons' with 'logout' -%}                
-					                Logout
-					              </a>
-					            
+                    <a title="Logout" class="thb-mobile-account-link" href="{{ routes.account_logout_url }}">{%- render 'svg-icons' with 'logout' -%}Logout</a>
 				  {%- endcapture -%}
 				{%- else -%}
 				  {%- assign profile_link = routes.account_login_url -%}
