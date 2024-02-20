@@ -55,3 +55,9 @@
 .my-account__wrapper:hover .my-accont-link + ul {
   display: block;
 }
+
+@media only screen and (min-width: 768px) {
+  .thb-secondary-area {
+      position: relative;
+  }
+}
