@@ -20,6 +20,7 @@
 .my-account__wrapper .my-account-dropdown__wrapper ul {
   top: auto;
   position: absolute;
+  list-style: none;
   left: 0;
   background: #fff;
   display: none;
