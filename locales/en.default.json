@@ -239,7 +239,8 @@
     "collection_template": {
       "empty": "No products found",
       "use_fewer_filters_html": "Use fewer filters or <a class=\"clear-filters text-button\" href=\"{{ link }}\">clear all<\/a>",
-      "load_more": "Load more"
+      "load_more": "Load more",
+      "custom_heading": "HOME DELIVERY PORTFOLIO"
     },
     "password": {
       "login_using": "Enter using password",
