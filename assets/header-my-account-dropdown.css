@@ -148,8 +148,13 @@
     stroke: #2461cc;
   }
 
+  .mobile-menu-drawer .social-links {
+      display: flex;
+      justify-content: center;
+  }
+
   .mobile-menu-drawer .social-links li {
-      margin-right: 10px;
+      margin-right: 12px;
       margin-bottom: 0;
   }
 
