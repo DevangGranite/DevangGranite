@@ -148,12 +148,17 @@
 		{%- endif -%}
 		<div class="thb-mobile-menu-footer">
 			{%- if shop.customer_accounts_enabled -%}
-				{%- if customer -%}			  
+				{%- if customer -%}
+				  
                     <a title="Logout" class="thb-mobile-account-link" href="{{ routes.account_logout_url }}">{%- render 'svg-icons' with 'logout' -%}Logout</a>
+				  
 				{%- else -%}
 				  {%- assign profile_link = routes.account_login_url -%}
+				  {%- capture profile_text -%}
+				    {{ 'sections.header.login' | t }}
+				  {%- endcapture -%}
 				{%- endif -%}
-    		    <a class="thb-mobile-account-link" href="{{ profile_link | escape }}" title=" {{ 'sections.header.login' | t }}">{% unless customer %}{%- render 'svg-icons' with 'myaccount' %}{% endunless %} {{ 'sections.header.login' | t }}</a>
+    		    <a class="thb-mobile-account-link" href="{{ profile_link | escape }}" title="{{ profile_text | escape }}">{% unless customer %}{%- render 'svg-icons' with 'myaccount' %}{% endunless %}{{ profile_text }}</a>
 		  {%- endif -%}
 			<div class="no-js-hidden">
 				{%- render 'localization', id: 'MobileMenuLocalization', show_language_switcher: header_settings.show_language_switcher, show_currency_switcher: header_settings.show_currency_switcher, open_top: true -%}
