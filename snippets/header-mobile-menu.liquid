@@ -83,21 +83,7 @@
 										  {%- endif -%}
 										</li>
 									{%- endfor -%}
-								{%- endif -%}
-								{% if has_mega_menu == true %}
-									{%- if mega_menu_block.settings.promo_1_image -%}
-										{% render 'header-full-menu-promotion', promotion_image: mega_menu_block.settings.promo_1_image, promotion_link: mega_menu_block.settings.promo_1_link, promotion_heading: mega_menu_block.settings.promo_1_heading, promotion_content: mega_menu_block.settings.promo_1_content %}
-									{%- endif -%}
-									{%- if mega_menu_block.settings.promo_2_image -%}
-										{% render 'header-full-menu-promotion', promotion_image: mega_menu_block.settings.promo_2_image, promotion_link: mega_menu_block.settings.promo_2_link, promotion_heading: mega_menu_block.settings.promo_2_heading, promotion_content: mega_menu_block.settings.promo_2_content %}
-									{%- endif -%}
-									{%- if mega_menu_block.settings.promo_3_image -%}
-										{% render 'header-full-menu-promotion', promotion_image: mega_menu_block.settings.promo_3_image, promotion_link: mega_menu_block.settings.promo_3_link, promotion_heading: mega_menu_block.settings.promo_3_heading, promotion_content: mega_menu_block.settings.promo_3_content %}
-									{%- endif -%}
-									{%- if mega_menu_block.settings.promo_4_image -%}
-										{% render 'header-full-menu-promotion', promotion_image: mega_menu_block.settings.promo_4_image, promotion_link: mega_menu_block.settings.promo_4_link, promotion_heading: mega_menu_block.settings.promo_4_heading, promotion_content: mega_menu_block.settings.promo_4_content %}
-									{%- endif -%}
-								{%- endif -%}
+								{%- endif -%}								
 					    </ul>
 						</details>
 					{%- else -%}
