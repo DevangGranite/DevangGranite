@@ -128,7 +128,10 @@
         height: 22px;
         margin-right: 5px;
     }
-    .mobile-menu-drawer .thb-mobile-menu-footer .thb-mobile-account-logout svg path {
+    .mobile-menu-drawer .thb-mobile-menu-footer .thb-mobile-account-link {
+        color: #2461cc;
+    }
+    .mobile-menu-drawer .thb-mobile-menu-footer .thb-mobile-account-link svg path {
         fill: #2461cc;
     }
 }
