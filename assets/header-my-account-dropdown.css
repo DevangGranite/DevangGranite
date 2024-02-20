@@ -7,7 +7,7 @@
 }
 
 .my-account__wrapper .my-accont-link {
-  color: #2461CC;
+  color: var(--color-header-links, --color-accent);
   font-size: 15px;
   text-decoration: none;
   display: block;
