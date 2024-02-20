@@ -68,6 +68,10 @@
   display: block;
 }
 
+.my-account__wrapper .my-accont-link svg.arrow-icon {
+    transform: rotate(180deg);
+}
+
 .my-account__wrapper:hover .my-accont-link svg.arrow-icon {
     transform: rotate(0deg);
 }
