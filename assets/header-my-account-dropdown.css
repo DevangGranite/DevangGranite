@@ -1,7 +1,7 @@
 /* 20-02-24 */
 
 .my-account__wrapper {
-  position: relative;
+  position: static;
   font-size: 16px;
   color: #000;
 }
