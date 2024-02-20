@@ -32,6 +32,9 @@
 						endif
 					endfor
 				-%}
+
+
+              
               <li>
 			    {%- if has_sub_menu == true or has_mega_menu == true -%}
 						{%- liquid
@@ -44,7 +47,7 @@
 							{%- endif -%}<span class="link-forward">{%- render 'svg-icons' with 'thb-mobile-menu-forward' -%}</span></summary>
 							<ul class="sub-menu">
 								<li class="parent-link-back">
-									<button class="parent-link-back--button"><span>{%- render 'svg-icons' with 'thb-mobile-menu-back' -%}</span> {{ link.title }}</button>
+									<button class="parent-link-back--button"><span>{%- render 'svg-icons' with 'thb-mobile-menu-back' -%}</span> {{ 'sections.header.my_account' | t }}</button>
 								</li>
 								{%- if link.links.size > 0 -%}
 					        {%- for l in link.links -%}
@@ -104,6 +107,15 @@
 					{%- endif -%}</a>
 			    {%- endif -%}
 			  </li>
+
+
+
+
+
+
+
+
+              
 			  <li>
 			    {%- if has_sub_menu == true or has_mega_menu == true -%}
 						{%- liquid
