@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "account-breadcrumbs": {
+      "type": "account-breadcrumbs",
+      "settings": {
+      }
+    },
+    "account-manage-subscriptions": {
+      "type": "account-manage-subscriptions",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "account-breadcrumbs",
+    "account-manage-subscriptions"
+  ]
+}
