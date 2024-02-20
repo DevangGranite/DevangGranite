@@ -32,42 +32,6 @@
 						endif
 					endfor
 				-%}
-
-
-              
-              <li>
-			    {%- if has_sub_menu == true or has_mega_menu == true -%}
-						{%- liquid
-							assign mega_menu_block = mega_menu_blocks[mega_menu_block_index]
-						-%}
-						<details class="link-container">
-							<summary class="parent-link">{{ 'sections.header.my_account' | t }}{%- if has_menu_badge -%}
-								{%- assign menu_badge_block = menu_badge_blocks[menu_badge_index] -%}
-								<span class="menu-item-badge" style="--menu-badge-bg: {{ menu_badge_block.settings.color_bg }};--menu-badge-text: {{ menu_badge_block.settings.color_text }};">{{ 'sections.header.my_account' | t }}</span>
-							{%- endif -%}<span class="link-forward">{%- render 'svg-icons' with 'thb-mobile-menu-forward' -%}</span></summary>
-							<ul class="sub-menu">
-								<li class="parent-link-back">
-									<button class="parent-link-back--button"><span>{%- render 'svg-icons' with 'thb-mobile-menu-back' -%}</span> {{ 'sections.header.my_account' | t }}</button>
-								</li>
-								<li><a>Home</a></li>								
-					    </ul>
-						</details>
-					{%- else -%}
-					<a href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title }}{%- if has_menu_badge -%}
-						{%- assign menu_badge_block = menu_badge_blocks[menu_badge_index] -%}
-						<span class="menu-item-badge" style="--menu-badge-bg: {{ menu_badge_block.settings.color_bg }};--menu-badge-text: {{ menu_badge_block.settings.color_text }};">{{ menu_badge_block.settings.text }}</span>
-					{%- endif -%}</a>
-			    {%- endif -%}
-			  </li>
-
-
-
-
-
-
-
-
-              
 			  <li>
 			    {%- if has_sub_menu == true or has_mega_menu == true -%}
 						{%- liquid
