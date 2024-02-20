@@ -45,9 +45,9 @@
 
 /*** Pop up start OTP ***/
 function openOTPPopup() {
-    startTimerOnClick();
     validateForm();
-    
+    startTimerOnClick();
+        
     var mobileInput = document.getElementById('mobile');
     var numericValue = mobileInput.value.replace(/\D/g, '');
     var resendLinkButton = document.getElementById('resendLink');
@@ -446,7 +446,8 @@ function validateSelectField(inputId, errorId, errorMessage) {
 
 function isValidEmail(email) {
     // Simple email validation regex
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;   
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  
+    
 }
 
  function updateButtonState() {
