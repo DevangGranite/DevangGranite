@@ -69,6 +69,10 @@
   vertical-align: middle;
 }
 
+.my-account__wrapper:hover .my-accont-link {
+  color: #2461cc;
+}
+
 .my-account__wrapper:hover .my-accont-link + ul {
   display: block;
 }
