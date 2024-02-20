@@ -47,7 +47,7 @@
 function openOTPPopup() {
     startTimerOnClick();
     validateForm();
-    isValidEmail(email);
+    
     var mobileInput = document.getElementById('mobile');
     var numericValue = mobileInput.value.replace(/\D/g, '');
     var resendLinkButton = document.getElementById('resendLink');
