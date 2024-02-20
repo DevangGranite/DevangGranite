@@ -52,6 +52,10 @@
   color: #2461cc;
 }
 
+.my-account__wrapper .my-account-dropdown__wrapper li a:hover svg path {
+  fill: #2461cc;
+}
+
 .my-account__wrapper .my-account-dropdown__wrapper li:last-child a {
   padding-bottom: 0;
 }
