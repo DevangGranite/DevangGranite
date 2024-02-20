@@ -81,8 +81,16 @@
     transform: rotate(180deg);
 }
 
+.my-account__wrapper:hover .my-accont-link svg.arrow-icon path {
+  fill: var(--color-header-links, --color-accent);
+}
+
 .my-account__wrapper:hover .my-accont-link svg.arrow-icon {
-    transform: rotate(0deg);
+    transform: rotate(0deg);  
+}
+
+.my-account__wrapper:hover .my-accont-link svg.arrow-icon path {
+    fill: #2461cc;
 }
 
 
