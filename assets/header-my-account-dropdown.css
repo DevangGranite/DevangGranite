@@ -108,7 +108,9 @@
     margin-right: 12px;
     vertical-align: middle;
 }
-
+.mobile-menu .parent-link-back button {
+    color: #2461CC;
+}
 
 @media only screen and (min-width: 768px) {
   .thb-secondary-area {
