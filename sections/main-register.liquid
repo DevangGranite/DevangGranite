@@ -65,14 +65,16 @@
             <div class="field">
               <label for="email">{{ 'customer.login_page.email' | t }}</label>
               <input
-                type="email"
-                name="customer[email]"
-                class="full {% if form.errors contains 'email' %}invalid{% endif %}"
-                value=""
-                id="email"
-                placeholder="{{ 'customer.login_page.email_place' | t }}"
-                required
-              >
+    type="email"
+    name="customer[email]"
+    class="full {% if form.errors contains 'email' %}invalid{% endif %}"
+    value=""
+    id="email"
+    placeholder="{{ 'customer.login_page.email_place' | t }}"
+    required
+    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+    title="Enter a valid email address"
+>
             </div>
             <div id="emailError" class="form-error"></div>
             <div class="field">
