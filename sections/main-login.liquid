@@ -339,7 +339,7 @@ verifyOTP.addEventListener('click', function () {
 
 
 function updateEmail(){
-  fetch('https://alainuat.gdadmin.org/laravel/public/api/custoemr/update', {
+  fetch('https://alainuat.gdadmin.org/laravel/public/api/customer/update', {
     method:'POST',
     body:JSON.stringify({email_id:document.getElementById('customer_email').value,user_id:user_id}),
   }).then(response => {
@@ -357,7 +357,7 @@ function updateEmail(){
 
 function customerLogin(email) {
   /** customer login **/
-  fetch(`https://alainuat.gdadmin.org/laravel/public/api/custoemr/login/${email}`, {
+  fetch(`https://alainuat.gdadmin.org/laravel/public/api/customer/login/${email}`, {
       method: 'GET',
   })
   .then(response => {
