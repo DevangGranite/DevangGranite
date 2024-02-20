@@ -639,6 +639,11 @@ html.popup-overlap body:before {
     cursor: not-allowed;
 }
 
+#resendLink {
+    text-decoration: underline;
+    color: #2461cc;
+}
+
 .form-error {
     font-size: 13px;
     color:red;
