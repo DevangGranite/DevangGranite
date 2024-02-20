@@ -68,14 +68,16 @@
   display: block;
 }
 
+.my-account__wrapper:hover .my-accont-link svg.arrow-icon {
+    transform: rotate(0deg);
+}
+
+
 .my-account__wrapper .my-accont-link svg {
     margin-right: 12px;
     vertical-align: middle;
 }
 
-.my-account__wrapper .my-accont-link svg.arrow-icon {
-    transform: rotate(180deg);
-}
 
 @media only screen and (min-width: 768px) {
   .thb-secondary-area {
