@@ -72,6 +72,7 @@
                 id="email"
                 placeholder="{{ 'customer.login_page.email_place' | t }}"
                 required
+                oninput="isValidEmail(email)"
               >
             </div>
             <div id="emailError" class="form-error"></div>
