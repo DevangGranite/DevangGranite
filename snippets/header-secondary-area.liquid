@@ -9,13 +9,7 @@
 {{ 'header-my-account-dropdown.css' | asset_url | stylesheet_tag }}
 
 <div class="thb-secondary-area thb-header-right">
-  <a
-    class="thb-secondary-area-item thb-quick-search"
-    href="{{ routes.search_url }}"
-    title="{{ 'sections.header.search' | t }}"
-  >
-    {%- render 'svg-icons' with 'search' -%}
-  </a>
+  
   {%- if shop.customer_accounts_enabled -%}
     <a
       class="thb-secondary-area-item thb-secondary-myaccount"
@@ -57,6 +51,13 @@
       </div>
     </div>
   {%- endif -%}
+    <a
+      class="thb-secondary-area-item thb-quick-search"
+      href="{{ routes.search_url }}"
+      title="{{ 'sections.header.search' | t }}"
+    >
+      {%- render 'svg-icons' with 'search' -%}
+    </a>
   <a class="thb-secondary-area-item thb-secondary-cart" href="{{ routes.cart_url }}" id="cart-drawer-toggle">
     <div class="thb-secondary-item-icon">
       {% render 'svg-icons' with 'cart' %}
