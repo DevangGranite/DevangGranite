@@ -87,12 +87,12 @@
     transform: rotate(0deg);  
 }
 
-.my-account__wrapper:hover .my-accont-link svg.arrow-icon path {
-    stroke: #2461cc;
+.my-account__wrapper .my-accont-link svg.arrow-icon path {
+  stroke: var(--color-header-links, --color-accent);
 }
 
 .my-account__wrapper:hover .my-accont-link svg.arrow-icon path {
-  stroke: var(--color-header-links, --color-accent);
+  stroke: #2461cc;  
 }
 
 
