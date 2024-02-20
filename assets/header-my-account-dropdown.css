@@ -158,6 +158,9 @@
       height: 56px;
       background: #EFF2F6;
       border-radius: 100%;
+      color:#001489;
   }
-  
+  .mobile-menu-drawer .social-links svg path {
+    fill: #001489;
+}
 }
