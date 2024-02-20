@@ -150,7 +150,8 @@
 			
 				{%- if customer -%}
 				  {%- capture profile_text -%}
-                    <a title="Logout" class="thb-mobile-account-link" href="{{ routes.account_logout_url }}">{%- render 'svg-icons' with 'logout' -%}Logout</a>
+                    
+                     <a class="thb-mobile-account-link"  href="{{ routes.account_logout_url }}" title="Logout">{% unless customer %}{%- render 'svg-icons' with 'myaccount' %}{% endunless %}Logout</a>
 				  {%- endcapture -%}
 				{%- else -%}
                   
