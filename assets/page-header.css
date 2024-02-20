@@ -1,9 +1,6 @@
-
-
 .page-header--tags a {
-  transition: all 0.25s cubic-bezier(0.104, 0.204, 0.492, 1); }
-
-
+  transition: all 0.25s cubic-bezier(0.104, 0.204, 0.492, 1);
+}
 
 .page-header--tags a {
   display: inline-flex;
@@ -17,19 +14,82 @@
   margin: 0 2px 2px 0;
   line-height: 1;
   background: rgba(var(--color-body-rgb), 0.05);
-  color: rgba(var(--color-body-rgb), 0.8); }
-  .page-header--tags a:hover, .page-header--tags a.active {
-    color: #fff;
-    background: var(--color-accent); }
+  color: rgba(var(--color-body-rgb), 0.8);
+}
+.page-header--tags a:hover,
+.page-header--tags a.active {
+  color: #fff;
+  background: var(--color-accent);
+}
 
 .breadcrumbs-section + .page-header-section .page-header {
-  padding-top: 10px; }
+  padding-top: 10px;
+}
 
 .page-header {
-  padding: 25px 0; }
-  .page-header h1 {
-    margin-bottom: 10px; }
-  .page-header p {
-    margin-bottom: 0; }
-  .page-header--tags {
-    margin-top: 20px; }
+  padding: 25px 0;
+}
+.page-header h1 {
+  margin-bottom: 10px;
+}
+.page-header p {
+  margin-bottom: 0;
+}
+.page-header--tags {
+  margin-top: 20px;
+}
+
+/* 20-02-24 */
+
+.my-account__wrapper {
+  position: relative;
+  font-size: 16px;
+  color: #000;
+  width: 250px;
+}
+
+.my-account__wrapper .my-accont-link {
+  color: #2461cc;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+}
+
+.my-account__wrapper .my-account-dropdown__wrapper {
+  width: 100%;
+}
+
+.my-account__wrapper .my-account-dropdown__wrapper ul {
+  top: auto;
+  position: absolute;
+  left: 0;
+  background: #fff;
+  display: none;
+  font-size: 14px;
+  padding: 10px;
+  width: 100%;
+}
+
+.my-account__wrapper .my-account-dropdown__wrapper li {
+  border-bottom: #eff2f6 solid 1px;
+  text-transform: capitalize;
+}
+
+.my-account__wrapper .my-account-dropdown__wrapper li:last-child {
+  border-bottom: 0;
+}
+
+.my-account__wrapper .my-account-dropdown__wrapper li a {
+  padding: 10px 0;
+  text-decoration: none;
+  color: #2c2d2e;
+  display: block;
+}
+
+.my-account__wrapper .my-account-dropdown__wrapper li a:hover {
+  color: #2461cc;
+}
+
+.my-account__wrapper:hover .my-accont-link + ul {
+  display: block;
+}
