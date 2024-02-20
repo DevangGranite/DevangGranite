@@ -49,41 +49,7 @@
 								<li class="parent-link-back">
 									<button class="parent-link-back--button"><span>{%- render 'svg-icons' with 'thb-mobile-menu-back' -%}</span> {{ 'sections.header.my_account' | t }}</button>
 								</li>
-								{%- if link.links.size > 0 -%}
-					        {%- for l in link.links -%}
-										{%- liquid
-											 assign has_sub_menu = false
-									  	if l.links.size > 0
-									    	assign has_sub_menu = true
-											endif
-										-%}
-										<li>
-											{%- if has_sub_menu -%}
-											<details class="link-container">
-												<summary>{{ l.title }}<span class="link-forward">{%- render 'svg-icons' with 'thb-mobile-menu-forward' -%}</span></summary>
-												<ul class="sub-menu" tabindex="-1">
-													<li class="parent-link-back">
-														<button class="parent-link-back--button"><span>{%- render 'svg-icons' with 'thb-mobile-menu-back' -%}</span> {{ l.title }}</button>
-													</li>
-													{%- for sub_link in l.links -%}
-														{%- liquid
-															assign has_sub_menu = false
-															if sub_link.links.size > 0
-																assign has_sub_menu = true
-															endif
-														-%}
-														<li>
-															<a href="{{ sub_link.url }}" title="{{ sub_link.title | escape }}" role="menuitem">{{ sub_link.title }} {% if has_sub_menu %}<span></span>{%- endif -%}</a>
-														</li>
-													{%- endfor -%}
-												</ul>
-											</details>
-											{%- else -%}
-											<a href="{{ l.url }}" title="{{ l.title | escape }}">{{ l.title }}</a>
-										  {%- endif -%}
-										</li>
-									{%- endfor -%}
-								{%- endif -%}								
+								<li><a>Home</a></li>								
 					    </ul>
 						</details>
 					{%- else -%}
