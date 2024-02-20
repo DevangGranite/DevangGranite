@@ -20,12 +20,7 @@
 					            <li><a title="Manage Subscription" href="#">Manage Subscription</a></li>
 					            <li><a title="Wallet" href="#">Wallet</a></li>
 					            <li><a title="My Loyalty Drops" href="#">My Loyalty Drops</a></li>
-					            <li>
-					              <a title="Logout" href="{{ routes.account_logout_url }}">
-					                 {%- render 'svg-icons' with 'logout' -%}                
-					                Logout
-					              </a>
-					            </li>								
+					            								
 					    </ul>
 						</details>				 
 			     
@@ -157,6 +152,12 @@
 				  {%- assign profile_link = routes.account_url -%}
 				  {%- capture profile_text -%}
 				    {{ 'sections.header.my_account' | t }}
+                    <li>
+					              <a title="Logout" href="{{ routes.account_logout_url }}">
+					                 {%- render 'svg-icons' with 'logout' -%}                
+					                Logout
+					              </a>
+					            </li>
 				  {%- endcapture -%}
 				{%- else -%}
 				  {%- assign profile_link = routes.account_login_url -%}
