@@ -151,6 +151,9 @@
   .mobile-menu-drawer .social-links {
       display: flex;
       justify-content: center;
+      position: sticky;
+      margin-top: auto;
+      left: 0;
   }
 
   .mobile-menu-drawer .social-links li {
