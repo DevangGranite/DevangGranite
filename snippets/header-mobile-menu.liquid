@@ -32,6 +32,78 @@
 						endif
 					endfor
 				-%}
+              <li>
+			    {%- if has_sub_menu == true or has_mega_menu == true -%}
+						{%- liquid
+							assign mega_menu_block = mega_menu_blocks[mega_menu_block_index]
+						-%}
+						<details class="link-container">
+							<summary class="parent-link">{{ link.title }}{%- if has_menu_badge -%}
+								{%- assign menu_badge_block = menu_badge_blocks[menu_badge_index] -%}
+								<span class="menu-item-badge" style="--menu-badge-bg: {{ menu_badge_block.settings.color_bg }};--menu-badge-text: {{ menu_badge_block.settings.color_text }};">{{ menu_badge_block.settings.text }}</span>
+							{%- endif -%}<span class="link-forward">{%- render 'svg-icons' with 'thb-mobile-menu-forward' -%}</span></summary>
+							<ul class="sub-menu">
+								<li class="parent-link-back">
+									<button class="parent-link-back--button"><span>{%- render 'svg-icons' with 'thb-mobile-menu-back' -%}</span> {{ link.title }}</button>
+								</li>
+								{%- if link.links.size > 0 -%}
+					        {%- for l in link.links -%}
+										{%- liquid
+											 assign has_sub_menu = false
+									  	if l.links.size > 0
+									    	assign has_sub_menu = true
+											endif
+										-%}
+										<li>
+											{%- if has_sub_menu -%}
+											<details class="link-container">
+												<summary>{{ l.title }}<span class="link-forward">{%- render 'svg-icons' with 'thb-mobile-menu-forward' -%}</span></summary>
+												<ul class="sub-menu" tabindex="-1">
+													<li class="parent-link-back">
+														<button class="parent-link-back--button"><span>{%- render 'svg-icons' with 'thb-mobile-menu-back' -%}</span> {{ l.title }}</button>
+													</li>
+													{%- for sub_link in l.links -%}
+														{%- liquid
+															assign has_sub_menu = false
+															if sub_link.links.size > 0
+																assign has_sub_menu = true
+															endif
+														-%}
+														<li>
+															<a href="{{ sub_link.url }}" title="{{ sub_link.title | escape }}" role="menuitem">{{ sub_link.title }} {% if has_sub_menu %}<span></span>{%- endif -%}</a>
+														</li>
+													{%- endfor -%}
+												</ul>
+											</details>
+											{%- else -%}
+											<a href="{{ l.url }}" title="{{ l.title | escape }}">{{ l.title }}</a>
+										  {%- endif -%}
+										</li>
+									{%- endfor -%}
+								{%- endif -%}
+								{% if has_mega_menu == true %}
+									{%- if mega_menu_block.settings.promo_1_image -%}
+										{% render 'header-full-menu-promotion', promotion_image: mega_menu_block.settings.promo_1_image, promotion_link: mega_menu_block.settings.promo_1_link, promotion_heading: mega_menu_block.settings.promo_1_heading, promotion_content: mega_menu_block.settings.promo_1_content %}
+									{%- endif -%}
+									{%- if mega_menu_block.settings.promo_2_image -%}
+										{% render 'header-full-menu-promotion', promotion_image: mega_menu_block.settings.promo_2_image, promotion_link: mega_menu_block.settings.promo_2_link, promotion_heading: mega_menu_block.settings.promo_2_heading, promotion_content: mega_menu_block.settings.promo_2_content %}
+									{%- endif -%}
+									{%- if mega_menu_block.settings.promo_3_image -%}
+										{% render 'header-full-menu-promotion', promotion_image: mega_menu_block.settings.promo_3_image, promotion_link: mega_menu_block.settings.promo_3_link, promotion_heading: mega_menu_block.settings.promo_3_heading, promotion_content: mega_menu_block.settings.promo_3_content %}
+									{%- endif -%}
+									{%- if mega_menu_block.settings.promo_4_image -%}
+										{% render 'header-full-menu-promotion', promotion_image: mega_menu_block.settings.promo_4_image, promotion_link: mega_menu_block.settings.promo_4_link, promotion_heading: mega_menu_block.settings.promo_4_heading, promotion_content: mega_menu_block.settings.promo_4_content %}
+									{%- endif -%}
+								{%- endif -%}
+					    </ul>
+						</details>
+					{%- else -%}
+					<a href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title }}{%- if has_menu_badge -%}
+						{%- assign menu_badge_block = menu_badge_blocks[menu_badge_index] -%}
+						<span class="menu-item-badge" style="--menu-badge-bg: {{ menu_badge_block.settings.color_bg }};--menu-badge-text: {{ menu_badge_block.settings.color_text }};">{{ menu_badge_block.settings.text }}</span>
+					{%- endif -%}</a>
+			    {%- endif -%}
+			  </li>
 			  <li>
 			    {%- if has_sub_menu == true or has_mega_menu == true -%}
 						{%- liquid
