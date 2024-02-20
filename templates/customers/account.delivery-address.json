@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "account-breadcrumbs": {
+      "type": "account-breadcrumbs",
+      "settings": {
+      }
+    },
+    "account-delivery-address": {
+      "type": "account-delivery-address",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "account-breadcrumbs",
+    "account-delivery-address"
+  ]
+}
