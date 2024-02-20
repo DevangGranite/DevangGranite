@@ -64,6 +64,11 @@
   display: block;
 }
 
+.my-account__wrapper .my-accont-link svg {
+    margin-right: 12px;
+    vertical-align: middle;
+}
+
 @media only screen and (min-width: 768px) {
   .thb-secondary-area {
       position: relative;
