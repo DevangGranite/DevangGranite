@@ -14,7 +14,9 @@
     <a class="thb-secondary-area-item thb-secondary-myaccount" href="{{ profile_link | escape }}" title="{{ 'sections.header.my_account' | t }}">{%- render 'svg-icons' with 'myaccount' -%}</a>
     <div class="thb-secondary-area-item my-account__wrapper">
       <div class="my-account-dropdown__wrapper">
-        <a class="thb-secondary-area-item thb-secondary-myaccount my-accont-link" href="{{ profile_link | escape }}" title="{{ 'sections.header.my_account' | t }}">{%- render 'svg-icons' with 'myaccount' -%} My Account</a>
+        <a class="thb-secondary-area-item thb-secondary-myaccount my-accont-link" href="{{ profile_link | escape }}" title="{{ 'sections.header.my_account' | t }}">{%- render 'svg-icons' with 'myaccount' -%} My Account <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <path d="M11 10L8 7L5 10" stroke="#2461CC" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></a>
         <ul class="my-account-dropdown__wrapper-list">
             <li><a title="Home" href="#">Home</a></li>
             <li><a title="Profile" href="#">Profile</a></li>
