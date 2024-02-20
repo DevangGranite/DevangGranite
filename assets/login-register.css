@@ -635,7 +635,7 @@ html.popup-overlap body:before {
 }
 
 .button.full[disabled] {
-    background-color: rgb(36 97 204 / 60%);
+    background-color: rgba(36, 97, 204, 0.6);
     cursor: not-allowed;
 }
 
