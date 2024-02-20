@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 2ae90723d7fec3b8ce69dc1a933edc7ef54acf5a
 .breadcrumbs {
   padding: 0 15px;
   max-width: 1380px;
@@ -43,3 +46,33 @@
   .breadcrumbs a {
     text-decoration: underline;
     text-underline-offset: 3px; }
+<<<<<<< HEAD
+=======
+.account-breadcrumbs {
+  margin-bottom: 43px;
+}
+  .account-breadcrumbs i {
+    color: rgb(89, 90, 94);
+    opacity: 1;
+    font-style: normal;
+  }
+.account-breadcrumbs a {
+  color: rgb(36, 97, 204);
+}
+.account-breadcrumbs a:last-child {
+  color: rgb(89, 90, 94);
+  text-decoration: none;
+  pointer-events: none;
+}
+.account-breadcrumbs span {
+  color: rgb(89, 90, 94);
+}
+@media screen and (max-width: 767px) {
+  .account-breadcrumbs {
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-bottom: 0;
+    padding-bottom: 16px;
+  }
+}
+>>>>>>> 2ae90723d7fec3b8ce69dc1a933edc7ef54acf5a

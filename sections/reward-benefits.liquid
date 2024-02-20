@@ -394,7 +394,69 @@
   .reward-benefits-date-bottom{
     text-align: center;
    }
+<<<<<<< HEAD
   }
+=======
+   .reward-benefits-range-box{
+     padding-inline: 10px;
+   }
+  }
+
+  .premium_drops,
+  .green_drops{
+    opacity: 0;
+  }
+  .blue_drops{
+    color: #001489;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+  }
+  .premium_drops{
+    color: #6B6E71;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+  }
+  .green_drops{
+    color: #007C2D;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+  }
+  .blue_drops_name{
+    color: #2461CC;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; 
+  }
+  .premium_drops_name{
+    color: #6B6E71;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  .green_drops_name{
+    color: #007C2D;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  .reward-benefits-range-first,
+  .reward-benefits-range-sec,
+  .reward-benefits-range-third{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+>>>>>>> 2ae90723d7fec3b8ce69dc1a933edc7ef54acf5a
 </style>
 
 <div class="reward-benefits-main-container">
@@ -428,9 +490,15 @@
           <div class="reward-benefits-range-main">
             <div class="reward-benefits_range_line"></div>
             <div class="reward-benefits-range-icons">
+<<<<<<< HEAD
               <span class="reward-benefits-range-first">{% render 'drop_icon_blue' %}</span>
               <span class="reward-benefits-range-sec">{%render 'drop_icon_green' %}</span>
               <span class="reward-benefits-range-third">{% render 'drop_icon_black' %}</span>
+=======
+              <span class="reward-benefits-range-first"><span class="blue_drops">You</span>{% render 'drop_icon_blue' %}<span class="blue_drops_name">Blue</span></span>
+              <span class="reward-benefits-range-sec"><span class="green_drops">You</span>{%render 'drop_icon_green' %}<span class="green_drops_name">Green</span></span>
+              <span class="reward-benefits-range-third"><span class="premium_drops">You</span>{% render 'drop_icon_black' %}<span class="premium_drops_name">Platinum </span></span>
+>>>>>>> 2ae90723d7fec3b8ce69dc1a933edc7ef54acf5a
             </div>
           </div>
         </div>
