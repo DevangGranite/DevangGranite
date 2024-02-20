@@ -633,12 +633,11 @@ html.popup-overlap body:before {
 #timer {
   margin-left: 5px;
 }
-.button.full[disabled] {
-  background-color: #95a5a6; /* Set your desired disabled background color */
-  color: #ccc; /* Set your desired disabled text color */
-  cursor: not-allowed;
-}
 
+.button.full[disabled] {
+    background-color: rgb(36 97 204 / 60%);
+    cursor: not-allowed;
+}
 
 .form-error {
     font-size: 13px;
