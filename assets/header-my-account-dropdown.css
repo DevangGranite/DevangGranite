@@ -60,6 +60,10 @@
   padding-top: 0;
 }
 
+.my-account__wrapper .my-account-dropdown__wrapper svg {
+  vertical-align: middle;
+}
+
 .my-account__wrapper:hover .my-accont-link + ul {
   display: block;
 }
