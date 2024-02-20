@@ -156,9 +156,10 @@
 				  {%- assign profile_link = routes.account_login_url -%}
 				  {%- capture profile_text -%}
 				    {{ 'sections.header.login' | t }}
+                    <a class="thb-mobile-account-link" href="{{ profile_link | escape }}" title="{{ profile_text | escape }}">{%- render 'svg-icons' with 'myaccount' %} {{ profile_text }}</a>
 				  {%- endcapture -%}
 				{%- endif -%}
-		    <a class="thb-mobile-account-link" href="{{ profile_link | escape }}" title="{{ profile_text | escape }}">{%- render 'svg-icons' with 'myaccount' %} {{ profile_text }}</a>
+    		    
 		  {%- endif -%}
 			<div class="no-js-hidden">
 				{%- render 'localization', id: 'MobileMenuLocalization', show_language_switcher: header_settings.show_language_switcher, show_currency_switcher: header_settings.show_currency_switcher, open_top: true -%}
