@@ -354,7 +354,33 @@
         "pincode_placeholder": "رمز التعريف الشخصي",
         "civic_number_warning": "أضف رقم المنزل إذا كان لديك واحد",
         "optional_last_name_label": "الاسم الأخير (اختياري)",
-        "optional_recipient_label": "تنبيه (اختياري)"
+        "optional_recipient_label": "تنبيه (اختياري)",
+        "optional_company_attention_label": "الشركة\/الانتباه (اختياري)",
+        "optional_company_label": "الشركة (اختياري)",
+        "address1_label": "عنوان",
+        "address2_label": "شقة، جناح، الخ.",
+        "optional_address2_label": "شقة، جناح، الخ (اختياري)",
+        "city_label": "مدينة",
+        "country_label": "البلد\/المنطقة",
+        "country_code": "رمز البلد\/المنطقة",
+        "province_label": "مقاطعة",
+        "province_placeholder": "مقاطعة",
+        "county_label": "مقاطعة",
+        "county_placeholder": "مقاطعة",
+        "state_label": "ولاية",
+        "state_placeholder": "ولاية",
+        "region_label": "منطقة",
+        "region_placeholder": "منطقة",
+        "region_none": "لم يتم تحديد أي شيء",
+        "prefecture_label": "المحافظة",
+        "prefecture_placeholder": "المحافظة",
+        "governorate_label": "محافظة",
+        "company_contact_info": "{{companyName}} · {{contact}}",
+        "different_shipping_address_label": "الشحن إلى عنوان مختلف",
+        "different_shipping_address_text": "استخدم عنوانًا لمرة واحدة لهذا الطلب",
+        "change_company_location_link_label": "تغيير موقع الشركة",
+        "change_location_link_label": "تغيير الموقع",
+        "ship_to_company": "سافر على متن سفينة لِـ {{companyName}}"
       },
       "delivery_options": {
         "pick_up_locations": "مواقع الالتقاط",
@@ -371,7 +397,13 @@
         "pick_up_next_day": "جاهز للاستلام في اليوم التالي",
         "retail_method_definition": "شحن التجزئة",
         "none_method_definition": "لا الشحن",
-        "subscription_pickup_information": "سيتم تطبيق طريقة التسليم هذه على جميع العناصر الموجودة في هذا الطلب وعلى جميع الطلبات المستقبلية لهذا الاشتراك."
+        "subscription_pickup_information": "سيتم تطبيق طريقة التسليم هذه على جميع العناصر الموجودة في هذا الطلب وعلى جميع الطلبات المستقبلية لهذا الاشتراك.",
+        "free_total_label": "حر",
+        "ship": "سفينة",
+        "ship_to_address": "السفينة إلى عنوان",
+        "shipping_address": "عنوان الشحن",
+        "pick_up_from_store": "التقط من المتجر",
+        "pick_up": "يلتقط"
       },
       "customer_account": {
         "not_user_label": "ليس %{first_name}؟",
@@ -627,7 +659,8 @@
             "other": "%{count} مادة"
           }
         },
-        "alternative_payment_currency_total": "مشحون كـ %{amount_due}"
+        "alternative_payment_currency_total": "مشحون كـ %{amount_due}",
+        "duties_included_label": "يشمل المبلغ الإجمالي جميع الضرائب والرسوم الجمركية المطبقة دون أي رسوم إضافية عند التسليم"
       },
       "shipping": {
         "title": "توصيل",
@@ -757,7 +790,9 @@
         "address_form": {
           "generic_error": "كان هناك مشكلة في حفظ عنوانك. حاول مرة اخرى.",
           "cancel": "يلغي",
-          "one_time_address_subtitle": "استخدم عنوانًا لمرة واحدة لهذا الطلب"
+          "one_time_address_subtitle": "استخدم عنوانًا لمرة واحدة لهذا الطلب",
+          "add_address": "اضف عنوان",
+          "save": "يحفظ"
         },
         "different_shipping_method_summary": "أدخل عنوان شحن مختلفًا لعرض طرق الشحن المتاحة",
         "invalid_shipping_method_summary": "أدخل عنوان شحن صالحًا لعرض طرق الشحن المتاحة",
@@ -769,7 +804,17 @@
           "search_address": "البحث عن العنوان",
           "rollup_title": "اختر موقعا"
         },
-        "missing_shipping_address": "عنوان الشحن مفقود"
+        "missing_shipping_address": "عنوان الشحن مفقود",
+        "split_cart_shipped_by_shop": "تم الشحن بواسطة %{shop_name}",
+        "split_cart_shipped_by_amazon_prime": "يتم الشحن عن طريق أمازون برايم",
+        "add_address": "استخدم عنوانًا مختلفًا",
+        "add_delivery_instructions": "إضافة تعليمات التسليم",
+        "edit": "يحرر",
+        "delete": "يمسح",
+        "address_more": "المزيد من الإجراءات لهذا العنوان",
+        "address_edit": "تعديل العنوان",
+        "address_delete": "حذف العنوان",
+        "address_confirm": "هل أنت متأكد أنك تريد حذف هذا العنوان من حسابك؟"
       },
       "payment": {
         "amazon_payments_label": "أمازون الدفع",
@@ -1048,7 +1093,23 @@
         "waiting_on_taxes_notice": "حساب الضرائب",
         "payment_method": "طريقة الدفع او السداد",
         "proposed_gateway_unavailable": "بوابة الدفع المقترحة غير متاحة",
-        "expired_payment_method": "انتهت صلاحية طريقة الدفع المحددة"
+        "expired_payment_method": "انتهت صلاحية طريقة الدفع المحددة",
+        "credit_card_start_month": "بداية الشهر",
+        "card_expiry_placeholder": "تاريخ انتهاء الصلاحية (شهر \/ سنة)",
+        "credit_card_start_year": "سنة البدء",
+        "delete_customer_mandate_modal_title": "هل تريد إزالة بطاقة الدفع هذه؟",
+        "delete_customer_mandate_modal_body": "إذا قمت بإزالة هذه البطاقة، فسوف تحتاج إلى إضافتها مرة أخرى قبل استخدامها لإجراء الدفعات.",
+        "delete_customer_mandate_modal_cancel": "يلغي",
+        "delete_customer_mandate_modal_confirm": "قم بإزالة البطاقة",
+        "card_verification_value_label": "رمز الحماية",
+        "card_verification_value_placeholder": "رمز الحماية",
+        "card_verification_confirm": "لأغراض التحقق، أدخل رمز الأمان الخاص ببطاقتك.",
+        "order_edit_banner_items_return_line_item_removed": {
+          "with_quantities": "{{delta}} تمت إزالته من العودة",
+          "in_full": "تمت إزالته من العودة"
+        },
+        "order_edit_banner_multiple_items_return_line_item_removed": "{{amount}} تمت إزالته من العودة",
+        "order_edit_banner_single_item_return_line_item_removed": "تمت إزالته من العودة"
       },
       "localized_fields": {
         "additional_information": {
@@ -1063,10 +1124,21 @@
         "delete": "يمسح",
         "address_more": "المزيد من الإجراءات لهذا العنوان",
         "address_edit": "تعديل العنوان",
-        "address_delete": "حذف العنوان"
+        "address_delete": "حذف العنوان",
+        "address_confirm": "هل أنت متأكد أنك تريد حذف هذا العنوان من حسابك؟",
+        "address_form": {
+          "save": "يحفظ",
+          "add_address": "اضف عنوان",
+          "cancel": "يلغي"
+        }
       },
       "payment_summary": {
-        "free_label": "حر"
+        "free_label": "حر",
+        "gift_card_current_balance_notice": "الرصيد الحالي %{amount}",
+        "credit_card_expires_on_notice": "تنتهي صلاحيته في %{month}\/%{year}",
+        "express_payment_gateway_label": "يعبر",
+        "manual_payment_gateway_label": "يدوي",
+        "billing_address_title": "عنوان وصول الفواتير"
       },
       "field_errors": {
         "handle_phone_invalid": "أدخل رقم هاتف صالحًا",
@@ -1687,7 +1759,8 @@
           },
           "removed": "إزالة",
           "subtracted": "%{count} تمت الإزالة",
-          "returned": "%{count} عاد"
+          "returned": "%{count} عاد",
+          "return_line_item_removed": "%{count} تمت الإزالة من الإرجاع"
         },
         "custom_line_item_description": "المبلغ الواجب دفعه مقابل الطلب %{order_name}",
         "additional_payment_requested": "مطلوب دفع %{total_outstanding}",
@@ -1846,13 +1919,51 @@
           "header": {
             "one": "عرض %{first} - %{last} من %{count} نقطة",
             "other": "عرض %{first} - %{last} من %{count} نقطة"
+          },
+          "selected_pickup_point_label": {
+            "one": "%{pickup_point_index} من %{count} نقطة",
+            "other": "%{pickup_point_index} من %{count} نقطة"
+          },
+          "selected_page": {
+            "one": "%{first} - %{last} من %{count} نقطة",
+            "other": "%{first} - %{last} من %{count} نقطة"
+          }
+        },
+        "number_of_pickup_points_near_location": {
+          "one": "%{count} نقطة التجمع القريبة من موقعك",
+          "other": "%{count} نقاط التجمع القريبة من موقعك"
+        },
+        "change": "يتغير",
+        "waiting_on_pickup_point_location_notice": "جاري البحث عن نقاط التجمع...",
+        "geolocation": {
+          "shared_location_button": "استخدم موقعي",
+          "errors": {
+            "unsuported_by_browser": "الحصول على الموقع الجغرافي غير مدعوم من قبل متصفحك. حاول مرة أخرى أو استخدم متصفحًا مختلفًا.",
+            "permission_not_allowed": "السماح بمشاركة موقعك.",
+            "permission_denied": "تعذر الحصول على موقعك. حاول ثانية."
           }
         }
       },
       "notice_banner": {
         "shipping_address_incomplete_title": "عنوان الشحن غير مكتمل",
         "calculating_shipping": "لا يزال يتم حساب الشحن. حاول مرة أخرى خلال بضع ثوان. لم يتم تحصيل أي رسوم منك.",
-        "calculating_taxes": "ولا تزال الضرائب قيد الاحتساب. حاول مرة أخرى خلال بضع ثوان. لم يتم تحصيل أي رسوم منك."
+        "calculating_taxes": "ولا تزال الضرائب قيد الاحتساب. حاول مرة أخرى خلال بضع ثوان. لم يتم تحصيل أي رسوم منك.",
+        "return_to_cart_link_text": "العودة إلى السلة",
+        "return_to_cart_to_update_quantities": "%{return_to_cart_link_text} لتحديث الكميات",
+        "subscription_changed": "لقد تغير أحد اشتراكاتك.",
+        "company_location_changed": "تم تحديث عربة التسوق. قم بمراجعة طلبك قبل تقديمه.",
+        "violations_title": "{{violation}} مفقود أو غير صالح",
+        "company_location_changed_product_removed": "تم تحديث سلة التسوق الخاصة بك لأن بعض المنتجات غير متوفرة في هذا الموقع. قم بمراجعة طلبك قبل تقديمه.",
+        "individual_violations_title": {
+          "DeliveryViolations": "عنوان الشحن",
+          "PaymentViolations": "عنوان وصول الفواتير",
+          "OtherViolations": "معلومات الطلب"
+        },
+        "all_violations_content": "اتصل أو {{emailLink}} لنا لتحديث هذه المعلومات وإكمال طلبك:",
+        "all_violations_email_link": "بريد إلكتروني",
+        "editable_shipping_address_violations_message_title": "أضف هذه المعلومات لإكمال طلبك:",
+        "editable_shipping_address_violations_message_footer": "لتحديث عنوان هذا الموقع بشكل دائم، {{emailLink}}.",
+        "editable_shipping_address_violations_email_link": "اتصل بنا"
       },
       "marketplaces": {
         "legal_notice": {
@@ -1875,9 +1986,19 @@
         },
         "paginator": {
           "label": {
-            "other": "%{first} - %{last} من %{count} متجر"
-          }
-        }
+            "other": "%{first} - %{last} من %{count} متجر",
+            "one": "%{first} - %{last} من %{count} المتجر"
+          },
+          "accessibility_label": "صفحات الالتقاط المحلية",
+          "previous": "الصفحة السابقة",
+          "next": "الصفحة التالية"
+        },
+        "cancel": "يلغي",
+        "or": "أو",
+        "your_location": "موقعك",
+        "search_button": "البحث عن المتاجر",
+        "no_stores_found": "لم يتم العثور على متاجر",
+        "could_not_resolve_address": "لا يمكن تحديد موقع عنوانك. حاول مرة أخرى أو استخدم عنوانًا مختلفًا"
       },
       "captcha": {
         "title": "أكمل اختبار CAPTCHA للمتابعة",
@@ -1932,7 +2053,8 @@
             "email": "أدخل بريد إلكتروني متاح",
             "zone": "أدخل ولاية \/ مقاطعة صالحة",
             "postal_code": "أدخل رمزًا بريديًا\/رمزًا بريديًا صالحًا",
-            "reduction_code": "أدخل رمز خصم أو بطاقة هدايا صالحة"
+            "reduction_code": "أدخل رمز خصم أو بطاقة هدايا صالحة",
+            "billing_must_match_shipping": "يجب أن يتطابق مع عنوان الشحن"
           },
           "missing": {
             "first_name": "أدخل الاسم الأول",
@@ -1961,6 +2083,19 @@
           "merchandise": {
             "gift_card_price_must_be_greater_than_zero": "يجب أن يكون سعر بطاقة الهدايا أكبر من 0."
           }
+        }
+      },
+      "company_location": {
+        "location_title": "موقع"
+      },
+      "error_page": {
+        "terminal": {
+          "title": "كانت هناك مشكلة في الخروج لدينا",
+          "message": "قم بتحديث هذه الصفحة أو حاول مرة أخرى خلال بضع دقائق",
+          "action": {
+            "cta": "إعادة تحميل الصفحة"
+          },
+          "request_id": "طلب معرف: {{requestId}}"
         }
       }
     },
@@ -2117,7 +2252,8 @@
           "increment_item": "تمت الإضافة %{delta}",
           "add_variant": "تمت الإضافة %{delta}",
           "decrement_item": "تمت إزالة %{delta} من %{total}",
-          "decrement_fulfilled_line_item": "تم إرجاع %{delta} من %{total}"
+          "decrement_fulfilled_line_item": "تم إرجاع %{delta} من %{total}",
+          "decrement_return_line_item": "تمت إزالة %{delta} من العودة"
         }
       },
       "order": {
@@ -3364,7 +3500,8 @@
     "collection_template": {
       "use_fewer_filters_html": "استخدم عددًا أقل من المرشحات أو <a class=\"clear-filters text-button\" href=\"{{ link }}\">مسح الكل<\/a>",
       "empty": "لم يتم العثور على منتجات",
-      "load_more": "تحميل المزيد"
+      "load_more": "تحميل المزيد",
+      "custom_heading": "محفظة التوصيل للمنازل"
     },
     "password": {
       "login_using": "أدخل باستخدام كلمة المرور",
@@ -3403,7 +3540,9 @@
         "comment": "تعليق",
         "send": "أرسل رسالة",
         "post_success": "شكرا لإتصالك بنا. سنعود إليك في أقرب وقت ممكن.",
-        "error_heading": "يرجى ضبط ما يلي:"
+        "error_heading": "يرجى ضبط ما يلي:",
+        "order": "رقم الأمر",
+        "account_id": "معرف الحساب"
       },
       "map": {
         "location": "موقع {{ index }}"
@@ -3442,7 +3581,7 @@
       "facebook": "فيسبوك",
       "pinterest": "بينتريست",
       "instagram": "انستغرام",
-      "youtube": "موقع YouTube",
+      "youtube": "موقع ",
       "vimeo": "فيميو",
       "tiktok": "تيك توك",
       "linkedin": "ينكدين",
@@ -3623,7 +3762,26 @@
       "submit_register": "إنشاء حساب",
       "already_have_an_account": "هل لديك حساب؟",
       "submit": "يُقدِّم",
-      "cancel": "يلغي"
+      "cancel": "يلغي",
+      "address": "عنوان",
+      "add_email": "إضافة عنوان البريد الإلكتروني",
+      "address_place": "موقع",
+      "address2": "الشقة \/ رقم الفيلا واسم المبنى \/ الفيلا",
+      "address2_place": "أدخل رقم الشقة \/ الفيلا واسم المبنى \/ الفيلا",
+      "confirm_email": "أكد عنوانك الإلكتروني",
+      "confirm_email_place": "يرجى تأكيد عنوان البريد الإلكتروني الخاص بك",
+      "confirm_password": "تأكيد كلمة المرور",
+      "create_account_dec": "مرحباً بكم في مياه العين الجديدة",
+      "email_check_login": "قم بتأكيد وإضافة عنوان بريدك الإلكتروني",
+      "email_check_login_desc": "للحفاظ على أمان حسابك، نطلب أيضًا عنوان بريدك الإلكتروني.",
+      "email_place": "أدخل عنوان بريدك الالكتروني",
+      "mobile": "أدخل رقم هاتفك المحمول",
+      "login_desc": "قم بتسجيل الدخول بسهولة باستخدام رقم هاتفك المحمول.",
+      "Mobile": "رقم الهاتف المحمول",
+      "validate": "التحقق من صحة رقم هاتفك المحمول",
+      "validate_desc": "لقد أرسلنا رمزًا إلى الرقم التالي",
+      "validate_description": "ليس رقمك؟",
+      "varify": "التحقق من رقم الجوال"
     },
     "recover_password": {
       "title": "اعد ضبط كلمه السر",
@@ -3708,7 +3866,10 @@
       "cancel": "يلغي",
       "edit": "يحرر",
       "delete": "يمسح",
-      "delete_confirm": "هل أنت متأكد من رغبتك في حذف هذا العنوان؟"
+      "delete_confirm": "هل أنت متأكد من رغبتك في حذف هذا العنوان؟",
+      "district": "يصرف",
+      "city_reg": "اختر مدينتك",
+      "district_reg": "اختر منطقتك"
     }
   },
   "gift_cards": {
@@ -3738,5 +3899,10 @@
       "message_label": "الرسالة (اختياري)",
       "max_characters": "{{ max_chars }} الأحرف كحد أقصى"
     }
+  },
+  "dashboard": {
+    "help": "كيف يمكننا مساعدتك اليوم؟",
+    "subscriptions": "إدارة الاشتراكات",
+    "welcome": "أهلاً"
   }
 }
