@@ -1,7 +1,6 @@
 <script src="{{ 'account.js' | asset_url }}" defer="defer"></script>
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
-
 <script>
   let dataForS = {
     user_id: ShopifyAnalytics.meta.page.customerId,
@@ -55,7 +54,12 @@
         </div>
 
         <div class="account-manage-subscriptions-product-info--wrapper">
-          <img src="//alainwaterdev2.myshopify.com/cdn/shop/products/Al-Ain--Water-5-Gallon_92c8a2d6-96a5-4b74-86aa-fe54eeecc578_298x298_crop_center.png?v=1702482683 298w,//alainwaterdev2.myshopify.com/cdn/shop/products/Al-Ain--Water-5-Gallon_92c8a2d6-96a5-4b74-86aa-fe54eeecc578_596x596_crop_center.png?v=1702482683" width="96" height="96" alt="">
+          <img
+            src="//alainwaterdev2.myshopify.com/cdn/shop/products/Al-Ain--Water-5-Gallon_92c8a2d6-96a5-4b74-86aa-fe54eeecc578_298x298_crop_center.png?v=1702482683 298w,//alainwaterdev2.myshopify.com/cdn/shop/products/Al-Ain--Water-5-Gallon_92c8a2d6-96a5-4b74-86aa-fe54eeecc578_596x596_crop_center.png?v=1702482683"
+            width="96"
+            height="96"
+            alt=""
+          >
           <div class="account-manage-subscriptions-product--info">
             <a class="account-manage-subscriptions-product--link" href="">4x Al Ain Water Gallon 5 Litres</a>
             <div class="account-manage-subscriptions-price--wrapper">
@@ -70,13 +74,29 @@
         <div class="account-manage-subscriptions-form--content">
           <div class="account-manage-subscription-input--wrapper">
             <label for="next_date">Next Delivery</label>
-            <input class="account-input--big" id="next_date" name="next_date" type="text" value="15th February" readonly>
+            <input
+              class="account-input--big"
+              id="next_date"
+              name="next_date"
+              type="text"
+              value="15th February"
+              readonly
+            >
           </div>
           <div class="account-manage-subscription-input--wrapper">
             <label for="address">Delivery Address</label>
             <div class="account-extra--actions">
-              <input class="account-input--small" id="address" name="address" type="text" value="Sky Tower, 17th Floor,Al Reem Island, Abu Dhabi" readonly>
-              <a href="{{ routes.account_url | append: '?view=delivery-address' }}" class="account-edit-address--button">Edit</a>
+              <input
+                class="account-input--small"
+                id="address"
+                name="address"
+                type="text"
+                value="Sky Tower, 17th Floor,Al Reem Island, Abu Dhabi"
+                readonly
+              >
+              <a href="{{ routes.account_url | append: '?view=delivery-address' }}" class="account-edit-address--button"
+                >Edit</a
+              >
             </div>
           </div>
           <div class="account-manage-subscription-input--wrapper">
@@ -90,30 +110,48 @@
           <div class="account-manage-subscription-input--wrapper">
             <label for="pause_resume">Pause & Resume</label>
             <div class="account-extra--actions">
-              <span class="account-input--small" ><span class="account-font--light">Status:</span> <span id="pause_resume">No Scheduled Pauses</span></span>
-              <button class="account-pause-options--dropdown">View Options <img src="{{ 'account-dropdown-arrow.svg' | file_url }}" alt=""></button>
+              <span class="account-input--small"
+                ><span class="account-font--light">Status:</span>
+                <span id="pause_resume">No Scheduled Pauses</span></span
+              >
+              <button class="account-pause-options--dropdown">
+                View Options <img src="{{ 'account-dropdown-arrow.svg' | file_url }}" alt="">
+              </button>
               <div class="account-pause-options--modal">
                 <p>
-                  Please note: Pauses will be applied <span class="account-font--medium">after your next scheduled delivery.</span>
+                  Please note: Pauses will be applied
+                  <span class="account-font--medium">after your next scheduled delivery.</span>
                 </p>
                 <ul>
                   <li>
-                    <label for="1_week">Pause for 1 week <input name="pause_resume" id="1_week" value="1_week" type="radio"></label>
+                    <label for="1_week"
+                      >Pause for 1 week <input name="pause_resume" id="1_week" value="1_week" type="radio"
+                    ></label>
                   </li>
                   <li>
-                    <label for="2_weeks">Pause for 2 weeks <input name="pause_resume" id="2_weeks" value="2_weeks" type="radio"></label>
+                    <label for="2_weeks"
+                      >Pause for 2 weeks <input name="pause_resume" id="2_weeks" value="2_weeks" type="radio"
+                    ></label>
                   </li>
                   <li>
-                    <label for="3_weeks">Pause for 3 weeks <input name="pause_resume" id="3_weeks" value="3_weeks" type="radio"></label>
+                    <label for="3_weeks"
+                      >Pause for 3 weeks <input name="pause_resume" id="3_weeks" value="3_weeks" type="radio"
+                    ></label>
                   </li>
                   <li>
-                    <label for="4_weeks">Pause for 4 weeks <input name="pause_resume" id="4_weeks" value="4_weeks" type="radio"></label>
+                    <label for="4_weeks"
+                      >Pause for 4 weeks <input name="pause_resume" id="4_weeks" value="4_weeks" type="radio"
+                    ></label>
                   </li>
                   <li>
-                    <label for="5_weeks">Pause for 5 weeks <input name="pause_resume" id="5_weeks" value="5_weeks" type="radio"></label>
+                    <label for="5_weeks"
+                      >Pause for 5 weeks <input name="pause_resume" id="5_weeks" value="5_weeks" type="radio"
+                    ></label>
                   </li>
                   <li>
-                    <label for="6_weeks">Pause for 6 weeks <input name="pause_resume" id="6_weeks" value="6_weeks" type="radio"></label>
+                    <label for="6_weeks"
+                      >Pause for 6 weeks <input name="pause_resume" id="6_weeks" value="6_weeks" type="radio"
+                    ></label>
                   </li>
                 </ul>
               </div>
@@ -134,9 +172,16 @@
         <div class="account-close-cancel-modal--icon">{% render 'account-icons', icon: 'close' %}</div>
         <h4 class="account--title">Are you sure you want to cancel?</h4>
 
-        <p class="account-cancel-subscription-modal-text--big">Remember, you can instead pause and resume your subscription at any time.</p>
+        <p class="account-cancel-subscription-modal-text--big">
+          Remember, you can instead pause and resume your subscription at any time.
+        </p>
         <div class="account-manage-subscriptions-product-info--wrapper">
-          <img src="//alainwaterdev2.myshopify.com/cdn/shop/products/Al-Ain--Water-5-Gallon_92c8a2d6-96a5-4b74-86aa-fe54eeecc578_298x298_crop_center.png?v=1702482683 298w,//alainwaterdev2.myshopify.com/cdn/shop/products/Al-Ain--Water-5-Gallon_92c8a2d6-96a5-4b74-86aa-fe54eeecc578_596x596_crop_center.png?v=1702482683" width="72" height="72" alt="">
+          <img
+            src="//alainwaterdev2.myshopify.com/cdn/shop/products/Al-Ain--Water-5-Gallon_92c8a2d6-96a5-4b74-86aa-fe54eeecc578_298x298_crop_center.png?v=1702482683 298w,//alainwaterdev2.myshopify.com/cdn/shop/products/Al-Ain--Water-5-Gallon_92c8a2d6-96a5-4b74-86aa-fe54eeecc578_596x596_crop_center.png?v=1702482683"
+            width="72"
+            height="72"
+            alt=""
+          >
           <div class="account-manage-subscriptions-product--info">
             <a class="account-manage-subscriptions-product--link" href="">4x Al Ain Water Gallon 5 Litres</a>
             <div class="account-manage-subscriptions-price--wrapper">
@@ -145,7 +190,10 @@
             </div>
           </div>
         </div>
-        <p class="account-cancel-subscription-modal-text--small">Please note that canceling will stop all future deliveries associated with this subscription. To continue receiving Al Ain Water, you'll need to subscribe again.</p>
+        <p class="account-cancel-subscription-modal-text--small">
+          Please note that canceling will stop all future deliveries associated with this subscription. To continue
+          receiving Al Ain Water, you'll need to subscribe again.
+        </p>
         <div class="account-cancel-subscription--actions">
           <button class="account-cancel--subscription account-font--medium">Cancel Subscription</button>
           <button class="account-close-cancel-modal--button">Go back</button>
