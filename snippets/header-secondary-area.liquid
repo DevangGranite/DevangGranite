@@ -36,7 +36,7 @@
             <li><a title="Profile" href="#">{{ 'sections.header.profile' | t }}</a></li>
             <li><a title="Orders & Deliveries" href="#">{{ 'sections.header.orders_and_deliveries' | t }}</a></li>
             <li><a title="Manage Subscription" href="{{ routes.account_url | append: '?view=manage-subscriptions' }}">{{ 'sections.header.manage_subscription' | t }}</a></li>
-            <li><a title="Wallet" href="{{ routes | append: 'pages/my-wallet' }}">{{ 'sections.header.wallet' | t }}</a></li>
+            <li><a title="Wallet" href="{{ routes.root_url | append: 'pages/my-wallet' }}">{{ 'sections.header.wallet' | t }}</a></li>
             <li><a title="My Loyalty Drops" href="#">{{ 'sections.header.loyalty_drops' | t }}</a></li>
             <li>
               <a title="Logout" href="{{ routes.account_logout_url }}">
