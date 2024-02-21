@@ -195,7 +195,14 @@
       "products": "Products",
       "suggestions": "Suggestions",
       "articles": "Articles",
-      "view_all_results": "View all results"
+      "view_all_results": "View all results",
+      "home": "Home",
+      "profile": "Profile",
+      "orders_and_deliveries": "Orders & Deliveries",
+      "manage_subscription": "Manage Subscription",
+      "wallet": "Wallet",
+      "loyalty_drops": "My Loyalty Drops",
+      "logout_drop": "Logout"
     },
     "breadcrumbs": {
       "home": "Home",
