@@ -888,7 +888,3 @@ table.account-order-history--table tbody tr:last-child td {
     padding-right: 24px;
   }
 }
-html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
-  margin-right: 48px;
-  margin-left: 0;
-}
