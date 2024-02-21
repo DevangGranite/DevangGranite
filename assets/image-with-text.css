@@ -108,3 +108,17 @@
 .image-with-text--heading--image {
   margin-bottom: 20px;
 }
+
+
+
+/* 21-02-24 */
+
+#shopify-section-template--17451386274028__al-ain-zero-sodium-free .image-with-text--image-media {
+    height: 300px;
+    padding-bottom: 0;
+}
+
+#shopify-section-template--17451386274028__al-ain-zero-sodium-free .image-with-text--image-media img {
+    height: 300px;
+    object-fit: contain;
+}
