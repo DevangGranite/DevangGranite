@@ -307,7 +307,9 @@
       "help": "How can we help you today?",
       "subscriptions": "Manage Subscriptions",
       "top_up_wallett": "Top Up Wallet",
-      "view_cataloguee": "View Catalogue"
+      "view_cataloguee": "View Catalogue",
+      "view_all": "View all",
+      "current_balance": "Current Balance"
     },
     "login_page": {
       "add_email": "Add Email Address",
