@@ -100,7 +100,7 @@
         "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
         "video_autoplay": true,
         "height": "small",
-        "desktop_image_width": "small",
+        "desktop_image_width": "medium",
         "full_width": false,
         "short_width": false,
         "layout": "text_first",
