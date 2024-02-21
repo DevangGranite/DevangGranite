@@ -305,9 +305,7 @@
     "dashboard": {
       "welcome": "Hi",
       "help": "How can we help you today?",
-      "subscriptions": "Manage Subscriptions",
-      "top_up_wallett": "Top Up Wallet",
-      "view_cataloguee": "View Catalogue"
+      "subscriptions": "Manage Subscriptions"
     },
     "login_page": {
       "add_email": "Add Email Address",
