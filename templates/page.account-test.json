@@ -93,6 +93,9 @@
         "text_C9wREi",
         "button_8HTnRd"
       ],
+      "custom_css": [
+
+      ],
       "settings": {
         "image": "shopify:\/\/shop_images\/Mask_group.png",
         "wrapper_background": "transparent",
@@ -109,7 +112,7 @@
         "color_bg": "rgba(0,0,0,0)",
         "color_text": "#2866d3",
         "color_border": "#e2e2e2",
-        "disable_top_spacing": false,
+        "disable_top_spacing": true,
         "disable_bottom_spacing": false
       }
     },
