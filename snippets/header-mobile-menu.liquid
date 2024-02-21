@@ -204,7 +204,7 @@
             href="{{ routes.account_logout_url }}"
           >
             {%- render 'svg-icons' with 'logout' -%}
-            Logout</a
+            {{ 'sections.header.logout_drop' | t }}</a
           >
 
         {%- else -%}
