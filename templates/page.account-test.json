@@ -112,7 +112,7 @@
         "color_bg": "rgba(0,0,0,0)",
         "color_text": "#2866d3",
         "color_border": "#e2e2e2",
-        "disable_top_spacing": true,
+        "disable_top_spacing": false,
         "disable_bottom_spacing": false
       }
     },
