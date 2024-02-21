@@ -310,7 +310,10 @@
       "view_cataloguee": "View Catalogue",
       "view_all": "View all",
       "current_balance": "Current Balance",
-      "my_reward_drop": "My Reward Drops"
+      "my_reward_drop": "My Reward Drops",
+      "dec": "Take control of your Al Ain Water subscription.",
+      "sub_dec": "Adjust quantities, pause, resume, or cancel your subscription hassle-free.",
+      "next_delivery": "Next Delivery"
     },
     "login_page": {
       "add_email": "Add Email Address",
