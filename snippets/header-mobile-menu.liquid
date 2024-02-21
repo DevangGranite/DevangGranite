@@ -2,6 +2,7 @@
   <div class="mobile-menu-drawer--inner">
     {%- if header_settings.menu -%}
       <ul class="mobile-menu">
+      {% if customer %}
         <li>
           <details class="link-container">
             <summary class="parent-link">
@@ -24,6 +25,7 @@
             </ul>
           </details>
         </li>
+        {% endif %}
 
         {%- for link in header_settings.menu.links -%}
           {%- liquid
