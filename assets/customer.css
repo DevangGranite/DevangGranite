@@ -416,6 +416,10 @@ table.account-order-history--table tbody tr:last-child td {
 }
 
 /* Manage Subscription */
+html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
+  margin-right: 48px;
+  margin-left: 0;
+}
 .account-subscription--wrapper {
   max-width: 1024px;
   margin-left: auto;
@@ -888,3 +892,4 @@ table.account-order-history--table tbody tr:last-child td {
     padding-right: 24px;
   }
 }
+
