@@ -33,15 +33,15 @@
           </a>
           <ul class="my-account-dropdown__wrapper-list">
             <li><a title="Home" href="#">{{ 'sections.header.home' | t }}</a></li>
-            <li><a title="Profile" href="#">Profile</a></li>
-            <li><a title="Orders & Deliveries" href="#">Orders & Deliveries</a></li>
-            <li><a title="Manage Subscription" href="#">Manage Subscription</a></li>
-            <li><a title="Wallet" href="#">Wallet</a></li>
-            <li><a title="My Loyalty Drops" href="#">My Loyalty Drops</a></li>
+            <li><a title="Profile" href="#">{{ 'sections.header.Profile' | t }}Profile</a></li>
+            <li><a title="Orders & Deliveries" href="#">{{ 'sections.header.orders_and_deliveries' | t }}Orders & Deliveries</a></li>
+            <li><a title="Manage Subscription" href="#">{{ 'sections.header.manage_subscription' | t }}Manage Subscription</a></li>
+            <li><a title="Wallet" href="#">{{ 'sections.header.wallet' | t }}Wallet</a></li>
+            <li><a title="My Loyalty Drops" href="#">{{ 'sections.header.loyalty_drops' | t }}My Loyalty Drops</a></li>
             <li>
               <a title="Logout" href="{{ routes.account_logout_url }}">
                  {%- render 'svg-icons' with 'logout' -%}                
-                Logout
+                {{ 'sections.header.logout' | t }}Logout
               </a>
             </li>
           </ul>
