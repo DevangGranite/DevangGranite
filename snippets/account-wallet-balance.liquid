@@ -1,5 +1,5 @@
 <div class="customer-wallet--wrapper">
-  <a href="https://alainwaterdev2.myshopify.com/pages/my-wallet">
+  <a href="{{ routes.root_url | append: 'pages/my-wallet' }}">
     <div class="customer-wallet--balance">
         <img src="{{ 'account-wallet.png' | file_url }}" alt="Account Balance">
         <span>{{ 'customer.dashboard.current_balance' | t }}</span>
