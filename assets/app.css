@@ -1902,6 +1902,10 @@ scroll-shadow {
     min-height: 300px; } }
 
 @media only screen and (max-width: 767px) {
+  .mobile-height-250 {
+    min-height: 250px; } }
+
+@media only screen and (max-width: 767px) {
   .mobile-height-350 {
     min-height: 350px; } }
 
