@@ -1929,7 +1929,7 @@ scroll-shadow {
     min-height: auto; } }
 
 @media only screen and (min-width: 768px) {
-  .desktop-height-300 {
+  .desktop-height-350 {
     min-height: 350px; } }
 
 @media only screen and (min-width: 768px) {
