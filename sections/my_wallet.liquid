@@ -27,17 +27,20 @@
           </div>
           
           <div class="top-up-wallet-button-main">
-            <a class="top-up-wallet-button">Top Up Wallet</a>
+            <a href="/pages/top-up-wallet" class="top-up-wallet-button">Top Up Wallet</a>
           </div>
         </div>
-        <div class="total_balance_content_main total_ballane_detail_div">
+        <div class="balance_content_help_main">
+          <div class="total_balance_content_main total_ballane_detail_div">
           <div class="total_balance_innet"><span class="total_balance_title">Total Balance</span> <span class="total_balance_amount">AED 120</span></div>
           <div class="orders_queue_innet"><span class="orders_queue_title">Orders in Queue (1)</span> <span class="orders_queue_amount">AED 20</span></div>
-          <a class="help_about_my_wallet open_help_wallet">{% render "help_wallet" %}</a>
+          
         </div>
         <div class="total_balance_content_main total_ballane_detail_help_div">
           <div class="total_balance_innet"><span class="total_balance_title">Queued orders will be deducted from Total Balance on delivery</span></div>
+        </div>
           <a class="help_about_my_wallet close_help_wallet">{% render "close_help_wallet" %}</a>
+          <a class="help_about_my_wallet open_help_wallet">{% render "help_wallet" %}</a>
         </div>
       </div>
     </div>
@@ -52,7 +55,8 @@
        <div class="button_wallet_Debited tab active" onclick="openTab('tab1')">Debited</div>
        <div class="button_wallet_Credited tab" onclick="openTab('tab2')">Credited</div>
      </div>
-     <div id="tab1" class="tab-content active">
+     <div class="tabs_main_style">
+           <div id="tab1" class="tab-content active">
         <!-- Blocks_month -->
   <div class="wallet_debited_month">JANUARY</div>
   <div class="my_wallet_data_blocks_inner">
@@ -260,50 +264,176 @@
     </div>
   </div>      
      </div>
+     </div>
   </div>
 
+<style>
+  .balance_content_help_main{
+    position: relative;
+  }
+  .total_ballane_detail_div, .total_ballane_detail_help_div {
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+    }
 
+    .hidden {
+        opacity: 0;
+    }
+    .total_balance_content_main.total_ballane_detail_help_div{
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      transform: translateY(-50%);
+      margin: 0 !important;
+      opacity: 0;
+      width: 100%;
+      min-height: 76px;
+    }
+  .close_help_wallet{
+    didplay: none;
+  }
+  .open_help_wallet.hidden{
+    display: none;
+  }
+
+  .tabs_main_style{
+    max-width: 816px;
+    margin-inline: auto;
+    position: relative;
+  }
+  .tab-content:not(.active){
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 1;
+    display: block;
+  }
+</style>
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+//   document.addEventListener("DOMContentLoaded", function() {
+//     var openHelpWallet = document.querySelector('.open_help_wallet');
+//     var closeHelpWallet = document.querySelector('.close_help_wallet');
+//     var detailDiv = document.querySelector('.total_ballane_detail_div');
+//     var helpDiv = document.querySelector('.total_ballane_detail_help_div');
+
+//     openHelpWallet.addEventListener('click', function() {
+//         detailDiv.style.display = 'none';
+//         helpDiv.style.display = 'block';
+//     });
+
+//     closeHelpWallet.addEventListener('click', function() {
+//         detailDiv.style.display = 'block';
+//         helpDiv.style.display = 'none';
+//     });
+// });
+
+document.addEventListener("DOMContentLoaded", function() {
     var openHelpWallet = document.querySelector('.open_help_wallet');
     var closeHelpWallet = document.querySelector('.close_help_wallet');
     var detailDiv = document.querySelector('.total_ballane_detail_div');
     var helpDiv = document.querySelector('.total_ballane_detail_help_div');
+    var closeButton = document.querySelector('.close_help_wallet');
+    var openButton = document.querySelector('.open_help_wallet');
+
+    closeHelpWallet.style.display = 'none'; // Hide the close button initially
 
     openHelpWallet.addEventListener('click', function() {
-        detailDiv.style.display = 'none';
-        helpDiv.style.display = 'block';
+        fadeIn(helpDiv);
+        fadeOut(detailDiv);
+        closeButton.style.display = 'inline'; // Show the close button
+        openButton.style.display = 'none'; // Hide the open button
     });
 
     closeHelpWallet.addEventListener('click', function() {
-        detailDiv.style.display = 'block';
-        helpDiv.style.display = 'none';
+        fadeIn(detailDiv);
+        fadeOut(helpDiv);
+        closeButton.style.display = 'none'; // Hide the close button
+        openButton.style.display = 'inline'; // Show the open button
     });
+
+    function fadeIn(element) {
+        element.classList.remove('hidden');
+        setTimeout(function() {
+            element.style.opacity = '1';
+        }, 10); // Delay to allow opacity change to take effect before display change
+    }
+
+    function fadeOut(element) {
+        setTimeout(function() {
+            element.style.opacity = '0';
+        }, 10); // Delay to allow opacity change to take effect before display change
+        setTimeout(function() {
+            element.classList.add('hidden');
+        }, 500); // Matches transition duration (0.5s)
+    }
 });
 </script>
 <script>
-   function openTab(tabId) {
-       // Get all tab content elements
-       var tabContents = document.querySelectorAll('.tab-content');
-       // Hide all tab content elements
-       tabContents.forEach(function(content) {
-           content.classList.remove('active');
-       });
-       // Show the selected tab content
-       document.getElementById(tabId).classList.add('active');
-       // Get all tab elements
-       var tabs = document.querySelectorAll('.tab');
-       // Remove the 'active' class from all tabs
-       tabs.forEach(function(tab) {
-           tab.classList.remove('active');
-       });
-       // Add the 'active' class to the clicked tab
-       event.currentTarget.classList.add('active');
-   }
+  //OLD working Function
+   // function openTab(tabId) {
+   //     // Get all tab content elements
+   //     var tabContents = document.querySelectorAll('.tab-content');
+   //     // Hide all tab content elements
+   //     tabContents.forEach(function(content) {
+   //         content.classList.remove('active');
+   //     });
+   //     // Show the selected tab content
+   //     document.getElementById(tabId).classList.add('active');
+   //     // Get all tab elements
+   //     var tabs = document.querySelectorAll('.tab');
+   //     // Remove the 'active' class from all tabs
+   //     tabs.forEach(function(tab) {
+   //         tab.classList.remove('active');
+   //     });
+   //     // Add the 'active' class to the clicked tab
+   //     event.currentTarget.classList.add('active');
+   // }
+   // END OLD working Function
+
    // Initially open the first tab
    // window.onload = function() {
    //   openTab('tab1');
    // };
+// END OLD working Function
+
+// NEW working Function
+function openTab(tabId) {
+    // Get all tab content elements
+    var tabContents = document.querySelectorAll('.tab-content');
+    // Hide all tab content elements with fade out effect
+    tabContents.forEach(function(content) {
+        fadeOut(content);
+    });
+    // Show the selected tab content with fade in effect
+    fadeIn(document.getElementById(tabId));
+    // Get all tab elements
+    var tabs = document.querySelectorAll('.tab');
+    // Remove the 'active' class from all tabs
+    tabs.forEach(function(tab) {
+        tab.classList.remove('active');
+    });
+    // Add the 'active' class to the clicked tab
+    event.currentTarget.classList.add('active');
+}
+
+function fadeIn(element) {
+    element.classList.remove('hidden');
+    setTimeout(function() {
+        element.style.opacity = '1';
+    }, 10); // Delay to allow opacity change to take effect before display change
+}
+
+function fadeOut(element) {
+    setTimeout(function() {
+        element.style.opacity = '0';
+    }, 10); // Delay to allow opacity change to take effect before display change
+    setTimeout(function() {
+        element.classList.add('hidden');
+    }, 500); // Matches transition duration (0.5s)
+}
+// NEW OLD working Function
  </script>
 
 

@@ -9,7 +9,7 @@
       "type": "main-blog-header",
       "settings": {
         "heading": "Latest News",
-        "description": "<p>Add a short description for your blog.<\/p>",
+        "description": "<p>Stay on top of the latest news with our exclusive updates. Dive into the world of luxury with our curated selection. <\/p>",
         "show_category_list": true
       }
     },
@@ -17,7 +17,7 @@
       "type": "main-blog",
       "settings": {
         "blog_layout": "style2",
-        "image_ratio": "landscape",
+        "image_ratio": "square",
         "show_date": true,
         "show_excerpt": true,
         "show_read_more": true
@@ -27,6 +27,7 @@
       "type": "featured-collection",
       "settings": {
         "heading": "Discover Al Ain Zero Sodium",
+        "short_width": false,
         "marker_style": "style1",
         "description": "<p>Explore the Refreshing Taste of Al Ain Zero Sodium.<\/p>",
         "collection": "zero-sodium",

@@ -8,7 +8,7 @@
    flex: 1;
  }
 .total_balance_content_main.total_ballane_detail_help_div{
-  display: none;
+  /* display: none; */
 }
 .total_ballane_detail_help_div .total_balance_innet{
   opacity: 0.75;
@@ -113,6 +113,7 @@
 }
 
 .my_wallet_block_switch_buttons .button_wallet_Debited{
+  cursor: pointer;
   border-radius: 33px;
   color: #2461CC;
   background: #FFF;
@@ -125,6 +126,7 @@
   padding-block: 10px;
 }
 .my_wallet_block_switch_buttons .button_wallet_Credited{
+  cursor: pointer;
   border-radius: 33px;
   color: #2461CC;
   background: #FFF;
@@ -139,11 +141,13 @@
 .my_wallet_block_switch_buttons .tab.active{
   background: #2461CC;
   color: #FFF;
+  transition: all 0.5s ease-in-out;
 }
 .my_wallet_block_switch_buttons .tab:hover,
 .my_wallet_block_switch_buttons .button_wallet_Credited:hover{
   background: #2461CC;
   color: #FFF;
+  transition: all 0.5s ease-in-out;
 }
 /*  */
 .total_balance_content_main{
@@ -417,6 +421,7 @@
   .top_up_now_button:hover{
     color: #FFF;
     background-color: #2461CC;
+    transition: all 0.5s ease-in-out;
   }
   .top_up_now_button_earn_drop{
     display: flex;
@@ -491,7 +496,9 @@
 .zero_wallet_main_btn:hover{
   color: #fff;
   background: #2461CC;
+  transition: all 0.5s ease-in-out;
 }
+
 .zero_wallet_main_btn{
   color: #FFF;
   background: #2461CC;

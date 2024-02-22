@@ -207,6 +207,7 @@
             "subheading": "",
             "heading": "A convenient option \nfor your home or office",
             "heading_size": "h4",
+            "heading_weight": 400,
             "button_text": "",
             "button_link": "",
             "content_position": "bottom-center",
@@ -231,6 +232,7 @@
             "subheading": "",
             "heading": "Goodness begins here.\nJoin us in our journey",
             "heading_size": "h4",
+            "heading_weight": 400,
             "button_text": "",
             "button_link": "",
             "content_position": "bottom-center",
@@ -255,6 +257,7 @@
             "subheading": "",
             "heading": "",
             "heading_size": "h4",
+            "heading_weight": 400,
             "button_text": "",
             "button_link": "",
             "content_position": "bottom-center",
@@ -279,6 +282,7 @@
             "subheading": "",
             "heading": "RECHARGE & INCREASE DROP POINTS",
             "heading_size": "h4",
+            "heading_weight": 400,
             "button_text": "",
             "button_link": "",
             "content_position": "top-center",
@@ -300,6 +304,11 @@
       ],
       "disabled": true,
       "settings": {
+        "shift_second_grid": false,
+        "use_heading_link": false,
+        "heading_text": "Top Offers",
+        "link_text": "View More",
+        "wrapper_background": "transparent",
         "desktop_height": 330,
         "mobile_height": 220,
         "column_spacing": "medium",
@@ -307,7 +316,9 @@
         "color_text": "#3a474e",
         "color_link": "#151515",
         "disable_top_spacing": false,
-        "disable_bottom_spacing": false
+        "disable_bottom_spacing": false,
+        "short_width": false,
+        "heading_first": false
       }
     },
     "41985d74-e833-4bbd-b6df-f14039d7d1e4": {

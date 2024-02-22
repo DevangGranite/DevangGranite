@@ -3456,7 +3456,14 @@
       "products": "منتجات",
       "suggestions": "اقتراحات",
       "articles": "مقالات",
-      "view_all_results": "عرض جميع النتائج"
+      "view_all_results": "عرض جميع النتائج",
+      "home": "بيت",
+      "profile": "حساب تعريفي",
+      "orders_and_deliveries": "الطلبات والتوصيل",
+      "manage_subscription": "إدارة الاشتراك",
+      "wallet": "محفظة",
+      "loyalty_drops": "قطرات الولاء الخاصة بي",
+      "logout_drop": "تسجيل خروج"
     },
     "breadcrumbs": {
       "home": "بيت",
