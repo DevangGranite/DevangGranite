@@ -27,7 +27,7 @@
             "color_badge_text": "#ffffff",
             "overlay_color": "#000000",
             "overlay_opacity": 0,
-            "overlay_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4) 100%)",
+            "overlay_gradient": "linear-gradient(109deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4) 100%)",
             "button_1_text": "",
             "button_1_color": "accent",
             "button_1_link": "",
@@ -114,6 +114,7 @@
         "slide_y48BJj",
         "slide_APrPQC"
       ],
+      "disabled": true,
       "settings": {
         "desktop_height": "desktop-height-350",
         "mobile_height": "mobile-height-250",
@@ -158,7 +159,6 @@
         "text_C9wREi",
         "button_8HTnRd"
       ],
-      "disabled": true,
       "settings": {
         "image": "shopify:\/\/shop_images\/account-al-ain-zero-sod.png",
         "wrapper_background": "transparent",
