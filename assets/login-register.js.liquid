@@ -379,6 +379,8 @@ function validateForm() {
     isValid = isValid && validateSelectField('regi_city', 'regiCityError', 'Please select your City');
     isValid = isValid && validateSelectField('district', 'districtError', 'Please select your District');
 
+    console.log('Form validation result:', isValid); // Add this line for debugging
+
     return isValid;
 }
 
