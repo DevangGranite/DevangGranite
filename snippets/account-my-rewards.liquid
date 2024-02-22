@@ -1,11 +1,13 @@
 <div class="customer-rewards--wrapper">
   <div class="customer-rewards-progress-wrapper">
+     <a href="{{ routes.root_url | append: 'pages/clip-the-deal' }}"> 
     <div class="customer-rewards--drops">
       <img src="{{ 'account-rewards.png' | file_url }}" alt="Account Rewards">
       <div>
         <div class="customer-rewards-drops--text">{{ 'customer.dashboard.my_reward_drop' | t }}</div>
       </div>
     </div>
+       </a>
     <div class="customer-rewards--progress">
       <div class="customer-rewards-progress--complete"></div>
       <img class="customer-rewards-progress--drop" src="{{ 'account-green-drop.png' | file_url }}" alt="Green Drop">
