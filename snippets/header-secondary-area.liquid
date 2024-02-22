@@ -38,12 +38,12 @@
               <li><a title="Manage Subscription" href="{{ routes.account_url | append: '?view=manage-subscriptions' }}">{{ 'sections.header.manage_subscription' | t }}</a></li>
               <li><a title="Wallet" href="{{ routes.root_url | append: 'pages/my-wallet' }}">{{ 'sections.header.wallet' | t }}</a></li>
               <li><a title="My Loyalty Drops" href="{{ routes.root_url | append: 'pages/clip-the-deal' }}">{{ 'sections.header.loyalty_drops' | t }}</a></li>
-            <li>
-              <a title="Logout" href="{{ routes.account_logout_url }}">
-                 {%- render 'svg-icons' with 'logout' -%}                
-                {{ 'sections.header.logout_drop' | t }}
-              </a>
-            </li>
+              <li>
+                <a title="Logout" href="{{ routes.account_logout_url }}">
+                   {%- render 'svg-icons' with 'logout' -%}                
+                  {{ 'sections.header.logout_drop' | t }}
+                </a>
+              </li>
           </ul>
         </div>
       </div>
