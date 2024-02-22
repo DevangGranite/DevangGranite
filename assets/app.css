@@ -1930,7 +1930,7 @@ scroll-shadow {
 
 @media only screen and (min-width: 768px) {
   .desktop-height-300 {
-    min-height: 320px; } }
+    min-height: 330px; } }
 
 @media only screen and (min-width: 768px) {
   .desktop-height-450 {
