@@ -1,59 +1,55 @@
- /*** city and dis Start ***/
-  document.addEventListener("DOMContentLoaded", function() {
-      getCityDistricts(0);
-  });
+/*** city and district Start ***/
+document.addEventListener("DOMContentLoaded", function () {
+    getCityDistricts(0);
+});
 
-  function getCityDistricts(id){
+function getCityDistricts(id) {
+    const apiUrl = 'https://alainappuat.gdadmin.org/CustomerApiv3/getCityDistricts/' + id;
 
-      const apiUrl = 'https://alainappuat.gdadmin.org/CustomerApiv3/getCityDistricts/'+id;
-      
-      // Use the fetch function to make a GET request to the API
-      fetch(apiUrl, {
+    // Use the fetch function to make a GET request to the API
+    fetch(apiUrl, {
         method: 'GET',
-       
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        
-        return response.json();
-      })
-      .then(data => {
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.status}`);
+            }
 
-        if(id == 0){
-          let city = "<option>{{ 'customer.addresses.city_reg' | t }}</option>";
-          data.response.forEach(function (item) {
-            city += `<option value="${item.id}">${item.city_name}</option>`;
-          });
-          document.getElementById("regi_city").innerHTML = city;
-        }else{
-          let districts = "";
-          data.response.forEach(function (item) {
-            districts += `<option value="${item.district_name}">${item.district_name}</option>`;
-          });
-          document.getElementById("district").innerHTML = districts;
-        }
-      })
-      .catch(error => {
-        // Handle errors that may occur during the fetch operation
-       // console.error('Error fetching data:', error);
-      });
-  }
-/*** city and dis end ***/
+            return response.json();
+        })
+        .then(data => {
+            if (id == 0) {
+                let city = "<option>{{ 'customer.addresses.city_reg' | t }}</option>";
+                data.response.forEach(function (item) {
+                    city += `<option value="${item.id}">${item.city_name}</option>`;
+                });
+                document.getElementById("regi_city").innerHTML = city;
+            } else {
+                let districts = "";
+                data.response.forEach(function (item) {
+                    districts += `<option value="${item.district_name}">${item.district_name}</option>`;
+                });
+                document.getElementById("district").innerHTML = districts;
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+}
+/*** city and district end ***/
 
 
 /*** Pop up start OTP ***/
 function openOTPPopup() {
-     // validateForm();
+    // validateForm();
     startTimerOnClick();
-        
+
     var mobileInput = document.getElementById('mobile');
     var numericValue = mobileInput.value.replace(/\D/g, '');
     var resendLinkButton = document.getElementById('resendLink');
 
     // Check if the mobile number has 9 digits
-    if (numericValue.length === 9 && validateForm()) {      
+    if (numericValue.length === 9 && validateForm()) {
         const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
 
         // Function to send OTP
@@ -65,19 +61,19 @@ function openOTPPopup() {
                     'Content-Type': 'application/json'
                 },
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Network response was not ok: ${response.status}`);
-                }
-                
-                return response.json();
-            })
-            .then(data => {
-                console.log('MSS Test', data);
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Network response was not ok: ${response.status}`);
+                    }
+
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('MSS Test', data);
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
         }
 
         // Initial OTP sending
@@ -110,9 +106,8 @@ function openOTPPopup() {
     }
 }
 
-
 function closeOTPPopup() {
-    var otpPopupHtml = document.getElementsByTagName( 'html' )[0];
+    var otpPopupHtml = document.getElementsByTagName('html')[0];
     var otpPopupElement = document.getElementById('otppopup');
 
     if (otpPopupElement) {
@@ -126,21 +121,20 @@ function closeOTPPopup() {
     }
 }
 
+function saveOtpPopup(event) {
+    // Add logic here to handle the data entered in the popup
+    // For now, let's just close the popup without refreshing the page
+    closeOtpPopup();
 
- function saveOtpPopup(event) {
-  // Add logic here to handle the data entered in the popup
-  // For now, let's just close the popup without refreshing the page
-  closeOtpPopup();
-
-  // Prevent the default form submission behavior
-  event.preventDefault();
+    // Prevent the default form submission behavior
+    event.preventDefault();
 }
 
 function closeOtpPopup() {
-  // Implement the logic to close your OTP popup here
-  // This could involve hiding the popup or removing it from the DOM
-  // For example:
-  // document.getElementById("yourPopupId").style.display = "none";
+    // Implement the logic to close your OTP popup here
+    // This could involve hiding the popup or removing it from the DOM
+    // For example:
+    // document.getElementById("yourPopupId").style.display = "none";
 }
 
 function validateAndSwitch(input, nextFieldId) {
@@ -166,35 +160,33 @@ function validateAndSwitch(input, nextFieldId) {
     document.getElementById('verifyOtpbtn').disabled = !allInputsFilled;
 }
 
-  
 /*** Pop up End OTP ***/
 
 /*** Pop up start MAP ***/
+var map;
 
-   var map;
-
-    // Function to initialize the map
-    function initMap() {
-      // Create a new map instance and set its properties
-      map = new google.maps.Map(document.getElementById('map'), {
+// Function to initialize the map
+function initMap() {
+    // Create a new map instance and set its properties
+    map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 0, lng: 0 }, // Set the initial map center
         zoom: 10, // Set the initial zoom level
-      });
+    });
 
-      // Add a click event listener to the map to capture the selected location
-      google.maps.event.addListener(map, 'click', function(event) {
+    // Add a click event listener to the map to capture the selected location
+    google.maps.event.addListener(map, 'click', function (event) {
         updateLocation(event.latLng);
-      });
+    });
 
-      // Add a dragend event listener to the map to capture the dragged location
-      google.maps.event.addListener(map, 'dragend', function() {
+    // Add a dragend event listener to the map to capture the dragged location
+    google.maps.event.addListener(map, 'dragend', function () {
         updateLocation(map.getCenter());
-      });
-    }
+    });
+}
 
-    // Function to open the popup
-   function openPopup() {
-    var otpPopupHtml = document.getElementsByTagName( 'html' )[0];
+// Function to open the popup
+function openPopup() {
+    var otpPopupHtml = document.getElementsByTagName('html')[0];
     var popupElement = document.getElementById('popup');
 
     if (popupElement) {
@@ -215,10 +207,10 @@ function validateAndSwitch(input, nextFieldId) {
         console.error("Element with ID 'popup' not found");
     }
 }
-    // Function to close the popup
-  
-    function closePopup() {
-    var otpPopupHtml = document.getElementsByTagName( 'html' )[0];
+// Function to close the popup
+
+function closePopup() {
+    var otpPopupHtml = document.getElementsByTagName('html')[0];
     var popupElement = document.getElementById('popup');
 
     if (popupElement) {
@@ -232,142 +224,141 @@ function validateAndSwitch(input, nextFieldId) {
     }
 }
 
-    // Function to update the location information
-    function updateLocation(location) {
-      // Update the input field with the selected location
-      let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${location.lat()},${location.lng()}`
-    /** get address form lag and lng **/ 
+// Function to update the location information
+function updateLocation(location) {
+    // Update the input field with the selected location
+    let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=YOUR_API_KEY&latlng=${location.lat()},${location.lng()}`
+    /** get address form lat and lng **/
     fetch(apiAdd)
-      .then(response => {
-          if (!response.ok) {
-              throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-          return response.json();
-      })
-      .then(data => {
-          document.getElementById('locationText').innderText = data.results[0]['formatted_address'];
-          document.getElementById('locationInput').value = data.results[0]['formatted_address'];
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-      }
-      /** END  get address form lag and lng **/ 
-    // Function to handle Enter key on the address input field
-    function handleEnterKey(event) {
-      if (event.key === 'Enter') {
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            document.getElementById('locationText').innerText = data.results[0]['formatted_address'];
+            document.getElementById('locationInput').value = data.results[0]['formatted_address'];
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+}
+/** END get address form lat and lng **/
+
+// Function to handle Enter key on the address input field
+function handleEnterKey(event) {
+    if (event.key === 'Enter') {
         // Prevent the default Enter key behavior (form submission)
         event.preventDefault();
 
         // Update location based on entered address
         updateLocationForAddress();
-      }
     }
+}
 
-    // Function to update the location based on entered address
-    function updateLocationForAddress() {
-      var address = document.getElementById('addressInput').value;
+// Function to update the location based on entered address
+function updateLocationForAddress() {
+    var address = document.getElementById('addressInput').value;
 
-      // Use Google Maps Geocoding API to convert the address into latitude and longitude
-      var geocoder = new google.maps.Geocoder();
-      geocoder.geocode({ 'address': address }, function(results, status) {
+    // Use Google Maps Geocoding API to convert the address into latitude and longitude
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ 'address': address }, function (results, status) {
         if (status == 'OK' && results[0]) {
-          var location = results[0].geometry.location;
+            var location = results[0].geometry.location;
 
-          // Update the map center
-          map.setCenter(location);
+            // Update the map center
+            map.setCenter(location);
 
-          // Update the location information
-          updateLocation(location);
+            // Update the location information
+            updateLocation(location);
         }
-      });
-    }
+    });
+}
 
-    // Function to show map based on entered address
-    function showMapForAddress() {
-      updateLocationForAddress();
-    }
-  
-/*** Pop up end MAP ***/  
+// Function to show map based on entered address
+function showMapForAddress() {
+    updateLocationForAddress();
+}
+
+/*** Pop up end MAP ***/
 
 /*** Reg mobile field start ***/
-  function validateInputt() {
-    
-      var mobileInput = document.getElementById('mobile');
-      var registerButton = document.getElementById('registerButton');
+function validateInputt() {
 
-      // Remove non-numeric characters
-      var numericValue = mobileInput.value.replace(/\D/g, '');
+    var mobileInput = document.getElementById('mobile');
+    var registerButton = document.getElementById('registerButton');
 
-      // Update the input value with the numeric value
-      mobileInput.value = numericValue;
-  }
+    // Remove non-numeric characters
+    var numericValue = mobileInput.value.replace(/\D/g, '');
+
+    // Update the input value with the numeric value
+    mobileInput.value = numericValue;
+}
 /*** Reg mobile field end ***/
 
 /*** Timer start ***/
+let timer; // Declare timer as a global variable
 
-       let timer; // Declare timer as a global variable
+// Function to start the countdown timer
+function startTimer(duration, display) {
+    let timeLeft = duration;
+    timer = setInterval(function () {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
 
-    // Function to start the countdown timer
-    function startTimer(duration, display) {
-        let timeLeft = duration;
-        timer = setInterval(function () {
-            const minutes = Math.floor(timeLeft / 60);
-            const seconds = timeLeft % 60;
+        const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        display.textContent = formattedTime;
 
-            const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-            display.textContent = formattedTime;
+        if (--timeLeft < 0) {
+            clearInterval(timer);
+            // Enable the link and reset onclick when the timer finishes
+            const resendLink = document.getElementById('resendLink');
+            resendLink.classList.remove('disabled-link');
+            resendLink.setAttribute('onclick', 'startTimerOnClick()'); // Restore onclick
+            display.style.display = 'none';
+        } else {
+            display.style.display = 'block';
+        }
+    }, 1000);
+}
 
-            if (--timeLeft < 0) {
-                clearInterval(timer);
-                // Enable the link and reset onclick when the timer finishes
-                const resendLink = document.getElementById('resendLink');
-                resendLink.classList.remove('disabled-link');
-                resendLink.setAttribute('onclick', 'startTimerOnClick()'); // Restore onclick
-                display.style.display = 'none';
-            }else{
-              display.style.display = 'block';
-            }
-        }, 1000);
-    }
+// Function to start the timer when the button is clicked
+function startTimerOnClick() {
+    // Disable the link to prevent multiple clicks
+    const resendLink = document.getElementById('resendLink');
+    resendLink.classList.add('disabled-link');
+    resendLink.removeAttribute('onclick'); // Remove onclick to disable further clicks
 
-    // Function to start the timer when the button is clicked
-    function startTimerOnClick() {       
-        // Disable the link to prevent multiple clicks
-        const resendLink = document.getElementById('resendLink');
-        resendLink.classList.add('disabled-link');
-        resendLink.removeAttribute('onclick'); // Remove onclick to disable further clicks
+    // Get the timer element
+    const timerElement = document.getElementById('timer');
 
-        // Get the timer element
-        const timerElement = document.getElementById('timer');
+    // Set the duration of the timer in seconds (in this case, 60 seconds)
+    const timerDuration = 60;
 
-        // Set the duration of the timer in seconds (in this case, 60 seconds)
-        const timerDuration = 60;
+    // Start or restart the timer
+    startTimer(timerDuration, timerElement);
+}
 
-        // Start or restart the timer
-        startTimer(timerDuration, timerElement);  
-    }
-    
 /*** Timer end ***/
 
 /*** login page and otp start ***/
- function captured_value() {
-     // Get the input value
-        var inputValue = document.getElementById('mobile').value;
+function captured_value() {
+    // Get the input value
+    var inputValue = document.getElementById('mobile').value;
 
-        // Display the captured value in the div
-        document.getElementById('capturedValue').innerText = '+971 ' + inputValue;
-        document.getElementById('capturedValuemob').innerText = '+971 ' + inputValue;
- }
+    // Display the captured value in the div
+    document.getElementById('capturedValue').innerText = '+971 ' + inputValue;
+    document.getElementById('capturedValuemob').innerText = '+971 ' + inputValue;
+}
 
- function startTimerOnClick_login() {
-   startTimerOnClick();
-   captured_value();
- }
+function startTimerOnClick_login() {
+    startTimerOnClick();
+    captured_value();
+}
 /*** login page and otp end ***/
 
 /*** validation form reg page start ***/
-
 function validateForm() {
     var isValid = true;
 
@@ -394,8 +385,8 @@ function validateField(inputId, errorId, errorMessage) {
         console.error(errorMessage);
         return false;
     } else {
-        errorElement.innerHTML = '';       
-        return true;      
+        errorElement.innerHTML = '';
+        return true;
     }
 }
 
@@ -431,7 +422,6 @@ function validateConfirmEmailField(inputId, referenceInputId, errorId, errorMess
 }
 
 function validateSelectField(inputId, errorId, errorMessage) {
-  // alert(errorId);
     var input = document.getElementById(inputId);
     var errorElement = document.getElementById(errorId);
     var value = input.value;
@@ -448,15 +438,19 @@ function validateSelectField(inputId, errorId, errorMessage) {
 
 function isValidEmail(email) {
     // Simple email validation regex
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  
-    
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
 }
 
- function updateButtonState() {
-        var checkbox = document.getElementById('checkbox_reg');
-        var button = document.getElementById('regi_button');
+function updateButtonState() {
+    var checkbox = document.getElementById('checkbox_reg');
+    var button = document.getElementById('regi_button');
 
+    if (checkbox && button) {
         button.disabled = !checkbox.checked;
+    } else {
+        console.error("Checkbox or button not found");
     }
-    
+}
+
 /*** validation form reg page end ***/
