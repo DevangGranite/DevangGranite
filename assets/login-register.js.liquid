@@ -366,15 +366,22 @@ function validateForm() {
     isValid = isValid && validateField('first_name', 'firstNameError', 'Please enter your First Name');
     isValid = isValid && validateField('last_name', 'lastNameError', 'Please enter your Last Name');
     isValid = isValid && validateEmailField('email', 'emailError', 'Please enter a valid Email Address');
+    
+    // Only check the mobile field if the email is valid
+    if (isValid) {
+        isValid = isValid && validateField('mobile', 'mobileError', 'Mobile number must have 9 digits');
+    }
+
     isValid = isValid && validateConfirmEmailField('confirm_email', 'email', 'confirmEmailError', 'Email Addresses do not match');
     isValid = isValid && validateField('locationInput', 'locationInputError', 'Please enter your Address');
     isValid = isValid && validateSelectField('regi_city', 'regiCityError', 'Please select your City');
     isValid = isValid && validateSelectField('district', 'districtError', 'Please select your District');
 
-    console.log('Form validation result:', isValid); // Add this line for debugging
+    console.log('Form validation result:', isValid);
 
     return isValid;
 }
+
 
 function validateField(inputId, errorId, errorMessage) {
     var input = document.getElementById(inputId);
