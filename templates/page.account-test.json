@@ -67,6 +67,7 @@
         "slide_gBAKRh": {
           "type": "slide",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Buy10_Get2Bottles.jpg",
             "slide_link": "",
             "video_background": false,
             "badge_text": "",
@@ -86,7 +87,7 @@
             "color_badge_text": "#ffffff",
             "overlay_color": "#000000",
             "overlay_opacity": 70,
-            "overlay_gradient": "linear-gradient(180deg, rgba(0,0,0, 0.1), rgba(0, 0, 0, 0.4) 100%)",
+            "overlay_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4) 100%)",
             "button_1_text": "Shop Now",
             "button_1_color": "accent",
             "button_1_link": "",
