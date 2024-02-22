@@ -10,12 +10,12 @@
               <span class="link-forward">{%- render 'svg-icons' with 'thb-mobile-menu-forward' -%}</span>
             </summary>
             <ul class="sub-menu">
-              <li class="parent-link-back">
-                <button class="parent-link-back--button">
-                  <span>{%- render 'svg-icons' with 'thb-mobile-menu-back' -%}</span>
-                  {{ 'sections.header.my_account' | t }}
-                </button>
-              </li>
+                <li class="parent-link-back">
+                  <button class="parent-link-back--button">
+                    <span>{%- render 'svg-icons' with 'thb-mobile-menu-back' -%}</span>
+                    {{ 'sections.header.my_account' | t }}
+                  </button>
+                </li>
                 <li><a title="Home" href="{{ routes.account_url }}">{{ 'sections.header.home' | t }}</a></li>
                 <li><a title="Profile" href="{{ routes.root_url | append: 'pages/profile' }}">{{ 'sections.header.profile' | t }}</a></li>
                 <li><a title="Orders & Deliveries" href="#">{{ 'sections.header.orders_and_deliveries' | t }}</a></li>
