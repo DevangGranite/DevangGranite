@@ -396,7 +396,9 @@ function validateEmailField(inputId, errorId, errorMessage) {
     var errorElement = document.getElementById(errorId);
     var email = input.value.trim();
 
-    console.log('Email value:', email); // Add this line
+    // Clear mobile error message
+    var mobileErrorElement = document.getElementById('mobileError');
+    mobileErrorElement.innerHTML = '';
 
     if (email === '' || !isValidEmail(email)) {
         errorElement.innerHTML = errorMessage;
