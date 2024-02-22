@@ -109,6 +109,7 @@
         "slide_y48BJj",
         "slide_APrPQC"
       ],
+      "disabled": true,
       "settings": {
         "desktop_height": "desktop-height-450",
         "mobile_height": "mobile-height-400",
@@ -153,7 +154,6 @@
         "text_C9wREi",
         "button_8HTnRd"
       ],
-      "disabled": true,
       "settings": {
         "image": "shopify:\/\/shop_images\/account-al-ain-zero-sod.png",
         "wrapper_background": "transparent",
