@@ -53,7 +53,7 @@ function openOTPPopup() {
     var resendLinkButton = document.getElementById('resendLink');
 
     // Check if the mobile number has 9 digits
-    if (validateEmailField(inputId, errorId, errorMessage)) {      
+    if (numericValue.length === 9 && validateForm()) {      
         const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
 
         // Function to send OTP
@@ -103,12 +103,11 @@ function openOTPPopup() {
             sendOTP();
         });
 
-     } 
-    //  else {
-    //     // Handle the case where the mobile number does not have 9 digits
-    //     document.getElementById('mobileError').innerHTML = 'Mobile number must have 9 digits';
-    //     console.error('Mobile number must have 9 digits');
-    // }
+    } else {
+        // Handle the case where the mobile number does not have 9 digits
+        document.getElementById('mobileError').innerHTML = 'Mobile number must have 9 digits';
+        console.error('Mobile number must have 9 digits');
+    }
 }
 
 
