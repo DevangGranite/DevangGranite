@@ -365,10 +365,13 @@ function validateForm() {
 
     isValid = isValid && validateField('first_name', 'firstNameError', 'Please enter your First Name');
     isValid = isValid && validateField('last_name', 'lastNameError', 'Please enter your Last Name');
-    isValid = isValid && validateEmailField('email', 'emailError', 'Please enter a valid Email Address');
     
+    // Validate email field
+    var emailIsValid = validateEmailField('email', 'emailError', 'Please enter a valid Email Address');
+    isValid = isValid && emailIsValid;
+
     // Only check the mobile field if the email is valid
-    if (isValid) {
+    if (emailIsValid) {
         isValid = isValid && validateField('mobile', 'mobileError', 'Mobile number must have 9 digits');
     }
 
@@ -381,6 +384,7 @@ function validateForm() {
 
     return isValid;
 }
+
 
 
 function validateField(inputId, errorId, errorMessage) {
