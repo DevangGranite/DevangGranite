@@ -347,7 +347,7 @@
   text-align: center;
   font-size: 0.875rem;
   line-height: 1.75;
-  margin-top: 15px;
+  margin: 35px;
 }
 .profile-form__wrapper .switch-login-section .text-button {
   font-size: inherit;
