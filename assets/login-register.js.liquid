@@ -45,7 +45,7 @@
 
 /*** Pop up start OTP ***/
 function openOTPPopup() {
-    validateForm();
+   // validateForm();
     startTimerOnClick();
         
     var mobileInput = document.getElementById('mobile');
@@ -53,7 +53,7 @@ function openOTPPopup() {
     var resendLinkButton = document.getElementById('resendLink');
 
     // Check if the mobile number has 9 digits
-    if (numericValue.length === 9) {      
+    if (numericValue.length === 9 && validateForm()) {      
         const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
 
         // Function to send OTP
