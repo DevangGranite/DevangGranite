@@ -395,6 +395,8 @@ function validateEmailField(inputId, errorId, errorMessage) {
     var errorElement = document.getElementById(errorId);
     var email = input.value.trim();
 
+    console.log('Email value:', email); // Add this line
+
     if (email === '' || !isValidEmail(email)) {
         errorElement.innerHTML = errorMessage;
         console.error(errorMessage);
@@ -404,6 +406,7 @@ function validateEmailField(inputId, errorId, errorMessage) {
         return true;
     }
 }
+
 
 function validateConfirmEmailField(inputId, referenceInputId, errorId, errorMessage) {
     var input = document.getElementById(inputId);
