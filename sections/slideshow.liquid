@@ -85,7 +85,9 @@
 										assign class = 'slideshow-image--desktop'
 									endif
 								 -%}
+                              <a href="{{ block.settings.slide_link }}" target="_blank" tabindex="-1">
 								 <img data-src="{{ image | image_url }}" class="lazyload {{ class }}{% unless settings.lazy_loading %} no-blur{% endunless %}" width="{{ image.src.width }}" height="{{ image.src.height }}" alt="{{ image.alt }}" />
+                              </a>
 							{%- else -%}
 								{%- assign index = forloop.index | modulo: 2 | plus: 1 -%}
 								{{ 'lifestyle-' | append: index | placeholder_svg_tag: 'placeholder_svg_tag' }}
