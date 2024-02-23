@@ -404,6 +404,10 @@ function validateEmailField(inputId, errorId, errorMessage) {
     var errorElement = document.getElementById(errorId);
     var email = input.value.trim();
 
+    // Clear mobile error message
+    var mobileErrorElement = document.getElementById('mobileError');
+    mobileErrorElement.innerHTML = '';
+
     if (email === '' || !isValidEmail(email)) {
         errorElement.innerHTML = errorMessage;
         console.error(errorMessage);
