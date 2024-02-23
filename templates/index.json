@@ -177,6 +177,7 @@
         "column_nniHyU"
       ],
       "settings": {
+        "column_link": true,
         "heading": "",
         "marker_style": "style1",
         "description": "",

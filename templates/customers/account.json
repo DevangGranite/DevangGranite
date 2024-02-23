@@ -81,7 +81,7 @@
           "type": "button",
           "settings": {
             "button_text": "Claim Now",
-            "button_link": ""
+            "button_link": "shopify:\/\/products\/free-philips-pump"
           }
         }
       },
@@ -117,7 +117,7 @@
           "type": "media",
           "settings": {
             "image": "shopify:\/\/shop_images\/Electric_Pump.png",
-            "slide_link": "shopify:\/\/products\/2-bottles-free",
+            "slide_link": "shopify:\/\/products\/free-philips-pump",
             "use_video": false,
             "video_autoplay": true,
             "column": 2,

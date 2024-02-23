@@ -1,5 +1,6 @@
 {{ 'login-register.css' | asset_url | stylesheet_tag }}
 {{ 'login-register.js' | asset_url | script_tag }}
+{{ 'reward.js' | asset_url | script_tag }}
 
 <div class="row">
   <div class="small-12 columns">
@@ -328,6 +329,7 @@ verifyOTP.addEventListener('click', function () {
       document.querySelector('.custom_email_container').style.display = 'block';
       document.querySelector('.otp-container').style.display = 'none';
     }else{
+      setCookie('user_id',data.response['0'].id);
       customerLogin(data.response['0'].email_id);
     }  
   }).catch(error => {
@@ -348,8 +350,8 @@ function updateEmail(){
     }
     return response.json();
   }).then(data => {
-    console.log("Update email",data);
-    customerLogin(document.getElementById('customer_email').value);
+    setCookie('user_id',data.response['0'].id);
+    customerLogin(data.response['0'].email_id);
   }).catch(error => {
     console.log('Error fetching data:',error);
   });
@@ -367,6 +369,7 @@ function customerLogin(email) {
       return response.json();
   })
   .then(data => {
+      console.log('Token',data);
       window.location = `/account/login/multipass/${data.token}`;
   })
   .catch(error => {

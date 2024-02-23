@@ -386,7 +386,7 @@ table.account-order-history--table tbody tr:last-child td {
   align-self: center;
 }
 .customer-rewards-progress--complete {
-  width: 80%;
+  width: 0%;
   background: linear-gradient(90deg, #2866D3 61.5%, #409D25 100.07%);
   border-radius: 16px;
   height: 100%;

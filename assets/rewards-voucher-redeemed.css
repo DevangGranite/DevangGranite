@@ -17,6 +17,7 @@
     margin-bottom: 16px;
   }
   .rewards-voucher-redeemed-copy-code{
+    cursor: pointer;
     border-radius: 8px;
     border: 1px solid #2461CC;
     background: #FFF;
