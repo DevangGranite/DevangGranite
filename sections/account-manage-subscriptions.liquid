@@ -1,47 +1,6 @@
 <script src="{{ 'account.js' | asset_url }}" defer="defer"></script>
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
-<script>
-  let dataForS = {
-    user_id: ShopifyAnalytics.meta.page.customerId,
-    user_address_id: {{ customer.addresses[1].id }},
-    sub_total: 42,
-    total_vat: 0,
-    grand_total: 42,
-    items: [
-      {
-        product_id: 8114823135468,
-        quantity: 4
-      }
-    ],
-    submitNew: 1
-  };
-  console.log(dataForS)
-  fetch('https://alainappuat.gdadmin.org/shopifyApiV2/subscriptionList', {
-    method: 'POST',
-    headers: {
-      'lancode': 'en',
-      'token': 123456
-    },
-    body: JSON.stringify({
-      user_id: ShopifyAnalytics.meta.page.customerId,
-      status: 1
-    })
-  }).then(response => response.json()).then(response => {
-    console.log(response)
-  });
-  fetch('https://alainappuat.gdadmin.org/shopifyApiV2/placeSubscription', {
-    method: 'POST',
-    headers: {
-      'lancode': 'en',
-      'token': 123456
-    },
-    body: JSON.stringify(dataForS)
-  }).then(response => response.json()).then(response => {
-    console.log(response)
-  });
-</script>
-
 <account-subscription id="account-form">
   <section id="account-subscriptions--present">
     <div class="account-subscription--wrapper">
@@ -61,10 +20,10 @@
             alt=""
           >
           <div class="account-manage-subscriptions-product--info">
-            <a class="account-manage-subscriptions-product--link" href="">4x Al Ain Water Gallon 5 Litres</a>
+            <div data-product class="account-manage-subscriptions-product--link">4x Al Ain Water Gallon 5 Litres</div>
             <div class="account-manage-subscriptions-price--wrapper">
-              <span class="account-manage-subscriptions--frequency">Every Week</span>
-              <span class="account-manage-subscriptions--price">Dhs. 42.00</span>
+              <span data-frequency class="account-manage-subscriptions--frequency">Every Week</span>
+              <span class="account-manage-subscriptions--price">Dhs. <span data-total>42.00</span></span>
             </div>
           </div>
         </div>
@@ -195,7 +154,7 @@
           receiving Al Ain Water, you'll need to subscribe again.
         </p>
         <div class="account-cancel-subscription--actions">
-          <button class="account-cancel--subscription account-font--medium">Cancel Subscription</button>
+          <button data-cancel class="account-cancel--subscription account-font--medium">Cancel Subscription</button>
           <button class="account-close-cancel-modal--button">Go back</button>
         </div>
       </div>

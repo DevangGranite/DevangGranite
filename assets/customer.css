@@ -463,13 +463,14 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
 }
 .account-manage-subscriptions-product--info {
   padding-left: 16px;
+  width: 100%;
 }
 .account-manage-subscriptions-product--link {
   display: block;
   color: #1F1F20;
   font-size: 14px;
   line-height: 20px;
-  width: 65%;
+  width: 50%;
   margin-bottom: 13px;
 }
 .account-manage-subscriptions--frequency {
@@ -814,6 +815,9 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
   margin-bottom: 46px;
   padding: 0 24px;
 }
+#account-subscriptions--present {
+  display: none;
+}
 #account-subscriptions--empty p {
   color: rgb(44, 45, 46);
   font-size: 16px;
@@ -828,6 +832,16 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
 }
 .account-subscription-empty--image {
   margin: 20px 0 32px 0;
+}
+.form--success {
+  color: green;
+  margin: 1rem auto;
+  text-align: center;
+}
+.form--error {
+  color: red;
+  margin: 1rem auto;
+  text-align: center;
 }
 @media screen and (min-width: 768px) {
   .account-edit-address-input--double {

@@ -1,0 +1,900 @@
+{
+  "sections": {
+    "image_with_text_overlay_3aJ6Uy": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/banner-change-our-products-min.png",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-550",
+        "mobile_height": "mobile-height-500",
+        "full_width": true,
+        "content_width": "medium",
+        "content_position": "bottom-center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_qHghrD": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_6xLi7F": {
+          "type": "heading",
+          "settings": {
+            "text": "Our Products",
+            "marker_style": "style2",
+            "size": "h1",
+            "marker_color": "#2866d3"
+          }
+        },
+        "text_bhyHVz": {
+          "type": "text",
+          "settings": {
+            "text": "<p><\/p><p><strong>Water hydrates and helps replenish lost nutrients. Al Ain Water’s balanced mineral composition revitalizes and nourishes your body, so you lead a healthy and purposeful lifestyle. In addition to many health benefits, this right balance of essential minerals gives Al Ain Water a unique soft and smooth taste.<\/strong><\/p>",
+            "size": "text-size-large"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6xLi7F",
+        "text_bhyHVz"
+      ],
+      "settings": {
+        "text_width": "grid",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "rich_text_WaFRf9": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_3GT48h": {
+          "type": "heading",
+          "settings": {
+            "text": "Al Ain Zero",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_aPTgiC": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The original and first zero Sodium water in UAE, From the house of UAE's number 1 water brand Al Ain.  The Healthier Alternative to your water intake - No Sodium and PH Neutral.<br\/><\/p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_3GT48h",
+        "text_aPTgiC"
+      ],
+      "settings": {
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "multicolumn_N6daxb": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_bxaqze": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Al-Ain--Water-Zero-5-Gallon_996de75e-629f-4834-85f0-8d468fcfe24b.webp",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Zero 5 Gallon",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_byTEKD": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Al-Ain--Water-Zero-4-Gallon_29842408-f00f-4797-a080-33352f276605.webp",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Zero 4 Gallon",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_bxaqze",
+        "column_byTEKD"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "columns_desktop": 2,
+        "mobile_swipe": false,
+        "image_ratio": "adapt",
+        "text_alignment": "center",
+        "heading_size": "h5",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_hTNwjU": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_JFhYpz": {
+          "type": "heading",
+          "settings": {
+            "text": "Al Ain Water",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_bWyaNJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Water hydrates and helps replenish lost nutrients. Al Ain Water’s balanced mineral composition revitalizes and nourishes your body, so you lead a healthy and purposeful lifestyle.<\/p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_JFhYpz",
+        "text_bWyaNJ"
+      ],
+      "settings": {
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "multicolumn_dCgeUA": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_EchD3N": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Al-Ain--Water-5-Gallon_b8028f1b-d96d-4bf1-b572-18c8385b7d67.webp",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Water 5 Gallon",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_wiWGrU": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Al-Ain--Water-4-Gallon_3dcb60a5-6eba-4a61-8c12-d55eea95e0dc.webp",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Water 4 Gallon",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_EchD3N",
+        "column_wiWGrU"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "columns_desktop": 2,
+        "mobile_swipe": false,
+        "image_ratio": "adapt",
+        "text_alignment": "center",
+        "heading_size": "h5",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_zKDmcg": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_9EYXK6": {
+          "type": "heading",
+          "settings": {
+            "text": "Al Ain Zero Sodium Water",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_Akazha": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Al Ain Zero is the only Ph-neutral, sodium-free, regulatory-approved water produced in the UAE. It has been specifically developed based on your needs of healthier water options.<\/p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_9EYXK6",
+        "text_Akazha"
+      ],
+      "settings": {
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "multicolumn_UhxC46": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_epnC8z": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Shrink-Zero-12x200-Eng_Ara-Red-Cap-EN_1.webp",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Zero Sodium Water 200 ml x 12",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Yj4V4c": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Shrink-Zero-12x330-Eng_Ara-Red-Cap-EN_1.webp",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Zero Sodium Water 330 ml x 12",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_6ALAmQ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Shrink-Zero-12x500-Eng_Ara-Red-Cap-EN_1.webp",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Zero Sodium Water 500 ml x 12",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_3QFEg3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Shrink-Zero-6x1.5-Eng_Ara-Red-Cap-EN.webp",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Zero Sodium Water 1.5L x 6",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_epnC8z",
+        "column_Yj4V4c",
+        "column_6ALAmQ",
+        "column_3QFEg3"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "columns_desktop": 4,
+        "mobile_swipe": false,
+        "image_ratio": "adapt",
+        "text_alignment": "center",
+        "heading_size": "h5",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_9yXYKk": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_6pcRAx": {
+          "type": "heading",
+          "settings": {
+            "text": "Al Ain Water Low Sodium",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_wieGgt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Water hydrates and helps replenish lost nutrients. Al Ain Water’s balanced mineral composition revitalizes and nourishes your body, so you lead a healthy and purposeful lifestyle. <br\/><br\/>In addition to many health benefits, this right balance of essential minerals gives Al Ain Water a unique soft and smooth taste.<\/p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6pcRAx",
+        "text_wieGgt"
+      ],
+      "settings": {
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "multicolumn_VLwfXd": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_NJAzBT": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/200ml-24-shrink-wrap-Right-cam-eng-new_1.webp",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Water Low Sodium 200ml x 24",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_qLPCcE": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/330x24-Bottle_carton-eng-new_1.webp",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Water Low Sodium 330ml x 24",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Kx877a": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/500x24-Bottle_carton-eng-new.webp",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Water Low Sodium 500ml x 24",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_JntCVz": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1.5Lx12-Bottle_carton-eng-new.webp",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Water Low Sodium 1.5 Liter x 12",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_NJAzBT",
+        "column_qLPCcE",
+        "column_Kx877a",
+        "column_JntCVz"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "columns_desktop": 4,
+        "mobile_swipe": false,
+        "image_ratio": "adapt",
+        "text_alignment": "center",
+        "heading_size": "h5",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_BxNE6C": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_kWDrd8": {
+          "type": "heading",
+          "settings": {
+            "text": "Al Ain Bambini",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_yWYcpU": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Babies deserve the best and purest form of water for their growth. Al Ain Bambini is perfectly balanced in essential minerals to meet strict pharmaceutical standards. Free from sodium, bromate, fluoride and nitrates it is ready for drinking, as well as the preparation of baby’s food and formula.<br\/><br\/>Free from Sodium and Bromate to protect baby's kidneys<br\/>Free from Fluoride to protect baby's forming teeth<br\/>Free from Nitrates to protect baby's brain<br\/>Goodness guaranteed, produced under stringent quality control<\/p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_kWDrd8",
+        "text_yWYcpU"
+      ],
+      "settings": {
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "multicolumn_Wrmcfg": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_GXG8LF": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Bambini330ml.jpg",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Bambini 330ML",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_dWmXL9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Bambini_1.5L.jpg",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Bambini 1.5L",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_GXG8LF",
+        "column_dWmXL9"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "columns_desktop": 2,
+        "mobile_swipe": false,
+        "image_ratio": "adapt",
+        "text_alignment": "center",
+        "heading_size": "h5",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_TMCBeC": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_tRBKG6": {
+          "type": "heading",
+          "settings": {
+            "text": "Al Ain Vitamin D",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_HX4K8T": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Al Ain Vitamin D is Agthia’s answer to the very need and concern of the consumer.<br\/><br\/>It contains 50 IU of Vitamin D - 500 ml and 30 IU of Vitamin D - 330 ml<br\/>Its taste is identical to the classic Al Ain Water we all love, so it can be incorporated into our lifestyles very easily.<br\/>Combining hydration and Vitamin D support, Al Ain Vitamin D addresses an important concern in the consumers’ lives – who otherwise would have to resort to expensive supplements that need to be taken under a troublesome regime.<\/p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tRBKG6",
+        "text_HX4K8T"
+      ],
+      "settings": {
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "multicolumn_cMQfi7": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_qRykx9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/VitaminD330ml.jpg",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Vitamin D 330ML",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_G3Xk3R": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/VitaminD500ml.jpg",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Vitamin D 500ML",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_qRykx9",
+        "column_G3Xk3R"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "columns_desktop": 2,
+        "mobile_swipe": false,
+        "image_ratio": "adapt",
+        "text_alignment": "center",
+        "heading_size": "h5",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_ftGnhr": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_VTF9Eq": {
+          "type": "heading",
+          "settings": {
+            "text": "Al Ain Glass Bottle",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_cQGDe8": {
+          "type": "text",
+          "settings": {
+            "text": "<p><br\/>Drink your water in style. Choose from still or sparkling water, packaged in beautiful, one-of-a-kind glass bottles.<br\/><br\/>Al Ain Zero Glass Bottle is a touch of class on your table. Contemporary & elegant bottle design alongside Al Ain Zero's unique composition making it an irresistible choice.<br\/><\/p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VTF9Eq",
+        "text_cQGDe8"
+      ],
+      "settings": {
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "multicolumn_mQaNcP": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_H3nTGx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/6x330ml-GB-Still.jpg",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Glass Bottle 330ML",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_ncgDmU": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/6x750ml-GBStill.jpg",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Glass Bottle 750ML",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_LWAVjF": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/6x3300ml-GB-Sparkling.jpg",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Glass Sparkling Water 330ML",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_DrwYDj": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/6x750ml-GB-Sparkling.jpg",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Glass Sparkling Water 750ML",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_H3nTGx",
+        "column_ncgDmU",
+        "column_LWAVjF",
+        "column_DrwYDj"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "columns_desktop": 4,
+        "mobile_swipe": false,
+        "image_ratio": "adapt",
+        "text_alignment": "center",
+        "heading_size": "h5",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_TACzrt": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Dk3UbW": {
+          "type": "heading",
+          "settings": {
+            "text": "Al Ain Plant Based Bottled Drinking Water",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_8PNafh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The Al Ain plant based bottle fratures packaging that is environmentally firedy, made with 100% plant based sources giving it a distrinctive taste. Al Ain Water's balanced mineral composition revitalizes and nourishes your body, so you can lead a healthy\/ purposeful lifestye. <\/p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Dk3UbW",
+        "text_8PNafh"
+      ],
+      "settings": {
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_mxtN4R": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_BeHFYV": {
+          "type": "heading",
+          "settings": {
+            "text": "Al Ain Plant Based Bottled Drinking Water 12x480ml",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "heading_BeHFYV"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/AlAinPlantBottle.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_9mDqPr": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_MrwC9w": {
+          "type": "heading",
+          "settings": {
+            "text": "Al Ain Recyled PET Bottles",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_f6PUYp": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Al Ain Recyled bottle made of a strong, durable and infintely recyclable materials.  Al Ain Water's balanced mineral composition revitalizes and nourishes your body, so you can lead a healthy\/ purposeful lifestye. <\/p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_MrwC9w",
+        "text_f6PUYp"
+      ],
+      "settings": {
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_yyGJYn": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_ji3Mpa": {
+          "type": "heading",
+          "settings": {
+            "text": "Al Ain Recyled PET Bottles 12 X 500ML",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "heading_ji3Mpa"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/AlAinPETPlastic.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "image_with_text_overlay_3aJ6Uy",
+    "rich_text_qHghrD",
+    "main",
+    "rich_text_WaFRf9",
+    "multicolumn_N6daxb",
+    "rich_text_hTNwjU",
+    "multicolumn_dCgeUA",
+    "rich_text_zKDmcg",
+    "multicolumn_UhxC46",
+    "rich_text_9yXYKk",
+    "multicolumn_VLwfXd",
+    "rich_text_BxNE6C",
+    "multicolumn_Wrmcfg",
+    "rich_text_TMCBeC",
+    "multicolumn_cMQfi7",
+    "rich_text_ftGnhr",
+    "multicolumn_mQaNcP",
+    "rich_text_TACzrt",
+    "image_with_text_mxtN4R",
+    "rich_text_9mDqPr",
+    "image_with_text_yyGJYn"
+  ]
+}

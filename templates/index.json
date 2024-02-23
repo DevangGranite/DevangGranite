@@ -90,6 +90,7 @@
     },
     "60ed2e7d-3f50-428a-b546-03274d862db0": {
       "type": "collection-list",
+      "disabled": true,
       "settings": {
         "heading": "",
         "marker_style": "style1",
@@ -117,208 +118,79 @@
         "disable_bottom_spacing": false
       }
     },
-    "gallery_qyHM6e": {
-      "type": "gallery",
+    "multicolumn_EYCcrV": {
+      "type": "multicolumn",
       "blocks": {
-        "image_pnXqz7": {
-          "type": "image",
+        "column_nPhX3J": {
+          "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/X3---Gallons-_4-and-5-gallons.png",
-            "enable_gallery_video": false,
-            "enable_hover_play": false,
-            "subheading": "",
-            "title": "Gallons (4 and 5 gallons)",
-            "marker_style": "style1",
+            "image": "shopify:\/\/shop_images\/AlAinPETPlastic.jpg",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Water",
             "text": "",
             "link_label": "Explore",
-            "link": "",
-            "use_text_button": false,
-            "block_link": "",
-            "marker_color": "#fd6262"
+            "link": "shopify:\/\/pages\/our-products"
           }
         },
-        "image_xdXfeA": {
-          "type": "image",
+        "column_4MzCxf": {
+          "type": "column",
           "settings": {
-            "enable_gallery_video": false,
-            "enable_hover_play": false,
-            "subheading": "Add a tagline",
-            "title": "Column",
-            "marker_style": "style1",
-            "text": "Pair text with an image to focus on your chosen image",
+            "image": "shopify:\/\/shop_images\/Buy10Get2BottlesFree_610x_crop_center_e23eb65a-5552-47c8-8c8b-36b018aa52d3.webp",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Al Ain Water Gallons",
+            "text": "",
             "link_label": "Explore",
-            "link": "",
-            "use_text_button": false,
-            "block_link": "",
-            "marker_color": "#fd6262"
+            "link": "shopify:\/\/collections\/home-delivery-4-5-gallon"
           }
         },
-        "image_fEN7kt": {
-          "type": "image",
+        "column_ATXYGa": {
+          "type": "column",
           "settings": {
-            "enable_gallery_video": false,
-            "enable_hover_play": false,
-            "subheading": "Add a tagline",
-            "title": "Column",
-            "marker_style": "style1",
-            "text": "Pair text with an image to focus on your chosen image",
+            "image": "shopify:\/\/shop_images\/6x3300ml-GB-Sparkling.jpg",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Recently Launched",
+            "text": "",
             "link_label": "Explore",
-            "link": "",
-            "use_text_button": false,
-            "block_link": "",
-            "marker_color": "#fd6262"
+            "link": "shopify:\/\/collections\/recently-launched"
+          }
+        },
+        "column_nniHyU": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Buy10_Get2Bottles.jpg",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Special Offers",
+            "text": "",
+            "link_label": "Explore",
+            "link": "shopify:\/\/collections\/special-offers"
           }
         }
       },
       "block_order": [
-        "image_pnXqz7",
-        "image_xdXfeA",
-        "image_fEN7kt"
+        "column_nPhX3J",
+        "column_4MzCxf",
+        "column_ATXYGa",
+        "column_nniHyU"
       ],
-      "disabled": true,
       "settings": {
-        "columns_desktop": 3,
-        "full_width": false,
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "columns_desktop": 4,
         "mobile_swipe": false,
         "image_ratio": "adapt",
-        "content_position": "bottom-left",
-        "text_alignment": "left",
-        "column_spacing": "small",
-        "heading_size": "h2",
-        "description_size": "medium",
-        "overlay_color": "#000000",
-        "overlay_opacity": 70,
+        "text_alignment": "center",
+        "heading_size": "h5",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
         "disable_top_spacing": false,
         "disable_bottom_spacing": false
-      }
-    },
-    "f896bcf0-40bd-4c23-8c79-b4d0863d7715": {
-      "type": "media-grid",
-      "blocks": {
-        "media_BRxmXU": {
-          "type": "media",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/2X_-_610_X_600-_-_Al_Ain_HOD_equity_Artwork.jpg",
-            "slide_link": "shopify:\/\/collections\/gallon-1",
-            "use_video": false,
-            "video_autoplay": true,
-            "column": 1,
-            "row": 2,
-            "subheading": "",
-            "heading": "A convenient option \nfor your home or office",
-            "heading_size": "h4",
-            "heading_weight": 400,
-            "button_text": "",
-            "button_link": "",
-            "content_position": "bottom-center",
-            "text_alignment": "center",
-            "color_bg": "#ffffff",
-            "color_bg_gradient": "",
-            "color_text": "#ffffff",
-            "color_link": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 22
-          }
-        },
-        "media_ACy7mk": {
-          "type": "media",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/2X_-_610_X_600-_Al_Ain_PET_equity_Artwork.jpg",
-            "slide_link": "shopify:\/\/collections\/voss-natural-mineral-water",
-            "use_video": false,
-            "video_autoplay": true,
-            "column": 1,
-            "row": 2,
-            "subheading": "",
-            "heading": "Goodness begins here.\nJoin us in our journey",
-            "heading_size": "h4",
-            "heading_weight": 400,
-            "button_text": "",
-            "button_link": "",
-            "content_position": "bottom-center",
-            "text_alignment": "center",
-            "color_bg": "#ffffff",
-            "color_bg_gradient": "",
-            "color_text": "#ffffff",
-            "color_link": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 59
-          }
-        },
-        "media_tyNmpC": {
-          "type": "media",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Al-Ain-HOD-KV_4dec404e-ade1-4a3b-a14c-8ddcc94011a5.jpg",
-            "slide_link": "shopify:\/\/collections\/plus-vit-d",
-            "use_video": false,
-            "video_autoplay": true,
-            "column": 2,
-            "row": 1,
-            "subheading": "",
-            "heading": "",
-            "heading_size": "h4",
-            "heading_weight": 400,
-            "button_text": "",
-            "button_link": "",
-            "content_position": "bottom-center",
-            "text_alignment": "center",
-            "color_bg": "#ffffff",
-            "color_bg_gradient": "linear-gradient(180deg, rgba(247, 177, 168, 1), rgba(63, 114, 229, 1) 99%, rgba(255, 140, 162, 1) 100%)",
-            "color_text": "#ffffff",
-            "color_link": "#3f72e5",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "media_mfWpWb": {
-          "type": "media",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/2X_Image_4_-_Loyalty.jpg",
-            "slide_link": "shopify:\/\/collections\/plus-vit-d",
-            "use_video": false,
-            "video_autoplay": true,
-            "column": 2,
-            "row": 1,
-            "subheading": "",
-            "heading": "RECHARGE & INCREASE DROP POINTS",
-            "heading_size": "h4",
-            "heading_weight": 400,
-            "button_text": "",
-            "button_link": "",
-            "content_position": "top-center",
-            "text_alignment": "center",
-            "color_bg": "#ffffff",
-            "color_bg_gradient": "",
-            "color_text": "#ffffff",
-            "color_link": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "media_BRxmXU",
-        "media_ACy7mk",
-        "media_tyNmpC",
-        "media_mfWpWb"
-      ],
-      "disabled": true,
-      "settings": {
-        "shift_second_grid": false,
-        "use_heading_link": false,
-        "heading_text": "Top Offers",
-        "link_text": "View More",
-        "wrapper_background": "transparent",
-        "desktop_height": 330,
-        "mobile_height": 220,
-        "column_spacing": "medium",
-        "color_bg": "#ffffff",
-        "color_text": "#3a474e",
-        "color_link": "#151515",
-        "disable_top_spacing": false,
-        "disable_bottom_spacing": false,
-        "short_width": false,
-        "heading_first": false
       }
     },
     "41985d74-e833-4bbd-b6df-f14039d7d1e4": {
@@ -492,8 +364,7 @@
   "order": [
     "8ba47ba3-de7f-4f0a-b30d-6f2a540748c3",
     "60ed2e7d-3f50-428a-b546-03274d862db0",
-    "gallery_qyHM6e",
-    "f896bcf0-40bd-4c23-8c79-b4d0863d7715",
+    "multicolumn_EYCcrV",
     "41985d74-e833-4bbd-b6df-f14039d7d1e4",
     "video_QLgji3",
     "image_with_text_slideshow_xJRtiU",
