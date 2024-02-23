@@ -118,7 +118,7 @@
 							{%- assign index = forloop.index | modulo: 2 | plus: 1 -%}
 							{{ 'lifestyle-' | append: index | placeholder_svg_tag: 'placeholder_svg_tag' }}
 						{%- endif -%}
-              </a>
+              
 						{%- if block.settings.mobile_image != blank -%}
 							{%- liquid
 								assign image = block.settings.mobile_image
@@ -127,6 +127,7 @@
 							 -%}
 							test123 {%- render 'responsive-image', image: image, sizes: width, class: 'slideshow-image--mobile' -%}
 						{%- endif -%}
+              </a>
 					</div>
 					{%- if block.settings.video_background -%}
 						{%- liquid
