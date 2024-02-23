@@ -101,6 +101,7 @@
 						</div>
 					{%- endif -%}
 					<div class="slideshow__slide-bg">
+                      <a href="{{ block.settings.slide_link }}" target="_blank" tabindex="-1">
 						{%- if block.settings.image -%}
 							{%- liquid
 								assign image = block.settings.image
@@ -117,6 +118,7 @@
 							{%- assign index = forloop.index | modulo: 2 | plus: 1 -%}
 							{{ 'lifestyle-' | append: index | placeholder_svg_tag: 'placeholder_svg_tag' }}
 						{%- endif -%}
+              </a>
 						{%- if block.settings.mobile_image != blank -%}
 							{%- liquid
 								assign image = block.settings.mobile_image
