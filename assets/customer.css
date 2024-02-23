@@ -151,7 +151,7 @@
   margin: auto;
   font-size: 14px;
 }
-.customer-welcome-img--wrapper {
+.customer-welcome-img--wrapper .customer-welcome--link {
   display: flex;
   flex-direction: column;
   align-items: center;
