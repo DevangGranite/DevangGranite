@@ -105,13 +105,13 @@ if (!customElements.get('account-subscription')) {
       this.orderId = subscriptionData.id;
       this.productLink.innerText = productData.product_name;
       this.productPrice = (productData.price_per_unit + productData.price_per_unit * parseFloat(productData.vat)/100);
-      this.totalPrice.innerText = subscriptionData.grand_total;
       this.nextDelivery.value = this.prettyDate(new Date(subscriptionData.delivery_date));
       this.inititalDeliveryDate = subscriptionData.delivery_date;
       this.nextDeliveryDate = subscriptionData.delivery_date;
       this.address.value = `${subscriptionData.location}, ${subscriptionData.state}, ${subscriptionData.city}`;
       this.initialQuantity = productData.quantity
       this.quantityInput.value = this.initialQuantity;
+      this.totalPrice.innerText = (this.productPrice * this.quantityInput.value).toFixed(2);
     }
     placeSubscription() {
       fetch('https://alainappuat.gdadmin.org/shopifyApiV2/placeSubscription', {
@@ -198,7 +198,6 @@ if (!customElements.get('account-subscription')) {
       });
     }
     eventListeners() {
-      document.querySelector('[data-test]').addEventListener('click', this.placeSubscription);
       this.submitButton.addEventListener('click', e => {
         e.preventDefault();
 

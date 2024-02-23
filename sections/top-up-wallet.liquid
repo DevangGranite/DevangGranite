@@ -1,5 +1,14 @@
 {{ 'wallet_page_style.css' | asset_url | stylesheet_tag }}
-
+<style>
+  .top_up_wallet_variant_inner input{
+    display: none;
+  }
+  .top_up_wallet_variant_inner input[type="radio"]:checked+label {
+    background: #2461CC;
+    color: #FFF;
+    transition: all 0.5s ease-in-out;
+  }
+</style>
 <div class="top_up_wallet_main_product">
   <div class="row">
     <div class="breadcrumbs_account"><a class=""href="/account">My Account  </a> >  Top Up Wallet</div>
@@ -14,18 +23,98 @@
       
       <div class="top_up_wallet_variant">
       <div class="top_up_wallet_variant_inner">
-        <div class="top_up_wallet_var active">100</div>
-        <div class="top_up_wallet_var">200</div>
-        <div class="top_up_wallet_var">300</div>
-        <div class="top_up_wallet_var">500</div>
-        <div class="top_up_wallet_var">700</div>
-        <div class="top_up_wallet_var">1000</div>
-        <div class="top_up_wallet_var">1500</div>
-        <div class="top_up_wallet_var">2000</div>
+         
+			<input type="radio" id="{{ section.id }}-100"
+						name="drops"
+						value="100"
+						form="{{ product_form_id }}"
+						checked
+			>
+			<label class="top_up_wallet_var" for="{{ section.id }}-100">
+				<span>100</span>
+			</label>
+
+        <input type="radio" id="{{ section.id }}-200"
+						name="drops"
+						value="200"
+						form="{{ product_form_id }}"
+						
+			>
+			<label class="top_up_wallet_var" for="{{ section.id }}-200">
+				<span>200</span>
+			</label>
+
+        <input type="radio" id="{{ section.id }}-300"
+						name="drops"
+						value="300"
+						form="{{ product_form_id }}"
+						
+			>
+			<label class="top_up_wallet_var" for="{{ section.id }}-300">
+				<span>100</span>
+			</label>
+
+        <input type="radio" id="{{ section.id }}-500"
+						name="drops"
+						value="500"
+						form="{{ product_form_id }}"
+						
+			>
+			<label class="top_up_wallet_var" for="{{ section.id }}-500">
+				<span>500</span>
+			</label>
+
+            <input type="radio" id="{{ section.id }}-700"
+						name="drops"
+						value="700"
+						form="{{ product_form_id }}"
+						
+			>
+			<label class="top_up_wallet_var" for="{{ section.id }}-700">
+				<span>700</span>
+			</label>
+
+        <input type="radio" id="{{ section.id }}-1000"
+						name="drops"
+						value="1000"
+						form="{{ product_form_id }}"
+						
+			>
+			<label class="top_up_wallet_var" for="{{ section.id }}-1000">
+				<span>1000</span>
+			</label>
+
+        <input type="radio" id="{{ section.id }}-2000"
+						name="drops"
+						value="2000"
+						form="{{ product_form_id }}"
+						
+			>
+			<label class="top_up_wallet_var" for="{{ section.id }}-2000">
+				<span>2000</span>
+			</label>
+        {% comment %}
+		<fieldset class="product-form__input product-form__input--block" data-index="option{{ forloop.index }}" data-handle="{{ handle }}">
+        
+        </fieldset>
+        
+        {%- for value in option.values -%}
+		{%- endfor -%}
+        {% endcomment %}
+	    {% comment %}
+        <a href=""><div class="top_up_wallet_var active">100</div></a>
+        <a href=""><div class="top_up_wallet_var">200</div></a>
+        <a href=""><div class="top_up_wallet_var">300</div></a>
+        <a href=""><div class="top_up_wallet_var">500</div></a>
+        <a href=""><div class="top_up_wallet_var">700</div></a>
+        <a href=""><div class="top_up_wallet_var">1000</div></a>
+        <a href=""><div class="top_up_wallet_var">1500</div></a>
+        <a href=""><div class="top_up_wallet_var">2000</div></a>
+        {% endcomment %}
       </div>
       </div>
       <a class="top_up_now_button">Top Up Now</a>
-      <a class="top_up_now_button_earn_drop">{% render 'drop_icon' %}Top Up Now</a>
+      <a class="top_up_now_button_earn_drop">{% render 'drop_icon' %}Earn 10 Drops</a>
     </div>    
   </div>
 </div>
