@@ -119,7 +119,7 @@
         "mobile_height": "mobile-height-250",
         "full_width": true,
         "autoplay": true,
-        "autoplay_length": 5,
+        "autoplay_length": 10,
         "transition": "slide",
         "controls": "dots",
         "disable_top_spacing": true,
