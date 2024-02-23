@@ -9,9 +9,12 @@
 			</div>
 			<div class="customer-welcome-links--wrapper">
 				<div class="customer-welcome-img--wrapper">
-					<div class="customer-welcome-img--background"><img src="{{ 'account-manage-subscriptions.png' | file_url }}" alt="{{ 'customer.dashboard.subscriptions' | t }}"></div>
-					<a class="customer-welcome--link" href="{{ routes.account_url | append: '?view=manage-subscriptions' }}" target="_blank">{{ 'customer.dashboard.subscriptions' | t }}</a>
-				</div>
+    <a class="customer-welcome--link" href="{{ routes.account_url | append: '?view=manage-subscriptions' }}" target="_blank">
+        <div class="customer-welcome-img--background"><img src="{{ 'account-manage-subscriptions.png' | file_url }}" alt="{{ 'customer.dashboard.subscriptions' | t }}"></div>
+        {{ 'customer.dashboard.subscriptions' | t }}
+    </a>
+</div>
+
 				<div class="customer-welcome-img--wrapper">
 					<div class="customer-welcome-img--background"><img src="{{ 'account-top-up.png' | file_url }}" alt="Top Up Wallet"></div>
 					<a class="customer-welcome--link" href="{{ routes.root_url | append: 'pages/top-up-wallet' }}" target="_blank">{{ 'customer.dashboard.top_up_wallett' | t }}</a>
