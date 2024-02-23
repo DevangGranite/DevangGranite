@@ -122,56 +122,6 @@
 		{{ 'theme-editor.js' | asset_url | script_tag }}
 	{%- endif -%}
 	{% render 'back-to-top' %}
-
-<script>
- // Replace 'https://alainappuat.agthia.com/api/your-endpoint' with the actual API endpoint URL
-const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/customer/0ce264a7-e717-44e6-b868-efcca55099d7';
-
-// Optional: If the API requires headers or authentication, include them in the headers object
-
-
-// Use the fetch function to make a GET request to the API
-fetch(apiUrl, {
-  method: 'GET',
- 
-})
-  .then(response => {
-    // Check if the response is successful (status code 200-299)
-    if (!response.ok) {
-      throw new Error(`Network response was not ok: ${response.status}`);
-    }
-    
-    // Parse the response as JSON
-    return response.json();
-  })
-  .then(data => {
-    // Handle the data retrieved from the API
-    console.log(data);
-    console.log('UUID',data.response.uuid);
-    document.getElementById('uuid').innerText = 'UUID: '+data.response.uuid;
-    document.getElementById('user_id').innerText = 'USER ID: '+data.response.sp_user.user_id;
-    document.getElementById('sp_user_type').innerText = 'SP USER TYPE: '+data.response.sp_user.sp_user_type;
-    document.getElementById('sp_mobile').innerText = 'SP MOBILE: '+data.response.sp_user.sp_mobile;
-    document.getElementById('sp_email').innerText = 'SP EMAIL: '+data.response.sp_user.sp_email;
-    document.getElementById('sp_idn').innerText = 'SP IDN: '+data.response.sp_user.sp_idn;
-    document.getElementById('sp_nationality_en').innerText = 'SP NATIONALITY EN: '+data.response.sp_user.sp_nationality_en;
-    document.getElementById('sp_nationality_ar').innerText = 'SP NATIONALITY AR: '+data.response.sp_user.sp_nationality_ar;
-    document.getElementById('sp_gender').innerText = 'SP GENDER: '+data.response.sp_user.sp_gender;
-    document.getElementById('sp_id_type').innerText = 'SP ID TYPE: '+data.response.sp_user.sp_id_type;
-    document.getElementById('sp_title_en').innerText = 'SP TITLE EN: '+data.response.sp_user.sp_title_en;
-    document.getElementById('sp_title_ar').innerText = 'SP TITLE AR: '+data.response.sp_user.sp_title_ar;
-    document.getElementById('sp_full_name_en').innerText = 'SP FULL NAME EN: '+data.response.sp_user.sp_full_name_en;
-    document.getElementById('sp_full_name_ar').innerText = 'SP FULL NAME AR: '+data.response.sp_user.sp_full_name_ar;    
-  
-  })
-  .catch(error => {
-    // Handle errors that may occur during the fetch operation
-    console.error('Error fetching data:', error);
-  });
-</script>
-
-
-
-{% include 'store-credit-launcher' %}
+	{% include 'store-credit-launcher' %}
 </body>
 </html>

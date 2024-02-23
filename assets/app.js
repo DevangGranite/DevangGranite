@@ -7,6 +7,8 @@ if (typeof debounce === 'undefined') {
     };
   }
 }
+
+// nothing here really
 var dispatchCustomEvent = function dispatchCustomEvent(eventName) {
   var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   var detail = {

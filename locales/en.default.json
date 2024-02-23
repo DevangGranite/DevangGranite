@@ -370,7 +370,23 @@
       "view_addresses": "View addresses",
       "default_address": "Default address",
       "log_out": "Log out",
-      "return_to_account_details": "Return to account details"
+      "return_to_account_details": "Return to account details",
+      "reward": {
+        "title": "My Reward Drops",
+        "drop": "Drops",
+        "blue_drop": "Blue Drop",
+        "green_drop": "Green Drop",
+        "platinum_drop": "Platinum Drop",
+        "redeemable_offer": "Redeemable Offers",
+        "until_next_tier": "drops until",
+        "blue_tier": "Blue Tier",
+        "green_tier": "Green Tier",
+        "platinum_tier": "Platinum Tier",
+        "expire_label": "will expire on",
+        "discount_code_voucher": "Discount Code Voucher",
+        "copy_voucher": "Copy Voucher",
+        "copied_voucher": "Copied Voucher"
+      }
     },
     "order": {
       "title": "Order {{ name }}",

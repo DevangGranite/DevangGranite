@@ -2,67 +2,68 @@
 {{ 'wallet_page_style.css' | asset_url | stylesheet_tag }}
 {% endcomment %}
 {{ 'rewards-voucher-redeemed.css' | asset_url | stylesheet_tag }}
-<div class="rewards-voucher-redeemed">
-  <div class="rewards-voucher-redeemed_inner">
-    <div class="rewards-voucher-redeemed_main">
-      <div class="rewards-voucher-redeemed_inner_top">
-      <div class="rewards-voucher-redeemed_back">
-        {% render 'back_icon' %}
+<redemeed-reward-offer>
+  <div class="rewards-voucher-redeemed">
+    <div class="rewards-voucher-redeemed_inner">
+      <div class="rewards-voucher-redeemed_main">
+        <div class="rewards-voucher-redeemed_inner_top">
+        <div class="rewards-voucher-redeemed_back">
+          {% render 'back_icon' %}
+        </div>
+        <div class="rewards-voucher-redeemed_title">Voucher</div>
+        <div class="rewards-voucher-redeemed_help"></div>
+          {% comment %}
+          <!-- {% render 'help_icon' %} -->
+          {% endcomment %}
       </div>
-      <div class="rewards-voucher-redeemed_title">Voucher</div>
-      <div class="rewards-voucher-redeemed_help"></div>
-        {% comment %}
-        <!-- {% render 'help_icon' %} -->
-        {% endcomment %}
+
+      <div class="rewards-voucher-redeemed_card_image deaktop_hide">
+            <img class="rewards-voucher-redeemed_image" src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/Group_18461.png?v=1707940864">
+      </div>
+        
+      </div>
+
     </div>
 
-    <div class="rewards-voucher-redeemed_card_image deaktop_hide">
-           <img class="rewards-voucher-redeemed_image" src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/Group_18461.png?v=1707940864">
-    </div>
-      
-    </div>
 
+    <!--  -->
+
+      <div class="rewards-voucher-redeemed_data_main">
+        <div class="rewards-voucher-redeemed_data_main_inner">
+        <div class="rewards-voucher-redeemed_card_main">
+          <div class="rewards-voucher-redeemed_card_image mobile_hide">
+            <img class="rewards-voucher-redeemed_image" src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/Group_18461.png?v=1707940864">
+          </div>
+          <div class="rewards-voucher-redeemed_card_info">
+            <p class="rewards-voucher-redeemed_detail"></p>
+            <div class="rewards-voucher-redeemed_title_card">Voucher redeemed!</div>
+            <div class="rewards-voucher-redeemed-code">
+              ALAINWATER10H&M23
+            </div>
+            <div class="rewards-voucher-redeemed_button_red"><a class="rewards-voucher-redeemed_redeme_btn_atc">Redeem at H&M.com</a></div>
+            <div class="rewards-voucher-redeemed-copy-code"><span>{{ 'customer.account.reward.copy_voucher' | t }}</span> {% render 'copy-icon' %}</div>
+            <div class="rewards-voucher-redeemed-success-text">
+              Your H&M voucher code has been successfully redeemed. An SMS has been sent to your registered number with all the details.
+            </div>
+            <div class="rewards-voucher-redeemed-divider"></div>
+            <div class="reward-redeem-voucher-title-count"></div>
+            <!-- <div class="rewards-voucher-redeemed-terms">Terms & Conditions</div> -->
+            <!-- <div class="rewards-voucher-redeemed-list">
+              <ul>
+                <li>Up to 2 uses per month</li>
+                <li>Coupon cannot be refunded once unlocked</li>
+              </ul>
+            </div> -->
+          </div>
+        </div>
+        </div>
+      </div>
+    {% comment %}
+      {% render 'small_cards' %}
+    {% endcomment %}
   </div>
-
-
-  <!--  -->
-
-    <div class="rewards-voucher-redeemed_data_main">
-      <div class="rewards-voucher-redeemed_data_main_inner">
-       <div class="rewards-voucher-redeemed_card_main">
-         <div class="rewards-voucher-redeemed_card_image mobile_hide">
-           <img class="rewards-voucher-redeemed_image" src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/Group_18461.png?v=1707940864">
-         </div>
-         <div class="rewards-voucher-redeemed_card_info">
-           <p class="rewards-voucher-redeemed_detail"></p>
-           <div class="rewards-voucher-redeemed_title_card">Voucher redeemed!</div>
-           <div class="rewards-voucher-redeemed-code">
-             ALAINWATER10H&M23
-           </div>
-           <div class="rewards-voucher-redeemed_button_red"><a class="rewards-voucher-redeemed_redeme_btn_atc">Redeem at H&M.com</a></div>
-           <div class="rewards-voucher-redeemed-copy-code">Copy Voucher {% render 'copy-icon' %}</div>
-           <div class="rewards-voucher-redeemed-success-text">
-             Your H&M voucher code has been successfully redeemed. An SMS has been sent to your registered number with all the details.
-           </div>
-           <div class="rewards-voucher-redeemed-divider"></div>
-           <div class="reward-redeem-voucher-title-count">20% Discount Code Voucher <span class="count_drops_total">10 {% render 'drop_icon' %}</span></div>
-           <!-- <div class="rewards-voucher-redeemed-terms">Terms & Conditions</div> -->
-           <!-- <div class="rewards-voucher-redeemed-list">
-             <ul>
-               <li>Up to 2 uses per month</li>
-               <li>Coupon cannot be refunded once unlocked</li>
-             </ul>
-           </div> -->
-         </div>
-       </div>
-      </div>
-    </div>
-  {% comment %}
-    {% render 'small_cards' %}
-  {% endcomment %}
-</div>
-
- 
+</redemeed-reward-offer>
+{{ 'reward.js' | asset_url | script_tag }} 
  
 {% schema %}
   {

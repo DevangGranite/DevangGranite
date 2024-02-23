@@ -1,0 +1,389 @@
+//** URL param object */
+const urlParams = new URLSearchParams(window.location.search);
+
+/** store cooket */
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+
+/** get cooket value by cookie name*/
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+/** delete/erase cooket by cookie name*/
+ function eraseCookie(name) {   
+    document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+/** get customer reward data **/
+async function getCustomerReward(){
+    return fetch(`https://alainappuat.gdadmin.org/shopifyApiV2/getCTDCustomer/${getCookie('user_id')}`, {
+        method: 'GET',
+        headers:{
+            'lancode':'en',
+            'token':'123456'
+        },
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.status}`);
+        }
+        return response.json();  
+    }).then(data => {
+        console.log('Customer Reward',data);
+        return data.response;
+    }).catch(error => {
+        console.error('Error fetching data:', error);
+    });
+    
+}
+
+async function getCustomerRewardOfferes(){
+    return fetch(`https://alainappuat.gdadmin.org/shopifyApiV2/getCTDCustomerRewards/${getCookie('user_id')}/0/4`, {
+        method: 'GET',
+        headers:{
+            'lancode':'en',
+            'token':'123456'
+        },
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.status}`);
+        }
+        return response.json();  
+    }).then(data => {
+        console.log('Customer Reward Offer',data);
+        return data.response;
+    }).catch(error => {
+        console.error('Reward Offer Error fetching data:', error);
+    });
+}
+
+async function rewardOfferDetail(reward_id){
+    return fetch(`https://alainappuat.gdadmin.org/shopifyApiV2/getCTDRewardDetails/${getCookie('user_id')}/${reward_id}`, {
+        method: 'GET',
+        headers:{
+            'lancode':'en',
+            'token':'123456'
+        },
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.status}`);
+        }
+        return response.json();  
+    }).then(data => {
+        console.log('Customer Reward Offer detail',data);
+        return data.response;
+    }).catch(error => {
+        console.error('Reward Offer Error fetching data:', error);
+    });
+}
+
+class AccountMyReward  extends HTMLElement{
+    constructor() {
+        super();
+        this.currentTierImage = "{{ 'Blue_Tier.png' | file_url }}";
+        this.next_tier = "{{ 'customer.account.reward.green_tier' | t}}";
+        this.rewardProgressCompleteBar = this.querySelector('.customer-rewards-progress--complete');
+        this.rewardProgressDrop = this.querySelector('.customer-rewards-progress--drop');
+        this.rewardPriceWrapper = this.querySelector('.customer-rewards-price--wrapper');
+        this.rewardPriceTimer = this.querySelector('.customer-rewards-drops--timer');
+        this.inital();
+    }
+    async inital() {
+        this.data = await getCustomerReward();
+        this.rewardProgressCompleteBar.style.width = `${this.data.current_points*100/80}%`;
+        this.rewardProgressCompleteBar.style.background = `linear-gradient(90deg, #2866D3 61.5%, #409D25 100.07%)`;
+        if(this.data.current_points > 30 && this.data.current_points <= 80){
+            this.currentTierImage = "{{ 'Green_Tier.png' | file_url }}";
+            this.next_tier = "{{ 'customer.account.reward.platinum_tier' | t}}";
+            this.rewardProgressDrop.src = "{{ 'account-platinum-drop.png' | file_url }}";
+            this.rewardProgressCompleteBar.style.background = `linear-gradient(90deg, #409D25 61.5%, #94979b 100.07%)`;
+        }else if(this.data.current_points > 80){
+            this.currentTierImage = "{{ 'Platinum_Tier.png' | file_url }}";
+            this.rewardProgressCompleteBar.style.background = `linear-gradient(90deg, #53565a 61.5%, #94979b 100.07%)`;
+        }
+
+        this.rewardPriceWrapper.innerHTML = `
+            <span>${this.data.tier}</span>
+            <div class="customer-rewards-balance--wrapper">
+                <img src=${this.currentTierImage} alt="Drop" width="32">
+                <span class="customer-rewards--balance">${this.data.current_points}</span>
+            </div>`;
+
+            this.rewardPriceTimer.innerHTML = `
+            <span>${this.data.points_until_next_tier} {{ 'customer.account.reward.until_next_tier' | t}}</span>
+            <span class="customer-rewards-drops--tier">${this.next_tier}</span>`;
+
+    }
+
+}
+customElements.define('account-my-reward', AccountMyReward);
+
+class ClipTheDeal  extends HTMLElement{
+    constructor() {
+        super();
+        this.currentTier = "{{ 'customer.account.reward.blue_tier' | t }}";
+        this.next_tier = "{{ 'customer.account.reward.green_tier' | t}}";
+        this.rewardProgressCompleteBarDesktop = this.querySelector('.clip_the_deal_data_drops_range.desktop');
+        this.rewardProgressCompleteBarMobile = this.querySelector('.clip_the_deal_data_drops_range.mobile');
+        this.rewardProgressDrop = this.querySelector('.range_icon_move');
+        this.rewardDropPageTier = this.querySelector('.clip_the_deal_inner_bottom');
+        this.currentDrop = this.querySelector('.clip_the_deal_inner_data_points_count');
+        this.expireDrop = this.querySelector('.drop_expire');
+        this.rewardPriceTimer = this.querySelector('.clip_the_deal_data_range_title');
+        this.inital();
+        this.rewardOffers();
+    }
+    async inital(){
+        this.data = await getCustomerReward(4);
+        this.expireDate = new Date(this.data.next_date_points_expiring);
+        this.rewardDropPageTier.innerText = this.currentTier;
+
+        this.rewardProgressCompleteBarMobile.style.width = this.rewardProgressCompleteBarDesktop.style.width = `${this.data.current_points*100/80}%`;
+
+        if(this.data.current_points < 30){
+            this.currentDrop.innerHTML = `<img src="{{ 'Blue_Tier.png' | file_url }}" alt="Drop" width="36"><span>${this.data.current_points}</span>`;
+            this.rewardProgressCompleteBarMobile.style.background = this.rewardProgressCompleteBarDesktop.style.background = `linear-gradient(90deg, #2866D3 61.5%, #409D25 100.07%)`;
+        }else if(this.data.current_points > 30 && this.data.current_points <= 80) {
+            this.next_tier = "{{ 'customer.account.reward.platinum_tier' | t}}";
+            this.currentDrop.innerHTML = `<img src="{{ 'Green_Tier.png' | file_url }}" alt="Drop" width="36"><span>${this.data.current_points}</span>`;
+            this.rewardProgressCompleteBarMobile.style.background = this.rewardProgressCompleteBarDesktop.style.background = `linear-gradient(90deg, #409D25 61.5%, #94979b 100.07%)`;
+            this.rewardProgressCompleteBarMobile.parentElement.nextElementSibling.querySelector('svg path').fill = this.rewardProgressCompleteBarDesktop.parentElement.nextElementSibling.querySelector('svg path').fill = "#6B6E71";
+        }else{
+            this.currentDrop.innerHTML = `<img src="{{ 'Platinum_Tier.png' | file_url }}" alt="Drop" width="36"><span>${this.data.current_points}</span>`;
+            this.rewardProgressCompleteBarMobile.style.background = this.rewardProgressCompleteBarDesktop.style.background = `linear-gradient(90deg, #53565a 61.5%, #94979b 100.07%)`;
+            this.rewardProgressCompleteBarMobile.parentElement.nextElementSibling.querySelector('svg path').fill = this.rewardProgressCompleteBarDesktop.parentElement.nextElementSibling.querySelector('svg path').fill = "#6B6E71";
+        }
+
+        if(this.data.points_expiring != null)
+            this.expireDrop.innerHTML = `<strong>${this.data.points_expiring} {{ 'customer.account.reward.drop' | t }}</strong> 
+            {{ 'customer.account.reward.expire_label' | t }} ${this.expireDate.getDate()}/${this.expireDate.getMonth() + 1}/${this.expireDate.getFullYear()}`;
+
+        this.rewardPriceTimer.innerHTML = `
+            ${this.data.points_until_next_tier} {{ 'customer.account.reward.until_next_tier' | t}}
+            <span class="clip_the_deal_data_range_title_tier">${this.next_tier}</span>`;
+    }
+    async rewardOffers() {
+        this.offers = await getCustomerRewardOfferes();
+        this.blueTierOffer = this.querySelector('.card_redeme_main_blue_card_offer');
+        this.greenTierOffer = this.querySelector('.card_redeme_main_green_card_offer');
+        this.platinumTierOffer = this.querySelector('.card_redeme_main_platinum_card_offer');
+        this.offerBlue = this.offerGreen = this.offerPlatinum = '';
+
+        this.offers.forEach(offer => {
+
+            if(offer.tiers.toLowerCase() == "blue"){
+
+                if(this.data.current_points < offer.points){
+                    this.isDropIcon = "{{ 'lock_offer.svg' | file_url }}";
+                    this.offerInactiveClass = "inactive";
+                }else{
+                    this.isDropIcon = "{{ 'Blue.svg' | file_url }}";
+                    this.offerInactiveClass = "";
+                }
+
+                this.offerBlue += `
+                    <a href="/pages/rewards-redeem-voucher/?reward=${offer.id}"
+                        <div class="cards_redeme_inner ${this.offerInactiveClass}">
+                            <div class="cards_redeme_inner_image">
+                                <img src="${offer.image}" width="112" height="104" alt="${offer.name}">
+                            </div>
+                            <div class="cards_redeme_inner_text_points">
+                                <div class="cards_title">${offer.name}</div>
+                                <div class="cards_points">
+                                    <img src="${this.isDropIcon}" alt="Drop" width="24">${offer.points} {{ 'customer.account.reward.drop' | t }}
+                                </div>
+                            </div>
+                        </div>
+                    </a>`;
+            }
+
+            if(offer.tiers.toLowerCase() == "green" && this.data <= 30){
+                if(this.data.current_points < offer.points){
+                    this.isDropIcon = "{{ 'lock_offer.svg' | file_url }}";
+                    this.offerInactiveClass = "inactive";
+                }else{
+                    this.isDropIcon = "{{ 'Green.svg' | file_url }}";
+                    this.offerInactiveClass = "";
+                }
+                this.offerGreen += `
+                    <a href="/pages/rewards-redeem-voucher/?reward=${offer.id}"
+                        <div class="cards_redeme_inner ${this.offerInactiveClass}">
+                            <div class="cards_redeme_inner_image">
+                                <img src="${offer.image}" width="112" height="104" alt="${offer.name}">
+                            </div>
+                            <div class="cards_redeme_inner_text_points">
+                                <div class="cards_title">${offer.name}</div>
+                                <div class="cards_points">
+                                    <img src="${this.isDropIcon}" alt="Drop" width="24">${offer.points} {{ 'customer.account.reward.drop' | t }}
+                                </div>
+                            </div>
+                        </div>
+                    </a>`;
+            }
+
+            if(offer.tiers.toLowerCase() == "platinum"){
+                if(this.data.current_points < offer.points){
+                    this.isDropIcon = "{{ 'lock_offer.svg' | file_url }}";
+                    this.offerInactiveClass = "inactive";
+                }else{
+                    this.isDropIcon = "{{ 'Platinum.svg' | file_url }}";
+                    this.offerInactiveClass = "";
+                }
+                this.offerPlatinum += `
+                    <a href="/pages/rewards-redeem-voucher/?reward=${offer.id}"
+                        <div class="cards_redeme_inner ${this.offerInactiveClass}">
+                            <div class="cards_redeme_inner_image">
+                                <img src="${offer.image}" width="112" height="104" alt="${offer.name}">
+                            </div>
+                            <div class="cards_redeme_inner_text_points">
+                                <div class="cards_title">${offer.name}</div>
+                                <div class="cards_points">
+                                    <img src="${this.isDropIcon}" alt="Drop" width="24">${offer.points} {{ 'customer.account.reward.drop' | t }}
+                                </div>
+                            </div>
+                        </div>
+                    </a>`;
+            }
+            
+        });
+        console.log('Green Offer',this.offerGreen);
+        if(this.offerBlue != ''){
+            this.blueTierOffer.querySelector('.blue_tier_offer').innerHTML = this.offerBlue;
+            this.blueTierOffer.style.display = 'block';
+        }
+        if(this.offerGreen != ''){
+            this.greenTierOffer.querySelector('.green_tier_offer').innerHTML = this.offerGreen;
+            this.greenTierOffer.style.display = 'block';
+        }
+        if(this.offerPlatinum != ''){
+            this.platinumTierOffer.querySelector('.platinum_tier_offer').innerHTML = this.offerPlatinum;
+            this.platinumTierOffer.style.display = 'block';
+        }
+
+        if(this.data.current_points <= 30){
+            this.greenTierOffer.querySelector('.lock_cart_block').innerHTML = this.platinumTierOffer.querySelector('.lock_cart_block').innerHTML = '<img src={{ "lock.svg" | file_url }} >';
+        }else if(this.data.current_points > 30 && this.data.current_points <= 80){
+            this.platinumTierOffer.querySelector('.lock_cart_block').innerHTML = '<img src={{ "lock.svg" | file_url }} >';
+        }
+    }
+}
+customElements.define('clip-the-deal', ClipTheDeal);
+
+class RewardOfferDetail extends HTMLElement{
+    constructor() {
+        super();
+        this.voucherImage = this.querySelector('.reward-redeem-voucher_image');
+        this.voucherDetail = this.querySelector('div.reward-redeem-voucher_detail');
+        this.termsCondition = this.querySelector('.reward-redeem-voucher-list');
+        this.similarWrapper = this.querySelector('.similar_deal_wrapper');
+        this.redeemBtn = this.querySelector('.reward-redeem-voucher_redeme_btn_atc');
+
+        this.inital();
+    }
+    async inital() {
+        this.offerDetail = await rewardOfferDetail(urlParams.get('reward'));
+        
+        // set image
+        this.voucherImage.src = this.offerDetail.image;
+        this.voucherImage.alt = this.offerDetail.name;
+
+        // set voucher detail
+        if(this.offerDetail.tier.toLowerCase() == 'blue')
+            this.dropIcon = "{{ 'Blue_Tier.png' | file_url }}";
+        else if(this.offerDetail.tier.toLowerCase() == 'green')
+            this.dropIcon = "{{ 'Green_Tier.png' | file_url }}";
+        else
+            this.dropIcon = "{{ 'Platinum_Tier.png' | file_url }}";
+
+        this.voucherDetail.innerHTML = `${this.offerDetail.description} <span class="count_drops_total"><img src="${this.dropIcon}" width="15">${this.offerDetail.points}</span>`
+
+        this.redeemBtn.href = `/pages/rewards-voucher-redeemed/?reward=${urlParams.get('reward')}`;
+
+        // terms and condition
+        this.termsConditionData = "";
+        this.offerDetail.terms_conditions.forEach(item => {
+            this.termsConditionData += `<li>${item}</li>`;
+        });
+        this.termsCondition.querySelector('ul').innerHTML = this.termsConditionData;
+
+        // similar deals
+        this.similarDeals = '';
+        if(this.offerDetail.similar.length > 0){
+            this.offerDetail.similar.forEach(item => {
+                if(this.offerDetail.points == item.points){
+                    this.similarDeals += `<div class="voucher_cards_blocks">
+                            <div class="voucher_cards_image"><img src="${item.image}"></div>
+                            <div class="voucher_cards_info">
+                            <p class="voucher_cards_title">${item.name}</p>
+                            <p class="voucher_cards_drops"><img src="${this.dropIcon}" width="9"> ${item.points} {{ 'customer.account.reward.drop' | t }}</p>
+                            </div>
+                            <a class="voucher_card_link" href="/pages/rewards-redeem-voucher/?reward=${item.id}"></a>
+                        </div>`;
+                }
+            });
+            this.similarWrapper.querySelector('.voucher_cards_blocks_inner_main').innerHTML = this.similarDeals;
+            this.similarWrapper.style.display = 'block';
+        }
+    }
+}
+customElements.define('reward-offer-detail',RewardOfferDetail);
+
+
+class RedemeedRewardOffer extends HTMLElement{
+    constructor() {
+        super();
+        this.voucherImage = this.querySelector('.rewards-voucher-redeemed_image');
+        this.voucherDetail = this.querySelector('div.reward-redeem-voucher_detail');
+        this.couponCode = this.querySelector('.rewards-voucher-redeemed-code');
+        this.voucherTitleCount = this.querySelector('.reward-redeem-voucher-title-count');
+        this.copyCode = this.querySelector('.rewards-voucher-redeemed-copy-code');
+
+        this.inital();
+        this.evenetListener();
+    }
+    async inital() {
+        this.offerDetail = await rewardOfferDetail(urlParams.get('reward'));
+        
+        // set image
+        this.voucherImage.src = this.offerDetail.image;
+        this.voucherImage.alt = this.offerDetail.name;
+
+        // set coupon code
+        this.couponCode.innerText = this.offerDetail.coupon_code;
+
+        // set voucher detail
+        if(this.offerDetail.tier.toLowerCase() == 'blue')
+            this.dropIcon = "{{ 'Blue_Tier.png' | file_url }}";
+        else if(this.offerDetail.tier.toLowerCase() == 'green')
+            this.dropIcon = "{{ 'Green_Tier.png' | file_url }}";
+        else
+            this.dropIcon = "{{ 'Platinum_Tier.png' | file_url }}";
+
+        this.voucherTitleCount.innerHTML = `${this.offerDetail.description} {{ 'customer.account.reward.discount_code_voucher' | t }}<span class="count_drops_total">${this.offerDetail.points} <img src="${this.dropIcon}" width="15px">`;
+    }
+    evenetListener(){
+        this.copyCode.addEventListener('click', e => {
+            e.preventDefault();
+            this.copyTextToClipboard(-1);
+          });
+    }
+    copyTextToClipboard(text) {
+        navigator.clipboard.writeText(this.couponCode.textContent);
+        this.copyCode.querySelector('span').innerText ="{{ 'customer.account.reward.copied_voucher' | t }}";
+    }
+}
+customElements.define('redemeed-reward-offer',RedemeedRewardOffer); 

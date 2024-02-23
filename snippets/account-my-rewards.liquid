@@ -1,29 +1,20 @@
-<div class="customer-rewards--wrapper">
-  <div class="customer-rewards-progress-wrapper">
-     <a style="color: #145a90" target="_blank" href="{{ routes.root_url | append: 'pages/clip-the-deal' }}"> 
-    <div class="customer-rewards--drops">
-      <img src="{{ 'account-rewards.png' | file_url }}" alt="Account Rewards">
-      <div>
-        <div class="customer-rewards-drops--text">{{ 'customer.dashboard.my_reward_drop' | t }}</div>
+<account-my-reward>
+  <a href="/pages/clip-the-deal">
+    <div class="customer-rewards--wrapper">
+      <div class="customer-rewards-progress-wrapper">
+        <div class="customer-rewards--drops">
+          <img src="{{ 'Blue.svg' | file_url }}" alt="Account Rewards">
+          <div>
+            <div class="customer-rewards-drops--text">{{ 'customer.account.reward.title' | t }}</div>
+          </div>
+        </div>
+        <div class="customer-rewards--progress">
+          <div class="customer-rewards-progress--complete"></div>
+          <img class="customer-rewards-progress--drop" src="{{ 'account-green-drop.png' | file_url }}" alt="Green Drop">
+        </div>
+        <div class="customer-rewards-price--wrapper"></div>
       </div>
+      <div class="customer-rewards-drops--timer"></div>
     </div>
-       </a>
-    <div class="customer-rewards--progress">
-      <div class="customer-rewards-progress--complete"></div>
-      <img class="customer-rewards-progress--drop" src="{{ 'account-green-drop.png' | file_url }}" alt="Green Drop">
-    </div>
-    <div class="customer-rewards-price--wrapper">
-      <span>Blue</span>
-      <div class="customer-rewards-balance--wrapper">
-        <img src="{{ 'account-blue-drop.png' | file_url }}" alt="Blue Drop">
-        &nbsp;
-        <span class="customer-rewards--balance">27</span>
-      </div>
-    </div>
-  </div>
-  <div class="customer-rewards-drops--timer">
-    <span>25 drops until</span>
-    &nbsp;
-    <span class="customer-rewards-drops--tier">Green Tier</span>
-  </div>
-</div>
+  </a>
+</account-my-reward>

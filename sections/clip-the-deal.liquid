@@ -1,229 +1,117 @@
-<div class="clip_the_deal_main">
-  <div class="clip_the_deal_inner">
-    <div class="clip_the_deal_inner_main">
-      <div class="clip_the_deal_inner_top">
-      <div class="clip_the_deal_back">
-        {% render 'back_icon' %}
+<clip-the-deal>
+  <div class="clip_the_deal_main">
+    <div class="clip_the_deal_inner">
+      <div class="clip_the_deal_inner_main">
+        <div class="clip_the_deal_inner_top">
+        <div class="clip_the_deal_back">
+          <a href="/account">{% render 'back_icon' %}</a>
+        </div>
+        <div class="clip_the_deal_title">{{ section.settings.heading }}</div>
+        <div class="clip_the_deal_help"><a href="{{ section.settings.learn_more_link }}"> {% render 'help_icon' %} </a></div>
       </div>
-      <div class="clip_the_deal_title">{{ section.settings.heading }}</div>
-      <div class="clip_the_deal_help">{% render 'help_icon' %}</div>
+      <div class="clip_the_deal_inner_bottom">
+      </div>
+      </div>
     </div>
-    <div class="clip_the_deal_inner_bottom">
-       {{ section.settings.heading_sec }}
-    </div>
-    </div>
+    <!--  -->
+      <div class="all_blocks_main_data">
+        <div class="all_blocks_main_data_inner">
+          <div class="clip_the_deal_inner_main_data">
+        <div class="clip_the_deal_data_inner_top">
+          <div class="clip_the_deal_data_title_main">
+            {{ section.settings.drop_title }}
+          </div>
+          <div class="clip_the_deal_data_drops_details drop_expire"></div>
+        </div>
+        <div class="clip_the_deal_inner_data_points_count">
+          {% comment %} <img src="{{ 'Blue_Tier.png' | file_url }}" alt="Drop" width="36">
+          <span>25</span> {% endcomment %}
+        </div>
+      </div>
+        <!--  -->
+        <div class="clip_the_deal_inner_data_range">
+          <div class="clip_the_deal_data_range_title">
+            25 drops until <span class="clip_the_deal_data_range_title_tier">Green Tier</span>
+          </div>
+          <div class="range_drops_main desktop">
+            <div class="range_main">
+              <div class="clip_the_deal_data_drops_range desktop">
+            </div>
+            </div>
+            <span class="range_icon_move">{% render 'drop_range' with 'Green' %}</span>
+          </div>
+          <div class="clip_the_deal_inner_data_points">
+            <a href="{{ section.settings.h_link }}">{{ section.settings.h_label }}</a>
+          </div>
+          <!-- <div class="clip_the_deal_data_drops_range mobile"></div> -->
+          <div class="range_drops_main mobile">
+            <div class="range_main">
+              <div class="clip_the_deal_data_drops_range mobile">
+            </div>
+            </div>
+            <span class="range_icon_move">{% render 'drop_range' with 'Green' %}</span>
+          </div>
+        </div>
 
+        <a class="clip_the_deal_inner_learn_more_link" href="{{ section.settings.learn_more_link }}">{{ section.settings.learn_more_text }} {% render 'clip-the-deal-icons', icon: 'arrow' %}</a>
+
+        <div class="card_redeme_main card_redeme_main_blue_card_offer d-none">
+          <div class="card_redeme_main_inner" >
+            <div class="card_heading"><strong>{{ 'customer.account.reward.blue_drop' | t }}</strong> {{ 'customer.account.reward.redeemable_offer' | t }}</div>
+            <div class="lock_cart_block"></div>
+            <div class="cards_redeme_main blue_tier_offer">
+            </div>
+          </div>
+        </div>
+
+        <div class="card_redeme_main card_redeme_main_green_card_offer d-none">
+          <div class="card_redeme_main_inner" >
+            <div class="card_heading"><strong>{{ 'customer.account.reward.green_drop' | t }}</strong> {{ 'customer.account.reward.redeemable_offer' | t }}</div>.
+            <div class="lock_cart_block"></div>
+            <div class="cards_redeme_main green_tier_offer">
+            </div>
+          </div>
+        </div>
+
+        <div class="card_redeme_main card_redeme_main_platinum_card_offer d-none">
+          <div class="card_redeme_main_inner" >
+            <div class="card_heading"><strong>{{ 'customer.account.reward.platinum_drop' | t }}</strong> {{ 'customer.account.reward.redeemable_offer' | t }}</div>
+            <div class="lock_cart_block"></div>
+            <div class="cards_redeme_main platinum_tier_offer">
+            </div>
+          </div>
+        </div>
+
+          <div class="date_bottom_cards">Member since 4 Jan 2023</div>
+        </div>
+      </div>
+    
   </div>
-
-
-  <!--  -->
-
-    <div class="all_blocks_main_data">
-      <div class="all_blocks_main_data_inner">
-        <div class="clip_the_deal_inner_main_data">
-      <div class="clip_the_deal_data_inner_top">
-        <div class="clip_the_deal_data_title_main">
-           {{ section.settings.drop_title }}
-        </div>
-        <div class="clip_the_deal_data_drops_details">{{ section.settings.date_exp }}</div>
-      </div>
-      <div class="clip_the_deal_inner_data_points_count">
-        {% render 'drop_icon' %}
-        {{ section.settings.drop_points }}
-      </div>
-    </div>
-      <!--  -->
-      <div class="clip_the_deal_inner_data_range">
-       
-        <div class="clip_the_deal_data_title_main">
-           {{ section.settings.drop_range }}
-        </div>
-        <div class="range_drops_main desktop">
-          <div class="range_main">
-            <div class="clip_the_deal_data_drops_range desktop">
-          </div>
-          </div>
-          <span class="range_icon_move">{% render 'drop_range' %}</span>
-        </div>
-        <div class="clip_the_deal_inner_data_points">
-         <a href="{{ section.settings.h_link }}">{{ section.settings.h_label }}</a>
-        </div>
-        <!-- <div class="clip_the_deal_data_drops_range mobile"></div> -->
-        <div class="range_drops_main mobile">
-          <div class="range_main">
-            <div class="clip_the_deal_data_drops_range mobile">
-          </div>
-          </div>
-          <span class="range_icon_move">{% render 'drop_range' %}</span>
-        </div>
-       </div>
-
-     
-   {% for block in section.blocks %}
-
-     {%- case block.type -%}
-       {% when 'blue_card' %}
-       <style>
-       .card_redeme_main_first_{{ block.id }}{
-         background: {% if block.settings.background_gradient != blank %} {{ block.settings.background_gradien }} {% else %} {{ block.settings.background }} {% endif %};
-       }
-       </style>
-
-      <div class="card_redeme_main card_redeme_main_first_{{ block.id }}">
-        <div class="card_redeme_main_inner" >
-          <div class="card_heading">{{ block.settings.heading }}</div>
-          <div class="cards_redeme_main">
-            {% if block.settings.show_a %}
-            <div class="cards_redeme_inner">
-              <div class="cards_redeme_inner_image">
-                <img src="{{ block.settings.image_a | img_url: "master" }}">
-              </div>
-              <div class="cards_redeme_inner_text_points">
-                <div class="cards_title">{{ block.settings.heading_a }}</div>
-                <div class="cards_points">{% render 'card_drops' %}{{ block.settings.drops_a }}</div>
-              </div>
-            </div>
-            {% endif %}
-            
-
-            {% if block.settings.show_b %}
-            <div class="cards_redeme_inner">
-              <div class="cards_redeme_inner_image">
-                <img src="{{ block.settings.image_b | img_url: "master" }}">
-              </div>
-              <div class="cards_redeme_inner_text_points">
-                <div class="cards_title">{{ block.settings.heading_b }}</div>
-                <div class="cards_points">{% render 'card_drops' %}{{ block.settings.drops_b }}</div>
-              </div>
-            </div>
-            {% endif %}
-
-            {% if block.settings.show_c %}
-            <div class="cards_redeme_inner">
-              <div class="cards_redeme_inner_image">
-                <img src="{{ block.settings.image_c | img_url: "master" }}">
-              </div>
-              <div class="cards_redeme_inner_text_points">
-                <div class="cards_title">{{ block.settings.heading_c }}</div>
-                <div class="cards_points">{% render 'card_drops' %}{{ block.settings.drops_c }}</div>
-              </div>
-            </div>
-            {% endif %}
-
-            {% if block.settings.show_d %}
-            <div class="cards_redeme_inner">
-              <div class="cards_redeme_inner_image">
-                <img src="{{ block.settings.image_d | img_url: "master" }}">
-              </div>
-              <div class="cards_redeme_inner_text_points">
-                <div class="cards_title">{{ block.settings.heading_d }}</div>
-                <div class="cards_points">{% render 'card_drops_lock' %}{{ block.settings.drops_d }}</div>
-              </div>
-            </div>
-            {% endif %}
-          </div>
-        </div>
-    </div>
-
-        {% when 'green_card' %}
-
-        <style>
-        .card_redeme_main_sec_{{ block.id }}{
-          background: {% if block.settings.background_gradient != blank %} {{ block.settings.background_gradient }} {% else %} {{ block.settings.background }} {% endif %};
-        }
-       </style>
-
-        <div class="card_redeme_main card_redeme_main_sec_{{ block.id }}">
-        <div class="card_redeme_main_inner">
-          <div class="card_heading">{{ block.settings.heading }}</div>
-          <div class="lock_cart_block">{% render 'lock' %}</div>
-          <div class="cards_redeme_main">
-            {% if block.settings.show_a %}
-            <div class="cards_redeme_inner">
-              <div class="cards_redeme_inner_image">
-                <img src="{{ block.settings.image_a | img_url: "master" }}">
-              </div>
-              <div class="cards_redeme_inner_text_points">
-                <div class="cards_title">{{ block.settings.heading_a }}</div>
-                <div class="cards_points">{% render 'card_drops_lock' %}{{ block.settings.drops_a }}</div>
-              </div>
-            </div>
-            {% endif %}
-
-            {% if block.settings.show_b %}
-            <div class="cards_redeme_inner">
-              <div class="cards_redeme_inner_image">
-                <img src="{{ block.settings.image_b | img_url: "master" }}">
-              </div>
-              <div class="cards_redeme_inner_text_points">
-                <div class="cards_title">{{ block.settings.heading_b }}</div>
-                <div class="cards_points">{% render 'card_drops_lock' %}{{ block.settings.drops_b }}</div>
-              </div>
-            </div>
-            {% endif %}
-             
-          </div>
-        </div>
-    </div>
-
-        {% when 'black_card' %}
-        <style>
-          .card_redeme_main_third_{{ block.id }}{
-            background: {% if block.settings.background_gradient != blank %} {{ block.settings.background_gradient }} {% else %} {{ block.settings.background }} {% endif %};
-          }
-        </style>
-        <div class="card_redeme_main card_redeme_main_third_{{ block.id }}">
-        <div class="card_redeme_main_inner">
-          <div class="card_heading">{{ block.settings.heading }}</div>
-          <div class="lock_cart_block">{% render 'lock' %}</div>
-          <div class="cards_redeme_main">
-            {% if block.settings.show_a %}
-            <div class="cards_redeme_inner">
-              <div class="cards_redeme_inner_image">
-                <img src="{{ block.settings.image_a | img_url: "master" }}">
-              </div>
-              <div class="cards_redeme_inner_text_points">
-                <div class="cards_title">{{ block.settings.heading_a }}</div>
-                <div class="cards_points">{% render 'card_drops_lock' %}{{ block.settings.drops_a }}</div>
-              </div>
-            </div>
-            {% endif %}
-
-            {% if block.settings.show_b %}
-            <div class="cards_redeme_inner">
-              <div class="cards_redeme_inner_image">
-                <img src="{{ block.settings.image_b | img_url: "master" }}">
-              </div>
-              <div class="cards_redeme_inner_text_points">
-                <div class="cards_title">{{ block.settings.heading_b }}</div>
-                <div class="cards_points">{% render 'card_drops_lock' %}{{ block.settings.drops_b }}</div>
-              </div>
-            </div>
-            {% endif %}
-            
-          </div>
-        </div> 
-    </div>
-     {% endcase %}
-    {% endfor %}
-
-        <div class="date_bottom_cards">Member since 4 Jan 2023</div>
-      </div>
-    </div>
-  
-</div>
+</clip-the-deal>
 
 <style>
 #shopify-section-{{ section.id }} {
   padding-bottom: 100px;
 }
-
+.d-none{
+  display:none;
+}
 .card_redeme_main{
   border-radius: 16px;
   padding: 16px;
   margin-bottom: 24px;
   position: relative;
 }
+.card_redeme_main_blue_card_offer{
+  background: #2461cc;
+}
+.card_redeme_main_green_card_offer{
+  background: #007c2d;
+}
+.card_redeme_main_platinum_card_offer{
+  background: linear-gradient(316deg, rgba(195, 195, 195, 1) 14%, rgba(83, 86, 90, 1) 83%);
+}
+
 .card_redeme_main .lock_cart_block{
   position: absolute;
   top: 16px;
@@ -263,6 +151,21 @@
   align-items: center;
   gap: 5px;
 }
+.cards_redeme_inner.inactive{
+  cursor: not-allowed;
+}
+.cards_redeme_inner.inactive img{
+  opacity: 0.8;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  filter: grayscale(100%); 
+}
+.cards_redeme_inner.inactive .cards_title, .cards_redeme_inner.inactive .cards_points{
+  color:#8A8F95;
+}
+
 .cards_redeme_inner{
   width: calc(50% - 8px);
   border-radius: 8px;
@@ -372,8 +275,7 @@
     line-height: 18px;
   }
   .clip_the_deal_data_drops_range{
-    max-width: 257px;
-    width: 100%;
+    width:0%;
     height: 8px;
     flex-shrink: 0;
     border-radius: 16px;
@@ -437,6 +339,30 @@
     top: 100%;
     transform: translateY(-50%);
   }
+  .clip_the_deal_inner_learn_more_link {
+      color: rgb(83, 86, 90);
+      font-size: 16px;
+      line-height: 24px;
+      display: block;
+      margin-bottom: 24px;
+  }
+  .clip_the_deal_inner_learn_more_link svg {
+      margin-left: 5px;
+  }
+  .clip_the_deal_data_range_title {
+      font-size: 14px;
+      line-height: 18px;
+      color: rgb(83, 86, 90);
+  }
+  .clip_the_deal_data_range_title_tier {
+      color: rgb(107, 110, 113);
+  }
+  @media screen and (max-width: 767px) {
+      .clip_the_deal_inner_learn_more_link {
+          line-height: 20px;
+          margin-bottom: 18px;
+      }
+  }
   @media screen and ( min-width: 750px ){
     .clip_the_deal_data_drops_range.mobile{
       display: none;
@@ -475,7 +401,7 @@
       flex-direction: column;
     }
     .clip_the_deal_data_drops_range{
-      width: 100%;
+      width: 0%;
       /* margin-top: 15px; */
     }
     
@@ -487,10 +413,24 @@
     }
   }
 </style>
+{{ 'reward.js' | asset_url | script_tag }}
+
 {% schema %}
   {
     "name": "Clip the deal",
     "settings": [
+      {
+        "type": "text",
+        "id": "learn_more_text",
+        "label": "Learn More Text",
+        "default": "Learn about Reward benefits"
+      },
+      {
+        "type": "text",
+        "id": "learn_more_link",
+        "label": "Learn More Link",
+        "default": "/pages/reward-benefits/"
+      },
       {
 	    "type": "text",
 	    "id": "heading",
@@ -522,21 +462,16 @@
 	    "default": 25
 	  },
       {
-	    "type": "inline_richtext",
-	    "id": "drop_range",
-	    "label": "Expire date",
-	    "default": "25 drops until Green Tier"
-	  },
-      {
 	    "type": "text",
 	    "id": "h_label",
 	    "label": "Button label",
 	    "default": "Drop History"
 	  },
       {
-	    "type": "url",
+	    "type": "text",
 	    "id": "h_link",
-	    "label": "Button link"
+	    "label": "Button link",
+      "default": "/pages/rewards-history/"
 	  },
       {
         "type": "color_background",
