@@ -17,9 +17,9 @@
 ol.flickity-page-dots {
   bottom: 40px;
 }
-/* .slideshow__slide-inner {    
-    left: 55% !important;   
-} */
+.slideshow__slide-inner {    
+    left: 63% !important;   
+}
 
 @media only screen and (max-width: 767px) {
     .slideshow__slide-content .split-text.slideshow__slide-heading {
