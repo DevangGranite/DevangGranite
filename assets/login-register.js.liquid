@@ -452,11 +452,15 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
- function updateButtonState() {
-        var checkbox = document.getElementById('checkbox_reg');
-        var button = document.getElementById('regi_button');
+function updateButtonState() {
+    var checkbox = document.getElementById('checkbox_reg');
+    var button = document.getElementById('regi_button');
 
+    if (checkbox && button) {
         button.disabled = !checkbox.checked;
+    } else {
+        console.error("Checkbox or button not found");
     }
+}
     
 /*** validation form reg page end ***/
