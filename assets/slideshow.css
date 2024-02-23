@@ -1,4 +1,30 @@
+  .template-customers-account .header .logolink {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 
+.template-customers-account .header .logolink .logoimg {
+    max-width: 100px;
+    height: auto;
+}
+
+  .short-width-row {
+      position: relative;
+  }
+   .slideshow__slide-overlay {
+      background: transparent !important;
+   }
+  ol.flickity-page-dots {
+    bottom: 40px;
+}
+
+  @media only screen and (max-width: 767px) {
+      .slideshow__slide-content .split-text.slideshow__slide-heading {
+          font-size: 28px;
+          text-align: left;
+          width: 50%;
+      }
+  }
 
 .slideshow__slide-content:after, .slideshow--full-width-false {
   isolation: isolate;
