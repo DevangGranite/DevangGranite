@@ -41,8 +41,8 @@
         "slide_cNDk4a": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_18498.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/Hero_1.png",
+            "image": "shopify:\/\/shop_images\/Group_18498_1.png",
+            "mobile_image": "shopify:\/\/shop_images\/Untitled_1.png",
             "slide_link": "",
             "video_background": false,
             "badge_text": "",
@@ -51,7 +51,7 @@
             "heading_size": "h3",
             "content": "",
             "description_size": "medium",
-            "content_position": "middle-center",
+            "content_position": "middle-left",
             "text_alignment": "left",
             "content_size": "medium",
             "color_slidebg": "rgba(0,0,0,0)",
