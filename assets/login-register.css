@@ -64,6 +64,9 @@ html[lang="ar"] input {
     text-align: right !important;
     color: #000;
 }
+html[lang="ar"] .thb-form-container .customer--login .switch-login-section {
+    text-align: right;
+}
 .thb-form-container h4 {
   margin-bottom: 10px;
   text-align: center;
