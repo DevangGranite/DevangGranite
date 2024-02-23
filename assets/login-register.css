@@ -67,6 +67,9 @@ html[lang="ar"] input {
 html[lang="ar"] .thb-form-container .customer--login .switch-login-section {
     text-align: right;
 }
+html[lang="ar"] .thb-form-container .create_form_wrapper select {
+    background-position: 15px;
+}
 .thb-form-container h4 {
   margin-bottom: 10px;
   text-align: center;
