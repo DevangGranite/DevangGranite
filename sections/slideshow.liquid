@@ -100,8 +100,9 @@
 							{%- endif -%}
 						</div>
 					{%- endif -%}
+              <a href="{{ block.settings.slide_link }}" target="_blank" tabindex="-1">
 					<div class="slideshow__slide-bg">
-                      <a href="{{ block.settings.slide_link }}" target="_blank" tabindex="-1">
+                      
 						{%- if block.settings.image -%}
 							{%- liquid
 								assign image = block.settings.image
@@ -127,8 +128,9 @@
 							 -%}
 							test123 {%- render 'responsive-image', image: image, sizes: width, class: 'slideshow-image--mobile' -%}
 						{%- endif -%}
-              </a>
+            
 					</div>
+                </a>
 					{%- if block.settings.video_background -%}
 						{%- liquid
 							assign video = block.settings.video_hosted
