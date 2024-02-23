@@ -18,7 +18,7 @@
             "description_size": "medium",
             "content_position": "middle-left",
             "text_alignment": "left",
-            "content_size": "medium",
+            "content_size": "small",
             "color_slidebg": "rgba(0,0,0,0)",
             "color_slidebg_opacity": 0,
             "color_slidebg_blur": 0,
