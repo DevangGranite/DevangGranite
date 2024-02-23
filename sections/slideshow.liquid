@@ -100,9 +100,7 @@
 							{%- endif -%}
 						</div>
 					{%- endif -%}
-              <a href="https://alainwaterdev2.myshopify.com/collections/al-ain-water" target="_blank" tabindex="-1">
 					<div class="slideshow__slide-bg">
-                      
 						{%- if block.settings.image -%}
 							{%- liquid
 								assign image = block.settings.image
@@ -119,7 +117,6 @@
 							{%- assign index = forloop.index | modulo: 2 | plus: 1 -%}
 							{{ 'lifestyle-' | append: index | placeholder_svg_tag: 'placeholder_svg_tag' }}
 						{%- endif -%}
-              
 						{%- if block.settings.mobile_image != blank -%}
 							{%- liquid
 								assign image = block.settings.mobile_image
@@ -128,9 +125,7 @@
 							 -%}
 							test123 {%- render 'responsive-image', image: image, sizes: width, class: 'slideshow-image--mobile' -%}
 						{%- endif -%}
-            
 					</div>
-                </a>
 					{%- if block.settings.video_background -%}
 						{%- liquid
 							assign video = block.settings.video_hosted
