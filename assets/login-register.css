@@ -60,6 +60,10 @@
     border-left: 1px solid var(--color-border, #dadce0);
   }
 }
+html[lang="ar"] input {
+    text-align: right !important;
+    color: #000;
+}
 .thb-form-container h4 {
   margin-bottom: 10px;
   text-align: center;
