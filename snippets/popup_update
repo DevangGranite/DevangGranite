@@ -1,0 +1,19 @@
+ <!-- Popup content -->
+              <div id="popup" class="popupUpdate">
+                <!-- Input field for address -->
+                <label for="addressInput">Address</label>
+                <input type="text" id="addressInput" placeholder="Enter address" onkeydown="handleEnterKey(event)">
+
+                <!-- Container for the map -->
+                <div id="map"></div>
+
+                <!-- Display selected location as text -->
+                <div id="locationText"></div>
+
+                <!-- Button to show map based on address -->
+                <button type="button" onclick="showMapForAddress()">Show on Map</button>
+
+                <!-- Close button -->
+                <button type="button" class="close-icon" onclick="closePopup()">{% render 'svg-icons' with 'map-close' %}</button>
+              </div>
+              <div id="locationInputError" class="form-error"></div>
