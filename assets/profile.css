@@ -359,6 +359,12 @@ html[lang="ar"] .profile-form__wrapper select {
   margin-top: 5px;
 }
 
+.profile-form__wrapper fieldset .field .location_icon {
+    position: absolute;
+    right: 15px;
+    top: 45px;
+}
+
 /* Responsive */
 
 @media only screen and (max-width: 767px) {
