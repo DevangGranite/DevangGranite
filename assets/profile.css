@@ -366,6 +366,11 @@ html[lang="ar"] .profile-form__wrapper select {
     cursor: pointer;
 }
 
+.popupUpdate input#addressInput {
+    height: 72px;
+    width: 100%;
+}
+
 /* Responsive */
 
 @media only screen and (max-width: 767px) {
