@@ -238,21 +238,31 @@
             </div>
 
             <div class="field field-row">
-              <div class="field">
-                <label for="City">City</label>
-                <div class="control">
-                  <select name="City" aria-label="City">
-                    <option value="">Abu Dhabi</option>
-                  </select>
-                </div>
+                <div class="field">
+                <label for="regi_city" name="city">{{ 'customer.addresses.city' | t }}</label>
+                <select
+                  name="city"
+                  id="regi_city"
+                  placeholder="{{ 'customer.addresses.city_reg' | t }}"
+                  class="full"
+                  onchange="getCityDistricts(this.value)"
+                >
+                  <option value="">{{ 'customer.addresses.city_reg' | t }}</option>
+                </select>
+                <div id="regiCityError" class="form-error"></div>
               </div>
+
               <div class="field">
-                <label for="District">District</label>
-                <div class="control">
-                  <select name="District" aria-label="City">
-                    <option value="">Al Reem Island</option>
-                  </select>
-                </div>
+                <label for="district">{{ 'customer.addresses.district' | t }}</label>
+                <select
+                  name="district"
+                  placeholder="{{ 'customer.addresses.district_reg' | t }}"
+                  id="district"
+                  class="full"
+                >
+                  <option value="">{{ 'customer.addresses.district_reg' | t }}</option>
+                </select>
+                <div id="districtError" class="form-error"></div>
               </div>
             </div>
 
