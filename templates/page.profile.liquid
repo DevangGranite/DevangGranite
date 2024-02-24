@@ -203,16 +203,37 @@
         >
           <fieldset>
             <div class="field">
-              <label for="Update Address">Address</label>
-              <div class="control">
-                <input
-                  type="text"
-                  class="address-input-text"
-                  name="Update Address"
-                  aria-label="Update Address"
-                  placeholder="Update Address"
-                />
+              <label for="locationInput">{{ 'customer.login_page.address' | t }}</label>
+              <input
+                type="text"
+                name="addressInput"
+                id="locationInput"
+                placeholder="{{ 'customer.login_page.address_place' | t }}"
+                onkeydown="handleEnterKey(event)"
+              >
+              <div class="location_icon" onclick="openPopup()">
+                {% render 'svg-icons' with 'location' %}
               </div>
+
+              <!-- Popup content -->
+              <div id="popup">
+                <!-- Input field for address -->
+                <label for="addressInput">Address</label>
+                <input type="text" id="addressInput" placeholder="Enter address" onkeydown="handleEnterKey(event)">
+
+                <!-- Container for the map -->
+                <div id="map"></div>
+
+                <!-- Display selected location as text -->
+                <div id="locationText"></div>
+
+                <!-- Button to show map based on address -->
+                <button type="button" onclick="showMapForAddress()">Show on Map</button>
+
+                <!-- Close button -->
+                <button type="button" class="close-icon" onclick="closePopup()">{% render 'svg-icons' with 'map-close' %}</button>
+              </div>
+              <div id="locationInputError" class="form-error"></div>
             </div>
 
             <div class="field">
