@@ -207,7 +207,8 @@
         >
           <fieldset>
             <div class="field">
-              <label for="locationInput">{{ 'customer.login_page.address' | t }}</label>
+              <label for="Update Address">Address</label>
+              <div class="control">
               <input
                 class="address-input-text"
                 type="text"
@@ -216,6 +217,7 @@
                 placeholder="{{ 'customer.login_page.address_place' | t }}"
                 onkeydown="handleEnterKey(event)"
               >
+              </div>
               <div class="location_icon" onclick="openPopup()">
                 {% render 'svg-icons' with 'location' %}
               </div>
