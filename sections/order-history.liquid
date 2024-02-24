@@ -1,5 +1,5 @@
 <div class="breadcrumbs_order_history row">
-  <a class="my_account" href="/my-account">My Account</a>
+  <a class="my_account" href="/account">My Account</a>
   <span class="current_page">> Order History</span>
 </div>
 <style>
@@ -12,7 +12,7 @@
   }
   .breadcrumbs_order_history a{
   color: #2461CC;
-  font-family: Rubik;
+
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -21,15 +21,38 @@
   }
   .breadcrumbs_order_history span{
     color: #595A5E;
-   font-family: Rubik;
+ 
    font-size: 12px;
    font-style: normal;
    font-weight: 400;
    line-height: 18px;
   }
+  .history_title{
+    max-width: 816px;
+    margin-inline: auto;
+    margin-top: 59px;
+  }
+  .history_title div{
+    margin: 0;
+    color: #001489;
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34px; 
+  }
+  .order_history_main .rwd-table *{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
 </style>
+<div class="history_title">
+  <div>Order History</div>
+</div>
 <div class="container order_history_main row">
-<h1>Order History</h1>
+
   <table class="rwd-table">
     <tbody>
       <tr>
@@ -307,43 +330,61 @@
 
 
 <style>
+#shopify-section-{{ section.id }}{
+  padding-left: 11px;
+}
+.order_history_main{
+  margin-top: 30px; 
+  border-radius: 8px;
+  background: var(--Neutral-Off-White, #EFF2F6);
+}
 .order_list{
-  color: var(--Secondary-Mid-Blue, #2461CC);
-  font-feature-settings: 'clig' off, 'liga' off;
-  font-family: Rubik;
+  color: #2461CC;
+ 
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
+  main-width: 80px;
 }
+.order_history_main tr td:nth-child(1){
+  min-width: 80px;
+}
+.order_history_main tr td:nth-child(n+2){
+    min-width: 170px;
+  {% comment %} min-width: 160px; {% endcomment %}
+}
+{% comment %} .order_history_main [data-th="Payment Status"]{
+ min-width: 150px;
+} {% endcomment %}
 .payment_status_cancel{
-  color: var(--Alert-Red-Alert, #DF1515);
-  font-feature-settings: 'clig' off, 'liga' off;
-  font-family: Rubik;
+  color: #DF1515;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
 }
 .order_history_main{
-  display: flex;
-  width: 1000px;
+  display: flex !important;
+  max-width: 1000px;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
-  padding-top: 50px;
+  padding: 11px;
+  overflow-x: auto;
 }
 .order_history_main h1{
     color: #001489;
     text-align: center;
-    font-family: Rubik !important;
+ 
     font-size: 32px;
     font-style: normal;
     font-weight: 400 !important;
     line-height: 34px;
 }
-.order_history_main th{
+.order_history_main table.rwd-table th{
     color: #001489;
-    font-family: Rubik;
+ 
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
