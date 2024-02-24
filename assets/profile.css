@@ -363,6 +363,7 @@ html[lang="ar"] .profile-form__wrapper select {
     position: absolute;
     right: 15px;
     top: 45px;
+    cursor: pointer;
 }
 
 /* Responsive */
