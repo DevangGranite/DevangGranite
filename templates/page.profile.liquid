@@ -206,13 +206,16 @@
           <fieldset>
             <div class="field">
               <label for="locationInput">{{ 'customer.login_page.address' | t }}</label>
+              
               <input
-                type="text"
-                name="addressInput"
-                id="locationInput"
-                placeholder="{{ 'customer.login_page.address_place' | t }}"
-                onkeydown="handleEnterKey(event)"
-              >
+                  type="text"
+                  class="address-input-text"
+                  name="Update Address"
+                  aria-label="Update Address"
+                  placeholder="Update Address"
+                  id="locationInput"
+                  onkeydown="handleEnterKey(event)"
+                />
               <div class="location_icon" onclick="openPopup()">
                 {% render 'svg-icons' with 'location' %}
               </div>
