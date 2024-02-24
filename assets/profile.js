@@ -23,3 +23,11 @@ jQuery(document).ready(function () {
     })
 
 })
+
+function openPopup() {
+    // Get the popupUpdate element
+    var popup = document.getElementById("popupUpdate");
+
+    // Set the display style to "block" to make it visible
+    popup.style.display = "block";
+}
