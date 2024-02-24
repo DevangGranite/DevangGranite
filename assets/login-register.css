@@ -127,6 +127,7 @@ input.full.numeric {
   margin-bottom: 15px;
 }
 #popup,
+#popupUpdate,
 #otppopup {
   display: none;
   position: fixed;
