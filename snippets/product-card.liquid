@@ -48,7 +48,7 @@
     <figure class="product-featured-image {% if products_hover_images and product_card_product.images.size > 1 %}thb-hover{% endif %}">
       {% render 'product-card-badge', product_card_product: product_card_product %}
       {% if product_card_product.tags contains 'Special Offers' %}{% assign Special_Offers = true %}{% endif %}
-      <span class="badge special_offer top">
+      <span class="badge special_offer top {% if settings.badge_position == 'left' %} right {% endif %}">
         {% if Special_Offers %}{{ 'products.product.Special_Offers' | t }}{% endif %}
       </span>
       <a
