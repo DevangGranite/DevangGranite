@@ -10,8 +10,9 @@
 {%- endif -%}
 
 {% assign Special_Offers = false %}
-  {{ product.tags }}
+
 {% for product in collection.products %}
+    {{ product.tags }}
   {% if product.tags contains "Special Offers" %}
     {% assign Special_Offers = true %}
   {% endif %}
