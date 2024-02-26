@@ -43,6 +43,7 @@
     "enable_quick_view": false,
     "enable_quick_add": true,
     "show_products_vendor": false,
+    "product_label_1": "test",
     "product_card_border": false,
     "product_card_shadow": false,
     "color_product_card_bg": "#f1f6fb",
