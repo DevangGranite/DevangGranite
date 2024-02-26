@@ -47,8 +47,9 @@
   <product-card class="product-card text-{{ product_content_alignment }} product-card--content-spacing-{{ info_spacing }} product-card--border-{{ product_card_border }} {{ product_card_shadow_class }}">
     <figure class="product-featured-image {% if products_hover_images and product_card_product.images.size > 1 %}thb-hover{% endif %}">
       {% render 'product-card-badge', product_card_product: product_card_product %}
+      {% assign badge_position = settings.badge_position %}
       {% if product_card_product.tags contains 'Special Offers' %}{% assign Special_Offers = true %}{% endif %}
-      <span class="badge special_offer top {% if settings.badge_position == 'left' %} right {% endif %}">
+      <span class="badge special_offer top {% if badge_position == 'left' %} right {% endif %}">
         {% if Special_Offers %}{{ 'products.product.Special_Offers' | t }}{% endif %}
       </span>
       <a
