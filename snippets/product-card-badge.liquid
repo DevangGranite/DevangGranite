@@ -18,9 +18,9 @@
 {% endfor %}
   
 <span class="badge special_offer">
-    {% if Special_Offers %}
+ 
       {{ 'products.product.Special_Offers' | t }}    
-    {% endif %}
+    
 </span>
 <span class="badge onsale {{ badge_position }}">
 	{%- if settings.sale_badge_type == 'sale' -%}
