@@ -9,20 +9,7 @@
   {%- capture saved_amount -%}{{ product_card_product.compare_at_price | minus: product_card_product.price | times: 100.0 | divided_by: product_card_product.compare_at_price | round }}%{%- endcapture -%}
 {%- endif -%}
 
-{% assign Special_Offers = false %}
 
-{% for product in collection.products %}
-    {{ product.tags }}
-  {% if product.tags contains "Special Offers" %}
-    {% assign Special_Offers = true %}
-  {% endif %}
-{% endfor %}
-  
-<span class="badge special_offer">
- 
-      {{ 'products.product.Special_Offers' | t }}    
-    
-</span>
 <span class="badge onsale {{ badge_position }}">
 	{%- if settings.sale_badge_type == 'sale' -%}
 	{{ 'products.product.on_sale' | t }}
