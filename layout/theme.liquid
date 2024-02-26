@@ -123,6 +123,8 @@
 	{%- endif -%}
 	{% render 'back-to-top' %}
 	{% include 'store-credit-launcher' %}
+	{% if request.path = '/pages/profile' %}
 	{% include 'popup_update' %}  
+	{% endif %}
 </body>
 </html>
