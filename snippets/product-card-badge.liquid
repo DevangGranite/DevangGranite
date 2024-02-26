@@ -11,11 +11,11 @@
 
 {% assign Special_Offers = false %}
   
-{% for product in collection.products %}
+
   {% if product.tags contains "Special Offers" %}
     {% assign Special_Offers = true %}
   {% endif %}
-{% endfor %}
+
   
 <span class="badge special_offer">
     {% if Special_Offers %}
