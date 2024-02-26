@@ -6,7 +6,9 @@
     <div class="reward_history_inner_main">
       <div class="reward_history_inner_top">
       <div class="reward_history_back">
-        {% render 'back_icon' %}
+        <a href="{{ routes.root_url | append: 'pages/clip-the-deal' }}">
+          {% render 'back_icon' %}
+        </a>
       </div>
       <div class="reward_history_title">Rewards History</div>
       <div class="reward_history_help">{% render 'help_icon' %}</div>
