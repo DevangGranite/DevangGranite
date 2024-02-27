@@ -219,7 +219,7 @@ background: rgba(var(--color-body-rgb), 0.03); }
     padding: 15px;
     max-width: 500px;
     width: 100%;
-    position: relative; }
+    position: static; }
     .slideshow__slide-content:after {
       content: "";
       position: absolute;
