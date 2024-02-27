@@ -112,9 +112,9 @@
 									assign class = 'slideshow-image--desktop'
 								endif
 							 -%}
-                          <a href="{{ block.settings.slide_link }}">
+                          
 							{%- render 'responsive-image', image: image, sizes: width, class: class -%}
-                          </a>
+                          
 						{%- else -%}
 							{%- assign index = forloop.index | modulo: 2 | plus: 1 -%}
 							{{ 'lifestyle-' | append: index | placeholder_svg_tag: 'placeholder_svg_tag' }}
