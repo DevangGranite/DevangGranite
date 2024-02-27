@@ -285,7 +285,8 @@
       <div class="devider"><span>or</span></div>
           <div class="switch-login-section">
             {% assign text_button_title = 'Need Help?' %}
-            {% render 'text-button', url: #, title: text_button_title %}
+            {% assign contact_page_url = '/pages/contact' %}
+            {% render 'text-button', url: contact_page_url, title: text_button_title %}
             We’re here to assist.            
           </div>
     </main>
