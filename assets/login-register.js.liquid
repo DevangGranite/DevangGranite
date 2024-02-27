@@ -24,13 +24,13 @@ document.addEventListener("DOMContentLoaded", function() {
         if(id == 0){
           let city = "<option>{{ 'customer.addresses.city_reg' | t }}</option>";
           data.response.forEach(function (item) {
-            city += `<option value="${item.id}">${item.city_name}</option>`;
+            city += `<option value="${item.id}" data-cityname="${item.city_name}">${item.city_name}</option>`;
           });
           document.getElementById("regi_city").innerHTML = city;
         }else{
           let districts = "";
           data.response.forEach(function (item) {
-            districts += `<option value="${item.district_name}">${item.district_name}</option>`;
+            districts += `<option value="${item.district_name}" data-districtname="${item.district_name}">${item.district_name}</option>`;
           });
           document.getElementById("district").innerHTML = districts;
         }
@@ -246,6 +246,8 @@ function validateAndSwitch(input, nextFieldId) {
           return response.json();
       })
       .then(data => {
+          document.querySelector('input[name="lat"]').value = location.lat();
+          document.querySelector('input[name="lang"]').value = location.lng();
           document.getElementById('locationText').innerText = data.results[0]['formatted_address'];
           document.getElementById('locationInput').value = data.results[0]['formatted_address'];
       })
@@ -291,7 +293,7 @@ function validateAndSwitch(input, nextFieldId) {
   
 /*** Pop up end MAP ***/  
 
-/*** Reg mobile field start ***/
+/***  mobile field start ***/
   function validateInputt() {
     
       var mobileInput = document.getElementById('mobile');

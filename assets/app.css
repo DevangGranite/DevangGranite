@@ -627,6 +627,9 @@ code, .code-inline {
   margin-left: auto;
   display: flex;
   flex-flow: row wrap; }
+.row-wallet {
+  max-width: 1156px;
+}
 .short-width-row {
   max-width: 1024px;
   margin-right: auto;

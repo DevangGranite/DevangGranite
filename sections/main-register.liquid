@@ -97,6 +97,8 @@
                 placeholder="{{ 'customer.login_page.address_place' | t }}"
                 onkeydown="handleEnterKey(event)"
               >
+                <input type="hidden" name="lat">
+              <input type="hidden" name="lang">
               <div class="location_icon" onclick="openPopup()">
                 {% render 'svg-icons' with 'location' %}
               </div>

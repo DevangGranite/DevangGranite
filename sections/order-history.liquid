@@ -47,6 +47,9 @@
     font-weight: 400;
     line-height: 18px;
   }
+  .order_history_main{
+    margin-bottom: 50px;
+  }
 </style>
 <div class="history_title">
   <div>Order History</div>
@@ -320,6 +323,16 @@
       
     </tbody>
   </table>
+  
+</div>
+<div class="pagination_table">
+  <div class="paginate_buttons">
+    <a class="page_prev">{% render 'chevron-left'%}</a>
+    <a class="page_number">1</a>
+    <a class="page_number">2</a>
+    <a class="page_number">3</a>
+    <a class="page_next">{% render 'chevron-next'%}</a>
+  </div>
 </div>
 {% schema %}
   {
@@ -330,6 +343,38 @@
 
 
 <style>
+  #shopify-section-{{ section.id }}{
+    padding-bottom: 100px;
+  }
+  .paginate_buttons a{
+    padding: 5px;
+    height: 35px;
+  }
+  .paginate_buttons a:hover {
+    color: #2461CC;
+    border-bottom: 1px solid #2461CC;
+  }
+.pagination_table{
+  display: flex;
+  justify-content: center;
+
+  
+}
+.paginate_buttons{
+  font-size: 16px;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  border-radius: 10px;
+}
+  .paginate_buttons .page_prev,
+  .paginate_buttons .page_next{
+    display: flex;
+    align-items: center;
+  }
 #shopify-section-{{ section.id }}{
   padding-left: 11px;
 }
