@@ -34,7 +34,7 @@
   {% render 'section-header', section_heading: section_heading, section_description: section_description, marker_color: marker_color, marker_style: marker_style, text_color: text_color, heading_image: heading_image, use_image_for_heading: use_image_for_heading %}
 	<div class="logo-list--inner{% if mobile_swipe %} swipe-on-mobile{% endif %}" style="--logo-columns: {{ section.settings.columns }}; --logo-bg: {{ color_logo_bg }};">
 		{% for block in section.blocks %}
-	    <a class="logo-list--logo {% if has_bg -%}logo-list--logo--has-bg{% endif %}" {% if block.settings.link %}href="{{ block.settings.link | escape }}" {% else %}aria-disabled{% endif %} {{ block.shopify_attributes }}>
+	    <div class="logo-list--logo {% if has_bg -%}logo-list--logo--has-bg{% endif %}" {% if block.settings.link %}href="{{ block.settings.link | escape }}" {% else %}aria-disabled{% endif %} {{ block.shopify_attributes }}>
         {% if block.settings.image %}
           {% assign image = block.settings.image %}
 					{% assign master_width = image.src.width | append: 'x' | append: image.src.height %}
@@ -44,7 +44,7 @@
 						{{ 'image' | placeholder_svg_tag: 'placeholder_svg_tag' }}
 					</div>
         {% endif %}
-	    </a>
+	    </div>
 	  {% endfor %}
 	</div>
 </div>
