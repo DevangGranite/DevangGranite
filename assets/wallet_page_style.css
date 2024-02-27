@@ -19,6 +19,7 @@
 }
 .my_wallet_data_blocks_main{
   padding-block: 70px;
+  display: none;
 }
 .my_wallet_data_blocks_inner{
   max-width: 816px;
@@ -489,7 +490,7 @@
     margin-top: 150px;
     margin-bottom: 150px;
     min-height: 152px;
-    display: flex;
+    display: none;
     align-items: center;
     padding: 24px;
   }
@@ -497,6 +498,9 @@
   color: #fff;
   background: #2461CC;
   transition: all 0.5s ease-in-out;
+}
+[data-reload] {
+  cursor: pointer;
 }
 
 .zero_wallet_main_btn{
@@ -912,3 +916,6 @@
       padding: 0;
     }
   }
+.transaction--type {
+  text-transform: capitalize;
+}
