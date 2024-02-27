@@ -31,7 +31,7 @@
 	{% if section.settings.use_heading_link %}
 		<div class="row{% if short_width %} customer-content--wrapper{% endif %} media-grid-heading--wrapper">
 			<h4>{{ section.settings.heading_text }}</h4>
-			<div><a href="#">{{ section.settings.link_text }}</a>&nbsp;></div>
+			<div><a href="/collections/special-offers">{{ section.settings.link_text }}</a>&nbsp;></div>
 		</div>
 	{% endif %}
 	<div class="media-grid--inner{% if short_width %} customer-content--wrapper{% endif %} column-spacing--{{ column_spacing }}" style="--desktop-height:{{ desktop_height | append: 'px' }}; --mobile-height:{{ mobile_height | append: 'px' }}">
