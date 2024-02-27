@@ -65,4 +65,8 @@
     margin-bottom: 0;
     padding-bottom: 16px;
   }
+  .row .account-breadcrumbs {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

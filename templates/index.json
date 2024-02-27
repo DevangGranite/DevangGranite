@@ -183,13 +183,13 @@
         "description": "",
         "columns_desktop": 4,
         "mobile_swipe": false,
-        "image_ratio": "adapt",
+        "image_ratio": "square",
         "text_alignment": "center",
-        "heading_size": "h5",
+        "heading_size": "h6",
         "color_heading": "#1a1c1d",
         "marker_color": "#fd6262",
         "color_text": "#2c2d2e",
-        "color_links": "#2c2d2e",
+        "color_links": "#2866d3",
         "disable_top_spacing": false,
         "disable_bottom_spacing": false
       }
@@ -208,7 +208,7 @@
           "settings": {
             "text": "UAE's  |#1 Water Brand|",
             "marker_style": "style2",
-            "size": "h1",
+            "size": "h3",
             "marker_color": "#2866d3"
           }
         },
@@ -249,20 +249,6 @@
         "video_autoplay": true,
         "aspect_ratio": "16-9",
         "marker_color": "#fd6262",
-        "disable_top_spacing": false,
-        "disable_bottom_spacing": false
-      }
-    },
-    "image_with_text_slideshow_xJRtiU": {
-      "type": "image-with-text-slideshow",
-      "settings": {
-        "mobile_height": "mobile-height-450",
-        "desktop_height": "desktop-height-450",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "content_position": "text-left",
-        "autoplay": true,
-        "autoplay_length": 10,
         "disable_top_spacing": false,
         "disable_bottom_spacing": false
       }
@@ -368,7 +354,6 @@
     "multicolumn_EYCcrV",
     "41985d74-e833-4bbd-b6df-f14039d7d1e4",
     "video_QLgji3",
-    "image_with_text_slideshow_xJRtiU",
     "featured_blog_hbU64y",
     "1707371205483f852f",
     "text_with_icons_m8TwgU"

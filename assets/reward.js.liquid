@@ -104,7 +104,11 @@ class AccountMyReward  extends HTMLElement{
     }
     async inital() {
         this.data = await getCustomerReward();
-        this.rewardProgressCompleteBar.style.width = `${this.data.current_points*100/80}%`;
+        if(this.data.current_points >= 80)
+            this.rewardProgressCompleteBar.style.width = `100%`;
+        else
+            this.rewardProgressCompleteBar.style.width = `${this.data.current_points*100/80}%`;
+
         this.rewardProgressCompleteBar.style.background = `linear-gradient(90deg, #2866D3 61.5%, #409D25 100.07%)`;
         if(this.data.current_points > 30 && this.data.current_points <= 80){
             this.currentTierImage = "{{ 'Green_Tier.png' | file_url }}";
@@ -152,7 +156,10 @@ class ClipTheDeal  extends HTMLElement{
         this.expireDate = new Date(this.data.next_date_points_expiring);
         this.rewardDropPageTier.innerText = this.currentTier;
 
-        this.rewardProgressCompleteBarMobile.style.width = this.rewardProgressCompleteBarDesktop.style.width = `${this.data.current_points*100/80}%`;
+        if(this.data.current_points >= 80)
+        this.rewardProgressCompleteBarMobile.style.width = this.rewardProgressCompleteBarDesktop.style.width = `100%`;
+        else
+            this.rewardProgressCompleteBarMobile.style.width = this.rewardProgressCompleteBarDesktop.style.width = `${this.data.current_points*100/80}%`;
 
         if(this.data.current_points < 30){
             this.currentDrop.innerHTML = `<img src="{{ 'Blue_Tier.png' | file_url }}" alt="Drop" width="36"><span>${this.data.current_points}</span>`;
@@ -379,7 +386,7 @@ class RedemeedRewardOffer extends HTMLElement{
         this.copyCode.addEventListener('click', e => {
             e.preventDefault();
             this.copyTextToClipboard(-1);
-          });
+        });
     }
     copyTextToClipboard(text) {
         navigator.clipboard.writeText(this.couponCode.textContent);

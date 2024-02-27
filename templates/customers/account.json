@@ -6,8 +6,8 @@
         "slide_KLWCR9": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_18498.png",
-            "mobile_image": "shopify:\/\/shop_images\/Hero_3.png",
+            "image": "shopify:\/\/shop_images\/My_Account_Hero_Banner_Clip_The_Deal.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/My_Account_Hero_Banner_Clip_The_Deal_Mobile.jpg",
             "slide_link": "shopify:\/\/pages\/clip-the-deal",
             "video_background": false,
             "badge_text": "",
@@ -41,8 +41,8 @@
         "slide_cNDk4a": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_18498_1.png",
-            "mobile_image": "shopify:\/\/shop_images\/Untitled_1.png",
+            "image": "shopify:\/\/shop_images\/My_Account_Hero_Banner_Al_Ain_Zero.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/My_Account_Hero_Banner_Al_Ain_Zero_Mobile.jpg",
             "slide_link": "shopify:\/\/collections\/al-ain-water",
             "video_background": false,
             "badge_text": "",
@@ -76,8 +76,8 @@
         "slide_iDi7bV": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_1.png",
-            "mobile_image": "shopify:\/\/shop_images\/Group_18282.png",
+            "image": "shopify:\/\/shop_images\/My_Account_Hero_Banner_Philips_Electric_Pump.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/My_Account_Hero_Banner_Philips_Electric_Pump_Mobile.jpg",
             "slide_link": "shopify:\/\/products\/free-philips-pump",
             "video_background": false,
             "badge_text": "",
@@ -92,7 +92,7 @@
             "color_slidebg": "rgba(0,0,0,0)",
             "color_slidebg_opacity": 0,
             "color_slidebg_blur": 0,
-            "color_text": "#2c2d2e",
+            "color_text": "#2866d3",
             "color_badge_bg": "#3f72e5",
             "color_badge_text": "#ffffff",
             "overlay_color": "#000000",
@@ -298,7 +298,7 @@
       "settings": {
         "shift_second_grid": true,
         "use_heading_link": true,
-        "heading_text": "Top Offers",
+        "heading_text": "Special Offers",
         "link_text": "View More",
         "wrapper_background": "#EFF2F6",
         "desktop_height": 200,
@@ -319,35 +319,35 @@
         "logo_KjhL7p": {
           "type": "logo",
           "settings": {
-            "image": "shopify:\/\/shop_images\/account-hm.png",
+            "image": "shopify:\/\/shop_images\/Lacoste.png",
             "link": ""
           }
         },
         "logo_9JfBHP": {
           "type": "logo",
           "settings": {
-            "image": "shopify:\/\/shop_images\/account-amazon.png",
+            "image": "shopify:\/\/shop_images\/H_M.png",
             "link": ""
           }
         },
         "logo_wGi4tb": {
           "type": "logo",
           "settings": {
-            "image": "shopify:\/\/shop_images\/account-carrefour.png",
+            "image": "shopify:\/\/shop_images\/Crate_Barrel.png",
             "link": ""
           }
         },
         "logo_KAaq6z": {
           "type": "logo",
           "settings": {
-            "image": "shopify:\/\/shop_images\/account-ferrari.png",
+            "image": "shopify:\/\/shop_images\/FerrariWorld.png",
             "link": ""
           }
         },
         "logo_nX7frW": {
           "type": "logo",
           "settings": {
-            "image": "shopify:\/\/shop_images\/account-al-ain-water.png",
+            "image": "shopify:\/\/shop_images\/BodyShop.png",
             "link": ""
           }
         }

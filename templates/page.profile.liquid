@@ -30,6 +30,7 @@
                   name="first name"
                   aria-label="First Name"
                   placeholder="First Name"
+                  value="{{ customer.first_name }}"
                   disabled
                 />
               </div>
@@ -42,6 +43,7 @@
                   name="last name"
                   aria-label="Last Name"
                   placeholder="Last name"
+                  value="{{ customer.last_name }}"
                   disabled
                 />
               </div>
@@ -56,6 +58,7 @@
                   name="email address"
                   aria-label="Email Address"
                   placeholder="email@email.com"
+                  value="{{ customer.email }}"
                   disabled
                 />
               </div>
@@ -73,7 +76,9 @@
                   name="address"
                   aria-label="Address"
                   disabled
-                ></textarea>
+                >
+                  {{ customer.default_address.address1 }},{{ customer.default_address.address2 }},{{ customer.default_address.city }},{{ customer.default_address.province }},{{ customer.default_address.country }} {{ customer.default_address.postal_code }}
+                </textarea>
               </div>
             </div>
           </fieldset>
@@ -81,53 +86,57 @@
       </section>
 
       <!-- Update Name form -->
-
-      <section class="update-name-section">
-        <div class="head-section">
-          <h2>Update Name</h2>
-        </div>
-        <form
-          action=""
-          method="post"
-          id="update-name-form"
-          class="update-name-form"
-        >
-          <fieldset>
-            <div class="field">
-              <label for="first name">First Name</label>
-              <div class="control">
-                <input
-                  type="text"
-                  name="first name"
-                  aria-label="First Name"
-                  placeholder="First Name"
-                />
+      <update-profile>
+        <section class="update-name-section">
+          <div class="head-section">
+            <h2>Update Name</h2>
+          </div>
+          <form
+            action=""
+            method="post"
+            id="update-name-form"
+            class="update-name-form"
+          >
+            <fieldset>
+              <div class="field">
+                <label for="first name">First Name</label>
+                <div class="control">
+                  <input type="hidden" name="customer_id" value="{{ customer.id }}">
+                  <input
+                    type="text"
+                    name="first_name"
+                    aria-label="First Name"
+                    placeholder="First Name"
+                    value="{{ customer.first_name }}"
+                  />
+                </div>
               </div>
-            </div>
-            <div class="field">
-              <label for="last name">Last Name</label>
-              <div class="control">
-                <input
-                  type="text"
-                  name="last name"
-                  aria-label="Last Name"
-                  placeholder="Last name"
-                />
+              <div class="field">
+                <label for="last name">Last Name</label>
+                <div class="control">
+                  <input
+                    type="text"
+                    name="last_name"
+                    aria-label="Last Name"
+                    placeholder="Last name"
+                    value="{{ customer.last_name }}"
+                  />
+                </div>
               </div>
-            </div>
-            <div class="actions-bar">
-              <button
-                type="submit"
-                class="form-submit-btn"
-                aria-label="update name"
-              >
-                update name
-              </button>
-              <a href="javascript:void(0);" class="back-link" title="Go back">Go back</a>
-            </div>
-          </fieldset>
-        </form>
-      </section>
+              <div class="actions-bar">
+                <button
+                  type="submit"
+                  class="form-submit-btn"
+                  aria-label="update name"
+                  id="updateUserName"
+                >
+                  update name
+                </button>
+                <a href="javascript:void(0);" class="back-link" title="Go back">Go back</a>
+              </div>
+            </fieldset>
+          </form>
+        </section>
 
       <!-- Update Email form -->
 
@@ -151,6 +160,7 @@
                   aria-label="Current Email Address"
                   disabled
                   placeholder="Current Email Address"
+                  value="{{ customer.email }}"
                 />
               </div>
             </div>
@@ -159,11 +169,11 @@
               <div class="control">
                 <input
                   type="email"
-                  name="New Email Address"
+                  name="new_email"
                   aria-label="New Email Address"
                   placeholder="New Email Address"
                 />
-                <div class="error">The email provided has not yet been verified. Please verify your email for account security and updates.</div>
+                {% comment %} <div class="error">The email provided has not yet been verified. Please verify your email for account security and updates.</div> {% endcomment %}
               </div>
             </div>
             <div class="field">
@@ -173,17 +183,19 @@
               <div class="control">
                 <input
                   type="email"
-                  name="Confirm New Email Address"
+                  name="new_email_confirm"
                   aria-label="Confirm New Email Address"
                   placeholder="Confirm New Email Address"
                 />
+                <div class="email_confirm_error error"></div>
               </div>
             </div>
             <div class="actions-bar">
               <button
-                type="submit"
+                type="button"
                 class="form-submit-btn"
                 aria-label="update Email"
+                id="updateEmailBtn"
               >
                 update Email
               </button>
@@ -218,6 +230,9 @@
                 onkeydown="handleEnterKey(event)"
               >
               </div>
+              <input type="hidden" name="lat" value="23.4241">
+              <input type="hidden" name="lang" value="53.8478">
+              <input type="hidden" name="address_id" value={{ customer.default_address.id }}>
               <div class="location_icon" onclick="openPopup()">
                 {% render 'svg-icons' with 'location' %}
               </div>
@@ -230,7 +245,7 @@
               <div class="control">
                 <input
                   type="text"
-                  name="Update Address"
+                  name="address2"
                   aria-label="Update Address"
                   placeholder="Update Address"
                 />
@@ -271,14 +286,17 @@
                 type="submit"
                 class="form-submit-btn"
                 aria-label="update Address"
+                id="updateAddress"
               >
                 update Address
               </button>
+              <div class="error"></div>
               <a href="javascript:void(0);" class="back-link" title="Go back">Go back</a>
             </div>
           </fieldset>
         </form>
       </section>
+    </update-profile>
 
       <!-- My Account footer -->
 
