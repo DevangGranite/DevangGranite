@@ -104,7 +104,7 @@ class AccountMyReward  extends HTMLElement{
     }
     async inital() {
         this.data = await getCustomerReward();
-        this.rewardProgressCompleteBar.style.width = `${this.data.current_points*100/80}px`;
+        this.rewardProgressCompleteBar.style.width = `${this.data.current_points*100/40}`;
         this.rewardProgressCompleteBar.style.background = `linear-gradient(90deg, #2866D3 61.5%, #409D25 100.07%)`;
         if(this.data.current_points > 30 && this.data.current_points <= 80){
             this.currentTierImage = "{{ 'Green_Tier.png' | file_url }}";
