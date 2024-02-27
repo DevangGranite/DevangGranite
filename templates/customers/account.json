@@ -361,6 +361,7 @@
       ],
       "settings": {
         "heading": "Reward Drops",
+        "link_main": "shopify:\/\/pages\/clip-the-deal",
         "short_width": true,
         "use_image_for_heading": true,
         "heading_image": "shopify:\/\/shop_images\/account-3-drops.png",
