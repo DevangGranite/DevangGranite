@@ -29,7 +29,7 @@
 		}
 	</style>
 {% endif %}
-<a href="#">
+<a class="logo" href="#">
 <div class="logo-list{% if short_width %} customer-content--wrapper{% endif %} logo-list--centered-{{ center_align }} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}" style="--color-heading:{{ section.settings.color_heading }};">
   {% render 'section-header', section_heading: section_heading, section_description: section_description, marker_color: marker_color, marker_style: marker_style, text_color: text_color, heading_image: heading_image, use_image_for_heading: use_image_for_heading %}
 	<div class="logo-list--inner{% if mobile_swipe %} swipe-on-mobile{% endif %}" style="--logo-columns: {{ section.settings.columns }}; --logo-bg: {{ color_logo_bg }};">
