@@ -4240,3 +4240,12 @@ line-height: 34px;
     padding: 0 50px;
   }
 }
+#main-content .customer-content--wrapper h3.section-header--title {
+    text-transform: capitalize;
+    font-size: 32px; 
+    font-family: Rubik, sans-serif;
+}
+
+#main-content .featured-collection .customer-content--wrapper h3.section-header--title {
+    color: #2461cc;
+}
