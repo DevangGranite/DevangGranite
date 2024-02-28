@@ -1,5 +1,4 @@
-{{ 'pagination.css' | asset_url | stylesheet_tag }}
-
+{%- if paginate.pages > 1 -%}
 <pagination-theme class="pagination pagination-type--{{ pagination_type }}" data-section="{{ id }}">
 	<div class="row">
 		<div class="small-12 columns">
@@ -36,4 +35,5 @@
 	<script src="{{ 'pagination.js' | asset_url }}" defer></script>
 	{%- endif -%}
 </pagination-theme>
-
+{{ 'pagination.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
