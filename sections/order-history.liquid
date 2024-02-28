@@ -1,6 +1,6 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
-{%- assign ordersPerPage = 1 -%}
+{%- assign ordersPerPage = 10 -%}
 {%- assign totalPages = customer.orders.size | divided_by: ordersPerPage | ceil -%}
 {%- assign currentPage = params.page | default: 1 | to_integer -%}
 
