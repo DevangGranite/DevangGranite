@@ -1,7 +1,7 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
  {%- if customer.orders.size > 0 -%}
     {%- paginate customer.orders by 1 -%}
-        <div class="container account-order-history-table--wrapper order-history-page">
+        <div class="account-order-history-table--wrapper order-history-page">
           <table class="account-order-history--table no-borders">
             <thead>
               <tr>
