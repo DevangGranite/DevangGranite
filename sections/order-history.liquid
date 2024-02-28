@@ -56,7 +56,7 @@
             </tbody>
           </table>
         </div>
-      {% render 'pagination_new' %}
+      {% include 'pagination_new' %}
 	{%- endpaginate -%}
       {%- else -%}
         <p>{{ 'customer.orders.none' | t }}</p>   
