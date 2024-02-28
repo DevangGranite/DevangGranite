@@ -909,6 +909,7 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
 
 #main-content .customer-content--wrapper h3.section-header--title {
     text-transform: capitalize;
+    font-size: 30px;
     font-family: Rubik, sans-serif;
 }
 
