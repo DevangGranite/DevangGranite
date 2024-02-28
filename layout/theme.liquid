@@ -126,5 +126,14 @@
 	{% if request.path == '/pages/profile' %}
 	{% include 'popup_update' %}  
 	{% endif %}
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var links = document.querySelectorAll('a[target="_blank"]');
+      
+      links.forEach(function(link) {
+        link.setAttribute('target', '_self');
+      });
+    });
+  </script>
 </body>
 </html>
