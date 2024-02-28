@@ -907,3 +907,7 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
   }
 }
 
+#main-content .customer-content--wrapper h3.section-header--title {
+    text-transform: capitalize;
+    font-family: Rubik, sans-serif;
+}
