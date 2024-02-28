@@ -1,6 +1,6 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
-{% render 'breadcrumbs' %}
+{% include 'breadcrumbs' %}
  {%- if customer.orders.size > 0 -%}
     {%- paginate customer.orders by 1 -%}
         <div class="account-order-history-table--wrapper order-history-page">
