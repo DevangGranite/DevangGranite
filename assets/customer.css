@@ -223,6 +223,7 @@ html[lang="ar"] table.account-order-history--table tbody tr td,
 table.account-order-history--table tbody tr td {
   color: #53565A;
   line-height: 32px;
+  padding-right: 24px;
   padding-left: 24px;
   padding-top: 8px;
   font-size: 14px;
