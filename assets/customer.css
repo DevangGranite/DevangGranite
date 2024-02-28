@@ -135,7 +135,7 @@
   margin-bottom: 32px;
 }
 .customer-welcome-img--background {
-  background-color: transparent;
+  background-color: #EFF2F6;
   border-radius: 100%;
   width: 64px;
   height: 64px;
@@ -907,13 +907,13 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
   }
 }
 #main-content .customer-content--wrapper h3.section-header--title {
-    text-transform: capitalize;
-    font-weight: 600;
-    line-height: 34px;
-    font-size: 32px; 
-    font-family: Rubik, sans-serif;
+  text-transform: capitalize;
+  font-weight: 600;
+  line-height: 34px;
+  font-size: 32px; 
+  font-family: Rubik, sans-serif;
 }
 
 #main-content .featured-collection .customer-content--wrapper h3.section-header--title {
-    color: #2461cc;
+  color: #2461cc;
 }
