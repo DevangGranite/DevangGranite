@@ -4242,6 +4242,7 @@ line-height: 34px;
 }
 #main-content .customer-content--wrapper h3.section-header--title {
     text-transform: capitalize;
+    font-weight: 600;
     font-size: 32px; 
     font-family: Rubik, sans-serif;
 }
