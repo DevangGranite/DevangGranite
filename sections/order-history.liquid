@@ -1,5 +1,6 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
  {%- if customer.orders.size > 0 -%}
+   <div class="container order_history_main row">
         <div class="account-order-history-table--wrapper">
           <table class="account-order-history--table no-borders">
             <thead>
@@ -55,6 +56,7 @@
             </tbody>
           </table>
         </div>
+   </div>
       {%- else -%}
         <p>{{ 'customer.orders.none' | t }}</p>
       {%- endif -%} 
