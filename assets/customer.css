@@ -465,7 +465,7 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
 }
 #quantity {
   text-align: center;
-  width: 40px;
+  width: 20px;
 }
 .account-manage-subscriptions-product--info {
   padding-left: 16px;
@@ -505,6 +505,9 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
   align-items: center;
   padding: 16px 0 20px 3px;
   border-bottom: 1px solid rgba(138, 143, 149, 0.2);
+}
+.account-manage-subscription-input-quantity--wrapper {
+  padding: 11px 0 11px 3px;
 }
 .account-manage-subscription-input--wrapper:last-child {
   border: none;
@@ -557,12 +560,12 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
   border-radius: 7px;
   display: flex;
   align-items: center;
-  padding: 2px 8px;
 }
 .account-quantity--minus,
 .account-quantity--plus {
   display: flex;
   align-items: center;
+  padding: 12px 13px;
 }
 .account-extra--actions {
   display: flex;
@@ -629,6 +632,7 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
 }
 .account-edit-address-input--wrapper input,
 .account-edit-address-input--wrapper select {
+  background-color: #ffffff;
   border: 1px solid #001489;
   border-radius: 8px;
   color: #1F1F20;
@@ -849,7 +853,14 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
   margin: 1rem auto;
   text-align: center;
 }
+.account-manage-subscriptions-form--content {
+  background: rgba(239, 242, 246, 0.4);
+}
 @media screen and (min-width: 768px) {
+  .account-manage-subscriptions-form--content {
+    padding: 13px 24px;
+    margin-bottom: 22px;
+  }
   .account-edit-address-input--double {
     display: flex;
     justify-content: space-between;
@@ -863,6 +874,9 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
   }
 }
 @media screen and (max-width: 767px) {
+  .account-manage-subscriptions-form--content {
+    margin-bottom: 24px;
+  }
   .account-proceed-shopping--button {
     max-width: 100%;
   }

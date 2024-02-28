@@ -127,7 +127,7 @@ input.full.numeric {
   margin-bottom: 15px;
 }
 #popup,
-#otppopup {
+#verifyOTPPopup {
   display: none;
   position: fixed;
   top: 50%;
@@ -343,7 +343,7 @@ input.full.numeric {
   border-radius: 15px;
 }
 
-#main-content .field-area #otppopup button {
+#main-content .field-area #verifyOTPPopup button {
   font-size: 16px;
   line-height: 22px;
   font-weight: 500;
@@ -578,7 +578,7 @@ html.popup-overlap body:before {
     padding: 32px 30px 40px;
   }
 }
-#registerButton:disabled {
+#verifyMobile:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }

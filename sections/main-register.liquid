@@ -1,11 +1,11 @@
 {{ 'login-register.css' | asset_url | stylesheet_tag }}
-{{ 'login-register.js' | asset_url | script_tag }}
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&libraries=places"></script>            
 
 <div class="row">
   <div class="small-12 columns">
     <div class="thb-form-container">
       <div class="thb-register-form">
+        <register-customer>
         {% form 'create_customer' %}
           <h5>{{ 'customer.login_page.create_account' | t }}</h5>
           <h4>{{ 'customer.login_page.create_account_dec' | t }}</h4>
@@ -57,7 +57,6 @@
                   inputmode="numeric"
                   required
                   maxlength="9"
-                  oninput="validateInputt()"
                 >                                
               </div>
               <div id="mobileError" class="form-error"></div>
@@ -67,7 +66,7 @@
               <input
                 type="email"
                 name="customer[email]"
-                class="full {% if form.errors contains 'email' %}invalid{% endif %}"
+                class="full customer_email {% if form.errors contains 'email' %}invalid{% endif %}"
                 value=""
                 id="email"
                 placeholder="{{ 'customer.login_page.email_place' | t }}"
@@ -99,7 +98,7 @@
               >
                 <input type="hidden" name="lat">
               <input type="hidden" name="lang">
-              <div class="location_icon" onclick="openPopup()">
+              <div class="location_icon" id="openMapPopup">
                 {% render 'svg-icons' with 'location' %}
               </div>
 
@@ -125,7 +124,7 @@
             </div>
 
             <div class="field-area">
-              <div id="otppopup">
+              <div id="verifyOTPPopup">
                 <div class="popup-wrapper">
                   <h1 class="popup-title">Validate your Mobile Number</h1>
                   <p class="popup-subtitle">We sent a code to your Mobile Phone.</p>
@@ -183,9 +182,9 @@
                     </div>
                     <div id="invalidOTPError" class="form-error"></div>
                     <p class="timing">
-                      <a id="resendLink" onclick="startTimer_OnClick()">Resend code </a> <span id="timer"></span>
+                      <a id="resendLink">Resend code </a> <span id="timer"></span>
                     </p>
-                    <button type="button" onclick="saveOtpPopup(event)" class="button full" id="verifyOtpbtn" disabled>
+                    <button type="button" class="button full" id="verifyOtpbtn" disabled>
                       <span>Validate your Mobile Number</span>
                     </button>
                   </div>
@@ -198,20 +197,19 @@
               <textarea
                 name="address"
                 placeholder="{{ 'customer.login_page.address2_place' | t }}"
-                class="full"
+                class="full address2"
                 id="address"
               ></textarea>
             </div>
 
             <div class="fields">
               <div class="field">
-                <label for="regi_city" name="city">{{ 'customer.addresses.city' | t }}</label>
+                <label for="regi_city">{{ 'customer.addresses.city' | t }}</label>
                 <select
                   name="city"
                   id="regi_city"
                   placeholder="{{ 'customer.addresses.city_reg' | t }}"
                   class="full"
-                  onchange="getCityDistricts(this.value)"
                 >
                   <option value="">{{ 'customer.addresses.city_reg' | t }}</option>
                 </select>
@@ -232,14 +230,15 @@
               </div>
             </div>
             <div class="terms_condition-checkbox">
-              <input id="checkbox_reg" type="checkbox" value="" onchange="updateButtonState()" required>
+              <input id="accept_condition" type="checkbox" value="" required>
               <span>I accept and agree to the <a href="#">Terms and Condition</a></span>
             </div>
-            <button type="button" class="button full" id="regi_button" onclick="openOTPPopup()" disabled>
+            <button type="button" class="button full" id="regi_button" disabled>
               <span>{{ 'customer.login_page.submit_register' | t }}</span>
             </button>
           </div>
         {% endform %}
+      </register-customer>
         <div class="switch-login-section">
           {{ 'customer.login_page.already_have_an_account' | t }}
           {% assign text_button_title = 'customer.login_page.login' | t %}
@@ -250,60 +249,4 @@
   </div>
 </div>
 
-<script>
-
-  var mobileInput = document.getElementById('mobile');
-  var verifyOTP = document.getElementById('verifyOtpbtn');
-  verifyOTP.addEventListener('click', function () {
-  var OTP = document.getElementById('OneTimePassword1').value+document.getElementById('OneTimePassword2').value+document.getElementById('OneTimePassword3').value+document.getElementById('OneTimePassword4').value+document.getElementById('OneTimePassword5').value+document.getElementById('OneTimePassword6').value;
-      
-      // Use the fetch function to make a GET request to the API
-      fetch('https://alainuat.gdadmin.org/laravel/public/api/verifyOTP', {
-        method: 'POST',
-        body:JSON.stringify({mobileNo: mobileInput.value,otp: OTP}),
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        
-        return response.json();
-      })
-      .then(data => {
-        console.log('Verify OTP',data);
-        const customerData = {first_name: document.getElementById('first_name').value,last_name: document.getElementById('last_name').value,email: document.getElementById('email').value,phone: document.getElementById('mobile').value,address1: document.getElementById('locationInput').value,address2: document.getElementById('address').value,city: document.getElementById('regi_city').value,district: document.getElementById('district').value};
-        console.log('Customer Data',customerData);
-          fetch('https://alainuat.gdadmin.org/laravel/public/api/registerCustomer', {
-            method: 'POST',
-            body:JSON.stringify(customerData),
-          })
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(`Network response was not ok: ${response.status}`);
-            }
-            return response.json();
-          })
-          .then(data => {
-            let responce = JSON.parse(data.customer);
-            // let token = JSON.parse(data.token);
-            // console.log('Token',data.token);
-            if(responce.errors){
-                closeOTPPopup();
-                window.location.href = `/account/login/multipass/${data.token}`;
-                if(responce.errors.email)
-                  document.getElementById('emailError').innerText = "Email has already been taken.";
-                else
-                  window.location = `/account/login/multipass/${data.token}`;
-            }
-          })
-          .catch(error => {
-            console.error('Error fetching data:', error);
-          });
-      })
-      .catch(error => {
-        // Handle errors that may occur during the fetch operation
-        console.error('Error fetching data:', error);
-        document.getElementById('invalidOTPError').innerText = "Invalid OTP."
-      });
-});
-</script>
+{{ 'login-register.js' | asset_url | script_tag }}

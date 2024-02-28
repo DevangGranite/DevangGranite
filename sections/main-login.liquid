@@ -1,255 +1,246 @@
 {{ 'login-register.css' | asset_url | stylesheet_tag }}
-{{ 'login-register.js' | asset_url | script_tag }}
 {{ 'reward.js' | asset_url | script_tag }}
 
 <div class="row">
   <div class="small-12 columns">
     <div class="thb-form-container">
       <div class="thb-login-form cus-login" id="login">
-        {% form 'customer_login' %}
-          
-          <!-- Login start -->
-          <div class="custom_login_container" style="display:block;">
-            <div class="custom_login">
-              <div class="customer--login">
-                <h4>{{ 'customer.login_page.login' | t }}</h4>
-                <p>
-                  <strong>{{ 'customer.login_page.login_desc' | t }}</strong>
-                </p>
-                <p>{{ 'customer.login_page.login_description' | t }}</p>
-                <div class="switch-login-section desk">
+        <login-customer>
+          {% form 'customer_login' %}
+            
+            <!-- Login start -->
+            <div class="custom_login_container" style="display:block;">
+              <div class="custom_login">
+                <div class="customer--login">
+                  <h4>{{ 'customer.login_page.login' | t }}</h4>
+                  <p>
+                    <strong>{{ 'customer.login_page.login_desc' | t }}</strong>
+                  </p>
+                  <p>{{ 'customer.login_page.login_description' | t }}</p>
+                  <div class="switch-login-section desk">
+                    {{ 'customer.login_page.dont_have_an_account' | t }}
+                    {% assign text_button_title = 'customer.login_page.create_account' | t %}
+                    {% render 'text-button', url: routes.account_register_url, title: text_button_title %}
+                    <div></div>
+                  </div>
+                </div>
+                {% if form.errors %}
+                  <div class="form-notification error">
+                    {% render 'svg-icons' with 'thb-error' %}
+                    {{ form.errors | default_errors }}
+                  </div>
+                {% endif %}
+
+                <div class="fields login--page">
+                  <div class="field">
+                    <label for="number">{{ 'customer.login_page.Mobile' | t }}</label>
+                    <div class="field--login--mobile">
+                      <span>+971</span>
+                      <input
+                        type="tel"
+                        placeholder="{{ 'customer.login_page.mobile'| t }}"
+                        class="full numeric login-mobile-numner"
+                        name="mobile_number"
+                        id="mobile"
+                        inputmode="numeric"                      
+                        maxlength="9"
+                        required
+                      >
+                    </div>
+                  </div>
+                  <p>Will we SMS you a one-time password for verification.</p>
+                  <div class="field">
+                    <button type="button" class="button full" id="verifyMobile" disabled>
+                      <span>{{ 'customer.login_page.varify' | t }}</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="switch-login-section mob">
+                  {{ 'customer.login_page.dont_have_an_account' | t }}
+                  {% assign text_button_title = 'customer.login_page.create_account' | t %}
+                  {% render 'text-button', url: routes.account_register_url, title: text_button_title %}                
+                </div>
+              </div>
+            </div>
+            <!-- Login End -->
+
+            <!-- OTP start -->
+            <div class="otp-container" style="display: none;">
+              <div class="custom_login otp">
+                <div class="customer--login">
+                  <h4>{{ 'customer.login_page.validate' | t }}</h4>
+                  <p>
+                    <strong>{{ 'customer.login_page.validate_desc' | t }}</strong>
+                  </p>
+                  <div class="switch-login-section desk">
+                    <div class="number-capture">
+                    <div id="capturedValue"></div>
+                    {% assign text_button_title = 'customer.login_page.validate_description' | t %}
+                    {% render 'text-button', url: routes.account_login_url, title: text_button_title %}
+                    </div>
+                  </div>
+                  <div class="switch-login-section mob">
+                      <div class="number-capture">
+                        <div id="capturedValuemob"></div>
+                        {% assign text_button_title = 'customer.login_page.validate_description' | t %}
+                        {% render 'text-button', url: routes.account_login_url, title: text_button_title %}
+                      </div>
+                  </div>
+                </div>
+                {% if form.errors %}
+                  <div class="form-notification error">
+                    {% render 'svg-icons' with 'thb-error' %}
+                    {{ form.errors | default_errors }}
+                  </div>
+                {% endif %}
+                <div class="fields login--page">
+                  <div class="field-area">
+                    <div id="otppopup1">
+                      <div class="popup-wrapper">
+                        <div class="popup-otp-wrapper">
+                          <label for="OneTimePassword">One Time Password</label>
+                          <div class="popup-otp-input-box">
+                            <input
+                              type="text"
+                              name="OneTimePassword"
+                              id="OneTimePassword1"
+                              maxlength="1"
+                              oninput="validateAndSwitch(this, 'OneTimePassword2')"
+                              autocomplete="off"
+                            >
+                            <input
+                              type="text"
+                              name="OneTimePassword"
+                              id="OneTimePassword2"
+                              maxlength="1"
+                              oninput="validateAndSwitch(this, 'OneTimePassword3')"
+                              autocomplete="off"
+                            >
+                            <input
+                              type="text"
+                              name="OneTimePassword"
+                              id="OneTimePassword3"
+                              maxlength="1"
+                              oninput="validateAndSwitch(this, 'OneTimePassword4')"
+                              .
+                              autocomplete="off"
+                            >
+                            <input
+                              type="text"
+                              name="OneTimePassword"
+                              id="OneTimePassword4"
+                              maxlength="1"
+                              oninput="validateAndSwitch(this, 'OneTimePassword5')"
+                              autocomplete="off"
+                            >
+                            <input
+                              type="text"
+                              name="OneTimePassword"
+                              id="OneTimePassword5"
+                              maxlength="1"
+                              oninput="validateAndSwitch(this, 'OneTimePassword6')"
+                              autocomplete="off"
+                            >
+                            <input
+                              type="text"
+                              name="OneTimePassword"
+                              id="OneTimePassword6"
+                              maxlength="1"
+                              oninput="validateAndSwitch(this, null)"
+                              autocomplete="off"
+                            >
+                          </div>
+                          <div id="invalidOTPError" class="form-error"></div>
+                        <p class="timing">
+                            <a id="resendLink" class="disabled-link">Resend code </a><span id="timer" class="resend-time"></span>
+                        </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <button type="button" class="button full verifyOtpLoginBtn" id="verifyOtpbtn" disabled>
+                      <span>{{ 'customer.login_page.title' | t }}</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- OTP End -->
+
+            <!-- Email start -->
+            <div class="custom_email_container" style="display:none;">
+              <div class="custom_login">
+                <div class="customer--login">
+                  <h4>{{ 'customer.login_page.email_check_login' | t }}</h4>
+                  <p>{{ 'customer.login_page.email_check_login_desc' | t }}</p>
+                </div>
+                {% if form.errors %}
+                  <div class="form-notification error">
+                    {% render 'svg-icons' with 'thb-error' %}
+                    {{ form.errors | default_errors }}
+                  </div>
+                {% endif %}
+                <div class="fields login--page">
+                  <div class="field">
+                    <label for="email">{{ 'customer.login_page.email' | t }}</label>
+                    <input
+                      type="email"
+                      name="customer[email]"
+                      class="full {% if form.errors contains 'email' %}invalid{% endif %}"
+                      id="customer_email"
+                      value=""
+                      placeholder="{{ 'customer.login_page.email_place' | t }}"
+                      required
+                    >
+                    <div id="emailError" class="form-error"></div>
+                  </div>
+
+                  <div class="field">
+                    <label for="confirm_email">{{ 'customer.login_page.confirm_email' | t }}</label>
+                    <input
+                      type="email"
+                      name="customer[confirm_email]"
+                      class="full {% if form.errors contains 'confirm_email' %}invalid{% endif %}"
+                      value=""
+                      placeholder="{{ 'customer.login_page.confirm_email_place' | t }}"
+                      required
+                    >
+                    <div id="confirmEmailError" class="form-error"></div>
+                  </div>
+                  <div class="field">
+                    <button type="button" class="button full" id="updateEmailBtn">
+                      <span>{{ 'customer.login_page.add_email' | t }}</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="switch-login-section mob">
                   {{ 'customer.login_page.dont_have_an_account' | t }}
                   {% assign text_button_title = 'customer.login_page.create_account' | t %}
                   {% render 'text-button', url: routes.account_register_url, title: text_button_title %}
                   <div></div>
                 </div>
               </div>
-              {% if form.errors %}
-                <div class="form-notification error">
-                  {% render 'svg-icons' with 'thb-error' %}
-                  {{ form.errors | default_errors }}
-                </div>
-              {% endif %}
-
-              <div class="fields login--page">
-                <div class="field">
-                  <label for="number">{{ 'customer.login_page.Mobile' | t }}</label>
-                  <div class="field--login--mobile">
-                    <span>+971</span>
-                    <input
-                      type="tel"
-                      placeholder="{{ 'customer.login_page.mobile'| t }}"
-                      class="full numeric"
-                      name="number"
-                      id="mobile"
-                      inputmode="numeric"                      
-                      maxlength="9"
-                      oninput="validateInput()"
-                      required
-                    >
-                  </div>
-                </div>
-                <p>Will we SMS you a one-time password for verification.</p>
-                <div class="field">
-                  <button type="button" class="button full" id="registerButton" onclick="startTimerOnClick_login()" disabled>
-                    <span>{{ 'customer.login_page.varify' | t }}</span>
-                  </button>
-                </div>
-              </div>
-              <div class="switch-login-section mob">
-                {{ 'customer.login_page.dont_have_an_account' | t }}
-                {% assign text_button_title = 'customer.login_page.create_account' | t %}
-                {% render 'text-button', url: routes.account_register_url, title: text_button_title %}                
-              </div>
             </div>
-          </div>
-          <!-- Login End -->
+            <!-- Email End -->
 
-          <!-- OTP start -->
-          <div class="otp-container" style="display: none;">
-            <div class="custom_login otp">
-              <div class="customer--login">
-                <h4>{{ 'customer.login_page.validate' | t }}</h4>
-                <p>
-                  <strong>{{ 'customer.login_page.validate_desc' | t }}</strong>
-                </p>
-                <div class="switch-login-section desk">
-                  <div class="number-capture">
-                  <div id="capturedValue"></div>
-                  {% assign text_button_title = 'customer.login_page.validate_description' | t %}
-                  {% render 'text-button', url: routes.account_login_url, title: text_button_title %}
-                  </div>
-                </div>
-                <div class="switch-login-section mob">
-                    <div class="number-capture">
-                      <div id="capturedValuemob"></div>
-                      {% assign text_button_title = 'customer.login_page.validate_description' | t %}
-                      {% render 'text-button', url: routes.account_login_url, title: text_button_title %}
-                    </div>
-                </div>
-              </div>
-              {% if form.errors %}
-                <div class="form-notification error">
-                  {% render 'svg-icons' with 'thb-error' %}
-                  {{ form.errors | default_errors }}
-                </div>
-              {% endif %}
-              <div class="fields login--page">
-                <div class="field-area">
-                  <div id="otppopup1">
-                    <div class="popup-wrapper">
-                      <div class="popup-otp-wrapper">
-                        <label for="OneTimePassword">One Time Password</label>
-                        <div class="popup-otp-input-box">
-                          <input
-                            type="text"
-                            name="OneTimePassword"
-                            id="OneTimePassword1"
-                            maxlength="1"
-                            oninput="validateAndSwitch(this, 'OneTimePassword2')"
-                            autocomplete="off"
-                          >
-                          <input
-                            type="text"
-                            name="OneTimePassword"
-                            id="OneTimePassword2"
-                            maxlength="1"
-                            oninput="validateAndSwitch(this, 'OneTimePassword3')"
-                            autocomplete="off"
-                          >
-                          <input
-                            type="text"
-                            name="OneTimePassword"
-                            id="OneTimePassword3"
-                            maxlength="1"
-                            oninput="validateAndSwitch(this, 'OneTimePassword4')"
-                            .
-                            autocomplete="off"
-                          >
-                          <input
-                            type="text"
-                            name="OneTimePassword"
-                            id="OneTimePassword4"
-                            maxlength="1"
-                            oninput="validateAndSwitch(this, 'OneTimePassword5')"
-                            autocomplete="off"
-                          >
-                          <input
-                            type="text"
-                            name="OneTimePassword"
-                            id="OneTimePassword5"
-                            maxlength="1"
-                            oninput="validateAndSwitch(this, 'OneTimePassword6')"
-                            autocomplete="off"
-                          >
-                          <input
-                            type="text"
-                            name="OneTimePassword"
-                            id="OneTimePassword6"
-                            maxlength="1"
-                            oninput="validateAndSwitch(this, null)"
-                            autocomplete="off"
-                          >
-                        </div>
-                        <div id="invalidOTPError" class="form-error"></div>
-                      <p class="timing">
-                          <a id="resendLink" onclick="startTimerOnClick()">Resend code </a><span id="timer"></span>
-                      </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="field">
-                  <button type="button" class="button full" id="verifyOtpbtn" disabled>
-                    <span>{{ 'customer.login_page.title' | t }}</span>
-                  </button>
-                </div>
-              </div>
+            <div class="devider"><span>or</span></div>
+            <div class="switch-login-section">
+              {% assign text_button_title = 'Need Help?' %}
+              {% render 'text-button', url: #, title: text_button_title %}
+              We’re here to assist.
+              <div></div>
             </div>
-          </div>
-          <!-- OTP End -->
-
-          <!-- Email start -->
-          <div class="custom_email_container" style="display:none;">
-            <div class="custom_login">
-              <div class="customer--login">
-                <h4>{{ 'customer.login_page.email_check_login' | t }}</h4>
-                <p>{{ 'customer.login_page.email_check_login_desc' | t }}</p>
-              </div>
-              {% if form.errors %}
-                <div class="form-notification error">
-                  {% render 'svg-icons' with 'thb-error' %}
-                  {{ form.errors | default_errors }}
-                </div>
-              {% endif %}
-              <div class="fields login--page">
-                <div class="field">
-                  <label for="email">{{ 'customer.login_page.email' | t }}</label>
-                  <input
-                    type="email"
-                    name="customer[email]"
-                    class="full {% if form.errors contains 'email' %}invalid{% endif %}"
-                    id="customer_email"
-                    value=""
-                    placeholder="{{ 'customer.login_page.email_place' | t }}"
-                    required
-                  >
-                </div>
-
-                <div class="field">
-                  <label for="confirm_email">{{ 'customer.login_page.confirm_email' | t }}</label>
-                  <input
-                    type="email"
-                    name="customer[confirm_email]"
-                    class="full {% if form.errors contains 'confirm_email' %}invalid{% endif %}"
-                    value=""
-                    placeholder="{{ 'customer.login_page.confirm_email_place' | t }}"
-                    required
-                  >
-                </div>
-                <div class="field">
-                  <button type="button" class="button full" onclick="updateEmail()">
-                    <span>{{ 'customer.login_page.add_email' | t }}</span>
-                  </button>
-                </div>
-              </div>
-              <div class="switch-login-section mob">
-                {{ 'customer.login_page.dont_have_an_account' | t }}
-                {% assign text_button_title = 'customer.login_page.create_account' | t %}
-                {% render 'text-button', url: routes.account_register_url, title: text_button_title %}
-                <div></div>
-              </div>
-            </div>
-          </div>
-          <!-- Email End -->
-
-          <div class="devider"><span>or</span></div>
-          <div class="switch-login-section">
-            {% assign text_button_title = 'Need Help?' %}
-            {% assign contact_page_url = '/pages/contact' %}
-              {% render 'text-button', url: contact_page_url, title: text_button_title %}
-              We’re here to assist.            
-          </div>
-
-        
-        {% endform %}
+          
+          {% endform %}
+        </login-customer>
       </div>
     </div>
   </div>
 </div>
+{{ 'login-register.js' | asset_url | script_tag }}
 
 <script>
-  document.getElementById('registerButton').addEventListener('click', function() {
-      var customLoginElement = document.querySelector('.otp-container');
-      var customLoginotpElement = document.querySelector('.custom_login_container');
-      if (customLoginElement.style.display === 'none' || customLoginElement.style.display === '') {
-          customLoginElement.style.display = 'block';
-          customLoginotpElement.style.display = 'none';
-      } else {
-          customLoginElement.style.display = 'none';
-        customLoginotpElement.style.display = 'block';
-      }
-  });
 
 // Declare mobileInput outside the validateInput function
 var mobileInput = document.getElementById('mobile');
@@ -257,91 +248,10 @@ var registerButton = document.getElementById('registerButton');
 var resendLinkButton = document.getElementById('resendLink'); 
 var verifyOTP = document.getElementById('verifyOtpbtn');
 
-function validateInput() {
-    // Remove non-numeric characters
-    var numericValue = mobileInput.value.replace(/\D/g, '');
-
-    // Update the input value with the numeric value
-    mobileInput.value = numericValue;
-
-    if (numericValue.length === 9) {
-        registerButton.removeAttribute('disabled');
-    } else {
-        registerButton.setAttribute('disabled', 'disabled');
-    }
-}
-
-/** Send OTP **/
-registerButton.addEventListener('click', function () {
-    // API call    
-    fetch('https://alainuat.gdadmin.org/laravel/public/api/sendOTP', {
-        method: 'POST',
-        body: JSON.stringify({ mobile: mobileInput.value }),
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        return response.json();
-    }).then(data => {
-        console.log('MSS Test', data);
-    }).catch(error => {
-        console.error('Error fetching data:', error);
-    });
-});
-/** End Send OTP **/
-
-/** Resend OTP **/
-resendLinkButton.addEventListener('click', function () {
-    // API call
-    fetch('https://alainuat.gdadmin.org/laravel/public/api/sendOTP', {
-        method: 'POST',
-        body: JSON.stringify({ mobile: mobileInput.value }),
-    }).then(response => {
-        if (!response.ok) {
-            throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        return response.json();
-    }).then(data => {
-        console.log('MSS Test', data);
-    }).catch(error => {
-        console.error('Error fetching data:', error);
-    });
-});
-/** End Resend OTP **/
-
-/** Verify OTP **/
-let user_id;
-verifyOTP.addEventListener('click', function () {
-  var OTP = document.getElementById('OneTimePassword1').value+document.getElementById('OneTimePassword2').value+document.getElementById('OneTimePassword3').value+document.getElementById('OneTimePassword4').value+document.getElementById('OneTimePassword5').value+document.getElementById('OneTimePassword6').value;
-  fetch('https://alainuat.gdadmin.org/laravel/public/api/verifyOTP', {
-    method: 'POST',
-    body:JSON.stringify({mobileNo: mobileInput.value,otp: OTP}),
-  }).then(response => {
-    if (!response.ok) {
-      document.getElementById('invalidOTPError').innerText = "Invalid OTP."
-      throw new Error(`Network response was not ok: ${response.status}`);
-    }
-    return response.json();
-  }).then(data => {
-    console.log('Verify Login OTP',data);
-    if (data.response['0'].email_id == "") {
-      user_id = data.response['0'].id;
-      document.querySelector('.custom_email_container').style.display = 'block';
-      document.querySelector('.otp-container').style.display = 'none';
-    }else{
-      setCookie('user_id',data.response['0'].id);
-      customerLogin(data.response['0'].email_id);
-    }  
-  }).catch(error => {
-    // Handle errors that may occur during the fetch operation
-    document.getElementById('invalidOTPError').innerText = "Invalid OTP."
-    console.error('Error fetching data:', error);
-  });
-});
 
 
-function updateEmail(){
+
+{% comment %} function updateEmail(){
   fetch('https://alainuat.gdadmin.org/laravel/public/api/customer/update', {
     method:'POST',
     body:JSON.stringify({email_id:document.getElementById('customer_email').value,user_id:user_id}),
@@ -356,28 +266,8 @@ function updateEmail(){
   }).catch(error => {
     console.log('Error fetching data:',error);
   });
-}
+} {% endcomment %}
 
-function customerLogin(email) {
-  /** customer login **/
-  fetch(`https://alainuat.gdadmin.org/laravel/public/api/customer/login/${email}`, {
-      method: 'GET',
-  })
-  .then(response => {
-      if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.status}`);
-      }
-      return response.json();
-  })
-  .then(data => {
-      console.log('Token',data);
-      window.location = `/account/login/multipass/${data.token}`;
-  })
-  .catch(error => {
-      console.error('Error fetching data:', error);
-  });
-  /** end customer login **/
-}
 
 /** End Verify OTP **/
 </script>

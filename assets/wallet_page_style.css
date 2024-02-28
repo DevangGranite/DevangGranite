@@ -303,11 +303,14 @@
     padding-inline: 24px;
     padding-block: 8px;
 }
-.tab-content {
+.tab-content{
    display: none;
+   opacity: 0;
+  transition: opacity 0.5s ease;
 }
 .tab-content.active{
   display: block;
+  opacity: 1;
 }
 
 /* Top UP Wallet */
@@ -849,6 +852,12 @@
     }
   }
   @media screen and ( max-width: 749px ){
+    .available_funds .available_fund_currency{
+      font-size: 16px;
+    }
+    .available_funds .available_fund_price{
+      font-size: 26px;
+    }
 /* Rewards redeem voucher + clip the deal */
     .product-gallery-container {
       max-width: 250px;

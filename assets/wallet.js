@@ -26,7 +26,7 @@ if (!customElements.get('wallet-balance')) {
      this.openHelpWallet.addEventListener('click', () => {
        this.fadeIn(this.helpDiv);
        this.fadeOut(this.detailDiv);
-       this.closeButton.style.display = 'inline'; // Show the close button
+       this.closeButton.style.display = 'flex'; // Show the close button
        this.openButton.style.display = 'none'; // Hide the open button
       });
 
@@ -34,7 +34,7 @@ if (!customElements.get('wallet-balance')) {
         this.fadeIn(this.detailDiv);
         this.fadeOut(this.helpDiv);
         this.closeButton.style.display = 'none'; // Hide the close button
-        this.openButton.style.display = 'inline'; // Show the open button
+        this.openButton.style.display = 'flex'; // Show the open button
       });
 
       this.debitedSwitch.addEventListener('click', (event) => {
