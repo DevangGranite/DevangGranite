@@ -58,3 +58,5 @@
       {%- else -%}
         <p>{{ 'customer.orders.none' | t }}</p>
       {%- endif -%} 
+       {% render 'pagination', paginate: paginate, pagination_type: 'paginated' %}
+      
