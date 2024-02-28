@@ -1,21 +1,32 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
- {%- if customer.orders.size > 0 -%}
-        <div class="account-order-history-table--wrapper order-history-page">
-          <table class="account-order-history--table no-borders">
-            <thead>
-              <tr>
-                <th id="ColumnOrder" scope="col" role="columnheader">{{ 'customer.orders.order_number' | t }}</th>
-                <th id="ColumnDate" scope="col" role="columnheader">{{ 'customer.orders.date' | t }}</th>
-                <th id="ColumnPayment" scope="col" role="columnheader">{{ 'customer.orders.payment_status' | t }}</th>
-                <th id="ColumnFulfillment" scope="col" role="columnheader">
-                  {{ 'customer.orders.fulfillment_status' | t }}
-                </th>
-                <th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.orders.total' | t }}</th>
-              </tr>
-            </thead>
-            <tbody role="rowgroup">
-              {% for order in customer.orders %}
-                <tr role="row">
+
+{%- assign ordersPerPage = 10 -%}
+{%- assign totalPages = customer.orders.size | divided_by: ordersPerPage | ceil -%}
+{%- assign currentPage = params.page | default: 1 | to_integer -%}
+
+{%- if customer.orders.size > 0 -%}
+  <div class="account-order-history-table--wrapper order-history-page">
+    <table class="account-order-history--table no-borders">
+      <thead>
+        <tr>
+          <th id="ColumnOrder" scope="col" role="columnheader">{{ 'customer.orders.order_number' | t }}</th>
+          <th id="ColumnDate" scope="col" role="columnheader">{{ 'customer.orders.date' | t }}</th>
+          <th id="ColumnPayment" scope="col" role="columnheader">{{ 'customer.orders.payment_status' | t }}</th>
+          <th id="ColumnFulfillment" scope="col" role="columnheader">
+            {{ 'customer.orders.fulfillment_status' | t }}
+          </th>
+          <th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.orders.total' | t }}</th>
+        </tr>
+      </thead>
+
+      <tbody role="rowgroup">
+        {% assign startIdx = currentPage | minus: 1 %}
+{% assign endIdx = startIdx | plus: ordersPerPage | minus: 1 %}
+
+       {% assign endIdx = startIdx | plus: ordersPerPage | minus: 1 %}
+
+        {% for order in customer.orders offset: startIdx limit: ordersPerPage %}
+          <tr role="row">
                   <td
                     id="RowOrder"
                     role="cell"
@@ -55,6 +66,14 @@
             </tbody>
           </table>
         </div>
+    <!-- Pagination -->
+  <div class="pagination">
+    {% if totalPages > 1 %}
+      {% for page in (1..totalPages) %}
+        <a href="?page={{ page }}" class="{% if page == currentPage %}current{% endif %}">{{ page }}</a>
+      {% endfor %}
+    {% endif %}
+  </div>
       {%- else -%}
         <p>{{ 'customer.orders.none' | t }}</p>
       {%- endif -%} 
