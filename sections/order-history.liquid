@@ -1,8 +1,51 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
 <div class="breadcrumbs_order_history row">
-  <a class="my_account" href="/my-account">My Account</a>
+  <a class="my_account" href="/account">My Account</a>
   <span class="current_page">> Order History</span>
+</div>
+<style>
+  .breadcrumbs_order_history{
+    display: flex;
+    align-items; center;
+    margin-top: 30px;
+    gap: 5px;
+    max-width: 1200px;
+  }
+  .breadcrumbs_order_history a{
+  color: #2461CC;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  text-decoration-line: underline;
+  }
+  .breadcrumbs_order_history span{
+    color: #595A5E;
+ 
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 18px;
+  }
+  .history_title{
+    max-width: 816px;
+    margin-inline: auto;
+    margin-top: 59px;
+  }
+  .history_title div{
+    margin: 0;
+    color: #001489;
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34px; 
+  }
+</style>
+<div class="history_title">
+  <div>Order History</div>
 </div>
  {%- if customer.orders.size > 0 -%}
     {%- paginate customer.orders by 1 -%}
