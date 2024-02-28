@@ -21,10 +21,9 @@
 
       <tbody role="rowgroup">
         {% assign startIdx = currentPage | minus: 1 %}
-{% assign endIdx = startIdx | plus: ordersPerPage | minus: 1 %}
-
-       {% assign endIdx = startIdx | plus: ordersPerPage | minus: 1 %}
-
+        {% assign startIdx = currentPage | minus: 1 %}
+        {% assign startIdx = startIdx | times: ordersPerPage %}
+        {% assign endIdx = startIdx | plus: ordersPerPage | minus: 1 %}
         {% for order in customer.orders offset: startIdx limit: ordersPerPage %}
           <tr role="row">
                   <td
