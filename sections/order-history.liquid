@@ -1,5 +1,6 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
  {%- if customer.orders.size > 0 -%}
+   {%- paginate collections by collection_list_pagination_num -%}
         <div class="account-order-history-table--wrapper order-history-page">
           <table class="account-order-history--table no-borders">
             <thead>
@@ -55,6 +56,8 @@
             </tbody>
           </table>
         </div>
+       {% render 'pagination', pagination: paginate, pagination_type: 'paginated' %}
+	{%- endpaginate -%}
       {%- else -%}
-        <p>{{ 'customer.orders.none' | t }}</p>
+        <p>{{ 'customer.orders.none' | t }}</p>   
       {%- endif -%}
