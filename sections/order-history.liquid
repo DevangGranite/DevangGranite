@@ -19,52 +19,52 @@
         </tr>
       </thead>
 
-      <tbody role="rowgroup">        
-        {% assign startIdx = currentPage | minus: 1 %}
-        {% assign startIdx = startIdx | times: ordersPerPage %}
-        {% assign endIdx = startIdx | plus: ordersPerPage | minus: 1 %}
+      <tbody role="rowgroup">
+        {% assign startIdx = currentPage | minus: 1 | times: ordersPerPage %}
+
         {% for order in customer.orders offset: startIdx limit: ordersPerPage %}
           <tr role="row">
-                  <td
-                    id="RowOrder"
-                    role="cell"
-                    headers="ColumnOrder"
-                    data-label="{{ 'customer.orders.order_number' | t }}"
-                  >
-                    <a
-                      href="{{ order.customer_url }}"
-                      class="text-button"
-                      aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}"
-                    >
-                      {{ order.name }}
-                    </a>
-                  </td>
-                  <td headers="RowOrder ColumnDate" role="cell" data-label="{{ 'customer.orders.date' | t }}">
-                    {{ order.created_at | time_tag: format: 'date' }}
-                  </td>
-                  <td
-                    headers="RowOrder ColumnPayment"
-                    role="cell"
-                    data-label="{{ 'customer.orders.payment_status' | t }}"
-                  >
-                    {{ order.financial_status_label }}
-                  </td>
-                  <td
-                    headers="RowOrder ColumnFulfillment"
-                    role="cell"
-                    data-label="{{ 'customer.orders.fulfillment_status' | t }}"
-                  >
-                    {{ order.fulfillment_status_label }}
-                  </td>
-                  <td headers="RowOrder ColumnTotal" role="cell" data-label="{{ 'customer.orders.total' | t }}">
-                    {{ order.total_price | money_with_currency }}
-                  </td>
-                </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
-    <!-- Pagination -->
+            <td
+              id="RowOrder"
+              role="cell"
+              headers="ColumnOrder"
+              data-label="{{ 'customer.orders.order_number' | t }}"
+            >
+              <a
+                href="{{ order.customer_url }}"
+                class="text-button"
+                aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}"
+              >
+                {{ order.name }}
+              </a>
+            </td>
+            <td headers="RowOrder ColumnDate" role="cell" data-label="{{ 'customer.orders.date' | t }}">
+              {{ order.created_at | time_tag: format: 'date' }}
+            </td>
+            <td
+              headers="RowOrder ColumnPayment"
+              role="cell"
+              data-label="{{ 'customer.orders.payment_status' | t }}"
+            >
+              {{ order.financial_status_label }}
+            </td>
+            <td
+              headers="RowOrder ColumnFulfillment"
+              role="cell"
+              data-label="{{ 'customer.orders.fulfillment_status' | t }}"
+            >
+              {{ order.fulfillment_status_label }}
+            </td>
+            <td headers="RowOrder ColumnTotal" role="cell" data-label="{{ 'customer.orders.total' | t }}">
+              {{ order.total_price | money_with_currency }}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
   <div class="pagination">
     {% if totalPages > 1 %}
       {% for page in (1..totalPages) %}
@@ -72,6 +72,7 @@
       {% endfor %}
     {% endif %}
   </div>
-      {%- else -%}
-        <p>{{ 'customer.orders.none' | t }}</p>
-      {%- endif -%} 
+
+{%- else -%}
+  <p>{{ 'customer.orders.none' | t }}</p>
+{%- endif -%}
