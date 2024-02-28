@@ -917,3 +917,7 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
 #main-content .featured-collection .customer-content--wrapper h3.section-header--title {
   color: #2461cc;
 }
+ .order-history-page {
+     max-width: 1024px;
+    margin:50px auto 20px;
+  }
