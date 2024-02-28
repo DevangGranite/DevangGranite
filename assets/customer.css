@@ -219,6 +219,7 @@ table.account-order-history--table tbody tr td:first-child a {
   font-weight: 400;
 }
 html[lang="ar"] table.account-order-history--table tbody tr td,
+[dir=rtl] table.account-order-history--table tbody tr td,
 table.account-order-history--table tbody tr td {
   color: #53565A;
   line-height: 32px;
