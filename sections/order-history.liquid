@@ -56,25 +56,7 @@
             </tbody>
           </table>
         </div>
-      test
-       {%- if paginate.pages > 1 -%}
-  <nav class="pagination">
-    <span class="pagination__current">Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
-    <span class="pagination__controls">
-      {%- if paginate.previous -%}
-        <a href="{{ paginate.previous.url }}" class="pagination__prev">&laquo; Previous</a>
-      {%- endif -%}
-      
-      {%- for page in paginate.pages -%}
-        <a href="{{ page.url }}" class="pagination__page{% if page.is_current %} pagination__page--current{% endif %}">{{ page.label }}</a>
-      {%- endfor -%}
-      
-      {%- if paginate.next -%}
-        <a href="{{ paginate.next.url }}" class="pagination__next">Next &raquo;</a>
-      {%- endif -%}
-    </span>
-  </nav>
-{%- endif -%}
+      {% render 'pagination_new' %}
 	{%- endpaginate -%}
       {%- else -%}
         <p>{{ 'customer.orders.none' | t }}</p>   
