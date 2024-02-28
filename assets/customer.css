@@ -911,3 +911,7 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
     text-transform: capitalize;
     font-family: Rubik, sans-serif;
 }
+
+#main-content .featured-collection .customer-content--wrapper h3.section-header--title {
+    color: #2461cc;
+}
