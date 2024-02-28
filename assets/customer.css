@@ -197,9 +197,12 @@
   border-radius: 8px;
   margin-bottom: 0;
 }
+html[lang="ar"] table.account-order-history--table thead tr th,
+[dir=rtl] table.account-order-history--table thead tr tr,
 table.account-order-history--table thead th {
   color: #001489;
   line-height: 32px;
+  padding-right: 24px;
   padding-left: 24px;
   padding-top: 16px;
   font-size: 14px;
