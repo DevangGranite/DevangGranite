@@ -1,473 +1,690 @@
-/*** city and dis Start ***/
-document.addEventListener("DOMContentLoaded", function() {
-      getCityDistricts(0);
-  });
-
-  function getCityDistricts(id){
-
-      const apiUrl = 'https://alainappuat.gdadmin.org/CustomerApiv3/getCityDistricts/'+id;
-      
-      // Use the fetch function to make a GET request to the API
-      fetch(apiUrl, {
-        method: 'GET',
-       
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        
-        return response.json();
-      })
-      .then(data => {
-
-        if(id == 0){
-          let city = "<option>{{ 'customer.addresses.city_reg' | t }}</option>";
-          data.response.forEach(function (item) {
-            city += `<option value="${item.id}" data-cityname="${item.city_name}">${item.city_name}</option>`;
-          });
-          document.getElementById("regi_city").innerHTML = city;
-        }else{
-          let districts = "";
-          data.response.forEach(function (item) {
-            districts += `<option value="${item.district_name}" data-districtname="${item.district_name}">${item.district_name}</option>`;
-          });
-          document.getElementById("district").innerHTML = districts;
-        }
-      })
-      .catch(error => {
-        // Handle errors that may occur during the fetch operation
-       // console.error('Error fetching data:', error);
-      });
+/** store cooket */
+function setCookie(name,value,days) {
+  var expires = "";
+  if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days*24*60*60*1000));
+      expires = "; expires=" + date.toUTCString();
   }
-/*** city and dis end ***/
-
-
-/*** Pop up start OTP ***/
-function openOTPPopup() {
-     // validateForm();
-    startTimerOnClick();
-        
-    var mobileInput = document.getElementById('mobile');
-    var numericValue = mobileInput.value.replace(/\D/g, '');
-    var resendLinkButton = document.getElementById('resendLink');
-
-    // Check if the mobile number has 9 digits
-    if (numericValue.length === 9 && validateForm()) {      
-        const apiUrl = 'https://alainuat.gdadmin.org/laravel/public/api/sendOTP';
-
-        // Function to send OTP
-        function sendOTP() {
-            fetch(apiUrl, {
-                method: 'POST',
-                body: JSON.stringify({ mobile: numericValue }),
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Network response was not ok: ${response.status}`);
-                }
-                
-                return response.json();
-            })
-            .then(data => {
-                console.log('MSS Test', data);
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
-        }
-
-        // Initial OTP sending
-        sendOTP();
-
-        // Continue with the popup logic
-        var otpPopupHtml = document.getElementsByTagName('html')[0];
-        var otpPopupElement = document.getElementById('otppopup');
-
-        if (otpPopupElement) {
-            // Set display property to 'block'
-            otpPopupElement.style.display = 'block';
-
-            // Add a class to the element
-            otpPopupHtml.classList.add('popup-overlap');
-        } else {
-            console.error("Element with ID 'otppopup' not found");
-        }
-
-        // Resend link button event listener
-        resendLinkButton.addEventListener('click', function () {
-            // Resend OTP
-            sendOTP();
-        });
-
-    } 
-    // else {
-    //     // Handle the case where the mobile number does not have 9 digits
-    //     document.getElementById('mobileError').innerHTML = 'Mobile number must have 9 digits';
-    //     console.error('Mobile number must have 9 digits');
-    // }
+  document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
 
+/** get cooket value by cookie name*/
+function getCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0;i < ca.length;i++) {
+      var c = ca[i];
+      while (c.charAt(0)==' ') c = c.substring(1,c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+  }
+  return null;
+}
+
+let map;
+
+function openMapPopup(){
+  let otpPopupHtml = document.getElementsByTagName( 'html' )[0];
+  let popupElement = document.getElementById('popup');
+
+  if (popupElement) {
+      // Set display property to 'block'
+      popupElement.style.display = 'block';
+
+      // Add a class to the element
+      otpPopupHtml.classList.add('popup-overlap');
+
+      // Check if initMap function is defined before calling
+      if (typeof initMap === 'function') {
+          // Initialize the map when the popup is opened
+          initMap();
+      } else {
+          console.error("initMap function is not defined");
+      }
+  } else {
+      console.error("Element with ID 'popup' not found");
+  }
+}
+
+function closePopup() {
+  let otpPopupHtml = document.getElementsByTagName( 'html' )[0];
+  let popupElement = document.getElementById('popup');
+
+  if (popupElement) {
+      // Remove the class from the element
+      otpPopupHtml.classList.remove('popup-overlap');
+
+      // Set display property to 'none'
+      popupElement.style.display = 'none';
+  } else {
+      console.error("Element with ID 'popup' not found");
+  }
+}
 
 function closeOTPPopup() {
-    var otpPopupHtml = document.getElementsByTagName( 'html' )[0];
-    var otpPopupElement = document.getElementById('otppopup');
+  var otpPopupHtml = document.getElementsByTagName( 'html' )[0];
+  var otpPopupElement = document.getElementById('verifyOTPPopup');
 
-    if (otpPopupElement) {
-        // Remove the class from the element
-        otpPopupHtml.classList.remove('popup-overlap');
+  if (otpPopupElement) {
+      // Remove the class from the element
+      otpPopupHtml.classList.remove('popup-overlap');
 
-        // Set display property to 'none'
-        otpPopupElement.style.display = 'none';
-    } else {
-        console.error("Element with ID 'otppopup' not found");
+      // Set display property to 'none'
+      otpPopupElement.style.display = 'none';
+  } else {
+      console.error("Element with ID 'otppopup' not found");
+  }
+}
+
+// Function to initialize the map
+function initMap() {
+  // Create a new map instance and set its properties
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: 25.199514, lng: 55.277397 }, // Set the initial map center
+    zoom: 10, // Set the initial zoom level
+  });
+
+  // Add a click event listener to the map to capture the selected location
+  google.maps.event.addListener(map, 'click', function(event) {
+    updateLocation(event.latLng);
+  });
+
+  // Add a dragend event listener to the map to capture the dragged location
+  google.maps.event.addListener(map, 'dragend', function() {
+    updateLocation(map.getCenter());
+  });
+}
+
+function updateLocation(location) {
+  // Update the input field with the selected location
+  let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${location.lat()},${location.lng()}`
+  /** get address form lag and lng **/ 
+  fetch(apiAdd)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        document.querySelector('input[name="lat"]').value = location.lat();
+        document.querySelector('input[name="lang"]').value = location.lng();
+        document.getElementById('locationText').innerText = data.results[0]['formatted_address'];
+        document.getElementById('locationInput').value = data.results[0]['formatted_address'];
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+}
+
+// Function to handle Enter key on the address input field
+function handleEnterKey(event) {
+  if (event.key === 'Enter') {
+    // Prevent the default Enter key behavior (form submission)
+    event.preventDefault();
+
+    // Update location based on entered address
+    updateLocationForAddress();
+  }
+}
+
+// Function to update the location based on entered address
+function updateLocationForAddress() {
+  var address = document.getElementById('addressInput').value;
+
+  // Use Google Maps Geocoding API to convert the address into latitude and longitude
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode({ 'address': address }, function(results, status) {
+    if (status == 'OK' && results[0]) {
+      var location = results[0].geometry.location;
+
+      // Update the map center
+      map.setCenter(location);
+
+      // Update the location information
+      updateLocation(location);
     }
+  });
 }
 
-
- function saveOtpPopup(event) {
-  // Add logic here to handle the data entered in the popup
-  // For now, let's just close the popup without refreshing the page
-  closeOtpPopup();
-
-  // Prevent the default form submission behavior
-  event.preventDefault();
-}
-
-function closeOtpPopup() {
-  // Implement the logic to close your OTP popup here
-  // This could involve hiding the popup or removing it from the DOM
-  // For example:
-  // document.getElementById("yourPopupId").style.display = "none";
+// Function to show map based on entered address
+function showMapForAddress() {
+  updateLocationForAddress();
 }
 
 function validateAndSwitch(input, nextFieldId) {
-    // Remove non-numeric characters
-    input.value = input.value.replace(/[^0-9a-zA-Z]/g, '');
+  // Remove non-numeric characters
+  input.value = input.value.replace(/[^0-9a-zA-Z]/g, '');
 
-    // Ensure only one character is entered
-    if (input.value.length > 1) {
-        input.value = input.value.charAt(0);
-    }
+  // Ensure only one character is entered
+  if (input.value.length > 1) {
+      input.value = input.value.charAt(0);
+  }
 
-    // Switch focus to the next input field
-    if (input.value.length === 1 && nextFieldId) {
-        document.getElementById(nextFieldId).focus();
-    }
+  // Switch focus to the next input field
+  if (input.value.length === 1 && nextFieldId) {
+      document.getElementById(nextFieldId).focus();
+  }
 
-    // Check if all input fields are filled
-    var allInputsFilled = Array.from(document.querySelectorAll('.your-input-class')).every(function (input) {
-        return input.value.length === 1;
+  // Check if all input fields are filled
+  var allInputsFilled = Array.from(document.querySelectorAll('.your-input-class')).every(function (input) {
+      return input.value.length === 1;
+  });
+
+  // Enable or disable the submit button based on the status of all input fields
+  document.getElementById('verifyOtpbtn').disabled = !allInputsFilled;
+}
+
+function sendOTP(mobileNo) {
+  var formdata = new FormData();
+  formdata.append("mobileNo", mobileNo);
+  formdata.append("isContinue", "0");
+
+  return fetch(`https://alainappuat.gdadmin.org/shopifyApiV2/loginCustomer`, {
+        method: 'POST',
+        headers:{
+            'lancode':'en',
+            'token':'123456'
+        },
+        body:formdata
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.status}`);
+        }
+        return response.json();  
+    }).then(data => {
+        return data;
+    }).catch(error => {
+        console.error('Send OTP Error fetching data:', error);
     });
-
-    // Enable or disable the submit button based on the status of all input fields
-    document.getElementById('verifyOtpbtn').disabled = !allInputsFilled;
 }
 
-  
-/*** Pop up End OTP ***/
 
-/*** Pop up start MAP ***/
-
-   var map;
-
-    // Function to initialize the map
-    function initMap() {
-      // Create a new map instance and set its properties
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 25.199514, lng: 55.277397 }, // Set the initial map center
-        zoom: 10, // Set the initial zoom level
-      });
-
-      // Add a click event listener to the map to capture the selected location
-      google.maps.event.addListener(map, 'click', function(event) {
-        updateLocation(event.latLng);
-      });
-
-      // Add a dragend event listener to the map to capture the dragged location
-      google.maps.event.addListener(map, 'dragend', function() {
-        updateLocation(map.getCenter());
-      });
-    }
-
-    // Function to open the popup
-   function openPopup() {
-    var otpPopupHtml = document.getElementsByTagName( 'html' )[0];
-    var popupElement = document.getElementById('popup');
-
-    if (popupElement) {
-        // Set display property to 'block'
-        popupElement.style.display = 'block';
-
-        // Add a class to the element
-        otpPopupHtml.classList.add('popup-overlap');
-
-        // Check if initMap function is defined before calling
-        if (typeof initMap === 'function') {
-            // Initialize the map when the popup is opened
-            initMap();
-        } else {
-            console.error("initMap function is not defined");
-        }
-    } else {
-        console.error("Element with ID 'popup' not found");
-    }
-}
-    // Function to close the popup
-  
-    function closePopup() {
-    var otpPopupHtml = document.getElementsByTagName( 'html' )[0];
-    var popupElement = document.getElementById('popup');
-
-    if (popupElement) {
-        // Remove the class from the element
-        otpPopupHtml.classList.remove('popup-overlap');
-
-        // Set display property to 'none'
-        popupElement.style.display = 'none';
-    } else {
-        console.error("Element with ID 'popup' not found");
-    }
-}
-
-    // Function to update the location information
-    function updateLocation(location) {
-      // Update the input field with the selected location
-      let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${location.lat()},${location.lng()}`
-    /** get address form lag and lng **/ 
-    fetch(apiAdd)
-      .then(response => {
-          if (!response.ok) {
-              throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-          return response.json();
-      })
-      .then(data => {
-          document.querySelector('input[name="lat"]').value = location.lat();
-          document.querySelector('input[name="lang"]').value = location.lng();
-          document.getElementById('locationText').innerText = data.results[0]['formatted_address'];
-          document.getElementById('locationInput').value = data.results[0]['formatted_address'];
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-      }
-      /** END  get address form lag and lng **/ 
-    // Function to handle Enter key on the address input field
-    function handleEnterKey(event) {
-      if (event.key === 'Enter') {
-        // Prevent the default Enter key behavior (form submission)
-        event.preventDefault();
-
-        // Update location based on entered address
-        updateLocationForAddress();
-      }
-    }
-
-    // Function to update the location based on entered address
-    function updateLocationForAddress() {
-      var address = document.getElementById('addressInput').value;
-
-      // Use Google Maps Geocoding API to convert the address into latitude and longitude
-      var geocoder = new google.maps.Geocoder();
-      geocoder.geocode({ 'address': address }, function(results, status) {
-        if (status == 'OK' && results[0]) {
-          var location = results[0].geometry.location;
-
-          // Update the map center
-          map.setCenter(location);
-
-          // Update the location information
-          updateLocation(location);
-        }
-      });
-    }
-
-    // Function to show map based on entered address
-    function showMapForAddress() {
-      updateLocationForAddress();
-    }
-  
-/*** Pop up end MAP ***/  
-
-/***  mobile field start ***/
-  function validateInputt() {
-    
-      var mobileInput = document.getElementById('mobile');
-      var registerButton = document.getElementById('registerButton');
-
+class RegisterCustomer extends HTMLElement{
+  constructor(){
+    super();
+    this.openMapPopup = this.querySelector('#openMapPopup');
+    this.registerBtn = this.querySelector("#regi_button");
+    this.verifyOtpBtn = this.querySelector("#verifyOtpbtn");
+    this.resendLink = this.querySelector('#resendLink');
+    this.accept_condition = this.querySelector('#accept_condition');
+    this.first_name = this.querySelector('[name="customer[first_name]"]');
+    this.last_name = this.querySelector('[name="customer[last_name]"]');
+    this.phone = this.querySelector('[name="phone"]');
+    this.customer_email = this.querySelector('.field .customer_email');
+    this.address1 = this.querySelector('[name="addressInput"]');
+    this.address2 = this.querySelector('.address2');
+    this.city = this.querySelector('[name="city"]');
+    this.district = this.querySelector('[name="district"]');
+    this.getCity();
+    this.evenetListener();
+  }
+  async evenetListener() {
+    this.phone.addEventListener('change', e => {
       // Remove non-numeric characters
-      var numericValue = mobileInput.value.replace(/\D/g, '');
+      this.numericValue = this.phone.value.replace(/\D/g, '');
 
       // Update the input value with the numeric value
-      mobileInput.value = numericValue;
+      this.phone.value = this.numericValue;
+    });
+
+    this.openMapPopup.addEventListener('click', e => {
+      openMapPopup();
+    });
+
+    this.city.addEventListener('change', e => {
+      this.switchDistricts(this.city.value);
+    });
+
+    this.accept_condition.addEventListener('change', e => {
+      if (this.accept_condition && this.registerBtn) {
+        this.registerBtn.disabled = !this.accept_condition.checked;
+      } else {
+          console.error("Checkbox or button not found");
+      }
+    });
+
+    this.registerBtn.addEventListener('click', e => {
+        e.preventDefault();
+        this.numericValue = this.phone.value.replace(/\D/g, '');
+        if (this.numericValue.length === 9 && this.validateForm()) { 
+          sendOTP(this.phone.value).then(response=>{
+            console.log('Send OTP',response);
+            // if(response.response.isExist == 1){
+            //   this.querySelector('#mobileError').innerText = "Mobile number has already been taken.";
+            // }else{
+              this.initVerifyPopup();
+              this.startTimer()
+            // }
+          });
+        }
+    });
+    this.resendLink.addEventListener('click', e => {
+      this.resendLink.classList.add('disabled-link');
+      this.startTimer();
+      sendOTP(this.phone.value).then(response => {
+        console.log('Resend OTP',response);
+      });
+    });
+
+    this.verifyOtpBtn.addEventListener('click', e => {
+      let OTP = this.querySelector('#OneTimePassword1').value+this.querySelector('#OneTimePassword2').value+this.querySelector('#OneTimePassword3').value+this.querySelector('#OneTimePassword4').value+this.querySelector('#OneTimePassword5').value+this.querySelector('#OneTimePassword6').value;
+      var formdata = new FormData();
+      formdata.append("mobileNo", this.phone.value);
+      formdata.append("otp", OTP);
+      fetch(`https://alainappuat.gdadmin.org/shopifyApiV2/verifyOtp`, {
+        method: 'POST',
+        headers:{
+          'lancode':'en',
+          'token':'123456'
+        },
+        body:formdata,
+      })
+      .then(response => {
+        if (!response.ok) {
+          this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";
+          throw new Error(`Network response was not ok: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Verified OTP',data);
+        if(Array.isArray(data.response)){
+          this.registerCustomer();
+        }else{
+          this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";
+        }
+      }).catch(error => {
+        console.log('Fetching error verify OTP',error);
+      });
+    });
   }
-/*** Reg mobile field end ***/
+  registerCustomer() {
+    const customerData = JSON.stringify({
+      first_name: this.first_name.value,
+      last_name: this.last_name.value,
+      email: this.customer_email.value,
+      phone: this.phone.value,
+      address1: this.address1.value,
+      address2: this.address2.value,
+      city: this.city.options[this.city.selectedIndex].text,
+      district: this.district.options[this.district.selectedIndex].text});
+    fetch('https://alainuat.gdadmin.org/laravel/public/api/customer/register', {
+      method: 'POST',
+      body:customerData,
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      let responce = JSON.parse(data.customer);
+      console.log('Customer',responce);
+      // let token = JSON.parse(data.token);
+      console.log('Token',data.token);
+      closeOTPPopup();
+      if(responce.errors){
+          if(responce.errors.email)
+            document.getElementById('emailError').innerText = "Email has already been taken.";
+          else if(responce.errors.phone)
+            this.querySelector('#mobileError').innerText = responce.errors.phone;
+      }else{
+        window.location.href = `/account/login/multipass/${data.token}`;
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+  }
+  initVerifyPopup() {
+    this.html = document.getElementsByTagName('html')[0];
+    this.verifyOTPPopup = this.querySelector('#verifyOTPPopup');
 
-/*** Timer start ***/
+    if (this.verifyOTPPopup) {
+        // Set display property to 'block'
+        this.verifyOTPPopup.style.display = 'block';
 
-       let timer; // Declare timer as a global variable
-
-    // Function to start the countdown timer
-    function startTimer(duration, display) {
-        let timeLeft = duration;
-        timer = setInterval(function () {
-            const minutes = Math.floor(timeLeft / 60);
-            const seconds = timeLeft % 60;
-
-            const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-            display.textContent = formattedTime;
-
-            if (--timeLeft < 0) {
-                clearInterval(timer);
-                // Enable the link and reset onclick when the timer finishes
-                const resendLink = document.getElementById('resendLink');
-                resendLink.classList.remove('disabled-link');
-                resendLink.setAttribute('onclick', 'startTimerOnClick()'); // Restore onclick
-                display.style.display = 'none';
-            }else{
-              display.style.display = 'block';
-            }
-        }, 1000);
+        // Add a class to the element
+        this.html.classList.add('popup-overlap');
+    } else {
+        console.error("Element with ID 'otppopup' not found");
     }
+  }
+  startTimer() {
+    var timeLeft = 60;
+    var timerElement = document.getElementById('timer');
+    var timer = setInterval(function () {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        let formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        timerElement.textContent = formattedTime;
+        if (--timeLeft <= 0) {
+            clearInterval(timer);
+            // Enable the link and reset onclick when the timer finishes
+            document.getElementById('resendLink').classList.remove('disabled-link');
+            timerElement.style.display = 'none';
+        }else{
+          timerElement.style.display = 'block';
+        }
+    }, 1000);
+  }
+  validateForm(){
+    this.isValid = true;
 
-    // Function to start the timer when the button is clicked
-    function startTimerOnClick() {       
-        // Disable the link to prevent multiple clicks
-        const resendLink = document.getElementById('resendLink');
-        resendLink.classList.add('disabled-link');
-        resendLink.removeAttribute('onclick'); // Remove onclick to disable further clicks
+    this.isValid = this.isValid && this.validateField('first_name', 'firstNameError', 'Please enter your First Name.');
+    this.isValid = this.isValid && this.validateField('last_name', 'lastNameError', 'Please enter your Last Name.');
+    this.isValid = this.isValid && this.validateEmailField('email', 'emailError', 'Please enter a valid Email Address.');
+    this.isValid = this.isValid && this.validateConfirmEmailField('confirm_email', 'email', 'confirmEmailError', 'Email Addresses does not match.');
+    this.isValid = this.isValid && this.validateField('locationInput', 'locationInputError', 'Please enter your Address.');
+    this.isValid = this.isValid && this.validateSelectField('regi_city', 'regiCityError', 'Please select your City.');
+    this.isValid = this.isValid && this.validateSelectField('district', 'districtError', 'Please select your District.');
 
-        // Get the timer element
-        const timerElement = document.getElementById('timer');
+    console.log('Form validation result:', this.isValid); // Add this line for debugging
 
-        // Set the duration of the timer in seconds (in this case, 60 seconds)
-        const timerDuration = 60;
+    return this.isValid;
+  }
+  validateField(inputId, errorId, errorMessage){
+    this.input = document.getElementById(inputId);
+    this.errorElement = document.getElementById(errorId);
+    this.value = this.input.value.trim();
 
-        // Start or restart the timer
-        startTimer(timerDuration, timerElement);  
-    }
-    
-/*** Timer end ***/
-
-/*** login page and otp start ***/
- function captured_value() {
-     // Get the input value
-        var inputValue = document.getElementById('mobile').value;
-
-        // Display the captured value in the div
-        document.getElementById('capturedValue').innerText = '+971 ' + inputValue;
-        document.getElementById('capturedValuemob').innerText = '+971 ' + inputValue;
- }
-
- function startTimerOnClick_login() {
-   startTimerOnClick();
-   captured_value();
- }
-/*** login page and otp end ***/
-
-/*** validation form reg page start ***/
-
-function validateForm() {
-    var isValid = true;
-
-    isValid = isValid && validateField('first_name', 'firstNameError', 'Please enter your First Name');
-    isValid = isValid && validateField('last_name', 'lastNameError', 'Please enter your Last Name');
-    isValid = isValid && validateEmailField('email', 'emailError', 'Please enter a valid Email Address');
-    isValid = isValid && validateConfirmEmailField('confirm_email', 'email', 'confirmEmailError', 'Email Addresses do not match');
-    isValid = isValid && validateField('locationInput', 'locationInputError', 'Please enter your Address');
-    isValid = isValid && validateSelectField('regi_city', 'regiCityError', 'Please select your City');
-    isValid = isValid && validateSelectField('district', 'districtError', 'Please select your District');
-
-    console.log('Form validation result:', isValid); // Add this line for debugging
-
-    return isValid;
-}
-
-function validateField(inputId, errorId, errorMessage) {
-    var input = document.getElementById(inputId);
-    var errorElement = document.getElementById(errorId);
-    var value = input.value.trim();
-
-    if (value === '') {
-        errorElement.innerHTML = errorMessage;
+    if (this.value === '') {
+        this.errorElement.innerHTML = errorMessage;
         console.error(errorMessage);
         return false;
     } else {
-        errorElement.innerHTML = '';       
+        this.errorElement.innerHTML = '';       
         return true;      
     }
-}
-
-function validateEmailField(inputId, errorId, errorMessage) {
-    var input = document.getElementById(inputId);
-    var errorElement = document.getElementById(errorId);
-    var email = input.value.trim();
+  }
+  validateEmailField(inputId, errorId, errorMessage) {
+    this.input = document.getElementById(inputId);
+    this.errorElement = document.getElementById(errorId);
+    this.email = this.input.value.trim();
 
     // Clear mobile error message
-    var mobileErrorElement = document.getElementById('mobileError');
-    mobileErrorElement.innerHTML = '';
+    this.mobileErrorElement = document.getElementById('mobileError');
+    this.mobileErrorElement.innerHTML = '';
 
-    if (email === '' || !isValidEmail(email)) {
-        errorElement.innerHTML = errorMessage;
+    if (this.email === '' || !this.isValidEmail(this.email)) {
+        this.errorElement.innerHTML = errorMessage;
         console.error(errorMessage);
         return false;
     } else {
-        errorElement.innerHTML = '';
+        this.errorElement.innerHTML = '';
         return true;
     }
-}
-
-function validateConfirmEmailField(inputId, referenceInputId, errorId, errorMessage) {
-    var input = document.getElementById(inputId);
-    var errorElement = document.getElementById(errorId);
-    var confirmEmail = input.value.trim();
-    var referenceEmail = document.getElementById(referenceInputId).value.trim();
-
-    if (confirmEmail === '' || confirmEmail !== referenceEmail) {
-        errorElement.innerHTML = errorMessage;
-        console.error(errorMessage);
-        return false;
-    } else {
-        errorElement.innerHTML = '';
-        return true;
-    }
-}
-
-function validateSelectField(inputId, errorId, errorMessage) {
-  // alert(errorId);
-    var input = document.getElementById(inputId);
-    var errorElement = document.getElementById(errorId);
-    var value = input.value;
-
-    if (value === '' || value === 'Select your city' || value === 'Select your district') {
-        errorElement.innerHTML = errorMessage;
-        console.error(errorMessage);
-        return false;
-    } else {
-        errorElement.innerHTML = '';
-        return true;
-    }
-}
-
-function isValidEmail(email) {
+  }
+  isValidEmail(email) {
     // More permissive email validation regex
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
-    return emailRegex.test(email);
-}
+    this.emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+    return this.emailRegex.test(email);
+  }
+  validateConfirmEmailField(inputId, referenceInputId, errorId, errorMessage) {
+    this.input = document.getElementById(inputId);
+    this.errorElement = document.getElementById(errorId);
+    this.confirmEmail = this.input.value.trim();
+    this.referenceEmail = document.getElementById(referenceInputId).value.trim();
 
-function updateButtonState() {
-    var checkbox = document.getElementById('checkbox_reg');
-    var button = document.getElementById('regi_button');
-
-    if (checkbox && button) {
-        button.disabled = !checkbox.checked;
+    if (this.confirmEmail === '' || this.confirmEmail !== this.referenceEmail) {
+        this.errorElement.innerHTML = errorMessage;
+        console.error(errorMessage);
+        return false;
     } else {
-        console.error("Checkbox or button not found");
+        this.errorElement.innerHTML = '';
+        return true;
     }
+  }
+  validateSelectField(inputId, errorId, errorMessage) {
+    // alert(errorId);
+      this.input = document.getElementById(inputId);
+      this.errorElement = document.getElementById(errorId);
+      this.value = this.input.value;
+  
+      if (this.value === '' || this.value === 'Select your city' || this.value === 'Select your district') {
+          this.errorElement.innerHTML = errorMessage;
+          console.error(errorMessage);
+          return false;
+      } else {
+          this.errorElement.innerHTML = '';
+          return true;
+      }
+  }
+  getCity() {
+    fetch('https://alainappuat.gdadmin.org/customerApiv3/getCityDistricts/')
+        .then(response => response.json())
+        .then(data => {
+          let options = ["<option>{{ 'customer.addresses.city_reg' | t }}</option>"];
+
+          data.response.forEach(city => {
+            options.push(`<option id="city_${city.id}" value="${city.id}">${city.city_name}</option>`);
+          });
+          // this.city.querySelector('option').remove();
+          this.city.insertAdjacentHTML('afterbegin', options.join(''));
+        })
+        .catch(error => {
+          console.error('Error fetching city:', error);
+        });
+  }
+  switchDistricts(city) {
+    fetch(`https://alainappuat.gdadmin.org/customerApiv3/getCityDistricts/${city}`)
+        .then(response => response.json())
+        .then(data => {
+          let options = [];
+
+          data.response.forEach(district => {
+            options.push(`<option id="district_${district.id}" value="${district.id}">${district.district_name}</option>`);
+          });
+          this.district.querySelector('option').remove();
+          this.district.insertAdjacentHTML('afterbegin', options.join(''));
+        })
+        .catch(error => {
+          console.error('Error fetching city:', error);
+        });
+  }
 }
-    
-/*** validation form reg page end ***/
+customElements.define('register-customer', RegisterCustomer);
+
+
+class LoginCustomer extends HTMLElement {
+  constructor() {
+    super();
+    this.verifyMobileBtn = this.querySelector('#verifyMobile');
+    this.verifyOtpLoginBtn = this.querySelector('.verifyOtpLoginBtn');
+    this.resendBtn = this.querySelector('#resendLink'); 
+    this.updateEmailBtn = this.querySelector('#updateEmailBtn');
+    this.email = this.querySelector('[name="customer[email]"]');
+    this.confirm_email = this.querySelector('[name="customer[confirm_email]"]');
+    this.mobileNo = this.querySelector('#mobile');
+    this.user_id = getCookie('user_id');
+
+    this.evenetListener();
+  }
+  evenetListener() {
+    // validate mobile number
+    this.mobileNo.addEventListener('keypress', e => {
+      var numericValue = this.mobileNo.value.replace(/\D/g, '');
+      mobileInput.value = numericValue;
+      if (numericValue.length >= 8) {
+        this.verifyMobileBtn.removeAttribute('disabled');
+      } else {
+        this.verifyMobileBtn.setAttribute('disabled', 'disabled');
+      }
+      if (e.key === 'Enter') {
+        this.verifyMobileBtn.click();
+      }
+    });
+
+    // send opt on mobile number and visible enter otp form
+    this.verifyMobileBtn.addEventListener('click', e => {
+      sendOTP(this.mobileNo.value).then(response => {
+        console.log('Send Login OTP',response);
+        let customLoginElement = this.querySelector('.otp-container');
+        let customLoginotpElement = this.querySelector('.custom_login_container');
+        this.startTimer();
+        if (customLoginElement.style.display === 'none' || customLoginElement.style.display === '') {
+            customLoginElement.style.display = 'block';
+            customLoginotpElement.style.display = 'none';
+        } else {
+            customLoginElement.style.display = 'none';
+          customLoginotpElement.style.display = 'block';
+        }
+      });
+    });
+
+    // resend otp on mobile number
+    this.resendBtn.addEventListener('click', e => {
+      sendOTP(this.mobileNo.value).then(response => {
+        console.log('Resend Login OTP',response);
+        this.resendBtn.classList.add('disabled-link');
+        this.startTimer();
+      });
+    });
+
+    // verify otp to login
+    this.verifyOtpLoginBtn.addEventListener('click', e => {
+      let OTP = this.querySelector('#OneTimePassword1').value+this.querySelector('#OneTimePassword2').value+this.querySelector('#OneTimePassword3').value+this.querySelector('#OneTimePassword4').value+this.querySelector('#OneTimePassword5').value+this.querySelector('#OneTimePassword6').value;
+      var formdata = new FormData();
+      formdata.append("mobileNo", this.mobileNo.value);
+      formdata.append("otp", OTP);
+      fetch(`https://alainappuat.gdadmin.org/shopifyApiV2/verifyOtp`, {
+        method: 'POST',
+        headers:{
+          'lancode':'en',
+          'token':'123456'
+        },
+        body:formdata,
+      })
+      .then(response => {
+        if (!response.ok) {
+          this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";
+          throw new Error(`Network response was not ok: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Verified OTP',data);
+        if(Array.isArray(data.response)){
+          console.log('Customer Email ID',data.response['0'].email_id);
+          if(data.response['0'].email_id == "" || data.response['0'].email_id == null){
+            this.user_id = data.response['0'].id;
+            this.querySelector('.custom_email_container').style.display = 'block';
+            this.querySelector('.otp-container').style.display = 'none';
+          }else{
+            setCookie('user_id',data.response['0'].id);
+            this.customerLogin(data.response['0'].email_id);
+          } 
+        }else{
+          this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";
+        }
+      }).catch(error => {
+        console.log('Fetching error verify OTP',error);
+      });
+    });
+
+    this.querySelector('#OneTimePassword6').addEventListener('keypress', e => {
+      if (e.key === 'Enter') {
+        this.verifyOtpLoginBtn.click();
+      }
+    });
+
+    this.updateEmailBtn.addEventListener('click', e => {
+      if(this.validateForm && this.isValidEmail() && this.validateConfirmEmailField()){
+        this.updateEmailAddress();
+      }
+    });
+  }
+  startTimer() {
+    var timeLeft = 60;
+    var timerElement = document.getElementById('timer');
+    var timer = setInterval(function () {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        let formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        timerElement.textContent = formattedTime;
+        if (--timeLeft <= 0) {
+            clearInterval(timer);
+            // Enable the link and reset onclick when the timer finishes
+            document.getElementById('resendLink').classList.remove('disabled-link');
+            timerElement.style.display = 'none';
+        }else{
+          timerElement.style.display = 'block';
+        }
+    }, 1000);
+  }
+  customerLogin(email) {
+    fetch(`https://alainuat.gdadmin.org/laravel/public/api/customer/login/${email}`, {
+        method: 'GET',
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Token',data);
+        window.location = `/account/login/multipass/${data.token}`;
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
+  }
+  validateForm(){
+    this.querySelector('#emailError').innerText = "";
+    if(this.email.value == '' || this.email.value == null){
+      this.querySelector('#emailError').innerText = "Please enter your email.";
+      return false;
+    }
+    return true;
+  }
+  isValidEmail() {
+    // More permissive email validation regex
+    this.emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+    this.querySelector('#emailError').innerText = "";
+    if(!this.emailRegex.test(this.email.value)){
+      this.querySelector('#emailError').innerText = "Please enter a valid Email Address.";
+      return false;
+    }
+    return true;
+  }
+  validateConfirmEmailField() {
+    this.input = this.querySelector('[name="customer[confirm_email]"]');
+    this.errorElement = document.getElementById('confirmEmailError');
+    this.confirmEmail = this.input.value.trim();
+    this.referenceEmail = this.querySelector('[name="customer[email]"]').value.trim();
+
+    if (this.confirmEmail === '' || this.confirmEmail !== this.referenceEmail) {
+        this.errorElement.innerHTML = 'Email Addresses does not match.';
+        console.error('Email Addresses does not match.');
+        return false;
+    } else {
+        this.errorElement.innerHTML = '';
+        return true;
+    }
+  }
+  updateEmailAddress() {
+    var myHeaders = new Headers();
+    myHeaders.append("token", "123456");
+    myHeaders.append("lancode", "en");
+    myHeaders.append("Content-Type", "application/json");
+    let raw = JSON.stringify({email_id:this.email.value,user_id:this.user_id});
+    fetch(`https://alainappuat.gdadmin.org/shopifyApiV2/updateEmailAddress`, {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    })
+    .then(response => response.text())
+    .then(data => {
+      console.log('Update Email',data);
+      if(data.responce)
+        this.querySelector('#confirmEmailError').innerText = "Something went wrong. Please try again latter!"
+      else
+        this.customerLogin(this.email.value);
+    }).catch(error => console.log('Error fetching data:',error));
+  }
+}
+customElements.define('login-customer',LoginCustomer);
