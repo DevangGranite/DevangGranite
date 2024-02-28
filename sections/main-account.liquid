@@ -77,7 +77,7 @@
               </tr>
             </thead>
             <tbody role="rowgroup">
-              {% for order in customer.orders %}
+              {% for order in customer.orders limit:1 %}
                 <tr role="row">
                   <td
                     id="RowOrder"
