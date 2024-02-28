@@ -19,8 +19,7 @@
         </tr>
       </thead>
 
-      <tbody role="rowgroup">
-        {% assign startIdx = currentPage | minus: 1 %}
+      <tbody role="rowgroup">        
         {% assign startIdx = currentPage | minus: 1 %}
         {% assign startIdx = startIdx | times: ordersPerPage %}
         {% assign endIdx = startIdx | plus: ordersPerPage | minus: 1 %}
