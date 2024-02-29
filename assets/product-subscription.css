@@ -22,6 +22,26 @@ lb-product-page-cross-sell-ew {
 .single-add-to-cart-button {
     font-size: 14px;
 }
-.product-information--inner variant-selects {
+.variations .product-form__input--block[hidden] {
     display: none;
+}
+.thb-product-detail .product-information .quantity {
+    margin-bottom: 15px;
+}
+.product-information .variations {
+    margin-bottom: 25px;
+}
+.variations select {
+    height: 44px;
+    padding: 14px 13px;
+}
+.price-mandatory--wrapper {
+    display: flex;
+    align-items: flex-end;
+}
+.mandatory-payment-status {
+    font-size: 14px;
+    line-height: 28px;
+    color: rgba(92, 92, 94, 1);
+    margin-left: -15px;
 }

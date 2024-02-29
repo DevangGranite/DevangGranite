@@ -105,6 +105,7 @@
                               id="OneTimePassword1"
                               maxlength="1"
                               oninput="validateAndSwitch(this, 'OneTimePassword2')"
+                              inputmode="numeric"
                               autocomplete="off"
                             >
                             <input
@@ -113,6 +114,7 @@
                               id="OneTimePassword2"
                               maxlength="1"
                               oninput="validateAndSwitch(this, 'OneTimePassword3')"
+                              inputmode="numeric"
                               autocomplete="off"
                             >
                             <input
@@ -121,7 +123,7 @@
                               id="OneTimePassword3"
                               maxlength="1"
                               oninput="validateAndSwitch(this, 'OneTimePassword4')"
-                              .
+                              inputmode="numeric"
                               autocomplete="off"
                             >
                             <input
@@ -130,6 +132,7 @@
                               id="OneTimePassword4"
                               maxlength="1"
                               oninput="validateAndSwitch(this, 'OneTimePassword5')"
+                              inputmode="numeric"
                               autocomplete="off"
                             >
                             <input
@@ -138,6 +141,7 @@
                               id="OneTimePassword5"
                               maxlength="1"
                               oninput="validateAndSwitch(this, 'OneTimePassword6')"
+                              inputmode="numeric"
                               autocomplete="off"
                             >
                             <input
@@ -146,6 +150,7 @@
                               id="OneTimePassword6"
                               maxlength="1"
                               oninput="validateAndSwitch(this, null)"
+                              inputmode="numeric"
                               autocomplete="off"
                             >
                           </div>
@@ -238,5 +243,3 @@
   </div>
 </div>
 
-{{ 'reward.js' | asset_url | script_tag }}
-{{ 'login-register.js' | asset_url | script_tag }}
