@@ -1,5 +1,10 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
-
+    {% if request.path contains '/account/orders/' %}
+                <div class="breadcrumbs_order_history row">
+                  <a class="my_account" href="/pages/order-history">Order History</a>
+                  <span class="current_page">> Order Details</span>
+                </div>
+              {% endif %}
 <div class="breadcrumbs_order_history row">
   <a class="my_account" href="/account">My Account</a>
   <span class="current_page">> Order History</span>
