@@ -4241,4 +4241,7 @@ line-height: 34px;
   }
 }
 
-
+.order-history-page,
+.account-order-history-table--wrapper {
+    overflow-x: auto;
+}
