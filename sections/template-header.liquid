@@ -90,7 +90,7 @@
               <span class="text-button">{{ 'customer.account.log_out' | t }}</span>
             </a>
           {%- elsif template contains 'customers' -%}
-            <a href="{{ routes.root_url | append: 'pages/order-history' }}" class="myaccount--link">
+            <a href="{{ routes.account_url | append: '?view=order-history' }}" class="myaccount--link">
               {% render 'svg-icons' with 'thb-account-back' %}
               <span class="text-button">{{ 'customer.account.return_to_account_details' | t }}</span>
             </a>
