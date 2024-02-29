@@ -61,7 +61,20 @@ if (!customElements.get('variant-selects')) {
       this.options = [];
       this.fieldsets.forEach((fieldset, i) => {
         if (fieldset.querySelector('select')) {
-          this.options.push(fieldset.querySelector('select').value);
+          const select = fieldset.querySelector('select'),
+            mandatoryStatus = document.querySelector('.mandatory-payment-status');
+
+          if (select.getAttribute('name') === 'options[Mandatory Bottle Deposit]') {
+            console.log(fieldset.querySelector('select').value)
+
+            if (select.value === 'I already have an empty bottle to return') {
+              mandatoryStatus.innerText = `(Bottle deposit not included)`;
+            } else {
+              mandatoryStatus.innerText = `(Bottle deposit included)`;
+            }
+          }
+
+          this.options.push(select.value);
         } else if (fieldset.querySelectorAll('input').length) {
           this.options.push(fieldset.querySelector('input:checked').value);
         }

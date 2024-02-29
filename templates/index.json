@@ -7,6 +7,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify:\/\/shop_images\/AlAin_Hero_Gallon.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/AlAin_Hero_Gallon.jpg",
             "slide_link": "",
             "video_background": false,
             "badge_text": "",
@@ -41,6 +42,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify:\/\/shop_images\/AlAin_Hero_Bottle.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/AlAin_Hero_Bottle.jpg",
             "slide_link": "",
             "video_background": false,
             "badge_text": "",

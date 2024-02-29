@@ -80,7 +80,8 @@
             "quantity_increment_not_met": "زيادة الكمية {{increment}} يجب أن تطبق على هذه البضائع.",
             "quantity_rules_not_met": "كمية غير صالحة من البضائع.",
             "bundle_requires_components": "لا تحتوي منتجات هذه الحزمة على أي مكونات.",
-            "title_too_long": "عنوان السلعة طويل جدًا."
+            "title_too_long": "عنوان السلعة طويل جدًا.",
+            "title_empty": "عنوان البضائع فارغ."
           },
           "buyer_identity": {
             "business_customer_does_not_match_company": "جهة الاتصال بالشركة لا يمكنها الوصول إلى الشركة.",
@@ -2237,7 +2238,8 @@
         "no_account_found": "لم يتم العثور على حساب مع هذا البريد الإلكتروني.",
         "password_reset_error": "خطأ في إعادة تعيين كلمة المرور",
         "invalid_credentials": "بريد أو كلمة مرورغير صحيحة.",
-        "denylisted_reset_password": "تعذر الوصول إلى حسابك لأن كلمة المرور الحالية غير آمنة. سوف تتلقى رسالة بريد إلكتروني لتحديث كلمة المرور الخاصة بك."
+        "denylisted_reset_password": "تعذر الوصول إلى حسابك لأن كلمة المرور الحالية غير آمنة. سوف تتلقى رسالة بريد إلكتروني لتحديث كلمة المرور الخاصة بك.",
+        "signup_disabled": "تم تعطيل إنشاء حساب العميل."
       },
       "address": {
         "updated": "تم تحديث العنوان بنجاح.",
@@ -2845,7 +2847,8 @@
       },
       "pickup": {
         "pickup": "يلتقط",
-        "pickup_location": "اختر موقعا"
+        "pickup_location": "اختر موقعا",
+        "pickup_point": "نقطة الالتقاء"
       },
       "show_items": "عرض العناصر",
       "show_order_summary": "عرض ملخص الطلب",
@@ -2869,7 +2872,9 @@
         "updated_at": "تم تحديث طلبك بتاريخ {{date}}",
         "returned": "عاد",
         "returned_with_quantities": "{{delta}} ل {{total}} عاد",
-        "removed_with_quantities": "{{delta}} ل {{total}} إزالة"
+        "removed_with_quantities": "{{delta}} ل {{total}} إزالة",
+        "return_line_item_removed_with_quantities": "إزالة {{delta}} من العودة",
+        "return_line_item_removed": "تمت إزالته من العودة"
       },
       "shop_pay": {
         "order_completed_with": "اكتمل الطلب مع",
@@ -3711,7 +3716,8 @@
       "xr_button_label": "عرض في المساحة الخاصة بك، وتحميل العنصر في نافذة الواقع المعزز",
       "siblings": {
         "label": "لون"
-      }
+      },
+      "Special_Offers": "عروض خاصة"
     },
     "facets": {
       "clear": "واضح",
@@ -3751,7 +3757,15 @@
     "dashboard": {
       "welcome": "أهلاً",
       "help": "كيف يمكننا مساعدتك اليوم؟",
-      "subscriptions": "إدارة الاشتراكات"
+      "subscriptions": "إدارة الاشتراكات",
+      "view_cataloguee": "عرض الكتالوج",
+      "top_up_wallett": "تعبئة رصيد المحفظة",
+      "view_all": "عرض الكل",
+      "current_balance": "الرصيد الحالي",
+      "my_reward_drop": "قطرات المكافأة الخاصة بي",
+      "dec": "تحكم في اشتراكك في مياه العين.",
+      "sub_dec": "اضبط الكميات أو أوقفها مؤقتًا أو استأنفها أو ألغِ اشتراكك دون أي متاعب.",
+      "next_delivery": "التسليم القادم"
     },
     "login_page": {
       "login": "تسجيل الدخول",
@@ -3808,7 +3822,23 @@
       "view_addresses": "عرض العناوين",
       "default_address": "العنوان الافتراضي",
       "log_out": "تسجيل خروج",
-      "return_to_account_details": "العودة إلى تفاصيل الحساب"
+      "return_to_account_details": "العودة إلى تفاصيل الحساب",
+      "reward": {
+        "drop": "قطرات",
+        "title": "قطرات المكافأة الخاصة بي",
+        "blue_drop": "القطرة الزرقاء",
+        "green_drop": "القطرة الخضراء",
+        "platinum_drop": "قطرة البلاتين",
+        "redeemable_offer": "العروض القابلة للاسترداد",
+        "until_next_tier": "يسقط حتى",
+        "blue_tier": "الطبقة الزرقاء",
+        "green_tier": "الطبقة الخضراء",
+        "platinum_tier": "الطبقة البلاتينية",
+        "expire_label": "سوف تنتهي في",
+        "discount_code_voucher": "قسيمة كود الخصم",
+        "copy_voucher": "نسخ قسيمة",
+        "copied_voucher": "قسيمة منسوخة"
+      }
     },
     "order": {
       "title": "طلب {{ name }}",
@@ -3876,7 +3906,8 @@
       "delete_confirm": "هل أنت متأكد من رغبتك في حذف هذا العنوان؟",
       "district": "يصرف",
       "city_reg": "اختر مدينتك",
-      "district_reg": "اختر منطقتك"
+      "district_reg": "اختر منطقتك",
+      "update_error": "هناك خطأ ما. يرجى المحاولة مرة أخرى لاحقًا"
     }
   },
   "gift_cards": {

@@ -1,0 +1,316 @@
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&libraries=places"></script> 
+{{ 'profile.css' | asset_url | stylesheet_tag }}
+{{ 'login-register.css' | asset_url | stylesheet_tag }}
+<main class="profile-form__wrapper">
+	<!-- Profile Main Form -->
+	<section class="profile-form-section">
+		<div class="head-section">
+			<h2>Profile</h2>
+			<p class="sub-title">My Account Details</p>
+			<p class="desc">
+				Please ensure that your personal details and account information are
+				always accurate and up-to-date
+			</p>
+		</div>
+		<form action="" method="post" id="profile-form" class="profile-form">
+			<fieldset>
+				<div class="field" aria-disabled="true">
+					<a href="javascript:void(0);" class="edit-link edit-name" title="edit">edit</a>
+					<label for="first name">First Name</label>
+					<div class="control">
+						<input
+							type="text"
+							name="first name"
+							aria-label="First Name"
+							placeholder="First Name"
+							value="{{ customer.first_name }}"
+							disabled
+							/>
+					</div>
+				</div>
+				<div class="field" aria-disabled="true">
+					<label for="last name">Last Name</label>
+					<div class="control">
+						<input
+							type="text"
+							name="last name"
+							aria-label="Last Name"
+							placeholder="Last name"
+							value="{{ customer.last_name }}"
+							disabled
+							/>
+					</div>
+				</div>
+				<hr />
+				<div class="field" aria-disabled="true">
+					<a href="javascript:void(0);" class="edit-link edit-email" title="edit">edit</a>
+					<label for="email address">Email Address</label>
+					<div class="control">
+						<input
+							type="email"
+							name="email address"
+							aria-label="Email Address"
+							placeholder="email@email.com"
+							value="{{ customer.email }}"
+							disabled
+							/>
+					</div>
+					<div class="tagline">
+						If you update your email address, you'll need to verify it again
+						for security purposes.
+					</div>
+				</div>
+				<hr />
+				<div class="field" aria-disabled="true">
+					<a href="javascript:void(0);" class="edit-link edit-address" title="edit">edit</a>
+					<label for="address">Address</label>
+					<div class="control">
+						<textarea
+							name="address"
+							aria-label="Address"
+							disabled
+							>
+								{%- if customer.default_address.address1 -%}
+									{{- customer.default_address.address1 -}}
+								{%- endif -%}
+								{%- if customer.default_address.address2 -%}
+									,{{- customer.default_address.address2 -}}
+								{%- endif -%}
+								{%- if customer.default_address.city -%}
+									,{{- customer.default_address.city -}}
+								{%- endif -%}
+								{%- if customer.metafields.custom.district -%}
+									,{{- customer.metafields.custom.district -}}
+								{%- endif -%}
+								{%- if customer.default_address.country -%}
+									,{{- customer.default_address.country -}}
+								{%- endif -%}
+								{%- if customer.default_address.postal_code -%}
+									{{- customer.default_address.postal_code -}}
+								{%- endif -%}
+						 
+						</textarea>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</section>
+	<!-- Update Name form -->
+	<update-profile>
+		<section class="update-name-section">
+			<div class="head-section">
+				<h2>Update Name</h2>
+			</div>
+			<form
+				action=""
+				method="post"
+				id="update-name-form"
+				class="update-name-form"
+				>
+				<fieldset>
+					<div class="field">
+						<label for="first name">First Name</label>
+						<div class="control">
+							<input type="hidden" name="customer_id" value="{{ customer.id }}">
+							<input
+								type="text"
+								name="first_name"
+								aria-label="First Name"
+								placeholder="First Name"
+								value="{{ customer.first_name }}"
+								/>
+						</div>
+					</div>
+					<div class="field">
+						<label for="last name">Last Name</label>
+						<div class="control">
+							<input
+								type="text"
+								name="last_name"
+								aria-label="Last Name"
+								placeholder="Last name"
+								value="{{ customer.last_name }}"
+								/>
+						</div>
+					</div>
+					<div class="actions-bar">
+						<button
+							type="submit"
+							class="form-submit-btn"
+							aria-label="update name"
+							id="updateUserName"
+							>
+						update name
+						</button>
+						<a href="javascript:void(0);" class="back-link" title="Go back">Go back</a>
+					</div>
+				</fieldset>
+			</form>
+		</section>
+		<!-- Update Email form -->
+		<section class="update-email-section">
+			<div class="head-section">
+				<h2>Update Email</h2>
+			</div>
+			<form
+				action=""
+				method="post"
+				id="update-email-form"
+				class="update-email-form"
+				>
+				<fieldset>
+					<div class="field" aria-disabled="true">
+						<label for="Current Email Address">Current Email Address</label>
+						<div class="control">
+							<input
+								type="email"
+								name="Current Email Address"
+								aria-label="Current Email Address"
+								disabled
+								placeholder="Current Email Address"
+								value="{{ customer.email }}"
+								/>
+						</div>
+					</div>
+					<div class="field">
+						<label for="New Email Address">New Email Address</label>
+						<div class="control">
+							<input
+								type="email"
+								name="new_email"
+								aria-label="New Email Address"
+								placeholder="New Email Address"
+								/>
+							{% comment %} 
+							<div class="error">The email provided has not yet been verified. Please verify your email for account security and updates.</div>
+							{% endcomment %}
+						</div>
+					</div>
+					<div class="field">
+						<label for="Confirm New Email Address"
+							>Confirm New Email Address</label
+							>
+						<div class="control">
+							<input
+								type="email"
+								name="new_email_confirm"
+								aria-label="Confirm New Email Address"
+								placeholder="Confirm New Email Address"
+								/>
+							<div class="email_confirm_error error"></div>
+						</div>
+					</div>
+					<div class="actions-bar">
+						<button
+							type="button"
+							class="form-submit-btn"
+							aria-label="update Email"
+							id="updateEmailBtn"
+							>
+						update Email
+						</button>
+						<a href="javascript:void(0);" class="back-link" title="Go back">Go back</a>
+					</div>
+				</fieldset>
+			</form>
+		</section>
+		<!-- Update Delivery Address form -->
+		<section class="update-delivery-address-section">
+			<div class="head-section">
+				<h2>Delivery Address</h2>
+			</div>
+			<form 
+        action=""
+				method="post"
+				id="update-delivery-address-form"
+				class="update-delivery-address-form"
+				>
+				<fieldset>
+					<div class="field">
+						<label for="Update Address">Address</label>
+						<div class="control">
+							<input
+								class="address-input-text"
+								type="text"
+								name="addressInput"
+								id="locationInput"
+								placeholder="{{ 'customer.login_page.address_place' | t }}"
+								value="{{ customer.default_address.address1 }}"
+								onkeydown="handleEnterKey(event)"
+								>
+						</div>
+						<input type="hidden" name="lat" value="23.4241">
+						<input type="hidden" name="lang" value="53.8478">
+						<input type="hidden" name="current_city" value="{{ customer.default_address.city }}">
+						<input type="hidden" name="current_district" value="{{ customer.metafields.custom.district }}">
+						<input type="hidden" name="address_id" value="{{ customer.default_address.id }}">
+						<div class="location_icon" id="openMapPopup">
+							{% render 'svg-icons' with 'location' %}
+						</div>
+					</div>
+					<div class="field">
+						<label for="Update Address"
+							>Apt / Villa Number & Building / Villa Name</label
+							>
+						<div class="control">
+							<input
+								type="text"
+								name="address2"
+								aria-label="Update Address"
+								placeholder="Update Address"
+								value="{{ customer.default_address.address2 }}"
+								/>
+						</div>
+					</div>
+					<div class="field field-row">
+						<div class="field">
+							<label for="regi_city" name="city">{{ 'customer.addresses.city' | t }}</label>
+							<select
+								name="city"
+								id="regi_city"
+								placeholder="{{ 'customer.addresses.city_reg' | t }}"
+								class="full"
+								>
+								<option value="">{{ 'customer.addresses.city_reg' | t }}</option>
+							</select>
+							<div id="regiCityError" class="form-error"></div>
+						</div>
+						<div class="field">
+							<label for="district">{{ 'customer.addresses.district' | t }}</label>
+							<select
+								name="district"
+								placeholder="{{ 'customer.addresses.district_reg' | t }}"
+								id="district"
+								class="full"
+								>
+								<option value="">{{ 'customer.addresses.district_reg' | t }}</option>
+							</select>
+							<div id="districtError" class="form-error"></div>
+						</div>
+					</div>
+					<div class="actions-bar">
+						<button
+							type="submit"
+							class="form-submit-btn"
+							aria-label="update Address"
+							id="updateAddress"
+							>
+						update Address
+						</button>
+						<div class="error"></div>
+						<a href="javascript:void(0);" class="back-link" title="Go back">Go back</a>
+					</div>
+				</fieldset>
+			</form>
+		</section>
+	</update-profile>
+	<!-- My Account footer -->
+	<div class="devider"><span>or</span></div>
+	<div class="switch-login-section">
+		{% assign text_button_title = 'Need Help?' %}
+		{% assign contact_page_url = '/pages/contact' %}
+		{% render 'text-button', url: contact_page_url, title: text_button_title %}
+		We’re here to assist.            
+	</div>
+</main>

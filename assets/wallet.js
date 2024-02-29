@@ -3,7 +3,6 @@ if (!customElements.get('wallet-balance')) {
     constructor() {
       super();
       this.userId = 79752;
-      this.transType = 'debit';
       this.page = 0;
       this.initDataFields();
       this.closeHelpWallet.style.display = 'none'; // Hide the close button initially

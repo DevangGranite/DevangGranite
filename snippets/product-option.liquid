@@ -23,11 +23,18 @@
 		      </option>
 		    {%- endfor -%}
 		  </select>
-			<div class="select-arrow">{%- render 'svg-icons' with 'thb-select' -%}</div>
+
+			<div class="select-arrow">
+				{% if is_subscription == true %}
+					{%- render 'svg-icons', svg-icons: 'subscription-select' -%}
+				{% else %}
+					{%- render 'svg-icons' with 'thb-select' -%}
+				{% endif %}
+			</div>
 		</div>
 	</fieldset>
 {%- when 'button' -%}
-	<fieldset class="product-form__input product-form__input--block" data-index="option{{ forloop.index }}" data-handle="{{ handle }}">
+	<fieldset {% if is_subscription == true %}hidden{% endif %} class="product-form__input product-form__input--block" data-index="option{{ forloop.index }}" data-handle="{{ handle }}">
 		<div class="form__label">{{ option.name }}: <span class="form__label__value">{{ option.selected_value }}</span>{{ sizing_link }}</div>
 		{%- for value in option.values -%}
 			<input type="radio" id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}{{ appended }}"

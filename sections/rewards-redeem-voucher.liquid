@@ -8,7 +8,7 @@
       <div class="reward-redeem-voucher_main">
         <div class="reward-redeem-voucher_inner_top">
         <div class="reward-redeem-voucher_back">
-          {% render 'back_icon' %}
+          <a href="{{ routes.account_url | append: '?view=clip-the-deal' }}">{% render 'back_icon' %}</a>
         </div>
         <div class="reward-redeem-voucher_title">Redeem Voucher</div>
         <div class="reward-redeem-voucher_help">{% render 'help_icon' %}</div>
@@ -50,7 +50,6 @@
       </div>
   </div>
 </reward-offer-detail>
-{{ 'reward.js' | asset_url | script_tag }}
  
 {% schema %}
   {

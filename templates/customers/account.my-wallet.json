@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "my_wallet",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,4 +1,4 @@
-{{ 'reward.js' | asset_url | script_tag }}
+<script src="{{ 'account-dashboard.js' | asset_url }}" defer="defer"></script>
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
 <div class="customer-content-spacing short-width-row">
@@ -59,7 +59,7 @@
       <div class="account-order-history--wrapper">
         <h4>{{ 'customer.orders.title' | t }}</h4>
         <div class="account-order-history--link">
-          <a href="{{ routes.root_url | append: 'pages/order-history' }}">{{ 'customer.dashboard.view_all' | t }} </a>&nbsp;>
+          <a href="{{ routes.account_url | append: '?view=order-history' }}">{{ 'customer.dashboard.view_all' | t }} </a>&nbsp;>
         </div>
       </div>
       {%- if customer.orders.size > 0 -%}
