@@ -399,3 +399,7 @@ html[lang="ar"] .profile-form__wrapper select {
         padding: 0 24px;
     }
 }
+.profile-form__wrapper textarea {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
