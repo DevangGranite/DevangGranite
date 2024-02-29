@@ -306,11 +306,12 @@
 .tab-content{
    display: none;
    opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 1s ease, height 1s ease;
 }
 .tab-content.active{
   display: block;
   opacity: 1;
+  transition: opacity 1s ease, height 1s ease;
 }
 
 /* Top UP Wallet */
@@ -1016,6 +1017,14 @@
       padding: 0;
     }
   }
+@media screen and ( max-width: 414px ){
+    .available_funds .available_fund_currency{
+      font-size: 14px;
+    }
+    .available_funds .available_fund_price{
+      font-size: 20px;
+    }
+}
 .transaction--type {
   text-transform: capitalize;
 }
