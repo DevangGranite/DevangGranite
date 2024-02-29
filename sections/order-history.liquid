@@ -1,7 +1,7 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
 <div class="breadcrumbs_order_history row">
-  <a class="my_account" href="/account">My Account</a>
+  <a class="my_account" href="{{ routes.account_url }}">My Account</a>
   <span class="current_page">> Order History</span>
 </div>
 
