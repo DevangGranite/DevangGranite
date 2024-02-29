@@ -47,6 +47,11 @@
                   <span class="current_page">> Order Details</span>
                 </div>
               {% endif %}
+              {% unless request.path contains '/account/orders/' %}
+                <style>
+                  
+                </style>
+              {% endunless %}
 			  {% if template contains 'page' %}
 			    <i>/</i>
 			    {{ page.title }}
