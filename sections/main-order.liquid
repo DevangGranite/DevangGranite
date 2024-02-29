@@ -1,9 +1,9 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
-
-         <i>&#x3e;</i>
-        <a href="{{ routes.account_url | append: '/products/top-up-wallet' }}" data-route="Top Up Wallet">Top Up Wallet</a>
-      
+<div class="breadcrumbs_order_history row">
+  <a class="my_account" href="/pages/order-history">Order History</a>
+  <span class="current_page">> Order Details</span>
+</div>
 
 <div class="section-spacing-bottom">
 	<div class="row">
