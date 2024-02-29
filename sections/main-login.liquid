@@ -1,5 +1,4 @@
 {{ 'login-register.css' | asset_url | stylesheet_tag }}
-{{ 'reward.js' | asset_url | script_tag }}
 
 <div class="row">
   <div class="small-12 columns">
@@ -238,36 +237,6 @@
     </div>
   </div>
 </div>
+
+{{ 'reward.js' | asset_url | script_tag }}
 {{ 'login-register.js' | asset_url | script_tag }}
-
-<script>
-
-// Declare mobileInput outside the validateInput function
-var mobileInput = document.getElementById('mobile');
-var registerButton = document.getElementById('registerButton');
-var resendLinkButton = document.getElementById('resendLink'); 
-var verifyOTP = document.getElementById('verifyOtpbtn');
-
-
-
-
-{% comment %} function updateEmail(){
-  fetch('https://alainuat.gdadmin.org/laravel/public/api/customer/update', {
-    method:'POST',
-    body:JSON.stringify({email_id:document.getElementById('customer_email').value,user_id:user_id}),
-  }).then(response => {
-    if(!response.ok){
-      throw new Error(`Network response was not ok: ${response.status}`);
-    }
-    return response.json();
-  }).then(data => {
-    setCookie('user_id',data.response['0'].id);
-    customerLogin(data.response['0'].email_id);
-  }).catch(error => {
-    console.log('Error fetching data:',error);
-  });
-} {% endcomment %}
-
-
-/** End Verify OTP **/
-</script>

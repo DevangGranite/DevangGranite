@@ -216,10 +216,18 @@ class RegisterCustomer extends HTMLElement{
     this.address2 = this.querySelector('.address2');
     this.city = this.querySelector('[name="city"]');
     this.district = this.querySelector('[name="district"]');
+    this.lastOTPDigit = this.querySelector('#OneTimePassword6');
     this.getCity();
     this.evenetListener();
   }
   async evenetListener() {
+    // handle enter key
+    this.lastOTPDigit.addEventListener('keypress', e => {
+      if (e.key === 'Enter') {
+        this.verifyOtpBtn.click();
+      }
+    });
+
     this.phone.addEventListener('change', e => {
       // Remove non-numeric characters
       this.numericValue = this.phone.value.replace(/\D/g, '');
@@ -498,15 +506,24 @@ class LoginCustomer extends HTMLElement {
     this.email = this.querySelector('[name="customer[email]"]');
     this.confirm_email = this.querySelector('[name="customer[confirm_email]"]');
     this.mobileNo = this.querySelector('#mobile');
+    this.lastOTPDigit = this.querySelector('#OneTimePassword6');
     this.user_id = getCookie('user_id');
 
     this.evenetListener();
   }
   evenetListener() {
+
+    // handle enter key
+    this.lastOTPDigit.addEventListener('keypress', e => {
+      if (e.key === 'Enter') {
+        this.verifyMobileBtn.click();
+      }
+    });
+
     // validate mobile number
     this.mobileNo.addEventListener('keypress', e => {
       var numericValue = this.mobileNo.value.replace(/\D/g, '');
-      mobileInput.value = numericValue;
+      this.mobileNo.value = numericValue;
       if (numericValue.length >= 8) {
         this.verifyMobileBtn.removeAttribute('disabled');
       } else {
