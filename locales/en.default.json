@@ -374,6 +374,7 @@
       "return_to_account_details": "Return to order details",
       "reward": {
         "title": "My Reward Drops",
+        "tier": "Tier",
         "drop": "Drops",
         "blue_drop": "Blue Drop",
         "green_drop": "Green Drop",
@@ -386,7 +387,9 @@
         "expire_label": "will expire on",
         "discount_code_voucher": "Discount Code Voucher",
         "copy_voucher": "Copy Voucher",
-        "copied_voucher": "Copied Voucher"
+        "copied_voucher": "Copied Voucher",
+        "reach_top_tier": "Congratulations, you're at the top",
+        "member_since": "Member since"
       }
     },
     "order": {

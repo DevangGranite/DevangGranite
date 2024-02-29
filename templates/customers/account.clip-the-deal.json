@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": {
+      "type": "clip-the-deal",
+      "settings": {
+        "heading": "My Reward Drops",
+        "heading_sec": "Blue Tier",
+        "background_gradient": ""
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

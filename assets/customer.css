@@ -317,8 +317,7 @@ table.account-order-history--table tbody tr:last-child td {
   padding: 0 8px;
   font-size: 14px;
   line-height: 18px;
-  max-width: 144px;
-  width: 100%;
+  min-width: 144px;
 }
 .customer-wallet-price {
   color: #001489;

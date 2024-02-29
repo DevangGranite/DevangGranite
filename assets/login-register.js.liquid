@@ -221,13 +221,11 @@ class RegisterCustomer extends HTMLElement{
     this.evenetListener();
   }
   async evenetListener() {
-    // handle enter key
     this.lastOTPDigit.addEventListener('keypress', e => {
       if (e.key === 'Enter') {
         this.verifyOtpBtn.click();
       }
     });
-
     this.phone.addEventListener('change', e => {
       // Remove non-numeric characters
       this.numericValue = this.phone.value.replace(/\D/g, '');
@@ -499,6 +497,9 @@ customElements.define('register-customer', RegisterCustomer);
 class LoginCustomer extends HTMLElement {
   constructor() {
     super();
+    this.customLoginElement = this.querySelector('.otp-container');
+    this.customLoginotpElement = this.querySelector('.custom_login_container');
+    this.customEmailElement = this.querySelector('.custom_email_container');
     this.verifyMobileBtn = this.querySelector('#verifyMobile');
     this.verifyOtpLoginBtn = this.querySelector('.verifyOtpLoginBtn');
     this.resendBtn = this.querySelector('#resendLink'); 
@@ -512,13 +513,6 @@ class LoginCustomer extends HTMLElement {
     this.evenetListener();
   }
   evenetListener() {
-
-    // handle enter key
-    this.lastOTPDigit.addEventListener('keypress', e => {
-      if (e.key === 'Enter') {
-        this.verifyMobileBtn.click();
-      }
-    });
 
     // validate mobile number
     this.mobileNo.addEventListener('keypress', e => {
@@ -538,15 +532,13 @@ class LoginCustomer extends HTMLElement {
     this.verifyMobileBtn.addEventListener('click', e => {
       sendOTP(this.mobileNo.value).then(response => {
         console.log('Send Login OTP',response);
-        let customLoginElement = this.querySelector('.otp-container');
-        let customLoginotpElement = this.querySelector('.custom_login_container');
         this.startTimer();
-        if (customLoginElement.style.display === 'none' || customLoginElement.style.display === '') {
-            customLoginElement.style.display = 'block';
-            customLoginotpElement.style.display = 'none';
+        if (this.customLoginElement.style.display === 'none' || this.customLoginElement.style.display === '') {
+            this.customLoginElement.style.display = 'block';
+            this.customLoginotpElement.style.display = 'none';
         } else {
-            customLoginElement.style.display = 'none';
-          customLoginotpElement.style.display = 'block';
+            this.customLoginElement.style.display = 'none';
+            this.customLoginotpElement.style.display = 'block';
         }
       });
     });
@@ -587,8 +579,8 @@ class LoginCustomer extends HTMLElement {
           console.log('Customer Email ID',data.response['0'].email_id);
           if(data.response['0'].email_id == "" || data.response['0'].email_id == null){
             this.user_id = data.response['0'].id;
-            this.querySelector('.custom_email_container').style.display = 'block';
-            this.querySelector('.otp-container').style.display = 'none';
+            this.customEmailElement.style.display = 'block';
+            this.customLoginElement.style.display = 'none';
           }else{
             setCookie('user_id',data.response['0'].id);
             this.customerLogin(data.response['0'].email_id);

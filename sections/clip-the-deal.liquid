@@ -38,7 +38,7 @@
               <div class="clip_the_deal_data_drops_range desktop">
             </div>
             </div>
-            <span class="range_icon_move">{% render 'drop_range' with 'Green' %}</span>
+            <span class="range_icon_move"><img src="{{ 'Green.svg' | file_url }}" alt="Green Drop"></span>
           </div>
           <div class="clip_the_deal_inner_data_points">
             <a href="{{ section.settings.h_link }}">{{ section.settings.h_label }}</a>
@@ -49,7 +49,7 @@
               <div class="clip_the_deal_data_drops_range mobile">
             </div>
             </div>
-            <span class="range_icon_move">{% render 'drop_range' with 'Green' %}</span>
+            <span class="range_icon_move"><img src="{{ 'Green.svg' | file_url }}" alt="Green Drop"></span>
           </div>
         </div>
 
@@ -66,7 +66,7 @@
 
         <div class="card_redeme_main card_redeme_main_green_card_offer d-none">
           <div class="card_redeme_main_inner" >
-            <div class="card_heading"><strong>{{ 'customer.account.reward.green_drop' | t }}</strong> {{ 'customer.account.reward.redeemable_offer' | t }}</div>.
+            <div class="card_heading"><strong>{{ 'customer.account.reward.green_drop' | t }}</strong> {{ 'customer.account.reward.redeemable_offer' | t }}</div>
             <div class="lock_cart_block"></div>
             <div class="cards_redeme_main green_tier_offer">
             </div>
@@ -82,7 +82,7 @@
           </div>
         </div>
 
-          <div class="date_bottom_cards">Member since 4 Jan 2023</div>
+          <div class="date_bottom_cards"></div>
         </div>
       </div>
     
@@ -151,6 +151,12 @@
   align-items: center;
   gap: 5px;
 }
+.green_offer_card .cards_points{
+  color:#007C2D;
+}
+.platinum_offer_card .cards_points{
+  color:#6B6E71;
+}
 .cards_redeme_inner.inactive{
   cursor: not-allowed;
 }
@@ -207,8 +213,8 @@
 
   
   .clip_the_deal_main .clip_the_deal_inner{
-    background: rgb(63,94,251);
-    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(0,20,137,1) 100%);
+    background: #2461CC;
+    background: radial-gradient(circle, #2461CC 0%, #001489 100%);
     
   }
   
@@ -418,8 +424,6 @@
     }
   }
 </style>
-{{ 'reward.js' | asset_url | script_tag }}
-
 {% schema %}
   {
     "name": "Clip the deal",
@@ -483,293 +487,6 @@
         "id": "background_gradient",
         "label": "Background color"
       }
-    ],
-    "blocks": [
-	  {
-	  	"type": "blue_card",
-	  	"name": "Blue Products blocks",
-	  	"settings": [
-	  		{
-	  			"type": "inline_richtext",
-	  			"id": "heading",
-	  			"label": "Heading",
-	  			"default": "Blue Drop Redeemable Offers"
-	  		},
-            {
-	  			"type": "header",
-	  			"content": "Product First"
-	  		},
-            {
-	  			"type": "checkbox",
-	  			"id": "show_a",
-                "default": true,
-	  			"label": "Show First Product"
-	  		},
-            {
-	  			"type": "image_picker",
-	  			"id": "image_a",
-	  			"label": "Image"
-	  		},
-            {
-	  			"type": "text",
-	  			"id": "heading_a",
-                "default": "Al Ain Zero Water 5 Gallon",
-	  			"label": "Heading"
-	  		},
-            {
-	  			"type": "text",
-	  			"id": "drops_a",
-                "default": "6 Drops",
-	  			"label": "Drops"
-	  		},
-            {
-	  			"type": "header",
-	  			"content": "Product Second"
-	  		},
-            {
-	  			"type": "checkbox",
-	  			"id": "show_b",
-                "default": true,
-	  			"label": "Show Second Product"
-	  		},
-            {
-	  			"type": "image_picker",
-	  			"id": "image_b",
-	  			"label": "Image"
-	  		},
-            {
-	  			"type": "text",
-	  			"id": "heading_b",
-                "default": "2x Al Ain Water  5 Gallon",
-	  			"label": "Heading"
-	  		},
-            {
-	  			"type": "text",
-	  			"id": "drops_b",
-                "default": "10 Drops",
-	  			"label": "Drops"
-	  		},
-            {
-	  			"type": "header",
-	  			"content": "Product Third"
-	  		},
-            {
-	  			"type": "checkbox",
-	  			"id": "show_c",
-                "default": true,
-	  			"label": "Show Third Product"
-	  		},
-            {
-	  			"type": "image_picker",
-	  			"id": "image_c",
-	  			"label": "Image"
-	  		},
-            {
-	  			"type": "text",
-	  			"id": "heading_c",
-                "default": "20% Discount Code",
-	  			"label": "Heading"
-	  		},
-            {
-	  			"type": "text",
-	  			"id": "drops_c",
-                "default": "10 Drops",
-	  			"label": "Drops"
-	  		},
-            {
-	  			"type": "header",
-	  			"content": "Product Fourth"
-	  		},
-            {
-	  			"type": "checkbox",
-	  			"id": "show_d",
-                "default": true,
-	  			"label": "Show Fourth Product"
-	  		},
-            {
-	  			"type": "image_picker",
-	  			"id": "image_d",
-	  			"label": "Image"
-	  		},
-            {
-	  			"type": "text",
-	  			"id": "heading_d",
-                "default": "15% Discount Code ",
-	  			"label": "Heading"
-	  		},
-            {
-	  			"type": "text",
-	  			"id": "drops_d",
-                "default": "15 Drops",
-	  			"label": "Drops"
-	  		},
-            {
-              "type": "color",
-              "id": "background",
-              "label": "Background color",
-              "default": "#2461CC"
-            },
-            {
-              "type": "color_background",
-              "id": "background_gradient",
-              "label": "Background color"
-            }
-	  	]
-	  },
-      {
-	  	"type": "green_card",
-	  	"name": "Green Products blocks",
-	  	"settings": [
-	  		{
-	  			"type": "inline_richtext",
-	  			"id": "heading",
-	  			"label": "Heading",
-	  			"default": "Green Drop Offers"
-	  		},
-            {
-	  			"type": "header",
-	  			"content": "Product First"
-	  		},
-            {
-	  			"type": "checkbox",
-	  			"id": "show_a",
-                "default": true,
-	  			"label": "Show First Product"
-	  		},
-            {
-	  			"type": "image_picker",
-	  			"id": "image_a",
-	  			"label": "Image"
-	  		},
-            {
-	  			"type": "text",
-	  			"id": "heading_a",
-                "default": "20% Discount Voucher",
-	  			"label": "Heading"
-	  		},
-            {
-	  			"type": "text",
-	  			"id": "drops_a",
-                "default": "45 Drops",
-	  			"label": "Drops"
-	  		},
-            {
-	  			"type": "header",
-	  			"content": "Product Second"
-	  		},
-            {
-	  			"type": "checkbox",
-	  			"id": "show_b",
-                "default": true,
-	  			"label": "Show Second Product"
-	  		},
-            {
-	  			"type": "image_picker",
-	  			"id": "image_b",
-	  			"label": "Image"
-	  		},
-            {
-	  			"type": "text",
-	  			"id": "heading_b",
-                "default": "Buy 1 Get 1 Free",
-	  			"label": "Heading"
-	  		},
-            {
-	  			"type": "text",
-	  			"id": "drops_b",
-                "default": "80 Drops",
-	  			"label": "Drops"
-	  		},
-            {
-              "type": "color",
-              "id": "background",
-              "label": "Background color",
-              "default": "#007C2D"
-            },
-            {
-              "type": "color_background",
-              "id": "background_gradient",
-              "label": "Background color"
-            }
-	  	]
-	  },
-      {
-	  	"type": "black_card",
-	  	"name": "Black Products blocks",
-	  	"settings": [
-	  		{
-	  			"type": "inline_richtext",
-	  			"id": "heading",
-	  			"label": "Heading",
-	  			"default": "Platinum Drops Offers"
-	  		},
-            {
-	  			"type": "header",
-	  			"content": "Product First"
-	  		},
-            {
-	  			"type": "checkbox",
-	  			"id": "show_a",
-                "default": true,
-	  			"label": "Show First Product"
-	  		},
-            {
-	  			"type": "image_picker",
-	  			"id": "image_a",
-	  			"label": "Image"
-	  		},
-            {
-	  			"type": "text",
-	  			"id": "heading_a",
-                "default": "25% Discount Code",
-	  			"label": "Heading"
-	  		},
-            {
-	  			"type": "text",
-	  			"id": "drops_a",
-                "default": "120 Drops",
-	  			"label": "Drops"
-	  		},
-            {
-	  			"type": "header",
-	  			"content": "Product Second"
-	  		},
-            {
-	  			"type": "checkbox",
-	  			"id": "show_b",
-                "default": true,
-	  			"label": "Show Second Product"
-	  		},
-            {
-	  			"type": "image_picker",
-	  			"id": "image_b",
-	  			"label": "Image"
-	  		},
-            {
-	  			"type": "text",
-	  			"id": "heading_b",
-                "default": "30% Discount Code",
-	  			"label": "Heading"
-	  		},
-            {
-	  			"type": "text",
-	  			"id": "drops_b",
-                "default": "160 Drops",
-	  			"label": "Drops"
-	  		},
-            {
-              "type": "color",
-              "id": "background",
-              "label": "Background color",
-              "default": "#fff"
-            },
-            {
-              "type": "color_background",
-              "id": "background_gradient",
-              "label": "Background color"
-            }
-	  	]
-	  }
     ],
     "presets": [
       {
