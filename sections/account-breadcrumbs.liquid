@@ -18,6 +18,11 @@
         <i>&#x3e;</i>
         <a href="{{ routes.account_url | append: '/products/top-up-wallet' }}" data-route="Top Up Wallet">Top Up Wallet</a>
       {% endif %}
+       {% if template contains 'main-order' %}
+         <i>&#x3e;</i>
+        <a href="{{ routes.account_url | append: '/products/top-up-wallet' }}" data-route="Top Up Wallet">Top Up Wallet</a>
+      {% endif %}
+      
     </nav>
   </scroll-shadow>
 </div>
