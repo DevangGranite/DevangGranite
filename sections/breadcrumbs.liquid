@@ -40,18 +40,7 @@
 			    <a href="{{ blog.url }}" title="{{ blog.title | escape }}">{{ blog.title }}</a>
 			    <i>/</i>
 			    {{ article.title }}
-			  {% endif %}
-              {% if request.path contains '/account/orders/' %}
-                <div class="breadcrumbs_order_history row">
-                  <a class="my_account" href="/pages/order-history">Order History</a>
-                  <span class="current_page">> Order Details</span>
-                </div>
-              {% endif %}
-              {% unless request.path contains '/account/orders/' %}
-                <style>
-                  
-                </style>
-              {% endunless %}
+			  {% endif %}            
 			  {% if template contains 'page' %}
 			    <i>/</i>
 			    {{ page.title }}
