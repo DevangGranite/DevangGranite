@@ -1,6 +1,10 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
-{% include 'account-breadcrumbs.liquid' %}
+
+         <i>&#x3e;</i>
+        <a href="{{ routes.account_url | append: '/products/top-up-wallet' }}" data-route="Top Up Wallet">Top Up Wallet</a>
+      
+
 <div class="section-spacing-bottom">
 	<div class="row">
 	  <div class="small-12 large-8 columns myaccount-content">
