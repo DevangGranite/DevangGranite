@@ -982,6 +982,7 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
 
 .account-order-history--table tr {
     position: relative;
+    overflow: hidden;
 }
 
 table.account-order-history--table tbody tr td:first-child a {
