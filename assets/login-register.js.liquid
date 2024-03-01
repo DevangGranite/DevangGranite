@@ -484,11 +484,11 @@ class LoginCustomer extends HTMLElement {
           console.log('Customer Email ID',data.response.email_id);
           this.user_id = data.response.id;
           this.username = data.response.name;
+          setCookie('user_id',data.response.id);
           if(data.response.email_id == "" || data.response.email_id == null){
             this.customEmailElement.style.display = 'block';
             this.customLoginElement.style.display = 'none';
           }else{
-            setCookie('user_id',data.response.id);
             this.customerLogin(JSON.stringify({email:data.response.email_id,name:this.username,user_id:this.user_id,customer_id:'7186123587820'}));
           } 
         }else{

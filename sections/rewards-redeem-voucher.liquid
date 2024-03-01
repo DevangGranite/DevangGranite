@@ -1,6 +1,9 @@
 {% comment %}
 {{ 'wallet_page_style.css' | asset_url | stylesheet_tag }}
 {% endcomment %}
+<input type="hidden" name="meta[token]" value="{{ customer.metafields.custom.token }}">
+<input type="hidden" name="meta[user_id]" value="{{ customer.metafields.custom.user_id }}">
+<input type="hidden" name="meta[name]" value="{{ customer.metafields.custom.name }}">
 {{ 'rewards-redeem-voucher.css' | asset_url | stylesheet_tag }}
 <reward-offer-detail>
   <div class="reward-redeem-voucher">

@@ -330,7 +330,7 @@ class RewardOfferDetail extends HTMLElement{
 
         this.voucherDetail.innerHTML = `${this.offerDetail.description} <span class="count_drops_total"><img src="${this.dropIcon}" width="15">${this.offerDetail.points}</span>`
 
-        this.redeemBtn.href = `/pages/rewards-voucher-redeemed/?reward=${urlParams.get('reward')}`;
+        this.redeemBtn.href = `/account?view=rewards-voucher-redeemed&reward=${urlParams.get('reward')}`;
 
         // terms and condition
         this.termsConditionData = "";
