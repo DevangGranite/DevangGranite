@@ -6,8 +6,8 @@
         "slide_LXTcbW": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/AlAin_Hero_Gallon.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/AlAin_Hero_Gallon.jpg",
+            "image": "shopify:\/\/shop_images\/Al_Ain_Water_Zero_Hero_Banner_Desktop_2x_ceae6b87-1ea4-488f-bbe2-7e59355310c9.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Al_Ain_Water_Zero_Hero_Banner_Mobile_2x_edbe8d59-1e97-423f-9310-52e60f79439b.jpg",
             "slide_link": "",
             "video_background": false,
             "badge_text": "",
@@ -41,8 +41,8 @@
         "slide_MdUKki": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/AlAin_Hero_Bottle.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/AlAin_Hero_Bottle.jpg",
+            "image": "shopify:\/\/shop_images\/Al_Ain_Water_Zero_Bottle_Hero_Banner_Desktop_2x_eb16d408-57a1-4210-9a30-5f0605525e3e.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Al_Ain_Water_Zero_Bottle_Hero_Banner_Mobile_2x_0e8a8754-ca89-4e51-b994-5abb20e90dfa.jpg",
             "slide_link": "",
             "video_background": false,
             "badge_text": "",
@@ -79,8 +79,8 @@
         "slide_MdUKki"
       ],
       "settings": {
-        "desktop_height": "desktop-height-550",
-        "mobile_height": "mobile-height-500",
+        "desktop_height": "desktop-height-450",
+        "mobile_height": "mobile-height-450",
         "full_width": true,
         "autoplay": true,
         "autoplay_length": 5,
@@ -126,8 +126,8 @@
         "column_nPhX3J": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/AlAinPETPlastic.jpg",
-            "image_full_width": false,
+            "image": "shopify:\/\/shop_images\/AlAinPETPlastic_6f45fc77-7bda-4c22-98b9-9f89466ea553.jpg",
+            "image_full_width": true,
             "image_link": "",
             "title": "Al Ain Water",
             "text": "",

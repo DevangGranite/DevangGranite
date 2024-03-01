@@ -75,7 +75,7 @@
         "style": "style1",
         "header_shadow": "header--shadow-small",
         "menu": "header-menu-vision",
-        "transparent_header": true,
+        "transparent_header": false,
         "mobile_secondary_menu": "header-menu-vision",
         "show_social_links": true,
         "show_language_switcher": true,
