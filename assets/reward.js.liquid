@@ -366,7 +366,7 @@ class RedemeedRewardOffer extends HTMLElement{
     constructor() {
         super();
         this.pageHeader = this.querySelector('.reward-redeem-voucher_inner');
-        this.voucherImage = this.querySelector('.rewards-voucher-redeemed_image');
+        this.voucherImages = this.querySelectorAll('.rewards-voucher-redeemed_image');
         this.voucherDetail = this.querySelector('div.reward-redeem-voucher_detail');
         this.couponCode = this.querySelector('.rewards-voucher-redeemed-code');
         this.voucherTitleCount = this.querySelector('.reward-redeem-voucher-title-count');
@@ -380,8 +380,10 @@ class RedemeedRewardOffer extends HTMLElement{
         this.offerDetail = await rewardOfferDetail(urlParams.get('reward'));
         
         // set image
-        this.voucherImage.src = this.offerDetail.image;
-        this.voucherImage.alt = this.offerDetail.name;
+        this.voucherImages.forEach(image => {
+            image.src = this.offerDetail.image;
+            image.alt = this.offerDetail.name;
+        });
 
         // set coupon code
         this.couponCode.innerText = this.offerDetail.coupon_code;
@@ -391,10 +393,10 @@ class RedemeedRewardOffer extends HTMLElement{
             this.dropIcon = "{{ 'Blue_Tier.png' | file_url }}";
         }else if(this.offerDetail.tier.toLowerCase() == 'green'){
             this.dropIcon = "{{ 'Green_Tier.png' | file_url }}";
-            this.pageHeader.style.background = `radial-gradient(circle, #00B140 0%, #007C2D 100%)`;
+            // this.pageHeader.style.background = `radial-gradient(circle, #00B140 0%, #007C2D 100%)`;
         }else{
             this.dropIcon = "{{ 'Platinum_Tier.png' | file_url }}";
-            this.pageHeader.style.background = `radial-gradient(circle, #8A8F95 0%, #6B6E71 100%)`;
+            // this.pageHeader.style.background = `radial-gradient(circle, #8A8F95 0%, #6B6E71 100%)`;
         }
 
         this.voucherTitleCount.innerHTML = `${this.offerDetail.description} {{ 'customer.account.reward.discount_code_voucher' | t }}<span class="count_drops_total">${this.offerDetail.points} <img src="${this.dropIcon}" width="15px">`;

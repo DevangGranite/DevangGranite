@@ -1,7 +1,8 @@
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&libraries=places"></script> 
 {{ 'profile.css' | asset_url | stylesheet_tag }}
-{{ 'login-register.css' | asset_url | stylesheet_tag }}
+<input type="hidden" name="meta[token]" value="{{ customer.metafields.custom.token }}">
+<input type="hidden" name="meta[user_id]" value="{{ customer.metafields.custom.user_id }}">
+<input type="hidden" name="meta[name]" value="{{ customer.metafields.custom.name }}">
+
 <main class="profile-form__wrapper">
 	<!-- Profile Main Form -->
 	<section class="profile-form-section">
@@ -182,9 +183,7 @@
 								aria-label="New Email Address"
 								placeholder="New Email Address"
 								/>
-							{% comment %} 
 							<div class="error">The email provided has not yet been verified. Please verify your email for account security and updates.</div>
-							{% endcomment %}
 						</div>
 					</div>
 					<div class="field">
@@ -221,7 +220,7 @@
 				<h2>Delivery Address</h2>
 			</div>
 			<form 
-        action=""
+        		action=""
 				method="post"
 				id="update-delivery-address-form"
 				class="update-delivery-address-form"
@@ -304,6 +303,7 @@
 				</fieldset>
 			</form>
 		</section>
+		{%- render 'map' -%}
 	</update-profile>
 	<!-- My Account footer -->
 	<div class="devider"><span>or</span></div>
@@ -314,3 +314,27 @@
 		We’re here to assist.            
 	</div>
 </main>
+<script>
+	document.querySelector('.edit-name').addEventListener('click', e => {
+		document.querySelector('.profile-form-section').classList.add('active-form');
+		document.querySelector('.update-name-section').classList.add('active-section');
+	});
+	document.querySelector('.edit-email').addEventListener('click', e => {
+		document.querySelector('.profile-form-section').classList.add('active-form');
+		document.querySelector('.update-email-section').classList.add('active-section');
+	});
+	document.querySelector('.edit-address').addEventListener('click', e => {
+		document.querySelector('.profile-form-section').classList.add('active-form');
+		document.querySelector('.update-delivery-address-section').classList.add('active-section');
+	});
+	document.querySelectorAll('.back-link').forEach(backlink => {
+		backlink.addEventListener('click', e => {
+			setTimeout(() => {
+				document.querySelector('.profile-form-section').classList.remove('active-form');
+			},800);
+			document.querySelector('.update-name-section').classList.remove('active-section');
+			document.querySelector('.update-email-section').classList.remove('active-section');
+			document.querySelector('.update-delivery-address-section').classList.remove('active-section');
+		});
+	});
+</script>

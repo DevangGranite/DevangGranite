@@ -21,46 +21,6 @@ function getCookie(name) {
   return null;
 }
 
-let map;
-
-function openMapPopup(){
-  let otpPopupHtml = document.getElementsByTagName( 'html' )[0];
-  let popupElement = document.getElementById('popup');
-
-  if (popupElement) {
-      // Set display property to 'block'
-      popupElement.style.display = 'block';
-
-      // Add a class to the element
-      otpPopupHtml.classList.add('popup-overlap');
-
-      // Check if initMap function is defined before calling
-      if (typeof initMap === 'function') {
-          // Initialize the map when the popup is opened
-          initMap();
-      } else {
-          console.error("initMap function is not defined");
-      }
-  } else {
-      console.error("Element with ID 'popup' not found");
-  }
-}
-
-function closePopup() {
-  let otpPopupHtml = document.getElementsByTagName( 'html' )[0];
-  let popupElement = document.getElementById('popup');
-
-  if (popupElement) {
-      // Remove the class from the element
-      otpPopupHtml.classList.remove('popup-overlap');
-
-      // Set display property to 'none'
-      popupElement.style.display = 'none';
-  } else {
-      console.error("Element with ID 'popup' not found");
-  }
-}
-
 function closeOTPPopup() {
   var otpPopupHtml = document.getElementsByTagName( 'html' )[0];
   var otpPopupElement = document.getElementById('verifyOTPPopup');
@@ -74,82 +34,6 @@ function closeOTPPopup() {
   } else {
       console.error("Element with ID 'otppopup' not found");
   }
-}
-
-// Function to initialize the map
-function initMap() {
-  // Create a new map instance and set its properties
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: { lat: 25.199514, lng: 55.277397 }, // Set the initial map center
-    zoom: 10, // Set the initial zoom level
-  });
-
-  // Add a click event listener to the map to capture the selected location
-  google.maps.event.addListener(map, 'click', function(event) {
-    updateLocation(event.latLng);
-  });
-
-  // Add a dragend event listener to the map to capture the dragged location
-  google.maps.event.addListener(map, 'dragend', function() {
-    updateLocation(map.getCenter());
-  });
-}
-
-function updateLocation(location) {
-  // Update the input field with the selected location
-  let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${location.lat()},${location.lng()}`
-  /** get address form lag and lng **/ 
-  fetch(apiAdd)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        document.querySelector('input[name="lat"]').value = location.lat();
-        document.querySelector('input[name="lang"]').value = location.lng();
-        document.getElementById('locationText').innerText = data.results[0]['formatted_address'];
-        document.getElementById('locationInput').value = data.results[0]['formatted_address'];
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-    });
-}
-
-// Function to handle Enter key on the address input field
-function handleEnterKey(event) {
-  if (event.key === 'Enter') {
-    // Prevent the default Enter key behavior (form submission)
-    event.preventDefault();
-
-    // Update location based on entered address
-    updateLocationForAddress();
-  }
-}
-
-// Function to update the location based on entered address
-function updateLocationForAddress() {
-  var address = document.getElementById('addressInput').value;
-
-  // Use Google Maps Geocoding API to convert the address into latitude and longitude
-  var geocoder = new google.maps.Geocoder();
-  geocoder.geocode({ 'address': address }, function(results, status) {
-    if (status == 'OK' && results[0]) {
-      var location = results[0].geometry.location;
-
-      // Update the map center
-      map.setCenter(location);
-
-      // Update the location information
-      updateLocation(location);
-    }
-  });
-}
-
-// Function to show map based on entered address
-function showMapForAddress() {
-  updateLocationForAddress();
 }
 
 function validateAndSwitch(input, nextFieldId) {
@@ -184,7 +68,7 @@ function sendOTP(mobileNo) {
         method: 'POST',
         headers:{
             'lancode':'en',
-            'token':'123456'
+            'token':'123456',
         },
         body:formdata
     }).then(response => {
@@ -199,7 +83,13 @@ function sendOTP(mobileNo) {
     });
 }
 
+function captureMobileNumber() {
+  // Get the input value
+  var mobileNumber = document.getElementById("mobile").value;
 
+  // Update the content of the div with the id "capturedValue"
+  document.getElementById("capturedValue").innerText = mobileNumber;
+}
 class RegisterCustomer extends HTMLElement{
   constructor(){
     super();
@@ -459,36 +349,48 @@ class RegisterCustomer extends HTMLElement{
       }
   }
   getCity() {
-    fetch('https://alainappuat.gdadmin.org/customerApiv3/getCityDistricts/')
-        .then(response => response.json())
-        .then(data => {
-          let options = ["<option>{{ 'customer.addresses.city_reg' | t }}</option>"];
+    fetch('https://alainappuat.gdadmin.org/shopifyApiV3/getCityDistricts/',{
+        method: 'GET',
+        headers:{
+            'lancode':'en',
+            'token':'123456'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+      let options = ["<option>{{ 'customer.addresses.city_reg' | t }}</option>"];
 
-          data.response.forEach(city => {
-            options.push(`<option id="city_${city.id}" value="${city.id}">${city.city_name}</option>`);
-          });
-          // this.city.querySelector('option').remove();
-          this.city.insertAdjacentHTML('afterbegin', options.join(''));
-        })
-        .catch(error => {
-          console.error('Error fetching city:', error);
-        });
+      data.response.forEach(city => {
+        options.push(`<option id="city_${city.id}" value="${city.id}">${city.city_name}</option>`);
+      });
+      // this.city.querySelector('option').remove();
+      this.city.insertAdjacentHTML('afterbegin', options.join(''));
+    })
+    .catch(error => {
+      console.error('Error fetching city:', error);
+    });
   }
   switchDistricts(city) {
-    fetch(`https://alainappuat.gdadmin.org/customerApiv3/getCityDistricts/${city}`)
-        .then(response => response.json())
-        .then(data => {
-          let options = [];
+    fetch(`https://alainappuat.gdadmin.org/shopifyApiV3/getCityDistricts/${city}`,{
+          method: 'GET',
+          headers:{
+              'lancode':'en',
+              'token':'123456'
+          }
+      })
+      .then(response => response.json())
+      .then(data => {
+        let options = [];
 
-          data.response.forEach(district => {
-            options.push(`<option id="district_${district.id}" value="${district.id}">${district.district_name}</option>`);
-          });
-          this.district.querySelector('option').remove();
-          this.district.insertAdjacentHTML('afterbegin', options.join(''));
-        })
-        .catch(error => {
-          console.error('Error fetching city:', error);
+        data.response.forEach(district => {
+          options.push(`<option id="district_${district.id}" value="${district.id}">${district.district_name}</option>`);
         });
+        this.district.querySelector('option').remove();
+        this.district.insertAdjacentHTML('afterbegin', options.join(''));
+      })
+      .catch(error => {
+        console.error('Error fetching city:', error);
+      });
   }
 }
 customElements.define('register-customer', RegisterCustomer);
@@ -507,8 +409,10 @@ class LoginCustomer extends HTMLElement {
     this.email = this.querySelector('[name="customer[email]"]');
     this.confirm_email = this.querySelector('[name="customer[confirm_email]"]');
     this.mobileNo = this.querySelector('#mobile');
+    this.capturedValue = this.querySelector('#capturedValue');
     this.lastOTPDigit = this.querySelector('#OneTimePassword6');
     this.user_id = getCookie('user_id');
+    this.username = '';
 
     this.evenetListener();
   }
@@ -532,6 +436,7 @@ class LoginCustomer extends HTMLElement {
     this.verifyMobileBtn.addEventListener('click', e => {
       sendOTP(this.mobileNo.value).then(response => {
         console.log('Send Login OTP',response);
+        this.capturedValue.innerHTML = this.mobileNo.value;
         this.startTimer();
         if (this.customLoginElement.style.display === 'none' || this.customLoginElement.style.display === '') {
             this.customLoginElement.style.display = 'block';
@@ -575,15 +480,16 @@ class LoginCustomer extends HTMLElement {
       })
       .then(data => {
         console.log('Verified OTP',data);
-        if(Array.isArray(data.response)){
-          console.log('Customer Email ID',data.response['0'].email_id);
-          if(data.response['0'].email_id == "" || data.response['0'].email_id == null){
-            this.user_id = data.response['0'].id;
+        if(!Array.isArray(data.response) && data.response != '' && data.response != null){
+          console.log('Customer Email ID',data.response.email_id);
+          this.user_id = data.response.id;
+          this.username = data.response.name;
+          if(data.response.email_id == "" || data.response.email_id == null){
             this.customEmailElement.style.display = 'block';
             this.customLoginElement.style.display = 'none';
           }else{
-            setCookie('user_id',data.response['0'].id);
-            this.customerLogin(data.response['0'].email_id);
+            setCookie('user_id',data.response.id);
+            this.customerLogin(JSON.stringify({email:data.response.email_id,name:this.username,user_id:this.user_id,customer_id:'7186123587820'}));
           } 
         }else{
           this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";
@@ -623,8 +529,8 @@ class LoginCustomer extends HTMLElement {
         }
     }, 1000);
   }
-  customerLogin(email) {
-    fetch(`https://alainuat.gdadmin.org/laravel/public/api/customer/login/${email}`, {
+  customerLogin(jsondata) {
+    fetch(`https://alainuat.gdadmin.org/laravel/public/api/customer/login/${jsondata}`, {
         method: 'GET',
     })
     .then(response => {
@@ -692,7 +598,7 @@ class LoginCustomer extends HTMLElement {
       if(data.responce)
         this.querySelector('#confirmEmailError').innerText = "Something went wrong. Please try again latter!"
       else
-        this.customerLogin(this.email.value);
+        this.customerLogin(JSON.stringify({email:this.email.value,name:this.username,user_id:this.user_id,customer_id:'7186123587820'}));
     }).catch(error => console.log('Error fetching data:',error));
   }
 }
