@@ -942,7 +942,7 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
   }
   .breadcrumbs_order_history{
     display: flex;
-    align-items; center;
+    align-items: center;
     margin-top: 30px;
     gap: 5px;
     max-width: 1200px;
