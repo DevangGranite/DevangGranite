@@ -29,7 +29,7 @@
         </div>
 
         <div class="customer-welcome-img--wrapper">
-          {{ routes.root_url | append: 'products/top-up-wallet'}}
+          {{ routes.root_url |  append: "/" | append: 'products/top-up-wallet'}}
           <a
             class="customer-welcome--link"
             href="{{ routes.root_url | append: 'products/top-up-wallet' }}"
