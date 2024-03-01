@@ -911,7 +911,7 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
     width: 100%;
   }
   .account-submit--button {
-    margin: 25px;
+    margin: 25px; 
     width: calc(100% - 48px);
   }
   .account-edit-address--form {
