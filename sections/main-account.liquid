@@ -27,12 +27,17 @@
             {{ 'customer.dashboard.subscriptions' | t }}
           </a>
         </div>
+        {% if routes.root_url contains '/ar' %}
+          {% assign root_url = routes.root_url |  append: "/" | append: 'products/top-up-wallet' %}
+        {% else %}
+          {% assign root_url = routes.root_url | append: 'products/top-up-wallet' %}
+        {% endif %}
 
         <div class="customer-welcome-img--wrapper">
-          {{ routes.root_url |  append: "/" | append: 'products/top-up-wallet'}}
+          {{ root_url }}
           <a
             class="customer-welcome--link"
-            href="{{ routes.root_url | append: 'products/top-up-wallet' }}"
+            href="{{ root_url }}"
             target="_blank"
           >
             <div class="customer-welcome-img--background">
