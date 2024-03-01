@@ -1,5 +1,10 @@
 <script src="{{ 'account-dashboard.js' | asset_url }}" defer="defer"></script>
 {{ 'customer.css' | asset_url | stylesheet_tag }}
+{% if routes.root_url contains '/ar' %}
+  {% assign root_url = routes.root_url | append: '/' | append: 'products/top-up-wallet' %}
+{% else %}
+  {% assign root_url = routes.root_url | append: 'products/top-up-wallet' %}
+{% endif %}
 
 <div class="customer-content-spacing short-width-row">
   <div class="customer-content--wrapper">
@@ -27,13 +32,8 @@
             {{ 'customer.dashboard.subscriptions' | t }}
           </a>
         </div>
-        {% if routes.root_url contains '/ar' %}
-          {% assign root_url = routes.root_url |  append: "/" | append: 'products/top-up-wallet' %}
-        {% else %}
-          {% assign root_url = routes.root_url | append: 'products/top-up-wallet' %}
-        {% endif %}
 
-        <div class="customer-welcome-img--wrapper">        
+        <div class="customer-welcome-img--wrapper">
           <a
             class="customer-welcome--link"
             href="{{ root_url }}"
@@ -64,7 +64,8 @@
       <div class="account-order-history--wrapper">
         <h4>{{ 'customer.orders.title' | t }}</h4>
         <div class="account-order-history--link">
-          <a href="{{ routes.account_url | append: '?view=order-history' }}">{{ 'customer.dashboard.view_all' | t }} </a>&nbsp;>
+          <a href="{{ routes.account_url | append: '?view=order-history' }}">{{ 'customer.dashboard.view_all' | t }} </a
+          >&nbsp;>
         </div>
       </div>
       {%- if customer.orders.size > 0 -%}
@@ -82,7 +83,7 @@
               </tr>
             </thead>
             <tbody role="rowgroup">
-              {% for order in customer.orders limit:3 %}
+              {% for order in customer.orders limit: 3 %}
                 <tr role="row">
                   <td
                     id="RowOrder"
@@ -125,7 +126,7 @@
         </div>
       {%- else -%}
         <p>{{ 'customer.orders.none' | t }}</p>
-      {%- endif -%}      
+      {%- endif -%}
     </div>
   </div>
 </div>
