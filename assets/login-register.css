@@ -126,7 +126,6 @@ input.full.numeric {
 .field {
   margin-bottom: 15px;
 }
-#popup,
 #verifyOTPPopup {
   display: none;
   position: fixed;
@@ -151,19 +150,6 @@ input.full.numeric {
   position: absolute;
   right: 20px;
   top: 18px;
-}
-
-/* Style for the map container */
-#map {
-  height: 300px;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-/* Style for the location text */
-#locationText {
-  font-weight: 400;
-  font-size: 12px;
 }
 
 
@@ -247,6 +233,7 @@ input.full.numeric {
   border: none;
   margin-bottom: 0;
   outline: 0;
+  font-size: 17px;
 }
 .thb-form-container .create_form_wrapper select {
   appearance: auto;
@@ -478,6 +465,7 @@ input.full.numeric {
   min-height: 72px;
   border: none;
   outline: 0;
+  font-size: 17px;
 }
 .login--page button.button.full {
   background: #2461cc;

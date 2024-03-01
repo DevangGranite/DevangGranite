@@ -1,11 +1,11 @@
-lb-product-page-cross-sell-ew {
+.product-information-subscription lb-product-page-cross-sell-ew {
     display: none;
     visibility: hidden;
 }
-.shopify-payment-button__button {
+.product-information-subscription .shopify-payment-button__button {
     position: relative;
 }
-.shopify-payment-button__button:after {
+.product-information-subscription .shopify-payment-button__button:after {
     content: "Subscribe (Delivery Every Week)";
     position: absolute;
     top: 0;
@@ -19,19 +19,19 @@ lb-product-page-cross-sell-ew {
     padding: 5px;
     font-size: 13px;
 }
-.single-add-to-cart-button {
+.product-information-subscription .single-add-to-cart-button {
     font-size: 14px;
 }
-.variations .product-form__input--block[hidden] {
+.product-information-subscription .variations .product-form__input--block[hidden] {
     display: none;
 }
-.thb-product-detail .product-information .quantity {
+.thb-product-detail .product-information-subscription.product-information-subscription .quantity {
     margin-bottom: 15px;
 }
-.product-information .variations {
+.product-information.product-information-subscription .variations {
     margin-bottom: 25px;
 }
-.variations select {
+.product-information-subscription .variations select {
     height: 44px;
     padding: 14px 13px;
 }

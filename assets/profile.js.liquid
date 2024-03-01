@@ -1,30 +1,4 @@
-jQuery(document).ready(function () {
 
-    jQuery('.edit-name').click(function () {
-        jQuery('.profile-form-section').addClass('active-form');
-        jQuery('.update-name-section').addClass('active-section');    
-    })
-
-    jQuery('.edit-email').click(function () {
-        jQuery('.profile-form-section').addClass('active-form');
-        jQuery('.update-email-section').addClass('active-section');    
-    })
-
-    jQuery('.edit-address').click(function () {
-        jQuery('.profile-form-section').addClass('active-form');
-        jQuery('.update-delivery-address-section').addClass('active-section');    
-    })
-
-    jQuery('.back-link').click(function () {
-        setTimeout(() => {
-            jQuery('.profile-form-section').removeClass('active-form');
-        }, 800);
-        jQuery('.update-name-section,.update-email-section,.update-delivery-address-section').removeClass('active-section');    
-    })
-
-})
-
-/** store cooket */
 function setCookie(name,value,days) {
     var expires = "";
     if (days) {
@@ -59,6 +33,7 @@ class UpdateProfile extends HTMLElement{
         this.updateNameBtn = this.querySelector('#updateUserName');
         this.updateEmailBtn = this.querySelector('#updateEmailBtn');
         this.updateAddressBtn = this.querySelector('#updateAddress');
+        this.openMapPopup = this.querySelector('#openMapPopup');
         this.address_id = this.querySelector('input[name="address_id"]');
         this.customer_id = this.querySelector('input[name="customer_id"]');
         this.first_name = this.querySelector('input[name="first_name"]');
@@ -74,7 +49,7 @@ class UpdateProfile extends HTMLElement{
         this.current_district = this.querySelector('input[name="current_district"]');
         this.lat = this.querySelector('input[name="lat"]');
         this.lang = this.querySelector('input[name="lang"]');
-
+        this.tokenPayload = JSON.stringify({user_id:document.querySelector('input[name="meta[user_id]"]').value,name:document.querySelector('input[name="meta[name]"]').value});
         this.getCity();
         this.evenetListener();
     }
@@ -106,7 +81,7 @@ class UpdateProfile extends HTMLElement{
                 /** update email in shopify database */
                 fetch(`https://alainuat.gdadmin.org/laravel/public/api/customer/update/profile`, {
                     method: 'POST',
-                    body:JSON.stringify({id:this.customer_id.value,email:this.newEmail.value,user_id:getCookie('user_id')})
+                    body:JSON.stringify({id:this.customer_id.value,email:this.newEmail.value})
                 }).then(response => {
                     if (!response.ok) {
                         throw new Error(`Network response was not ok: ${response.status}`);
@@ -142,7 +117,7 @@ class UpdateProfile extends HTMLElement{
                         .then(response => response.text())
                         .then(data => {
                             console.log('MSS Customer email edit',data);
-                            window.location.href = '/pages/profile'
+                            // window.location.href = '/pages/profile'
                         }).catch(error => 
                             console.log('MSS email update error', error)
                         );
@@ -153,6 +128,11 @@ class UpdateProfile extends HTMLElement{
                 });
                 this.email_confirm_error.innerText = "";
             }
+        });
+
+        // open map popup
+        this.openMapPopup.addEventListener('click', e => {
+            openMapPopup();
         });
 
         // Update address
@@ -238,9 +218,17 @@ class UpdateProfile extends HTMLElement{
         });
     }
     getCity() {
-        fetch('https://alainappuat.gdadmin.org/customerApiv3/getCityDistricts/')
+        fetch('https://alainappuat.gdadmin.org/shopifyApiV3/getCityDistricts/',{
+                method: 'GET',
+                headers:{
+                    'lancode':'en',
+                    'token':document.querySelector('input[name="meta[token]"]').value,
+                    'payload': this.tokenPayload
+                }
+            })
             .then(response => response.json())
             .then(data => {
+                console.log('Get City',data);
               let options = ["<option>{{ 'customer.addresses.city_reg' | t }}</option>"];
     
               data.response.forEach(city => {
@@ -255,22 +243,29 @@ class UpdateProfile extends HTMLElement{
             .catch(error => {
               console.error('Error fetching city:', error);
             });
-      }
-      switchDistricts(city) {
-        fetch(`https://alainappuat.gdadmin.org/customerApiv3/getCityDistricts/${city}`)
-            .then(response => response.json())
-            .then(data => {
-              let options = [];
-    
-              data.response.forEach(district => {
-                options.push(`<option id="district_${district.id}" value="${district.id}">${district.district_name}</option>`);
-              });
-              this.district.querySelector('option').remove();
-              this.district.insertAdjacentHTML('afterbegin', options.join(''));
-            })
-            .catch(error => {
-              console.error('Error fetching city:', error);
+    }
+    switchDistricts(city) {
+        fetch(`https://alainappuat.gdadmin.org/shopifyApiV3/getCityDistricts/${city}`,{
+            method: 'GET',
+            headers:{
+                'lancode':'en',
+                'token':document.querySelector('input[name="meta[token]"]').value,
+                'payload': this.tokenPayload
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            let options = [];
+
+            data.response.forEach(district => {
+            options.push(`<option id="district_${district.id}" value="${district.id}">${district.district_name}</option>`);
             });
-      }
+            this.district.querySelector('option').remove();
+            this.district.insertAdjacentHTML('afterbegin', options.join(''));
+        })
+        .catch(error => {
+            console.error('Error fetching city:', error);
+        });
+    }
 }
 customElements.define('update-profile', UpdateProfile);

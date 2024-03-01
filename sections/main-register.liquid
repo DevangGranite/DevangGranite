@@ -1,6 +1,4 @@
 {{ 'login-register.css' | asset_url | stylesheet_tag }}
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&libraries=places"></script>            
-
 <div class="row">
   <div class="small-12 columns">
     <div class="thb-form-container">
@@ -96,30 +94,14 @@
                 placeholder="{{ 'customer.login_page.address_place' | t }}"
                 onkeydown="handleEnterKey(event)"
               >
-                <input type="hidden" name="lat">
-              <input type="hidden" name="lang">
+                <input type="hidden" name="lat" value="23.4241">
+                <input type="hidden" name="lang" value="53.8478">
               <div class="location_icon" id="openMapPopup">
                 {% render 'svg-icons' with 'location' %}
               </div>
 
               <!-- Popup content -->
-              <div id="popup">
-                <!-- Input field for address -->
-                <label for="addressInput">Address</label>
-                <input type="text" id="addressInput" placeholder="Enter address" onkeydown="handleEnterKey(event)">
-
-                <!-- Container for the map -->
-                <div id="map"></div>
-
-                <!-- Display selected location as text -->
-                <div id="locationText"></div>
-
-                <!-- Button to show map based on address -->
-                <button type="button" onclick="showMapForAddress()">Show on Map</button>
-
-                <!-- Close button -->
-                <button type="button" class="close-icon" onclick="closePopup()">{% render 'svg-icons' with 'map-close' %}</button>
-              </div>
+              {%- render 'map' -%}
               <div id="locationInputError" class="form-error"></div>
             </div>
 
@@ -231,7 +213,7 @@
             </div>
             <div class="terms_condition-checkbox">
               <input id="accept_condition" type="checkbox" value="" required>
-              <span>I accept and agree to the <a href="#">Terms and Condition</a></span>
+              <span>I accept and agree to the <a href="/pages/terms-of-service">Terms and Condition</a></span>
             </div>
             <button type="button" class="button full" id="regi_button" disabled>
               <span>{{ 'customer.login_page.submit_register' | t }}</span>

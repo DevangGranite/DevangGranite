@@ -130,7 +130,7 @@
 
 <div class="section-spacing order-details-main-container">
   <div class="breadcrumbs_page row">
-    <a class="links_breadcrumbs" href="/pages/account">My Account</a>  >  <a class="links_breadcrumbs" href="/pages/order-history">Order History</a>  >  <span>Order Details</span>
+    <a class="links_breadcrumbs" href="/pages/account">My Account</a>  >  <a class="links_breadcrumbs" href="{{ routes.account_url | append: '?view=order-history' }}">Order History</a>  >  <span>Order Details</span>
   </div>
   <div class="order_details_container row">
     <div class="order_details_main">

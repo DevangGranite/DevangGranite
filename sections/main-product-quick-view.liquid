@@ -12,7 +12,11 @@
 
 	assign first_image = nil
 	assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src'
+  assign is_subscription = false
 
+  if product.template_suffix == 'subscription'
+    assign is_subscription = true
+  endif
 	assign sizes = '345x345,610x610,1220x1220'
 	if media_aspect_ratio == 'adapt'
 		assign sizes = '345x0,610x0,1220x0'
@@ -75,9 +79,13 @@
 							</scroll-shadow>
 						</div>
 					</div>
-			    <div class="product-information">
+			    <div class="product-information{% if is_subscription == true %} product-information-subscription {% endif %}">
 						<div id="ProductInfo-{{ section.id }}" class="product-information--inner">
-							{%- render 'product-information', product: product, section: section, update_url: false, pickup: false, first_image: first_image, hide_variants: hide_variants -%}
+						  {% if is_subscription == true %}
+						  	{%- render 'product-information-subscription', product: product, section: section, update_url: false, pickup: false, first_image: first_image, hide_variants: hide_variants -%}
+						  {% else %}
+                {%- render 'product-information', product: product, section: section, update_url: false, pickup: false, first_image: first_image, hide_variants: hide_variants -%}
+						  {% endif %}
 						</div>
 			    </div>
 				</div>

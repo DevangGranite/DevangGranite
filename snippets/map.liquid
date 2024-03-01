@@ -1,0 +1,188 @@
+<style>
+html.popup-overlap {
+    overflow: hidden;
+}
+
+html.popup-overlap body:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    position: fixed;
+}
+#mapPopUp{
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 450px;
+}
+.close-icon {
+  position: absolute;
+  right: 20px;
+  top: 18px;
+}
+
+/* Style for the map container */
+#map {
+  height: 300px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Style for the location text */
+#locationText {
+  font-weight: 400;
+  font-size: 12px;
+}
+
+</style>
+
+
+<!-- Popup content -->
+<div id="mapPopUp">
+    <!-- Input field for address -->
+    <label for="addressInput">Address</label>
+    <input type="text" id="addressInput" placeholder="Enter address" onkeydown="handleEnterKey(event)">
+
+    <!-- Container for the map -->
+    <div id="map"></div>
+
+    <!-- Display selected location as text -->
+    <div id="locationText"></div>
+
+    <!-- Button to show map based on address -->
+    <button type="button" onclick="showMapForAddress()">Show on Map</button>
+
+    <!-- Close button -->
+    <button type="button" class="close-icon" onclick="closeMapPopup()">{% render 'svg-icons' with 'map-close' %}</button>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&libraries=places"></script>
+<script>
+
+let map;
+
+function openMapPopup(){
+  let otpPopupHtml = document.getElementsByTagName( 'html' )[0];
+  let popupElement = document.getElementById('mapPopUp');
+
+  if (popupElement) {
+      // Set display property to 'block'
+      popupElement.style.display = 'block';
+
+      // Add a class to the element
+      otpPopupHtml.classList.add('popup-overlap');
+
+      // Check if initMap function is defined before calling
+      if (typeof initMap === 'function') {
+          // Initialize the map when the popup is opened
+          initMap();
+      } else {
+          console.error("initMap function is not defined");
+      }
+  } else {
+      console.error("Element with ID 'popup' not found");
+  }
+}
+
+function closeMapPopup() {
+  let otpPopupHtml = document.getElementsByTagName( 'html' )[0];
+  let popupElement = document.getElementById('mapPopUp');
+
+  if (popupElement) {
+      // Remove the class from the element
+      otpPopupHtml.classList.remove('popup-overlap');
+
+      // Set display property to 'none'
+      popupElement.style.display = 'none';
+  } else {
+      console.error("Element with ID 'popup' not found");
+  }
+}
+
+// Function to initialize the map
+function initMap() {
+  // Create a new map instance and set its properties
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: 25.199514, lng: 55.277397 }, // Set the initial map center
+    zoom: 10, // Set the initial zoom level
+  });
+
+  // Add a click event listener to the map to capture the selected location
+  google.maps.event.addListener(map, 'click', function(event) {
+    updateLocation(event.latLng);
+  });
+
+  // Add a dragend event listener to the map to capture the dragged location
+  google.maps.event.addListener(map, 'dragend', function() {
+    updateLocation(map.getCenter());
+  });
+}
+
+function updateLocation(location) {
+  // Update the input field with the selected location
+  let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${location.lat()},${location.lng()}`
+  /** get address form lag and lng **/ 
+  fetch(apiAdd)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        document.querySelector('input[name="lat"]').value = location.lat();
+        document.querySelector('input[name="lang"]').value = location.lng();
+        document.getElementById('locationText').innerText = data.results[0]['formatted_address'];
+        document.getElementById('locationInput').value = data.results[0]['formatted_address'];
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+}
+
+// Function to handle Enter key on the address input field
+function handleEnterKey(event) {
+  if (event.key === 'Enter') {
+    // Prevent the default Enter key behavior (form submission)
+    event.preventDefault();
+
+    // Update location based on entered address
+    updateLocationForAddress();
+  }
+}
+
+// Function to update the location based on entered address
+function updateLocationForAddress() {
+  var address = document.getElementById('addressInput').value;
+
+  // Use Google Maps Geocoding API to convert the address into latitude and longitude
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode({ 'address': address }, function(results, status) {
+    if (status == 'OK' && results[0]) {
+      var location = results[0].geometry.location;
+
+      // Update the map center
+      map.setCenter(location);
+
+      // Update the location information
+      updateLocation(location);
+    }
+  });
+}
+
+// Function to show map based on entered address
+function showMapForAddress() {
+  updateLocationForAddress();
+}
+</script>

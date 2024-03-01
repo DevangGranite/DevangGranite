@@ -128,6 +128,9 @@
                 if option_name contains 'frequency'
                   assign option_type = 'button'
                 endif
+                if option_name contains 'mandatory bottle deposit'
+                  assign option_type = 'dropdown'
+                endif
                 if block.settings.color_picker
                   if option_name contains 'color' or option_name contains 'colour' or option_name contains 'couleur' or option_name contains 'farbe'
                     assign option_type = 'color'
