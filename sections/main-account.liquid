@@ -29,9 +29,10 @@
         </div>
 
         <div class="customer-welcome-img--wrapper">
+          {{ routes.root_url }}
           <a
             class="customer-welcome--link"
-            href="{{ routes.root_url | append: '/products/top-up-wallet' }}"
+            href="{{ routes.root_url | append: 'products/top-up-wallet' }}"
             target="_blank"
           >
             <div class="customer-welcome-img--background">
