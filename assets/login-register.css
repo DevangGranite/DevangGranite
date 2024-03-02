@@ -63,6 +63,7 @@
 html[lang="ar"] input {
     text-align: right !important;
     color: #000;
+    padding: 10px !important;
 }
 html[lang="ar"] .thb-form-container .customer--login .switch-login-section {
     text-align: right;
