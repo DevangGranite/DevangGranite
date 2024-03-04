@@ -68,5 +68,7 @@
       {% include 'pagination', paginate: paginate, pagination_type: 'paginated' %}
 	{%- endpaginate -%}
       {%- else -%}
-        <p>{{ 'customer.orders.none' | t }}</p>   
+   <div class="order__empty">
+        <p>{{ 'customer.orders.none' | t }}</p>
+   </div>  
       {%- endif -%}
