@@ -68,40 +68,6 @@
       {% include 'pagination', paginate: paginate, pagination_type: 'paginated' %}
 	{%- endpaginate -%}
       {%- else -%}
-   <style>
-     .order__empty {
-    text-align: center;
-    margin: 25px;
-}
-
-    .order__empty img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .button {
-      display: inline-block;
-      margin: 20px; /* Adjust as needed */
-      padding: 10px 20px;
-      font-size: 16px;
-      font-weight: bold;
-      text-align: center;
-      text-decoration: none;
-      background-color: #2866d3; /* Green color, change as needed */
-      color: #fff; /* White text, change as needed */
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .button:hover {
-      background-color: #1e4ca9; /* Darker green color, change as needed */
-    }
-    .order__empty p {
-      margin: 10px;
-    }
-   </style>
    <div class="order__empty">
      <img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/order_empty.png?v=1709550983">
         <p>{{ 'customer.orders.none' | t }}</p>
