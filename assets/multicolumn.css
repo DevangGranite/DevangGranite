@@ -1,6 +1,12 @@
+html[lang=ar] .multicolumn__column h4 {    
+  text-align: right;
+}
 
 
-
+html[lang=ar] .multicolumn__column .text-button {
+  margin-right: 0;
+  width: 100%;
+}
 
 .section-multicolumn {
   overflow: hidden; }
