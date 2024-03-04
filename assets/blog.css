@@ -1,4 +1,6 @@
-
+html[lang=ar] .blog-post-info {
+  text-align: right;
+}
 
 .blog-post .featured-image img {
   transition: all 1s cubic-bezier(0.104, 0.204, 0.492, 1); }
