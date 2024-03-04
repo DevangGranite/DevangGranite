@@ -480,16 +480,16 @@ class LoginCustomer extends HTMLElement {
       })
       .then(data => {
         console.log('Verified OTP',data);
-        if(!Array.isArray(data.response) && data.response != '' && data.response != null){
-          console.log('Customer Email ID',data.response.email_id);
-          this.user_id = data.response.id;
-          this.username = data.response.name;
-          setCookie('user_id',data.response.id);
-          if(data.response.email_id == "" || data.response.email_id == null){
+        if(Array.isArray(data.response) && data.response != '' && data.response != null){
+          console.log('Customer Email ID',data.response['0'].email_id);
+          this.user_id = data.response['0'].id;
+          this.username = data.response['0'].name;
+          if(data.response['0'].email_id == "" || data.response['0'].email_id == null){
             this.customEmailElement.style.display = 'block';
             this.customLoginElement.style.display = 'none';
           }else{
-            this.customerLogin(JSON.stringify({email:data.response.email_id,name:this.username,user_id:this.user_id,customer_id:'7186123587820'}));
+            setCookie('user_id',data.response['0'].id);
+            this.customerLogin(JSON.stringify({email:data.response['0'].email_id,name:this.username,user_id:this.user_id,customer_id:'7186123587820'}));
           } 
         }else{
           this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";
