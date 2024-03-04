@@ -1,5 +1,7 @@
 @charset "UTF-8";
-
+html[lang=ar] .product-card-info {
+  text-align: right;
+}
 
 .product-card .product-card-swatches, .product-card .product-card-swatches .product-card-swatch, .product-card .product-card-swatches--title {
   transition: all 0.25s cubic-bezier(0.104, 0.204, 0.492, 1); }
