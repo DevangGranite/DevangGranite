@@ -1,5 +1,4 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
-{{ 'order_history_empty.css' | asset_url | stylesheet_tag }}
 
 <div class="breadcrumbs_order_history row">
   <a class="my_account" href="{{ routes.account_url }}">My Account</a>
@@ -69,9 +68,10 @@
       {% include 'pagination', paginate: paginate, pagination_type: 'paginated' %}
 	{%- endpaginate -%}
       {%- else -%}
-   <div class="order__empty">
-     <img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/order_empty.png?v=1709550983">
-        <p>{{ 'customer.orders.none' | t }}</p>
-     <a class="button" href="{{ routes.collections_url | append: '/all' }}"><span>Start Shopping</span></a>
-   </div>  
+      {{ 'order_history_empty.css' | asset_url | stylesheet_tag }}
+      <div class="order__empty">
+        <img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/order_empty.png?v=1709550983">
+           <p>{{ 'customer.orders.none' | t }}</p>
+        <a class="button" href="{{ routes.collections_url | append: '/all' }}"><span>Start Shopping</span></a>
+      </div>  
       {%- endif -%}
