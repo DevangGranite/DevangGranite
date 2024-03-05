@@ -68,7 +68,7 @@ html.popup-overlap body:before {
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&libraries=places"></script>
-    <script>
+      <script>
         let map;
         let markers = [];
 
@@ -112,10 +112,14 @@ html.popup-overlap body:before {
 
         // Function to initialize the map
         function initMap() {
+            // Determine if the user is on a mobile device
+            const isMobile = window.innerWidth <= 767; // You can adjust the breakpoint based on your design
+
             // Create a new map instance and set its properties
             map = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: 25.199514, lng: 55.277397 }, // Set the initial map center
                 zoom: 10, // Set the initial zoom level
+                gestureHandling: isMobile ? 'greedy' : 'auto', // Enable one-finger panning on mobile devices
             });
 
             // Add a click event listener to the map to capture the selected location
