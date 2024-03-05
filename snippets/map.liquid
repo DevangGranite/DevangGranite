@@ -164,7 +164,7 @@ function updateLocation(location) {
       const formattedAddress = data.results[0].formatted_address;
       document.querySelector('input[name="lat"]').value = location.lat();
       document.querySelector('input[name="lang"]').value = location.lng();
-      document.getElementById('locationText').innerText = formattedAddress;
+      document.getElementById('locationText').textContent = formattedAddress;
       document.getElementById('locationInput').value = formattedAddress;
     })
     .catch(error => {
