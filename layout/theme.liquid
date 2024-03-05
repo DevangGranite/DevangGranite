@@ -151,27 +151,6 @@
 	  </script>
 	  {{ 'profile.js' | asset_url | script_tag }}
 	  {{ 'login-register.js' | asset_url | script_tag }}
-	  {{ 'reward.js' | asset_url | script_tag }}
-    <script>
-    // Function to replace text in the specified span element
-    function replaceText() {
-      // Get elements by class name
-      var elements = document.getElementsByClassName('chat-title');
-
-      // Iterate through elements
-      for (var i = 0; i < elements.length; i++) {
-        var element = elements[i];
-
-        // Check if the element has the specified attribute
-        if (element.getAttribute('data-spec') === 'button-text') {
-          // Replace the text content
-          element.textContent = 'New Text Replaced using JavaScript!';
-        }
-      }
-    }
-
-    // Set interval to call the function every 2000 milliseconds (2 seconds)
-    setInterval(replaceText, 2000);
-  </script>
+	  {{ 'reward.js' | asset_url | script_tag }} 
 </body>
 </html>
