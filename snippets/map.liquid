@@ -238,7 +238,7 @@ function createMarker(location, address) {
     });
 
     // Update the location when the marker is dragged
-    marker.addListener('dragend', function () {
+    marker.addListener('drag', function () {
         updateLocation(marker.getPosition());
     });
 
