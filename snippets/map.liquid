@@ -186,6 +186,8 @@ html.popup-overlap body:before {
 
                     // Display location text
                     document.getElementById('locationText').innerText = data.results[0]['formatted_address'];
+                    document.getElementById('locationInput').innerText = data.results[0]['formatted_address'];
+                  
 
                     // Clear existing markers on the map
                     clearMarkers();
