@@ -123,7 +123,9 @@
             }
         }
 
-        // Function to initialize the map
+       let marker;
+
+// Function to initialize the map
 function initMap() {
     // Create a new map instance and set its properties
     map = new google.maps.Map(document.getElementById('map'), {
@@ -132,21 +134,54 @@ function initMap() {
         gestureHandling: 'greedy', // Enable one-finger panning on all devices
     });
 
-    // Add a click event listener to the map to capture the selected location
-    google.maps.event.addListener(map, 'click', function (event) {
-        updateLocation(event.latLng);
+    // Create a marker at the initial map center
+    marker = new google.maps.Marker({
+        position: map.getCenter(),
+        map: map,
+        draggable: true
     });
 
-    // Add a drag event listener to the map to capture the dragged location continuously
-    google.maps.event.addListener(map, 'drag', function () {
-        updateLocation(map.getCenter());
-    });
-
-    // Add a dragend event listener to the map to capture the dragged location when dragging stops
-    google.maps.event.addListener(map, 'dragend', function () {
-        updateLocation(map.getCenter());
+    // Add a drag event listener to the marker to continuously update the location during dragging
+    google.maps.event.addListener(marker, 'drag', function () {
+        updateLocation(marker.getPosition());
     });
 }
+
+// Function to update the location on the map and display location text
+function updateLocation(location) {
+    // Your existing updateLocation function logic here
+    // ...
+
+    // Clear existing markers on the map
+    clearMarkers();
+
+    // Create a marker for the dragged location with smooth animation
+    createMarkerWithAnimation(location);
+}
+
+// Function to create a marker on the map with smooth animation
+function createMarkerWithAnimation(location) {
+    // Create a marker at the specified location
+    const newMarker = new google.maps.Marker({
+        position: location,
+        map: map,
+        title: 'Dragged Location',
+        animation: google.maps.Animation.DROP,
+        draggable: true // Allow the marker to be dragged
+    });
+
+    // Store the new marker in the markers array for later reference
+    markers.push(newMarker);
+}
+
+// Function to clear all markers from the map
+function clearMarkers() {
+    for (const existingMarker of markers) {
+        existingMarker.setMap(null);
+    }
+    markers = [];
+}
+
 
 
         function getCurrentPosition() {
