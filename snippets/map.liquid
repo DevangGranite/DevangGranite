@@ -175,33 +175,36 @@ html.popup-overlap body:before {
             // Update the input field with the selected location
             let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${location.lat().toFixed(6)},${location.lng().toFixed(6)}`;
 
-            // get address from lat and lng
-            fetch(apiAdd)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    document.querySelector('input[name="lat"]').value = location.lat();
-                    document.querySelector('input[name="lang"]').value = location.lng();
+                // get address from lat and lng
+    fetch(apiAdd)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            document.querySelector('input[name="lat"]').value = location.lat();
+            document.querySelector('input[name="lang"]').value = location.lng();
 
-                    // Display location text
-                    document.getElementById('locationText').innerText = data.results[0]['formatted_address'];
+            // Display location text
+            document.getElementById('locationText').innerText = data.results[0]['formatted_address'];
 
-                    // Clear existing markers on the map
-                    clearMarkers();
+            // Set the value of the location input field
+            document.getElementById('locationInput').value = data.results[0]['formatted_address'];
 
-                    // Create a marker for the selected location
-                    createMarker(location, data.results[0]['formatted_address']);
+            // Clear existing markers on the map
+            clearMarkers();
 
-                    // You can also update other parts of your UI with the location information as needed
-                })
-                .catch(error => {
-                    console.error('Error fetching data:', error);
-                });
-        }
+            // Create a marker for the selected location
+            createMarker(location, data.results[0]['formatted_address']);
+
+            // You can also update other parts of your UI with the location information as needed
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+}
 
         // Function to create a marker on the map
         function createMarker(location, address) {
