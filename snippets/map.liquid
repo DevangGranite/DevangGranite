@@ -1,7 +1,4 @@
 <style>
- .gmnoprint.gm-style-mtc-bbw {
-    margin: 0 !important;
-}
 html.popup-overlap {
     overflow: hidden;
 }
@@ -71,7 +68,7 @@ html.popup-overlap body:before {
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&libraries=places"></script>
-         <script>
+      <script>
         let map;
         let markers = [];
 
@@ -90,9 +87,6 @@ html.popup-overlap body:before {
                 if (typeof initMap === 'function') {
                     // Initialize the map when the popup is opened
                     initMap();
-
-                    // Request the user's current location
-                    getCurrentPosition();
                 } else {
                     console.error("initMap function is not defined");
                 }
@@ -102,140 +96,80 @@ html.popup-overlap body:before {
         }
 
         function closeMapPopup() {
-            let otpPopupHtml = document.getElementsByTagName('html')[0];
-            let popupElement = document.getElementById('mapPopUp');
-            let locationTextElement = document.getElementById('locationText');
+    let otpPopupHtml = document.getElementsByTagName('html')[0];
+    let popupElement = document.getElementById('mapPopUp');
+    let locationTextElement = document.getElementById('locationText');
 
-            if (popupElement) {
-                // Remove the class from the element
-                otpPopupHtml.classList.remove('popup-overlap');
+    if (popupElement) {
+        // Remove the class from the element
+        otpPopupHtml.classList.remove('popup-overlap');
 
-                // Set display property to 'none'
-                popupElement.style.display = 'none';
+        // Set display property to 'none'
+        popupElement.style.display = 'none';
 
-                // Clear the location text
-                locationTextElement.innerText = '';
-
-                // Clear existing markers on the map
-                clearMarkers();
-            } else {
-                console.error("Element with ID 'popup' not found");
-            }
-        }
-
-       function initMap() {
-    // Create a new map instance and set its properties
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 25.199514, lng: 55.277397 }, // Set the initial map center
-        zoom: 16, // Set the initial zoom level (adjust as needed)
-        gestureHandling: 'greedy', // Enable one-finger panning on all devices
-    });
-
-    // Create a marker at the center of the map
-    const centerMarker = new google.maps.Marker({
-        position: map.getCenter(),
-        map: map,
-        animation: google.maps.Animation.DROP,
-        draggable: true,
-    });
-
-    // Add a dragend event listener to the map to capture the dragged location
-    google.maps.event.addListener(map, 'dragend', function () {
-        // Update the location when the map is dragged
-        const center = map.getCenter();
-        updateLocation(center);
-
-        // Set the marker animation to DROP when dragging stops
-        centerMarker.setAnimation(google.maps.Animation.DROP);
-    });
-
-    // Add a click event listener to the map to capture the selected location
-    google.maps.event.addListener(map, 'click', function (event) {
-        // Update the location when the map is clicked
-        updateLocation(event.latLng);
-
-        // Set the marker animation to DROP when the map is clicked
-        centerMarker.setAnimation(google.maps.Animation.DROP);
-    });
-
-    // Add a dragend event listener to the marker to capture the dragged location
-    google.maps.event.addListener(centerMarker, 'dragend', function () {
-        // Update the location when the marker is dragged
-        updateLocation(centerMarker.getPosition());
-
-        // Set the marker animation to DROP when dragging stops
-        centerMarker.setAnimation(google.maps.Animation.DROP);
-    });
+        // Clear the location text
+        locationTextElement.innerText = '';
+    } else {
+        console.error("Element with ID 'popup' not found");
+    }
 }
 
 
-        function getCurrentPosition() {
-            if (navigator.geolocation) {
-                // Use getCurrentPosition to get the device's current location
-                navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {
-                    maximumAge: 60000, // Maximum age of cached position in milliseconds (1 minute)
-                    enableHighAccuracy: true // Request high accuracy (may use GPS)
-                });
-            } else {
-                console.error('Geolocation is not supported by this browser');
-            }
-        }
+        // Function to initialize the map
+        function initMap() {
+            // Determine if the user is on a mobile device
+            const isMobile = window.innerWidth <= 767; // You can adjust the breakpoint based on your design
 
-        function successCallback(position) {
-            const currentLocation = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
+            // Create a new map instance and set its properties
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 25.199514, lng: 55.277397 }, // Set the initial map center
+                zoom: 10, // Set the initial zoom level
+                gestureHandling: isMobile ? 'greedy' : 'auto', // Enable one-finger panning on mobile devices
+            });
 
-            // Update the map center and location information
-            map.setCenter(currentLocation);
-            updateLocation(currentLocation);
-        }
+            // Add a click event listener to the map to capture the selected location
+            google.maps.event.addListener(map, 'click', function (event) {
+                updateLocation(event.latLng);
+            });
 
-        function errorCallback(error) {
-            console.error('Error getting current position:', error);
+            // Add a dragend event listener to the map to capture the dragged location
+            google.maps.event.addListener(map, 'dragend', function () {
+                updateLocation(map.getCenter());
+            });
         }
 
         // Function to update the location on the map and display location text
-function updateLocation(location) {
-    const latLng = location instanceof google.maps.LatLng ? location : new google.maps.LatLng(location.lat, location.lng);
+        function updateLocation(location) {
+            // Update the input field with the selected location
+            let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${location.lat().toFixed(6)},${location.lng().toFixed(6)}`;
 
-    // Update the input field with the selected location
-    let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${latLng.lat().toFixed(6)},${latLng.lng().toFixed(6)}`;
+            // get address from lat and lng
+            fetch(apiAdd)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.querySelector('input[name="lat"]').value = location.lat();
+                    document.querySelector('input[name="lang"]').value = location.lng();
 
-    // get address from lat and lng
-    fetch(apiAdd)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data.status === 'OK' && data.results && data.results.length > 0 && data.results[0].formatted_address) {
-                document.querySelector('input[name="lat"]').value = latLng.lat();
-                document.querySelector('input[name="lang"]').value = latLng.lng();
+                    // Display location text
+                    document.getElementById('locationText').innerText = data.results[0]['formatted_address'];
 
-                // Display location text
-                document.getElementById('locationText').innerText = data.results[0].formatted_address;
+                    // Clear existing markers on the map
+                    clearMarkers();
 
-                // Update the input field with the formatted address
-                document.getElementById('locationInput').value = data.results[0].formatted_address;
+                    // Create a marker for the selected location
+                    createMarker(location, data.results[0]['formatted_address']);
 
-                // Clear existing markers on the map
-                clearMarkers();
-
-                // Create a marker for the selected location
-                createMarker(latLng, data.results[0].formatted_address);
-            } else {
-                console.error('Geocoding data is incomplete or returned an error:', data);
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
-}
-
+                    // You can also update other parts of your UI with the location information as needed
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        }
 
         // Function to create a marker on the map
         function createMarker(location, address) {
@@ -244,8 +178,7 @@ function updateLocation(location) {
                 position: location,
                 map: map,
                 title: address,
-                animation: google.maps.Animation.DROP, // Optional: Add animation to the marker
-                draggable: true // Allow the marker to be dragged
+                animation: google.maps.Animation.DROP // Optional: Add animation to the marker
             });
 
             // Optional: Add an info window to the marker
@@ -256,11 +189,6 @@ function updateLocation(location) {
             // Show the info window when the marker is clicked
             marker.addListener('click', function () {
                 infoWindow.open(map, marker);
-            });
-
-            // Update the location when the marker is dragged
-            marker.addListener('dragend', function () {
-                updateLocation(marker.getPosition());
             });
 
             // Store the marker in an array for later reference
