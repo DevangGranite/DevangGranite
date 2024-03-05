@@ -69,44 +69,44 @@ html.popup-overlap body:before {
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&libraries=places"></script>
 <script>
-
 let map;
+let marker;
 
 function openMapPopup(){
-  let otpPopupHtml = document.getElementsByTagName( 'html' )[0];
+  let otpPopupHtml = document.getElementsByTagName('html')[0];
   let popupElement = document.getElementById('mapPopUp');
 
   if (popupElement) {
-      // Set display property to 'block'
-      popupElement.style.display = 'block';
+    // Set display property to 'block'
+    popupElement.style.display = 'block';
 
-      // Add a class to the element
-      otpPopupHtml.classList.add('popup-overlap');
+    // Add a class to the element
+    otpPopupHtml.classList.add('popup-overlap');
 
-      // Check if initMap function is defined before calling
-      if (typeof initMap === 'function') {
-          // Initialize the map when the popup is opened
-          initMap();
-      } else {
-          console.error("initMap function is not defined");
-      }
+    // Check if initMap function is defined before calling
+    if (typeof initMap === 'function') {
+      // Initialize the map when the popup is opened
+      initMap();
+    } else {
+      console.error("initMap function is not defined");
+    }
   } else {
-      console.error("Element with ID 'popup' not found");
+    console.error("Element with ID 'popup' not found");
   }
 }
 
 function closeMapPopup() {
-  let otpPopupHtml = document.getElementsByTagName( 'html' )[0];
+  let otpPopupHtml = document.getElementsByTagName('html')[0];
   let popupElement = document.getElementById('mapPopUp');
 
   if (popupElement) {
-      // Remove the class from the element
-      otpPopupHtml.classList.remove('popup-overlap');
+    // Remove the class from the element
+    otpPopupHtml.classList.remove('popup-overlap');
 
-      // Set display property to 'none'
-      popupElement.style.display = 'none';
+    // Set display property to 'none'
+    popupElement.style.display = 'none';
   } else {
-      console.error("Element with ID 'popup' not found");
+    console.error("Element with ID 'popup' not found");
   }
 }
 
@@ -120,6 +120,7 @@ function initMap() {
 
   // Add a click event listener to the map to capture the selected location
   google.maps.event.addListener(map, 'click', function(event) {
+    placeMarker(event.latLng);
     updateLocation(event.latLng);
   });
 
@@ -129,22 +130,41 @@ function initMap() {
   });
 }
 
+function placeMarker(location) {
+  // Remove the existing marker if it exists
+  if (marker) {
+    marker.setMap(null);
+  }
+
+  // Create a new marker at the selected location
+  marker = new google.maps.Marker({
+    position: location,
+    map: map,
+    title: 'Selected Location',
+    draggable: true,
+  });
+
+  // Add a dragend event listener to the marker to update the location
+  google.maps.event.addListener(marker, 'dragend', function() {
+    updateLocation(marker.getPosition());
+  });
+}
+
 function updateLocation(location) {
-  // Update the input field with the selected location
-  let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${location.lat()},${location.lng()}`
-  /** get address form lag and lng **/ 
+  let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=YOUR_API_KEY&latlng=${location.lat()},${location.lng()}`;
+
   fetch(apiAdd)
     .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
     })
     .then(data => {
-        document.querySelector('input[name="lat"]').value = location.lat();
-        document.querySelector('input[name="lang"]').value = location.lng();
-        document.getElementById('locationText').innerText = data.results[0]['formatted_address'];
-        document.getElementById('locationInput').value = data.results[0]['formatted_address'];
+      document.querySelector('input[name="lat"]').value = location.lat();
+      document.querySelector('input[name="lang"]').value = location.lng();
+      document.getElementById('locationText').innerText = data.results[0]['formatted_address'];
+      document.getElementById('locationInput').value = data.results[0]['formatted_address'];
     })
     .catch(error => {
       console.error('Error fetching data:', error);
@@ -176,6 +196,7 @@ function updateLocationForAddress() {
       map.setCenter(location);
 
       // Update the location information
+      placeMarker(location);
       updateLocation(location);
     }
   });
