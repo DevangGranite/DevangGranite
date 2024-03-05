@@ -652,12 +652,11 @@ html.popup-overlap body:before {
 
 @media only screen and (max-width: 600px) {
 	#mapPopUp {
-		height: 90vh;
+		height: 95vh;
 		overflow: hidden;
 	}
 	#map {
-		height: 65vh !important;
-        margin-bottom:0 !important
+		height: 65vh !important;       
 	}
     #ShopifyChat {
         z-index: 999 !important;
