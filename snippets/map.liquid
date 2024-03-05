@@ -131,23 +131,63 @@ html.popup-overlap body:before {
         gestureHandling: 'greedy', // Enable one-finger panning on all devices
     });
 
-    // Create a marker at the center of the map (non-draggable)
-    const centerMarker = new google.maps.Marker({
-        position: map.getCenter(),
-        map: map,
-        animation: google.maps.Animation.DROP,
-        draggable: false, // Set to false to make it non-draggable
-    });
+    // Create a custom overlay at the center of the map
+    const centerOverlay = new CustomOverlay(map.getCenter(), map);
 
     // Add a click event listener to the map to capture the selected location
     google.maps.event.addListener(map, 'click', function (event) {
         // Update the location when the map is clicked
-        updateLocation(event.latLng);
-
-        // Set the marker animation to DROP when the map is clicked
-        centerMarker.setAnimation(google.maps.Animation.DROP);
+        centerOverlay.setPosition(event.latLng);
     });
 }
+
+// Custom Overlay class definition
+function CustomOverlay(position, map) {
+    this.position = position;
+    this.map = map;
+
+    this.div = null;
+
+    // Call setMap to attach the overlay to the map's overlay layer
+    this.setMap(map);
+}
+
+CustomOverlay.prototype = new google.maps.OverlayView();
+
+CustomOverlay.prototype.onAdd = function () {
+    const div = document.createElement('div');
+    div.style.borderStyle = 'none';
+    div.style.borderWidth = '0px';
+    div.style.position = 'absolute';
+    div.style.transform = 'translate(-50%, -50%)'; // Center the overlay
+
+    // Create a pin icon or any other representation for the center point
+    div.innerHTML = '<div style="width: 20px; height: 20px; background-color: red; border-radius: 50%;"></div>';
+
+    this.div = div;
+
+    // Add the element to the overlay layer
+    const panes = this.getPanes();
+    panes.overlayLayer.appendChild(div);
+};
+
+CustomOverlay.prototype.draw = function () {
+    const overlayProjection = this.getProjection();
+    const position = overlayProjection.fromLatLngToDivPixel(this.position);
+
+    this.div.style.left = position.x + 'px';
+    this.div.style.top = position.y + 'px';
+};
+
+CustomOverlay.prototype.setPosition = function (position) {
+    this.position = position;
+    this.draw();
+};
+
+CustomOverlay.prototype.onRemove = function () {
+    this.div.parentNode.removeChild(this.div);
+    this.div = null;
+};
 
 
 
