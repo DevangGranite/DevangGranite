@@ -659,7 +659,7 @@ html.popup-overlap body:before {
 		height: 65vh !important;
         margin-bottom:0 !important
 	}
-  inbox-online-store-chat#ShopifyChat {
-    z-index: 999 !important;
-}
+    #ShopifyChat {
+        z-index: 999 !important;
+    }
 }
