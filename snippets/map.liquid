@@ -129,6 +129,7 @@ function initMap() {
   });
 }
 
+// Function to update the location on the map and display location text
 function updateLocation(location) {
   // Update the input field with the selected location
   let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${location.lat()},${location.lng()}`;
@@ -144,12 +145,15 @@ function updateLocation(location) {
     .then(data => {
       document.querySelector('input[name="lat"]').value = location.lat();
       document.querySelector('input[name="lang"]').value = location.lng();
-      
+
       // Display location text
       document.getElementById('locationText').innerText = data.results[0]['formatted_address'];
 
-      // Display location information in an alert (you can customize this part)
-      alert(`Selected Location: ${data.results[0]['formatted_address']}`);
+      // Clear existing markers on the map
+      clearMarkers();
+
+      // Create a marker for the selected location
+      createMarker(location, data.results[0]['formatted_address']);
 
       // You can also update other parts of your UI with the location information as needed
 
@@ -158,6 +162,42 @@ function updateLocation(location) {
       console.error('Error fetching data:', error);
     });
 }
+
+// Function to create a marker on the map
+function createMarker(location, address) {
+  // Create a marker at the specified location
+  const marker = new google.maps.Marker({
+    position: location,
+    map: map,
+    title: address,
+    animation: google.maps.Animation.DROP // Optional: Add animation to the marker
+  });
+
+  // Optional: Add an info window to the marker
+  const infoWindow = new google.maps.InfoWindow({
+    content: `<div><strong>${address}</strong></div>`
+  });
+
+  // Show the info window when the marker is clicked
+  marker.addListener('click', function() {
+    infoWindow.open(map, marker);
+  });
+
+  // Store the marker in an array for later reference
+  markers.push(marker);
+}
+
+// Function to clear all markers from the map
+function clearMarkers() {
+  for (const marker of markers) {
+    marker.setMap(null);
+  }
+  markers = [];
+}
+
+// Add this line at the beginning of your script to initialize the markers array
+let markers = [];
+
 
 
 // Function to handle Enter key on the address input field
