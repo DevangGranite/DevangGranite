@@ -123,39 +123,25 @@ html.popup-overlap body:before {
             }
         }
 
-       // Function to initialize the map
-function initMap() {
-    // Create a new map instance and set its properties
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 25.199514, lng: 55.277397 }, // Set the initial map center
-        zoom: 16, // Set the initial zoom level (adjust as needed)
-        gestureHandling: 'greedy', // Enable one-finger panning on all devices
-    });
+        // Function to initialize the map
+        function initMap() {
+            // Create a new map instance and set its properties
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 25.199514, lng: 55.277397 }, // Set the initial map center
+                zoom: 16, // Set the initial zoom level (adjust as needed)
+                gestureHandling: 'greedy', // Enable one-finger panning on all devices
+            });
 
-    // Create a marker at the center of the map
-    const centerMarker = new google.maps.Marker({
-        position: map.getCenter(),
-        map: map,
-        draggable: false, // Set to false to make it non-draggable
-    });
+            // Add a click event listener to the map to capture the selected location
+            google.maps.event.addListener(map, 'click', function (event) {
+                updateLocation(event.latLng);
+            });
 
-    // Add a dragend event listener to the map to capture the dragged location
-    google.maps.event.addListener(map, 'dragstart', function () {
-        centerMarker.setMap(null); // Remove the marker during dragging
-    });
-
-    google.maps.event.addListener(map, 'dragend', function () {
-        centerMarker.setPosition(map.getCenter());
-        centerMarker.setMap(map); // Add the marker back after dragging stops
-        updateLocation(map.getCenter());
-    });
-
-    // Add a click event listener to the map to capture the selected location
-    google.maps.event.addListener(map, 'click', function (event) {
-        updateLocation(event.latLng);
-    });
-}
-
+            // Add a dragend event listener to the map to capture the dragged location
+            google.maps.event.addListener(map, 'dragend', function () {
+                updateLocation(map.getCenter());
+            });
+        }
 
         function getCurrentPosition() {
             if (navigator.geolocation) {
