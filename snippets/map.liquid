@@ -161,10 +161,11 @@ function updateLocation(location) {
       return response.json();
     })
     .then(data => {
+      const formattedAddress = data.results[0].formatted_address;
       document.querySelector('input[name="lat"]').value = location.lat();
       document.querySelector('input[name="lang"]').value = location.lng();
-      document.getElementById('locationText').innerText = data.results[0]['formatted_address'];
-      document.getElementById('locationInput').value = data.results[0]['formatted_address'];
+      document.getElementById('locationText').innerText = formattedAddress;
+      document.getElementById('locationInput').value = formattedAddress;
     })
     .catch(error => {
       console.error('Error fetching data:', error);
