@@ -130,26 +130,33 @@ function initMap() {
 }
 
 function updateLocation(location) {
-  // Update the input field with the selected location
-  let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${location.lat()},${location.lng()}`
-  /** get address form lag and lng **/ 
+  let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${location.lat()},${location.lng()}`;
+
   fetch(apiAdd)
     .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
     })
     .then(data => {
+      console.log('Geocoding API Response:', data);
+
+      if (data.status === 'OK' && data.results && data.results.length > 0) {
+        const formattedAddress = data.results[0].formatted_address;
         document.querySelector('input[name="lat"]').value = location.lat();
         document.querySelector('input[name="lang"]').value = location.lng();
-        document.getElementById('locationText').innerText = data.results[0]['formatted_address'];
-        document.getElementById('locationInput').value = data.results[0]['formatted_address'];
+        document.getElementById('locationText').textContent = formattedAddress;
+        document.getElementById('locationInput').value = formattedAddress;
+      } else {
+        console.error('Invalid or empty Geocoding API response');
+      }
     })
     .catch(error => {
       console.error('Error fetching data:', error);
     });
 }
+
 
 // Function to handle Enter key on the address input field
 function handleEnterKey(event) {
