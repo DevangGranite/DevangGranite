@@ -130,15 +130,10 @@ function initMap() {
 }
 
 function updateLocation(location) {
-  let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${location.lat()},${location.lng()}`;
+  const apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${location.lat()},${location.lng()}`;
 
   fetch(apiAdd)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
       console.log('Geocoding API Response:', data);
 
@@ -156,6 +151,7 @@ function updateLocation(location) {
       console.error('Error fetching data:', error);
     });
 }
+
 
 
 // Function to handle Enter key on the address input field
