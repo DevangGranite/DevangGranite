@@ -132,14 +132,27 @@ function initMap() {
         gestureHandling: 'greedy', // Enable one-finger panning on all devices
     });
 
-    // Add a click event listener to the map to capture the selected location
-    google.maps.event.addListener(map, 'click', function (event) {
-        updateLocation(event.latLng);
+    // Create a marker at the center of the map
+    const centerMarker = new google.maps.Marker({
+        position: map.getCenter(),
+        map: map,
+        draggable: false, // Set to false to make it non-draggable
     });
 
     // Add a dragend event listener to the map to capture the dragged location
+    google.maps.event.addListener(map, 'dragstart', function () {
+        centerMarker.setMap(null); // Remove the marker during dragging
+    });
+
     google.maps.event.addListener(map, 'dragend', function () {
+        centerMarker.setPosition(map.getCenter());
+        centerMarker.setMap(map); // Add the marker back after dragging stops
         updateLocation(map.getCenter());
+    });
+
+    // Add a click event listener to the map to capture the selected location
+    google.maps.event.addListener(map, 'click', function (event) {
+        updateLocation(event.latLng);
     });
 }
 
