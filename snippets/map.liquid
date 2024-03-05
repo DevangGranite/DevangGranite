@@ -213,34 +213,34 @@ function updateLocation(location) {
 
 
         // Function to create a marker on the map
-        function createMarker(location, address) {
-            // Create a marker at the specified location
-            const marker = new google.maps.Marker({
-                position: location,
-                map: map,
-                title: address,
-                animation: google.maps.Animation.DROP, // Optional: Add animation to the marker
-                draggable: true // Allow the marker to be dragged
-            });
+function createMarker(location, address) {
+    // Create a marker at the specified location
+    const marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        title: address,
+        draggable: true // Allow the marker to be dragged
+    });
 
-            // Optional: Add an info window to the marker
-            const infoWindow = new google.maps.InfoWindow({
-                content: `<div><strong>${address}</strong></div>`
-            });
+    // Optional: Add an info window to the marker
+    const infoWindow = new google.maps.InfoWindow({
+        content: `<div><strong>${address}</strong></div>`
+    });
 
-            // Show the info window when the marker is clicked
-            marker.addListener('click', function () {
-                infoWindow.open(map, marker);
-            });
+    // Show the info window when the marker is clicked
+    marker.addListener('click', function () {
+        infoWindow.open(map, marker);
+    });
 
-            // Update the location when the marker is dragged
-            marker.addListener('dragend', function () {
-                updateLocation(marker.getPosition());
-            });
+    // Update the location when the marker is dragged
+    marker.addListener('dragend', function () {
+        updateLocation(marker.getPosition());
+    });
 
-            // Store the marker in an array for later reference
-            markers.push(marker);
-        }
+    // Store the marker in an array for later reference
+    markers.push(marker);
+}
+
 
         // Function to clear all markers from the map
         function clearMarkers() {
