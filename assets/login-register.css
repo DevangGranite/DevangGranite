@@ -651,6 +651,9 @@ html.popup-overlap body:before {
 }
 
 @media only screen and (max-width: 600px) {
+    .thb-form-container .create_form_wrapper input {      
+      min-height: 55px;      
+    }
 	#mapPopUp {
 		height: 95vh;
 		overflow: hidden;
