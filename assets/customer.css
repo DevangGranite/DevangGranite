@@ -324,6 +324,7 @@ table.account-order-history--table tbody tr:last-child td {
   font-weight: 500;
   font-size: 20px;
   line-height: 22px;
+  margin-left: 10px;
 }
 .customer-rewards--wrapper {
   border-radius: 8px;
@@ -377,6 +378,7 @@ table.account-order-history--table tbody tr:last-child td {
 }
 .customer-rewards-drops--tier {
   font-weight: 500;
+  margin-left: 4px;
 }
 .customer-rewards-balance--wrapper {
   display: flex;
@@ -424,14 +426,6 @@ table.account-order-history--table tbody tr:last-child td {
 html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
   margin-right: 48px;
   margin-left: 0;
-}
-.account-subscription--wrapper {
-  max-width: 1024px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  justify-content: space-between;
-  box-sizing: content-box;
 }
 .account--title {
   font-size: 32px;
@@ -867,10 +861,6 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
   .account-edit-address-input--half {
     width: 48%;
   }
-  .account-subscription--wrapper {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
 }
 @media screen and (max-width: 767px) {
   .account-manage-subscriptions-form--content {
@@ -887,9 +877,6 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
   }
   .account-subscription-empty--image {
     margin: 15px 0 40px 0;
-  }
-  .account-subscription--wrapper {
-    flex-direction: column;
   }
   .account--title {
     margin: 0 24px 8px 24px;
