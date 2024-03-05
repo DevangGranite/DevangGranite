@@ -155,15 +155,18 @@
   <script>
     // Function to replace text in the specified span element
     function replaceText() {
-      // Get the element with the specified attribute and class
-      var element = document.querySelector('span[data-spec="button-text"].chat-title');
+      // Get elements by class name
+      var elements = document.getElementsByClassName('chat-title');
 
-      // Check if the element exists
-      if (element) {
-        // Replace the text content
-        element.textContent = 'New Text Replaced using JavaScript!';
-      } else {
-        console.error('Element not found! Check your selector or HTML structure.');
+      // Iterate through elements
+      for (var i = 0; i < elements.length; i++) {
+        var element = elements[i];
+
+        // Check if the element has the specified attribute
+        if (element.getAttribute('data-spec') === 'button-text') {
+          // Replace the text content
+          element.textContent = 'New Text Replaced using JavaScript!';
+        }
       }
     }
 
