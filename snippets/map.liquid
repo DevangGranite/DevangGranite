@@ -139,12 +139,17 @@ html.popup-overlap body:before {
 
          // Add a dragend event listener to the map to capture the dragged location
 google.maps.event.addListener(map, 'dragend', function () {
-    // Set the marker position to the center of the map without animation
-    const center = map.getCenter();
-    markers[0].setPosition(center);
+    // Get the new center of the map
+    const newCenter = map.getCenter();
+
+    // Pan the map to the new center with animation
+    map.panTo(newCenter);
+
+    // Update the marker position without animation
+    markers[0].setPosition(newCenter);
 
     // Update the location without triggering the dragend event again
-    updateLocation(center);
+    updateLocation(newCenter);
 });
 
         }
