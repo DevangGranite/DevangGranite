@@ -137,10 +137,11 @@ html.popup-overlap body:before {
                 updateLocation(event.latLng);
             });
 
-            // Add a dragend event listener to the map to capture the dragged location
-            google.maps.event.addListener(map, 'dragend', function () {
-                updateLocation(map.getCenter());
-            });
+         // Add a dragend event listener to the map to capture the dragged location
+google.maps.event.addListener(map, 'dragend', function () {
+    // Update the marker position to the center of the map
+    updateLocation(map.getCenter());
+});
         }
 
         function getCurrentPosition() {
