@@ -656,6 +656,6 @@ html.popup-overlap body:before {
 		overflow: hidden;
 	}
 	#map {
-		height: 70vh !important;
+		height: 65vh !important;
 	}
 }
