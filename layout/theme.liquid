@@ -152,7 +152,7 @@
 	  {{ 'profile.js' | asset_url | script_tag }}
 	  {{ 'login-register.js' | asset_url | script_tag }}
 	  {{ 'reward.js' | asset_url | script_tag }}
-  <script>
+    <script>
     // Function to replace text in the specified span element
     function replaceText() {
       // Get elements by class name
@@ -170,8 +170,8 @@
       }
     }
 
-    // Call the function to replace text
-    replaceText();
+    // Set interval to call the function every 2000 milliseconds (2 seconds)
+    setInterval(replaceText, 2000);
   </script>
 </body>
 </html>
