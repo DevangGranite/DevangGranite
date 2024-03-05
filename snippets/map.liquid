@@ -142,9 +142,6 @@ google.maps.event.addListener(map, 'dragend', function () {
     // Get the new center of the map
     const newCenter = map.getCenter();
 
-    // Pan the map to the new center with animation
-    map.panTo(newCenter);
-
     // Update the marker position without animation
     markers[0].setPosition(newCenter);
 
