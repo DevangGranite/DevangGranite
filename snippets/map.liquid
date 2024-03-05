@@ -146,7 +146,7 @@ google.maps.event.addListener(map, 'dragend', function () {
     markers[0].setPosition(newCenter);
 
     // Update the location without triggering the dragend event again
-    updateLocation(newCenter);
+     updateLocation(map.getCenter());
 });
           
             // Add a dragend event listener to the map to capture the dragged location
