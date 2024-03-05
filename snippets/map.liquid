@@ -123,30 +123,40 @@
             }
         }
 
-        // Function to initialize the map
-        function initMap() {
-            // Create a new map instance and set its properties
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: 25.199514, lng: 55.277397 }, // Set the initial map center
-                zoom: 16, // Set the initial zoom level (adjust as needed)
-                gestureHandling: 'greedy', // Enable one-finger panning on all devices
-            });
+        let dragEndTimeout; // Variable to store the timeout ID
 
-            // Add a click event listener to the map to capture the selected location
-            google.maps.event.addListener(map, 'click', function (event) {
-                updateLocation(event.latLng);
-            });
+// Function to initialize the map
+function initMap() {
+    // Create a new map instance and set its properties
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 25.199514, lng: 55.277397 }, // Set the initial map center
+        zoom: 16, // Set the initial zoom level (adjust as needed)
+        gestureHandling: 'greedy', // Enable one-finger panning on all devices
+    });
 
-           // Add a dragend event listener to the map to capture the dragged location
-            google.maps.event.addListener(map, 'drag', function () {
-                updateLocation(map.getCenter());
-            }); 
-          
-            // Add a dragend event listener to the map to capture the dragged location
-            google.maps.event.addListener(map, 'dragend', function () {
-                updateLocation(map.getCenter());
-            });
-        }
+    // Add a click event listener to the map to capture the selected location
+    google.maps.event.addListener(map, 'click', function (event) {
+        updateLocation(event.latLng);
+    });
+
+    // Add a drag event listener to the map to capture the dragged location continuously
+    google.maps.event.addListener(map, 'drag', function () {
+        // Clear any existing timeout
+        clearTimeout(dragEndTimeout);
+
+        // Set a timeout to update the location after a short delay (e.g., 200 milliseconds)
+        dragEndTimeout = setTimeout(function () {
+            updateLocation(map.getCenter());
+        }, 200);
+    });
+
+    // Add a dragend event listener to the map to capture the dragged location when dragging stops
+    google.maps.event.addListener(map, 'dragend', function () {
+        clearTimeout(dragEndTimeout); // Clear the timeout to prevent additional updates
+        updateLocation(map.getCenter());
+    });
+}
+
 
         function getCurrentPosition() {
             if (navigator.geolocation) {
