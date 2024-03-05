@@ -71,7 +71,7 @@ html.popup-overlap body:before {
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&libraries=places"></script>
-         <script>
+             <script>
         let map;
         let markers = [];
 
@@ -137,16 +137,10 @@ html.popup-overlap body:before {
                 updateLocation(event.latLng);
             });
 
-      // Add a drag event listener to the map to capture the dragged location
-google.maps.event.addListener(map, 'drag', function () {
-    // Get the new center of the map
-    const newCenter = map.getCenter();
-
-    // Update the marker position without animation
-    markers[0].setPosition(newCenter);
-});
-
-
+            // Add a dragend event listener to the map to capture the dragged location
+            google.maps.event.addListener(map, 'dragend', function () {
+                updateLocation(map.getCenter());
+            });
         }
 
         function getCurrentPosition() {
@@ -177,75 +171,73 @@ google.maps.event.addListener(map, 'drag', function () {
         }
 
         // Function to update the location on the map and display location text
-function updateLocation(location) {
-    const latLng = location instanceof google.maps.LatLng ? location : new google.maps.LatLng(location.lat, location.lng);
+        function updateLocation(location) {
+            const latLng = location instanceof google.maps.LatLng ? location : new google.maps.LatLng(location.lat, location.lng);
 
-    // Update the input field with the selected location
-    let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${latLng.lat().toFixed(6)},${latLng.lng().toFixed(6)}`;
+            // Update the input field with the selected location
+            let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=YOUR_API_KEY&latlng=${latLng.lat().toFixed(6)},${latLng.lng().toFixed(6)}`;
 
-    // get address from lat and lng
-    fetch(apiAdd)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data.status === 'OK' && data.results && data.results.length > 0 && data.results[0].formatted_address) {
-                document.querySelector('input[name="lat"]').value = latLng.lat();
-                document.querySelector('input[name="lang"]').value = latLng.lng();
+            // get address from lat and lng
+            fetch(apiAdd)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.status === 'OK' && data.results && data.results.length > 0 && data.results[0].formatted_address) {
+                        document.querySelector('input[name="lat"]').value = latLng.lat();
+                        document.querySelector('input[name="lang"]').value = latLng.lng();
 
-                // Display location text
-                document.getElementById('locationText').innerText = data.results[0].formatted_address;
+                        // Display location text
+                        document.getElementById('locationText').innerText = data.results[0].formatted_address;
 
-                // Update the input field with the formatted address
-                document.getElementById('locationInput').value = data.results[0].formatted_address;
+                        // Update the input field with the formatted address
+                        document.getElementById('locationInput').value = data.results[0].formatted_address;
 
-                // Clear existing markers on the map
-                clearMarkers();
+                        // Clear existing markers on the map
+                        clearMarkers();
 
-                // Create a marker for the selected location
-                createMarker(latLng, data.results[0].formatted_address);
-            } else {
-                console.error('Geocoding data is incomplete or returned an error:', data);
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
-}
-
+                        // Create a marker for the selected location
+                        createMarker(latLng, data.results[0].formatted_address);
+                    } else {
+                        console.error('Geocoding data is incomplete or returned an error:', data);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        }
 
         // Function to create a marker on the map
-function createMarker(location, address) {
-    // Create a marker at the specified location
-    const marker = new google.maps.Marker({
-        position: location,
-        map: map,
-        title: address,
-        draggable: true // Allow the marker to be dragged
-    });
+        function createMarker(location, address) {
+            // Create a marker at the specified location
+            const marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                title: address,
+                draggable: true // Allow the marker to be dragged
+            });
 
-    // Optional: Add an info window to the marker
-    const infoWindow = new google.maps.InfoWindow({
-        content: `<div><strong>${address}</strong></div>`
-    });
+            // Optional: Add an info window to the marker
+            const infoWindow = new google.maps.InfoWindow({
+                content: `<div><strong>${address}</strong></div>`
+            });
 
-    // Show the info window when the marker is clicked
-    marker.addListener('click', function () {
-        infoWindow.open(map, marker);
-    });
+            // Show the info window when the marker is clicked
+            marker.addListener('click', function () {
+                infoWindow.open(map, marker);
+            });
 
-    // Update the location when the marker is dragged
-    marker.addListener('dragend', function () {
-        updateLocation(marker.getPosition());
-    });
+            // Update the location when the marker is dragged
+            google.maps.event.addListener(marker, 'dragend', function () {
+                updateLocation(marker.getPosition());
+            });
 
-    // Store the marker in an array for later reference
-    markers.push(marker);
-}
-
+            // Store the marker in an array for later reference
+            markers.push(marker);
+        }
 
         // Function to clear all markers from the map
         function clearMarkers() {
@@ -268,7 +260,7 @@ function createMarker(location, address) {
 
         // Function to update the location based on entered address
         function updateLocationForAddress() {
-            var address = document.getElementById('addressInput').value;
+            var address = document.getElementById('locationInput').value;
 
             // Use Google Maps Geocoding API to convert the address into latitude and longitude
             var geocoder = new google.maps.Geocoder();
@@ -287,6 +279,7 @@ function createMarker(location, address) {
 
         // Function to show map based on entered address
         function showMapForAddress() {
+            openMapPopup();
             updateLocationForAddress();
         }
     </script>
