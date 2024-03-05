@@ -131,22 +131,12 @@ html.popup-overlap body:before {
         gestureHandling: 'greedy', // Enable one-finger panning on all devices
     });
 
-    // Create a marker at the center of the map
+    // Create a marker at the center of the map (non-draggable)
     const centerMarker = new google.maps.Marker({
         position: map.getCenter(),
         map: map,
         animation: google.maps.Animation.DROP,
-        draggable: true,
-    });
-
-    // Add a dragend event listener to the map to capture the dragged location
-    google.maps.event.addListener(map, 'dragend', function () {
-        // Update the location when the map is dragged
-        const center = map.getCenter();
-        updateLocation(center);
-
-        // Set the marker animation to DROP when dragging stops
-        centerMarker.setAnimation(google.maps.Animation.DROP);
+        draggable: false, // Set to false to make it non-draggable
     });
 
     // Add a click event listener to the map to capture the selected location
@@ -157,16 +147,8 @@ html.popup-overlap body:before {
         // Set the marker animation to DROP when the map is clicked
         centerMarker.setAnimation(google.maps.Animation.DROP);
     });
-
-    // Add a dragend event listener to the marker to capture the dragged location
-    google.maps.event.addListener(centerMarker, 'dragend', function () {
-        // Update the location when the marker is dragged
-        updateLocation(centerMarker.getPosition());
-
-        // Set the marker animation to DROP when dragging stops
-        centerMarker.setAnimation(google.maps.Animation.DROP);
-    });
 }
+
 
 
         function getCurrentPosition() {
