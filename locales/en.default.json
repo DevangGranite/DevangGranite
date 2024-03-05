@@ -389,7 +389,10 @@
         "copy_voucher": "Copy Voucher",
         "copied_voucher": "Copied Voucher",
         "reach_top_tier": "Congratulations, you're at the top",
-        "member_since": "Member since"
+        "member_since": "Member since",
+        "purchase_history": "Purchase History",
+        "topup": "Top Up",
+        "spent": "Spent"
       }
     },
     "order": {

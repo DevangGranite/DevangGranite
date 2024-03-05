@@ -371,18 +371,31 @@ class RedemeedRewardOffer extends HTMLElement{
         this.couponCode = this.querySelector('.rewards-voucher-redeemed-code');
         this.voucherTitleCount = this.querySelector('.reward-redeem-voucher-title-count');
         this.copyCode = this.querySelector('.rewards-voucher-redeemed-copy-code');
+        this.voucherName = this.querySelectorAll('.voucher-name')
+        this.backBtn = this.querySelector('.rewards-voucher-redeemed_back a');
+        this.voucherID = urlParams.get('reward');
+        this.user_id = document.querySelector('input[name="meta[user_id]"]').value;
 
         this.inital();
         this.evenetListener();
+        this.redeemVoucher(this.voucherID, this.user_id);
     }
     async inital() {
         console.log('Header',this.pageHeader);
-        this.offerDetail = await rewardOfferDetail(urlParams.get('reward'));
+        this.offerDetail = await rewardOfferDetail(this.voucherID);
         
+        // set back button
+        this.backBtn.href = `/account?view=rewards-redeem-voucher&reward=${urlParams.get('reward')}`;
+
         // set image
         this.voucherImages.forEach(image => {
             image.src = this.offerDetail.image;
             image.alt = this.offerDetail.name;
+        });
+
+        // ser voucher name
+        this.voucherName.forEach(name => {
+            name.innerText = this.offerDetail.name;
         });
 
         // set coupon code
@@ -411,5 +424,205 @@ class RedemeedRewardOffer extends HTMLElement{
         navigator.clipboard.writeText(this.couponCode.textContent);
         this.copyCode.querySelector('span').innerText ="{{ 'customer.account.reward.copied_voucher' | t }}";
     }
+
+    redeemVoucher(voucherID, userID) {
+        fetch(`https://alainappuat.gdadmin.org/shopifyApiV2/redeemCtdReward`,{
+            method:'POST',
+            headers:{
+                'lancode':'en',
+                'token':'123456'
+            },
+            body:JSON.stringify({reward_id:voucherID,user_id:userID})
+        })
+        .then(response => response.json())
+        .then(data=>{
+            console.log('Voucher Redeemeed',data);
+        }).catch(error => console.error('Redeemed Voucher Error fetching data:', error))
+    }
 }
-customElements.define('redemeed-reward-offer',RedemeedRewardOffer); 
+customElements.define('redemeed-reward-offer',RedemeedRewardOffer);
+
+
+class DropHistory extends HTMLElement {
+    constructor() {
+        super();
+        this.user_id = document.querySelector('[name="meta[user_id]"]');
+        this.user_name = document.querySelector('[name="meta[name]"]');
+        this.token = document.querySelector('[name="meta[token]"]');
+        this.pageHeader = this.querySelector('.reward_history_inner');
+        this.pageHeading = this.querySelector('.reward_history_inner_bottom');
+        this.currentDrop = this.querySelector('.reward_history_inner_data_points_count');
+        this.expireDrop = this.querySelector('.reward_history_data_drops_details.drop_expire');
+        this.historyHTML = this.querySelector('.my_wallet_data_blocks_main');
+        this.dropIcon = this.data = '';
+        this.inital();
+    }
+    inital() {
+        this.customerReward = getCustomerReward().then(data => {
+            this.data = data;
+            this.pageHeading.innerText = `${data.tier} {{ 'customer.account.reward.tier' | t }}`;
+
+            if(data.tier.toLowerCase() == 'blue'){
+                this.dropIcon = "{{ 'Blue_Tier.png' | file_url }}";
+            }else if(data.tier.toLowerCase() == 'green'){
+                this.dropIcon = "{{ 'Green_Tier.png' | file_url }}";
+            }else{
+                this.dropIcon = "{{ 'Platinum_Tier.png' | file_url }}";
+            }
+
+            if(data.current_points < 30){
+                this.currentDrop.innerHTML = `<img src="{{ 'Blue_Tier.png' | file_url }}" alt="Drop" width="36"><span>${this.data.current_points}</span>`;
+            }else if(data.current_points > 30 && data.current_points <= 80) {
+                this.pageHeader.style.background = `radial-gradient(circle, #00B140 0%, #007C2D 100%)`;
+                this.currentDrop.innerHTML = `<img src="{{ 'Green_Tier.png' | file_url }}" alt="Drop" width="36"><span>${data.current_points}</span>`;
+                this.querySelector('.reward_history_data_title_main').style.color = this.querySelector('.reward_history_inner_data_points_count').style.color = "#007c2d";
+            }else{
+                this.pageHeader.style.background = `radial-gradient(circle, #8A8F95 0%, #6B6E71 100%)`;
+                this.currentDrop.innerHTML = `<img src="{{ 'Platinum_Tier.png' | file_url }}" alt="Drop" width="36"><span>${data.current_points}</span>`;
+                this.querySelector('.reward_history_data_title_main').style.color = this.querySelector('.reward_history_inner_data_points_count').style.color = "#6b6e71";
+            }
+
+            if(data.points_expiring != null){
+                this.expireDate = new Date(this.data.next_date_points_expiring);
+                this.expireDrop.innerHTML = `<strong>${data.points_expiring} {{ 'customer.account.reward.drop' | t }}</strong> {{ 'customer.account.reward.expire_label' | t }} ${this.expireDate.getDate()}/${this.expireDate.getMonth() + 1}/${this.expireDate.getFullYear()}`;
+            }
+
+            this.getDropHisory();
+        });
+    }
+    getDropHisory(){
+        fetch(`https://alainappuat.gdadmin.org/shopifyApiV2/getDropHistory/${this.user_id.value}/0`,{
+            method:'GET',
+            headers:{
+                'lancode':'en',
+                'token':'123456'
+            }
+        }).then(response => response.json())
+        .then(data => {
+            console.log('Drop History',data);
+            const groupedHistory = this.groupedHistory(data.response);
+            console.log("Year wise array",groupedHistory);
+
+            let historyHTML = ``;
+            let total_accumulated = 0;
+            Object.keys(groupedHistory).forEach(year => {
+                historyHTML += `<div class="table_purchase_history_year">Purchase History <b>${year}</b> </div>`;
+                Object.keys(groupedHistory[year]).forEach(month => {
+
+                    historyHTML += `<div class="my_wallet_data_blocks_inner">
+                    <div class="wallet_debited_month">${this.getMonthName(month)}</div>`;
+                    groupedHistory[year][month].forEach(item => {
+                        let createdAt = new Date(item.date);
+                        let image = (item.type == 'topup') ? "{{ 'wallet_icon.svg' | asset_url }}" : this.dropIcon;
+                        let formatedMoney = item.amount;
+                        historyHTML += `<div class="my_wallet_data_blocks">
+                        <div class="my_wallet_data_blocks_icon">
+                            <img src="${image}" class="${(item.type != 'topup') ? "spent-icon" : ''}"/>
+                        </div>
+                        <div class="my_wallet_transection_type">
+                            <span class="data_first">${(item.type == 'topup') ? "{{ 'customer.account.reward.topup' | t }}" : " {{ 'customer.account.reward.spent' | t }} "}</span>
+                            <span class="data_sec">${createdAt.getDate()} ${createdAt.toLocaleString('default', { month: 'long' })} ${createdAt.getFullYear()}</span>
+                        </div>
+                        <div class="my_wallet_bloks_price_main">
+                            <span class="reward_history_bloks_drops_spend ${(item.type != 'topup') ? 'negative_value': '' }"> ${(item.type != 'topup') ? '- '+item.points : '+ '+item.points } {{ 'customer.account.reward.drop' | t }}</span>
+                            <span class="my_wallet_bloks_price">${(item.type == 'topup') ? formatedMoney : item.name}</span>
+                        </div>
+                        </div>`;
+
+                        if(item.type == 'topup')
+                            total_accumulated += item.points;
+
+                    });
+                    historyHTML += `</div>`;
+
+                });
+            });
+
+            // Get Max date
+            const maxDate = new Date(
+                Math.max(
+                    data.response.map(element => {
+                        let max_date = new Date(element.date);
+                        let day = max_date.getDate();
+                        const nth = (day) => {
+                            if (day > 3 && day < 21) return 'th';
+                            switch (day % 10) {
+                              case 1:  return day+"st";
+                              case 2:  return day+"nd";
+                              case 3:  return day+"rd";
+                              default: return day+"th";
+                            }
+                          };
+
+                        return `${nth} ${this.getMonthName(max_date.getMonth(), 'narrow')} ${max_date.getFullYear()}`
+                    }),
+                ),
+            );
+
+            // Get Min date
+            const minDate = new Date(
+                Math.min(
+                    data.response.map(element => {
+                        let min_date = new Date(element.date);
+                        let day = min_date.getDate();
+                        const nth = (day) => {
+                            if (day > 3 && day < 21) return 'th';
+                            switch (day % 10) {
+                              case 1:  return day+"st";
+                              case 2:  return day+"nd";
+                              case 3:  return day+"rd";
+                              default: return day+"th";
+                            }
+                          };
+
+                        return `${nth} ${this.getMonthName(min_date.getMonth(), 'narrow')} ${min_date.getFullYear()}`
+                    }),
+                ),
+            );
+            
+            this.querySelector('.reward_history_data_date_details').innerText = `${minDate} to ${maxDate}`;
+            this.querySelector('.reward_history_points_count.total_accumulated').innerText = total_accumulated;
+
+            let memberDate = new Date(this.data.customer_sinced);
+            historyHTML += `<div class="date_bottom_cards">{{ 'customer.account.reward.member_since' | t }} ${memberDate.getDate()} ${this.getMonthName(memberDate.getMonth())} ${memberDate.getFullYear()}</div>`;
+
+            this.historyHTML.innerHTML = historyHTML;
+        })
+        .catch(error => console.error(`Get Drop history Fetch error : ${error}`));
+    }
+    groupedHistory(data) {
+        const organizedData = {};
+
+        // Grouping data by year
+        data.forEach(item => {
+            const year = item.date.substring(0, 4);
+            const month = item.date.substring(5, 7);
+            
+            if (!organizedData[year]) {
+                organizedData[year] = {};
+            }
+
+            if (!organizedData[year][month]) {
+                organizedData[year][month] = [];
+            }
+
+            organizedData[year][month].push(item);
+        });
+
+        // Sorting months in descending order
+        Object.keys(organizedData).forEach(year => {
+            organizedData[year] = Object.fromEntries(
+                Object.entries(organizedData[year]).sort((a, b) => b[0] - a[0])
+            );
+        });
+
+        return organizedData;
+    }
+    getMonthName(monthNumber, length = 'long') {
+        const date = new Date();
+        date.setMonth(monthNumber - 1);
+        
+        return date.toLocaleString('en-US', { month: length });
+    }
+}
+customElements.define('drop-history', DropHistory);

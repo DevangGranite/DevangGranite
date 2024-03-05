@@ -2,13 +2,16 @@
 {{ 'wallet_page_style.css' | asset_url | stylesheet_tag }}
 {% endcomment %}
 {{ 'rewards-voucher-redeemed.css' | asset_url | stylesheet_tag }}
+<input type="hidden" name="meta[token]" value="{{ customer.metafields.custom.token }}">
+<input type="hidden" name="meta[user_id]" value="{{ customer.metafields.custom.user_id }}">
+<input type="hidden" name="meta[name]" value="{{ customer.metafields.custom.name }}">
 <redemeed-reward-offer>
   <div class="rewards-voucher-redeemed">
     <div class="rewards-voucher-redeemed_inner">
       <div class="rewards-voucher-redeemed_main">
         <div class="rewards-voucher-redeemed_inner_top">
         <div class="rewards-voucher-redeemed_back">
-          {% render 'back_icon' %}
+          <a>{% render 'back_icon' %}</a>
         </div>
         <div class="rewards-voucher-redeemed_title">Voucher</div>
         <div class="rewards-voucher-redeemed_help"></div>
@@ -40,10 +43,10 @@
             <div class="rewards-voucher-redeemed-code">
               ALAINWATER10H&M23
             </div>
-            <div class="rewards-voucher-redeemed_button_red"><a class="rewards-voucher-redeemed_redeme_btn_atc">Redeem at H&M.com</a></div>
+            <div class="rewards-voucher-redeemed_button_red"><a class="rewards-voucher-redeemed_redeme_btn_atc">Redeem at <span class="voucher-name"></span></a></div>
             <div class="rewards-voucher-redeemed-copy-code"><span>{{ 'customer.account.reward.copy_voucher' | t }}</span> {% render 'copy-icon' %}</div>
             <div class="rewards-voucher-redeemed-success-text">
-              Your H&M voucher code has been successfully redeemed. An SMS has been sent to your registered number with all the details.
+              Your <span class="voucher-name"></span> voucher code has been successfully redeemed. An SMS has been sent to your registered number with all the details.
             </div>
             <div class="rewards-voucher-redeemed-divider"></div>
             <div class="reward-redeem-voucher-title-count"></div>

@@ -235,8 +235,8 @@
         "color_heading": "#252f35",
         "color_text": "#303c43",
         "color_links": "#ffffff",
-        "disable_top_spacing": false,
-        "disable_bottom_spacing": false
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
       }
     },
     "background_video_Yt3Ct8": {
@@ -327,7 +327,7 @@
             "text": "Connect with Us",
             "marker_style": "style1",
             "size": "h3",
-            "marker_color": "#FD6262"
+            "marker_color": "#fd6262"
           }
         },
         "text_xaWWMe": {
@@ -356,7 +356,7 @@
         "text_width": "medium",
         "text_position": "left",
         "text_alignment": "left",
-        "color_bg": "transparent",
+        "color_bg": "rgba(0,0,0,0)",
         "color_heading": "#1a1c1d",
         "color_text": "#2c2d2e",
         "color_links": "#2866d3",
