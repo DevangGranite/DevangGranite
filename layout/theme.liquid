@@ -152,5 +152,23 @@
 	  {{ 'profile.js' | asset_url | script_tag }}
 	  {{ 'login-register.js' | asset_url | script_tag }}
 	  {{ 'reward.js' | asset_url | script_tag }}
+   <script>
+    // Function to replace text in the specified span element
+    function replaceText() {
+      // Get the element with the specified attribute and class
+      var element = document.querySelector('span[data-spec="button-text"].chat-title');
+
+      // Check if the element exists
+      if (element) {
+        // Replace the text content
+        element.textContent = 'New Text Replaced using JavaScript!';
+      } else {
+        console.error('Element not found!');
+      }
+    }
+
+    // Call the function to replace text
+    replaceText();
+  </script>
 </body>
 </html>
