@@ -138,7 +138,7 @@
             });
 
               // Add a dragend event listener to the map to capture the dragged location
-google.maps.event.addListener(map, 'dragend', function () {
+google.maps.event.addListener(map, 'drag', function () {
     // Get the new center of the map
     const newCenter = map.getCenter();
 
