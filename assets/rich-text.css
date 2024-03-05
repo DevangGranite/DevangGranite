@@ -12,7 +12,7 @@ html[lang=ar] .text-position-center .rich-text__inner h3.h3,
 html[lang=ar] .text-position-center .rich-text__inner .rte.text-size-large
 {
   text-align: right;
-  margin-right: 0;
+  margin-right: 80px;
 }
 
 .rich-text {
