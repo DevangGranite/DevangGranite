@@ -152,7 +152,7 @@
 	  {{ 'profile.js' | asset_url | script_tag }}
 	  {{ 'login-register.js' | asset_url | script_tag }}
 	  {{ 'reward.js' | asset_url | script_tag }}
-   <script>
+  <script>
     // Function to replace text in the specified span element
     function replaceText() {
       // Get the element with the specified attribute and class
@@ -163,7 +163,7 @@
         // Replace the text content
         element.textContent = 'New Text Replaced using JavaScript!';
       } else {
-        console.error('Element not found!');
+        console.error('Element not found! Check your selector or HTML structure.');
       }
     }
 
