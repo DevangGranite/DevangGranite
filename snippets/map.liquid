@@ -143,6 +143,24 @@ function updateLocation(location) {
         document.querySelector('input[name="lang"]').value = location.lng();
         document.getElementById('locationText').textContent = formattedAddress;
         document.getElementById('locationInput').value = formattedAddress;
+
+        // Remove the existing marker if it exists
+        if (marker) {
+          marker.setMap(null);
+        }
+
+        // Create a new marker at the selected location
+        marker = new google.maps.Marker({
+          position: location,
+          map: map,
+          title: 'Selected Location',
+          draggable: true,
+        });
+
+        // Add a dragend event listener to the marker to update the location
+        google.maps.event.addListener(marker, 'dragend', function() {
+          updateLocation(marker.getPosition());
+        });
       } else {
         console.error('Invalid or empty Geocoding API response');
       }
@@ -151,6 +169,7 @@ function updateLocation(location) {
       console.error('Error fetching data:', error);
     });
 }
+
 
 
 
