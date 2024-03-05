@@ -45,3 +45,9 @@
     color: rgba(92, 92, 94, 1);
     margin-left: -15px;
 }
+#subscription--warning {
+    color: rgb(85, 84, 90);
+    font-size: 12px;
+    line-height: 17px;
+    margin-top: 10px;
+}

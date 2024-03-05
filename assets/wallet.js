@@ -119,7 +119,7 @@ if (!customElements.get('wallet-balance')) {
         .then(response => {
           const transactions = response.response[transType];
           if (response.response[transType].length) {
-            this.createTransactionsList(transactions, 'debit', tabId);
+            this.createTransactionsList(transactions, transType, tabId);
           }
         })
     }

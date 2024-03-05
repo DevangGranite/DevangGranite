@@ -184,7 +184,8 @@
             "method_required": "يجب اقتراح طريقة الدفع.",
             "paypal_express_address_invalid": "قام PayPal بإرجاع عنوان غير صالح.",
             "shop_cash_unsupported_currency": "Shop Cash لا يدعم هذه العملة.",
-            "market_manager_blocks_wallet_payments": "طريقة الدفع غير مدعومة من قبل مدير السوق."
+            "market_manager_blocks_wallet_payments": "طريقة الدفع غير مدعومة من قبل مدير السوق.",
+            "saved_payment_methods_cvv_verification_disabled": "تتطلب طريقة الدفع المحددة التحقق من رمز CVV، وهو أمر غير ممكّن لهذا المتجر. حدد طريقة دفع مختلفة."
           },
           "tip": {
             "not_accepted_by_shop": "المتجر لا يقبل النصائح.",
@@ -3837,7 +3838,10 @@
         "expire_label": "سوف تنتهي في",
         "discount_code_voucher": "قسيمة كود الخصم",
         "copy_voucher": "نسخ قسيمة",
-        "copied_voucher": "قسيمة منسوخة"
+        "copied_voucher": "قسيمة منسوخة",
+        "tier": "الطبقة",
+        "member_since": "عضو منذ",
+        "reach_top_tier": "تهانينا، أنت في القمة"
       }
     },
     "order": {

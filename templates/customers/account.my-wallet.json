@@ -1,5 +1,10 @@
 {
   "sections": {
+    "breadcrumbs": {
+      "type": "account-breadcrumbs",
+      "settings": {
+      }
+    },
     "main": {
       "type": "my_wallet",
       "settings": {
@@ -7,6 +12,7 @@
     }
   },
   "order": [
+    "breadcrumbs",
     "main"
   ]
 }

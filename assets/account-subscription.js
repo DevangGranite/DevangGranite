@@ -66,8 +66,9 @@ if (!customElements.get('account-subscription')) {
       this.statusInput = this.querySelectorAll('[name="pause_resume"]');
       this.statusText = document.getElementById('pause_resume');
       this.nextDelivery = document.getElementById('next_date');
-      this.productLink = this.querySelector('[data-product]');
+      this.productLink = this.querySelectorAll('[data-product]');
       this.totalPrice = this.querySelector('[data-total]');
+      this.initialPrice = this.querySelector('[data-initialprice]');
       this.address = this.querySelector('[name="address"]');
     }
     initSubscriptionData() {
@@ -103,7 +104,9 @@ if (!customElements.get('account-subscription')) {
     }
     setSubscriptionFields(subscriptionData, productData) {
       this.orderId = subscriptionData.id;
-      this.productLink.innerText = productData.product_name;
+      this.productLink.forEach(product => {
+        product.innerText = productData.product_name;
+      });
       this.productPrice = (productData.price_per_unit + productData.price_per_unit * parseFloat(productData.vat)/100);
       this.nextDelivery.value = this.prettyDate(new Date(subscriptionData.delivery_date));
       this.inititalDeliveryDate = subscriptionData.delivery_date;
@@ -112,6 +115,7 @@ if (!customElements.get('account-subscription')) {
       this.initialQuantity = productData.quantity
       this.quantityInput.value = this.initialQuantity;
       this.totalPrice.innerText = (this.productPrice * this.quantityInput.value).toFixed(2);
+      this.initialPrice.innerText = (this.productPrice * this.quantityInput.value).toFixed(2);
     }
     placeSubscription() {
       fetch('https://alainappuat.gdadmin.org/shopifyApiV2/placeSubscription', {

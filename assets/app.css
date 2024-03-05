@@ -630,6 +630,10 @@ code, .code-inline {
 .row-wallet {
   max-width: 1156px;
 }
+.row-my-wallet {
+  box-sizing: content-box;
+  max-width: 816px;
+}
 .short-width-row {
   max-width: 1024px;
   margin-right: auto;
@@ -4230,14 +4234,29 @@ line-height: 34px;
   margin-right: auto;
   margin-left: auto;
 }
+.account-subscription--wrapper {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: content-box;
+}
 @media screen and (max-width: 767px) {
   .shopify-block[id^="shopify-block-socialembed_instagram_feed_app_block"] {
     padding: 0 15px;
+  }
+  .account-subscription--wrapper {
+    flex-direction: column;
   }
 }
 @media screen and (min-width: 768px) {
   .shopify-block[id^="shopify-block-socialembed_instagram_feed_app_block"] {
     padding: 0 50px;
+  }
+  .account-subscription--wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 

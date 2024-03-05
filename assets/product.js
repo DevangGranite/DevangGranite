@@ -65,12 +65,17 @@ if (!customElements.get('variant-selects')) {
             mandatoryStatus = document.querySelector('.mandatory-payment-status');
 
           if (select.getAttribute('name') === 'options[Mandatory Bottle Deposit]') {
-            console.log(fieldset.querySelector('select').value)
-
+            const warningElement = document.getElementById('subscription--warning');
             if (select.value === 'I already have an empty bottle to return') {
               mandatoryStatus.innerText = `(Bottle deposit not included)`;
+
+              if (!warningElement) {
+                const warninglabel = `<div id="subscription--warning">By confirming you have a returnable bottle, you accept responsibility for its return upon delivery. Failure to do so may result in a fee.</div>`
+                select.closest('.select').insertAdjacentHTML('afterend', warninglabel);
+              }
             } else {
               mandatoryStatus.innerText = `(Bottle deposit included)`;
+              warningElement?.remove();
             }
           }
 

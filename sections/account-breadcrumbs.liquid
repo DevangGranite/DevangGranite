@@ -1,23 +1,23 @@
 {{- 'breadcrumbs.css' | asset_url | stylesheet_tag -}}
-<div class="{% if template contains 'wallet' %}row row-wallet{% else %}account-subscription--wrapper{% endif %}">
+<div class="{% if template contains 'product.wallet' %}row row-wallet{% elsif template contains 'my-wallet' %}row row-my-wallet{% else %}account-subscription--wrapper{% endif %}">
   <scroll-shadow>
     <nav class="breadcrumbs account-breadcrumbs" aria-label="breadcrumbs">
       <a href="{{ routes.account_url }}" title="{{ 'sections.breadcrumbs.my_account' | t | escape }}">{{ 'sections.breadcrumbs.my_account' | t }}</a>
       {% if template contains 'manage-subscriptions' %}
         <i>&#x3e;</i>
         <a href="{{ routes.account_url | append: '?view=manage-subscriptions' }}" data-route="Manage Subscriptions">Manage Subscriptions</a>
-      {% endif %}
-      {% if template contains 'delivery-address' %}
+      {% elsif template contains 'delivery-address' %}
         <i>&#x3e;</i>
         <a href="{{ routes.account_url | append: '?view=manage-subscriptions' }}" data-route="Manage Subscriptions">Manage Subscriptions</a>
         <i>&#x3e;</i>
         <a href="{{ routes.account_url | append: '?view=delivery-address' }}" data-route="Manage Subscriptions">Delivery Address</a>
-      {% endif %}
-
-      {% if template contains 'wallet' %}
+      {% elsif template contains 'product.wallet' %}
         <i>&#x3e;</i>
         <a href="{{ routes.account_url | append: '/products/top-up-wallet' }}" data-route="Top Up Wallet">Top Up Wallet</a>
-      {% endif %}      
+      {% elsif template contains 'my-wallet' %}
+        <i>&#x3e;</i>
+        <a href="{{ routes.account_url | append: '/account?view=my-wallet' }}" data-route="My Wallet">My Wallet</a>
+      {% endif %}
     </nav>
   </scroll-shadow>
 </div>
