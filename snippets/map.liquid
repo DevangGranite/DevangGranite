@@ -123,9 +123,7 @@
             }
         }
 
-        let dragEndTimeout; // Variable to store the timeout ID
-
-// Function to initialize the map
+        // Function to initialize the map
 function initMap() {
     // Create a new map instance and set its properties
     map = new google.maps.Map(document.getElementById('map'), {
@@ -141,18 +139,11 @@ function initMap() {
 
     // Add a drag event listener to the map to capture the dragged location continuously
     google.maps.event.addListener(map, 'drag', function () {
-        // Clear any existing timeout
-        clearTimeout(dragEndTimeout);
-
-        // Set a timeout to update the location after a short delay (e.g., 200 milliseconds)
-        dragEndTimeout = setTimeout(function () {
-            updateLocation(map.getCenter());
-        }, 200);
+        updateLocation(map.getCenter());
     });
 
     // Add a dragend event listener to the map to capture the dragged location when dragging stops
     google.maps.event.addListener(map, 'dragend', function () {
-        clearTimeout(dragEndTimeout); // Clear the timeout to prevent additional updates
         updateLocation(map.getCenter());
     });
 }
