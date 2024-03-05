@@ -655,7 +655,7 @@ html.popup-overlap body:before {
       min-height: 55px;      
     }
 	#mapPopUp {
-		height: 95vh;
+		height: 93vh;
 		overflow: hidden;
 	}
 	#map {
