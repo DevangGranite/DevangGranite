@@ -650,33 +650,19 @@ html.popup-overlap body:before {
     color:red;
 }
 
-.thb-form-container .create_form_wrapper input {
-  min-height: 55px;
-}
 
+@media only screen and (max-width: 600px) {
+  .thb-form-container .create_form_wrapper input {      
+    min-height: 55px;      
+  }
 #mapPopUp {
   height: 93vh;
   overflow: hidden;
 }
-
-#ShopifyChat {
-  z-index: 999 !important;
+#map {
+  height: 60vh !important;       
 }
-
-@media only screen and (max-width: 320px) {
-  #map {
-    height: 50vh !important;
-  }
-}
-
-@media (min-width: 321px) and (max-width: 399px) {
-  #map {
-    height: 60vh !important;
-  }
-}
-
-@media (min-width: 400px) and (max-width: 766px) {
-  #map {
-    height: 70vh !important;
+  #ShopifyChat {
+      z-index: 999 !important;
   }
 }
