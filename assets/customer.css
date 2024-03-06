@@ -570,11 +570,15 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
   flex: 1;
   margin-right: 8px;
 }
-.account-edit-address--button {
+.account-edit-address--button,
+.account-resume--button {
   color: #2461CC;
   font-size: 12px;
   line-height: 18px;
   text-decoration: underline;
+}
+#pause_resume {
+  margin-right: 8px;
 }
 .account-pause-options--dropdown {
   color: #2461CC;
@@ -583,6 +587,10 @@ html[lang="ar"] .customer-welcome-img--wrapper:nth-child(n+2) {
   display: flex;
   align-items: center;
   margin-left: 8px;
+}
+[data-pause],
+[data-resume] {
+  display: none;
 }
 .account-pause-options--dropdown.opened-modal img {
   transform: none;

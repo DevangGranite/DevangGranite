@@ -1,3 +1,6 @@
+<input type="hidden" name="meta[token]" value="{{ customer.metafields.custom.token }}">
+<input type="hidden" name="meta[user_id]" value="{{ customer.metafields.custom.user_id }}">
+<input type="hidden" name="meta[name]" value="{{ customer.metafields.custom.name }}">
 <clip-the-deal>
   <div class="clip_the_deal_main">
     <div class="clip_the_deal_inner">
@@ -41,7 +44,7 @@
             <span class="range_icon_move"><img src="{{ 'Green.svg' | file_url }}" alt="Green Drop"></span>
           </div>
           <div class="clip_the_deal_inner_data_points">
-            <a href="{{ section.settings.h_link }}">{{ section.settings.h_label }}</a>
+            <a href="{{ routes.account_url | append:'?view=rewards-history'}}">{{ section.settings.h_label }}</a>
           </div>
           <!-- <div class="clip_the_deal_data_drops_range mobile"></div> -->
           <div class="range_drops_main mobile">

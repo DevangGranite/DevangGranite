@@ -31,7 +31,7 @@ function getCookie(name) {
 
 /** get customer reward data **/
 async function getCustomerReward(){
-    return fetch(`https://alainappuat.gdadmin.org/shopifyApiV2/getCTDCustomer/${getCookie('user_id')}`, {
+    return fetch(`https://alainappuat.gdadmin.org/shopifyApiV2/getCTDCustomer/${document.querySelector('[name="meta[user_id]"]').value}`, {
         method: 'GET',
         headers:{
             'lancode':'en',
@@ -52,7 +52,7 @@ async function getCustomerReward(){
 }
 
 async function getCustomerRewardOfferes(){
-    return fetch(`https://alainappuat.gdadmin.org/shopifyApiV2/getCTDCustomerRewards/${getCookie('user_id')}/0/4`, {
+    return fetch(`https://alainappuat.gdadmin.org/shopifyApiV2/getCTDCustomerRewards/${document.querySelector('[name="meta[user_id]"]').value}/0/100`, {
         method: 'GET',
         headers:{
             'lancode':'en',
@@ -94,6 +94,9 @@ async function rewardOfferDetail(reward_id){
 class AccountMyReward  extends HTMLElement{
     constructor() {
         super();
+        this.user_id = document.querySelector('[name="meta[user_id]"]');
+        this.user_name = document.querySelector('[name="meta[name]"]');
+        this.token = document.querySelector('[name="meta[token]"]');
         this.currentTierImage = "{{ 'Blue_Tier.png' | file_url }}";
         this.next_tier = "{{ 'customer.account.reward.green_tier' | t}}";
         this.rewardProgressCompleteBar = this.querySelector('.customer-rewards-progress--complete');
@@ -184,7 +187,7 @@ class ClipTheDeal  extends HTMLElement{
             this.expireDrop.innerHTML = `<strong>${this.data.points_expiring} {{ 'customer.account.reward.drop' | t }}</strong> 
             {{ 'customer.account.reward.expire_label' | t }} ${this.expireDate.getDate()}/${this.expireDate.getMonth() + 1}/${this.expireDate.getFullYear()}`;
 
-        this.rewardPriceTimer.innerHTML = (this.data.current_points > 80) ? "{{ 'customer.account.reward.reach_top_tier' | t }}" : `${this.data.points_until_next_tier} {{ 'customer.account.reward.until_next_tier' | t}}<span class="clip_the_deal_data_range_title_tier">${this.next_tier}</span>`;
+        this.rewardPriceTimer.innerHTML = (this.data.current_points > 80) ? "{{ 'customer.account.reward.reach_top_tier' | t }}" : `${this.data.points_until_next_tier} {{ 'customer.account.reward.until_next_tier' | t}}<span class="clip_the_deal_data_range_title_tier"> ${this.nextTierTitle}</span>`;
 
         let memberDate = new Date(this.data.customer_sinced);
         this.memberDate.innerText = `{{ 'customer.account.reward.member_since' | t }} ${memberDate.getDate()} ${memberDate.toLocaleString('default', { month: 'long' })} ${memberDate.getFullYear()}`;
@@ -258,7 +261,7 @@ class ClipTheDeal  extends HTMLElement{
                 }
                 this.offerPlatinum += `
                     <a href="/account?view=rewards-redeem-voucher&reward=${offer.id}"
-                        <div class="cards_redeme_inner platinum_offer_card inactive ${this.offerInactiveClass}">
+                        <div class="cards_redeme_inner platinum_offer_card ${this.offerInactiveClass}">
                             <div class="cards_redeme_inner_image">
                                 <img src="${offer.image}" width="112" height="104" alt="${offer.name}">
                             </div>
@@ -557,7 +560,10 @@ class DropHistory extends HTMLElement {
             const minDate = new Date(Math.min(...dates));
             const maxDate = new Date(Math.max(...dates));
 
-            this.querySelector('.reward_history_data_date_details').innerText = `From ${nth(minDate.getDate())} ${this.getMonthName(minDate.getMonth(), 'short')} ${minDate.getFullYear().toString().slice(-2)} to ${nth(maxDate.getDate())} ${this.getMonthName(maxDate.getMonth(), 'short')} ${maxDate.getFullYear().toString().slice(-2)}`;
+            if(Array.isArray(data.response) && data.response.length > 0 ){
+                this.querySelector('.reward_history_data_date_details').innerText = `From ${nth(minDate.getDate())} ${this.getMonthName(minDate.getMonth(), 'short')} ${minDate.getFullYear().toString().slice(-2)} to ${nth(maxDate.getDate())} ${this.getMonthName(maxDate.getMonth(), 'short')} ${maxDate.getFullYear().toString().slice(-2)}`;
+            }
+
             this.querySelector('.reward_history_points_count.total_accumulated').innerText = total_accumulated;
 
             let memberDate = new Date(this.data.customer_sinced);
@@ -579,6 +585,7 @@ class DropHistory extends HTMLElement {
                 organizedData[year] = {};
             }
 
+            
             if (!organizedData[year][month]) {
                 organizedData[year][month] = [];
             }

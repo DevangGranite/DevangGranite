@@ -2,7 +2,7 @@ if (!customElements.get('account-subscription')) {
   class FormHandler extends HTMLElement {
     constructor() {
       super();
-      this.userId = window.getCookie('user_id');
+      this.userId = document.querySelector('[name="meta[user_id]"]').value;
       this.inputElements = this.querySelectorAll('input, select');
       this.submitButton = this.querySelector('[type="submit"]');
       this.changeEvent = new Event('change', {
@@ -49,7 +49,8 @@ if (!customElements.get('account-subscription')) {
       super();
       this.emptyScreen = document.getElementById('account-subscriptions--empty');
       this.presentScreen = document.getElementById('account-subscriptions--present');
-      this.editPauseStatusButton = this.querySelector('.account-pause-options--dropdown');
+      this.editPauseStatusButton = this.querySelector('[data-pause]');
+      this.resumeStatusButton = this.querySelector('[data-resume]');
       this.cancelSubscriptionButton = this.querySelectorAll('.account-open-cancel--modal, .account-close-cancel-modal--icon, .account-close-cancel-modal--button');
       this.cancelSubscriptionModal = this.querySelector('.account-cancel-subscription-modal--wrapper');
       this.quantityMinus = this.querySelector('.account-quantity--minus');
@@ -91,8 +92,8 @@ if (!customElements.get('account-subscription')) {
           console.error('Error updating address:', error);
         });
     }
-    initSubscriptionData() {
-      fetch('https://alainappuat.gdadmin.org/shopifyApiV2/subscriptionList', {
+    getSubscriptionList(status) {
+      return fetch('https://alainappuat.gdadmin.org/shopifyApiV2/subscriptionList', {
         method: 'POST',
         headers: {
           'lancode': 'en',
@@ -101,19 +102,43 @@ if (!customElements.get('account-subscription')) {
         },
         body: JSON.stringify({
           user_id: this.userId,
-          status: 1
+          status: status
         })
       })
-        .then(response => response.json()).then(response => {
-          const subscriptionData = response.response[0];
+        .then(response => response.json());
+    }
+    initSubscriptionData() {
+      this.getSubscriptionList(1)
+        .then(active => {
+          const subscriptionData = active.response[0];
           if (subscriptionData) {
             const productData = subscriptionData.custom_orders[0];
             this.setSubscriptionFields(subscriptionData, productData);
             this.setInitials();
             this.presentScreen.style.display = 'block';
+            this.editPauseStatusButton.style.display = 'block';
           }
           else {
             this.emptyScreen.style.display = 'flex';
+
+            /*this.getSubscriptionList(3)
+              .then(paused => {
+                console.log(paused)
+                const subscriptionData = paused.response[0];
+                if (subscriptionData) {
+                  const productData = subscriptionData.custom_orders[0];
+                  this.setSubscriptionFields(subscriptionData, productData);
+                  this.setInitials();
+                  this.presentScreen.style.display = 'block';
+                  this.resumeStatusButton.style.display = 'block';
+                }
+                else {
+                  this.emptyScreen.style.display = 'flex';
+                }
+              })
+              .catch(() => {
+                this.submitButton.insertAdjacentHTML('afterend', `<div class="form--error">Something went wrong</div>`);
+              });*/
           }
         })
         .catch(() => {

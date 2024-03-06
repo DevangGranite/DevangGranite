@@ -44,7 +44,7 @@ html[lang=ar] .balance_content_help_main a.help_about_my_wallet.open_help_wallet
   padding-inline: 24px;
   padding-block: 8px;
 }
-.zero_wallet_top_up{
+.zero_wallet_top_up, .zero-wallet-transactions {
   max-width: 816px;
   margin-inline: auto;
   border-radius: 8px;
@@ -513,7 +513,7 @@ html[lang=ar] .balance_content_help_main a.help_about_my_wallet.open_help_wallet
   .zero_wallet_top_up .zero_wallet_image{
     flex: 1;
   }
-  .zero_wallet_top_up{
+  .zero_wallet_top_up {
     margin-top: 150px;
     margin-bottom: 150px;
     min-height: 152px;
@@ -521,6 +521,19 @@ html[lang=ar] .balance_content_help_main a.help_about_my_wallet.open_help_wallet
     align-items: center;
     padding: 24px;
   }
+.zero-wallet-transactions {
+  margin-top: 32px;
+  margin-bottom: 32px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  font-size: 16px;
+}
+.zero-wallet-transactions .zero_wallet_button{
+  flex: 1;
+  max-width: 224px;
+}
 .zero_wallet_main_btn:hover{
   color: #fff;
   background: #2461CC;
@@ -857,6 +870,9 @@ html[lang=ar] .balance_content_help_main a.help_about_my_wallet.open_help_wallet
     }
   }
   @media screen and ( max-width: 749px ){
+    .top_up_wallet_title h1 {
+      line-height: 30px;
+    }
     .available_funds .available_fund_currency{
       font-size: 16px;
     }
@@ -942,20 +958,25 @@ html[lang=ar] .balance_content_help_main a.help_about_my_wallet.open_help_wallet
     width: 100%;
     margin-top: 50px;
   } 
-  .zero_wallet_top_up{
+  .zero_wallet_top_up {
     position: relative;
     z-index: 1;
     border-radius: 16px 16px 0px 0px;
     background: #fff;
     margin-top: -30px;
     margin-bottom: 150px;
-    display: flex;
     flex-direction: column;
     align-items: center;
     padding: 24px;
   }
-
-/* Zero Ballance My Wallet */
+    .zero-wallet-transactions {
+      z-index: 1;
+      background: #fff;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px;
+    }
+      /* Zero Ballance My Wallet */
     .positioned_image_top{
       top: 15%;
     }
