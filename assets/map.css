@@ -79,10 +79,12 @@ button.gm-svpc {
 
 .thb-register-form button.confirm-icon {
     font-size: 16px;
-    background: #2461CC;
+    background: #2461cc;
     width: 100%;
     color: #fff;
     border-radius: 5px;
+    min-height: 30px;
+    margin-top: 5px;
 }
 
 #mapPopUp .address_Input {
