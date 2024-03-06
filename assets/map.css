@@ -46,3 +46,26 @@
     font-weight: 400;
     font-size: 12px;
   }
+#mapPopUp .address_Input {
+    position: relative;
+}
+.address_Input .address_button {
+    position: absolute;
+    top: 44%;
+    right: 4px;
+    transform: translateY(-50%);
+}
+.address_Input .address_button button.clear-button {
+     width: 40px;
+    height: 40px;
+    margin-right: 5px;
+}
+.address_Input .address_button button.clear-button2 {
+    background: #2461CC;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+}
+.address_Input .address_button button.clear-button2 img {
+    max-width: 40px;
+}
