@@ -68,224 +68,178 @@
   <button type="button" class="close-icon" onclick="closeMapPopup()">{% render 'svg-icons' with 'map-close' %}</button>
 </div>
 
-<script
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&libraries=places"
-></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&libraries=places"></script>
 <script>
-        let map;
-        let markers = [];
+    let map;
+    let markers = [];
 
-        function openMapPopup() {
-            let otpPopupHtml = document.getElementsByTagName('html')[0];
-            let popupElement = document.getElementById('mapPopUp');
+    function openMapPopup() {
+        let address = document.getElementById('locationInput').value;
 
-            if (popupElement) {
-                // Set display property to 'block'
-                popupElement.style.display = 'block';
+        if (address.trim() !== '') {
+            document.getElementById('locationInput').value = address;
+            updateLocationForAddress();
+        } else {
+            console.error('Please enter a valid address');
+        }
 
-                // Add a class to the element
-                otpPopupHtml.classList.add('popup-overlap');
+        let otpPopupHtml = document.getElementsByTagName('html')[0];
+        let popupElement = document.getElementById('mapPopUp');
 
-                // Check if initMap function is defined before calling
-                if (typeof initMap === 'function') {
-                    // Initialize the map when the popup is opened
-                    initMap();
+        if (popupElement) {
+            popupElement.style.display = 'block';
+            otpPopupHtml.classList.add('popup-overlap');
 
-                    // Request the user's current location
-                    getCurrentPosition();
+            if (typeof initMap === 'function') {
+                initMap();
+                getCurrentPosition();
+            } else {
+                console.error("initMap function is not defined");
+            }
+        } else {
+            console.error("Element with ID 'popup' not found");
+        }
+    }
+
+    function closeMapPopup() {
+        let otpPopupHtml = document.getElementsByTagName('html')[0];
+        let popupElement = document.getElementById('mapPopUp');
+        let locationTextElement = document.getElementById('locationText');
+
+        if (popupElement) {
+            otpPopupHtml.classList.remove('popup-overlap');
+            popupElement.style.display = 'none';
+            locationTextElement.innerText = '';
+            clearMarkers();
+        } else {
+            console.error("Element with ID 'popup' not found");
+        }
+    }
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: 25.199514, lng: 55.277397 },
+            zoom: 16,
+            gestureHandling: 'greedy',
+        });
+
+        google.maps.event.addListener(map, 'click', function (event) {
+            updateLocation(event.latLng);
+        });
+
+        google.maps.event.addListener(map, 'drag', function () {
+            updateLocation(map.getCenter());
+        });
+
+        google.maps.event.addListener(map, 'dragend', function () {
+            updateLocation(map.getCenter());
+        });
+    }
+
+    function getCurrentPosition() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {
+                maximumAge: 60000,
+                enableHighAccuracy: true
+            });
+        } else {
+            console.error('Geolocation is not supported by this browser');
+        }
+    }
+
+    function successCallback(position) {
+        const currentLocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+        };
+        map.setCenter(currentLocation);
+        updateLocation(currentLocation);
+    }
+
+    function errorCallback(error) {
+        console.error('Error getting current position:', error);
+    }
+
+    function updateLocation(location) {
+        const latLng = location instanceof google.maps.LatLng ? location : new google.maps.LatLng(location.lat, location.lng);
+
+        let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${latLng.lat().toFixed(6)},${latLng.lng().toFixed(6)}`;
+
+        fetch(apiAdd)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.status === 'OK' && data.results && data.results.length > 0 && data.results[0].formatted_address) {
+                    document.querySelector('input[name="lat"]').value = latLng.lat();
+                    document.querySelector('input[name="lang"]').value = latLng.lng();
+                    document.getElementById('locationText').innerText = data.results[0].formatted_address;
+                    document.getElementById('locationInput').value = data.results[0].formatted_address;
+                    clearMarkers();
+                    createMarker(latLng, data.results[0].formatted_address);
                 } else {
-                    console.error("initMap function is not defined");
+                    console.error('Geocoding data is incomplete or returned an error:', data);
                 }
-            } else {
-                console.error("Element with ID 'popup' not found");
-            }
-        }
-
-        function closeMapPopup() {
-            let otpPopupHtml = document.getElementsByTagName('html')[0];
-            let popupElement = document.getElementById('mapPopUp');
-            let locationTextElement = document.getElementById('locationText');
-
-            if (popupElement) {
-                // Remove the class from the element
-                otpPopupHtml.classList.remove('popup-overlap');
-
-                // Set display property to 'none'
-                popupElement.style.display = 'none';
-
-                // Clear the location text
-                locationTextElement.innerText = '';
-
-                // Clear existing markers on the map
-                clearMarkers();
-            } else {
-                console.error("Element with ID 'popup' not found");
-            }
-        }
-
-        // Function to initialize the map
-function initMap() {
-    // Create a new map instance and set its properties
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 25.199514, lng: 55.277397 }, // Set the initial map center
-        zoom: 16, // Set the initial zoom level (adjust as needed)
-        gestureHandling: 'greedy', // Enable one-finger panning on all devices
-    });
-
-    // Add a click event listener to the map to capture the selected location
-    google.maps.event.addListener(map, 'click', function (event) {
-        updateLocation(event.latLng);
-    });
-
-    // Add a drag event listener to the map to capture the dragged location continuously
-    google.maps.event.addListener(map, 'drag', function () {
-        updateLocation(map.getCenter());
-    });
-
-    // Add a dragend event listener to the map to capture the dragged location when dragging stops
-    google.maps.event.addListener(map, 'dragend', function () {
-        updateLocation(map.getCenter());
-    });
-}
-
-
-        function getCurrentPosition() {
-            if (navigator.geolocation) {
-                // Use getCurrentPosition to get the device's current location
-                navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {
-                    maximumAge: 60000, // Maximum age of cached position in milliseconds (1 minute)
-                    enableHighAccuracy: true // Request high accuracy (may use GPS)
-                });
-            } else {
-                console.error('Geolocation is not supported by this browser');
-            }
-        }
-
-        function successCallback(position) {
-            const currentLocation = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-
-            // Update the map center and location information
-            map.setCenter(currentLocation);
-            updateLocation(currentLocation);
-        }
-
-        function errorCallback(error) {
-            console.error('Error getting current position:', error);
-        }
-
-        // Function to update the location on the map and display location text
-        function updateLocation(location) {
-            const latLng = location instanceof google.maps.LatLng ? location : new google.maps.LatLng(location.lat, location.lng);
-
-            // Update the input field with the selected location
-            let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${latLng.lat().toFixed(6)},${latLng.lng().toFixed(6)}`;
-
-            // get address from lat and lng
-            fetch(apiAdd)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    if (data.status === 'OK' && data.results && data.results.length > 0 && data.results[0].formatted_address) {
-                        document.querySelector('input[name="lat"]').value = latLng.lat();
-                        document.querySelector('input[name="lang"]').value = latLng.lng();
-
-                        // Display location text
-                        document.getElementById('locationText').innerText = data.results[0].formatted_address;
-
-                        // Update the input field with the formatted address
-                        document.getElementById('locationInput').value = data.results[0].formatted_address;
-
-                        // Clear existing markers on the map
-                        clearMarkers();
-
-                        // Create a marker for the selected location
-                        createMarker(latLng, data.results[0].formatted_address);
-                    } else {
-                        console.error('Geocoding data is incomplete or returned an error:', data);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching data:', error);
-                });
-        }
-
-        // Function to create a marker on the map
-        function createMarker(location, address) {
-            // Create a marker at the specified location
-            const marker = new google.maps.Marker({
-                position: location,
-                map: map,
-                title: address,
-                draggable: true // Allow the marker to be dragged
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
             });
+    }
 
-            // Optional: Add an info window to the marker
-            const infoWindow = new google.maps.InfoWindow({
-                content: `<div><strong>${address}</strong></div>`
-            });
+    function createMarker(location, address) {
+        const marker = new google.maps.Marker({
+            position: location,
+            map: map,
+            title: address,
+            draggable: true
+        });
 
-            // Show the info window when the marker is clicked
-            marker.addListener('click', function () {
-                infoWindow.open(map, marker);
-            });
+        const infoWindow = new google.maps.InfoWindow({
+            content: `<div><strong>${address}</strong></div>`
+        });
 
-            // Update the location when the marker is dragged
-            google.maps.event.addListener(marker, 'dragend', function () {
-                updateLocation(marker.getPosition());
-            });
+        marker.addListener('click', function () {
+            infoWindow.open(map, marker);
+        });
 
-            // Store the marker in an array for later reference
-            markers.push(marker);
+        google.maps.event.addListener(marker, 'dragend', function () {
+            updateLocation(marker.getPosition());
+        });
+
+        markers.push(marker);
+    }
+
+    function clearMarkers() {
+        for (const marker of markers) {
+            marker.setMap(null);
         }
+        markers = [];
+    }
 
-        // Function to clear all markers from the map
-        function clearMarkers() {
-            for (const marker of markers) {
-                marker.setMap(null);
-            }
-            markers = [];
-        }
-
-        // Function to handle Enter key on the address input field
-        function handleEnterKey(event) {
-            if (event.key === 'Enter') {
-                // Prevent the default Enter key behavior (form submission)
-                event.preventDefault();
-
-                // Update location based on entered address
-                updateLocationForAddress();
-            }
-        }
-
-        // Function to update the location based on entered address
-        function updateLocationForAddress() {
-            var address = document.getElementById('locationInput').value;
-
-            // Use Google Maps Geocoding API to convert the address into latitude and longitude
-            var geocoder = new google.maps.Geocoder();
-            geocoder.geocode({ 'address': address }, function (results, status) {
-                if (status == 'OK' && results[0]) {
-                    var location = results[0].geometry.location;
-
-                    // Update the map center
-                    map.setCenter(location);
-
-                    // Update the location information
-                    updateLocation(location);
-                }
-            });
-        }
-
-        // Function to show map based on entered address
-        function showMapForAddress() {
-            openMapPopup();
+    function handleEnterKey(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
             updateLocationForAddress();
         }
+    }
+
+    function updateLocationForAddress() {
+        var address = document.getElementById('locationInput').value;
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status == 'OK' && results[0]) {
+                var location = results[0].geometry.location;
+                map.setCenter(location);
+                updateLocation(location);
+            }
+        });
+    }
+
+    function showMapForAddress() {
+        openMapPopup();
+        updateLocationForAddress();
+    }
 </script>
