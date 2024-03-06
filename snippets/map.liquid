@@ -73,16 +73,37 @@
     let map;
     let markers = [];
 
-    function openMapPopup() {
-        let address = document.getElementById('locationInput').value;
+    function showMapForAddress() {
+        var address = document.getElementById('addressInput').value;
 
         if (address.trim() !== '') {
-            document.getElementById('locationInput').value = address;
-            updateLocationForAddress();
+            // Call the function to update the map based on the entered address
+            updateMapForAddress(address);
+
+            // Open the map popup
+            openMapPopup();
         } else {
             console.error('Please enter a valid address');
         }
+    }
 
+    function updateMapForAddress(address) {
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status == 'OK' && results[0]) {
+                var location = results[0].geometry.location;
+                map.setCenter(location);
+                updateLocation(location);
+
+                // Optionally, you can close the map popup after updating the location
+                // closeMapPopup();
+            } else {
+                console.error('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    }
+
+    function openMapPopup() {
         let otpPopupHtml = document.getElementsByTagName('html')[0];
         let popupElement = document.getElementById('mapPopUp');
 
@@ -174,10 +195,7 @@
             })
             .then(data => {
                 if (data.status === 'OK' && data.results && data.results.length > 0 && data.results[0].formatted_address) {
-                    document.querySelector('input[name="lat"]').value = latLng.lat();
-                    document.querySelector('input[name="lang"]').value = latLng.lng();
                     document.getElementById('locationText').innerText = data.results[0].formatted_address;
-                    document.getElementById('locationInput').value = data.results[0].formatted_address;
                     clearMarkers();
                     createMarker(latLng, data.results[0].formatted_address);
                 } else {
@@ -228,18 +246,7 @@
 
     function updateLocationForAddress() {
         var address = document.getElementById('locationInput').value;
-        var geocoder = new google.maps.Geocoder();
-        geocoder.geocode({ 'address': address }, function (results, status) {
-            if (status == 'OK' && results[0]) {
-                var location = results[0].geometry.location;
-                map.setCenter(location);
-                updateLocation(location);
-            }
-        });
+        updateMapForAddress(address);
     }
 
-    function showMapForAddress() {
-        openMapPopup();
-        updateLocationForAddress();
-    }
 </script>
