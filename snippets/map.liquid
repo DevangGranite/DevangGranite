@@ -73,22 +73,30 @@
     let map;
     let markers = [];
 
-    function openMapPopup() {
-        let otpPopupHtml = document.getElementsByTagName('html')[0];
-        let popupElement = document.getElementById('mapPopUp');
+     function openMapPopup() {
+        let address = document.getElementById('locationInput').value;
 
-        if (popupElement) {
-            popupElement.style.display = 'block';
-            otpPopupHtml.classList.add('popup-overlap');
+        if (address.trim() !== '') {
+            document.getElementById('locationInput').value = address;
 
-            if (typeof initMap === 'function') {
-                initMap();
-                getCurrentPosition();  // Ensure that the map is initialized with current position
+            let otpPopupHtml = document.getElementsByTagName('html')[0];
+            let popupElement = document.getElementById('mapPopUp');
+
+            if (popupElement) {
+                popupElement.style.display = 'block';
+                otpPopupHtml.classList.add('popup-overlap');
+
+                if (typeof initMap === 'function') {
+                    initMap();
+                    updateLocationForAddress(address);  // Pass the address directly to updateLocationForAddress
+                } else {
+                    console.error("initMap function is not defined");
+                }
             } else {
-                console.error("initMap function is not defined");
+                console.error("Element with ID 'popup' not found");
             }
         } else {
-            console.error("Element with ID 'popup' not found");
+            console.error('Please enter a valid address');
         }
     }
 
@@ -231,14 +239,8 @@
         });
     }
 
-       function showMapForAddress() {
-        let address = document.getElementById('locationInput').value;
-
-        if (address.trim() !== '') {
-            openMapPopup();
-            updateLocationForAddress(address);
-        } else {
-            console.error('Please enter a valid address');
-        }
+    function showMapForAddress() {
+        openMapPopup();
+        updateLocationForAddress();
     }
 </script>
