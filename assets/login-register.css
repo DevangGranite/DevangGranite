@@ -650,34 +650,27 @@ html.popup-overlap body:before {
     color:red;
 }
 
-@media only screen and (max-width: 399px) {
-  .thb-form-container .create_form_wrapper input {      
-    min-height: 55px;      
-  }
+.thb-form-container .create_form_wrapper input {
+  min-height: 55px;
+}
+
 #mapPopUp {
   height: 93vh;
   overflow: hidden;
 }
-#map {
-  height: 50vh !important;       
+
+#ShopifyChat {
+  z-index: 999 !important;
 }
-  #ShopifyChat {
-      z-index: 999 !important;
+
+@media only screen and (max-width: 399px) {
+  #map {
+    height: 50vh !important;
   }
 }
 
-@media (max-width:400px) and (min-width:766px) {
-  .thb-form-container .create_form_wrapper input {      
-    min-height: 55px;      
-  }
-#mapPopUp {
-  height: 93vh;
-  overflow: hidden;
-}
-#map {
-  height: 60vh !important;       
-}
-  #ShopifyChat {
-      z-index: 999 !important;
+@media (min-width: 400px) and (max-width: 766px) {
+  #map {
+    height: 60vh !important;
   }
 }
