@@ -74,21 +74,21 @@
             console.error('Please enter a valid address');
         }
 
-        // let otpPopupHtml = document.getElementsByTagName('html')[0];
-        // let popupElement = document.getElementById('mapPopUp');
+        let otpPopupHtml = document.getElementsByTagName('html')[0];
+        let popupElement = document.getElementById('mapPopUp');
 
-        // if (popupElement) {
-        //     popupElement.style.display = 'block';
-        //     otpPopupHtml.classList.add('popup-overlap');
+        if (popupElement) {
+            popupElement.style.display = 'block';
+            otpPopupHtml.classList.add('popup-overlap');
 
-        //     if (typeof initMap === 'function') {
-        //         initMap();                
-        //     } else {
-        //         console.error("initMap function is not defined");
-        //     }
-        // } else {
-        //     console.error("Element with ID 'popup' not found");
-        // }
+            if (typeof initMap === 'function') {
+                initMap();                
+            } else {
+                console.error("initMap function is not defined");
+            }
+        } else {
+            console.error("Element with ID 'popup' not found");
+        }
     }
 
     function closeMapPopup() {
@@ -179,37 +179,29 @@
             });
     }
 
-    let fixedMarker;  // Declare a global variable for the fixed marker
+    function createMarker(location, address) {
+      const fixedPosition = map.getCenter();
+        const marker = new google.maps.Marker({
+            position: location,
+            map: map,
+            title: address,
+            draggable: false
+        });
 
-function createMarker(location, address) {
-    // Clear previous markers
-    clearMarkers();
+        const infoWindow = new google.maps.InfoWindow({
+            content: `<div><strong>${address}</strong></div>`
+        });
 
-    // Get the center of the map
-    const fixedPosition = map.getCenter();
+        marker.addListener('click', function () {
+            infoWindow.open(map, marker);
+        });
 
-    fixedMarker = new google.maps.Marker({
-        position: fixedPosition,
-        map: map,
-        title: address,
-        draggable: true
-    });
+        google.maps.event.addListener(marker, 'dragend', function () {
+            updateLocation(marker.getPosition());
+        });
 
-    const infoWindow = new google.maps.InfoWindow({
-        content: `<div><strong>${address}</strong></div>`
-    });
-
-    fixedMarker.addListener('click', function () {
-        infoWindow.open(map, fixedMarker);
-    });
-
-    google.maps.event.addListener(fixedMarker, 'dragend', function () {
-        updateLocation(fixedMarker.getPosition());
-    });
-
-    markers.push(fixedMarker);
-}
-
+        markers.push(marker);
+    }
 
     function clearMarkers() {
         for (const marker of markers) {
@@ -240,7 +232,7 @@ function createMarker(location, address) {
     function updateLocationForAddress1() {
         var address = document.getElementById('addressInput').value;
         var geocoder = new google.maps.Geocoder();
-        geocoder.geocode({ 'address': address }, function (results, status) {
+        geocoder.geocode({ 'address1': address1 }, function (results, status) {
             if (status == 'OK' && results[0]) {
                 var location = results[0].geometry.location;
                 map.setCenter(location);
