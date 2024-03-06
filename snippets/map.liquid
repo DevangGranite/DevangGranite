@@ -74,21 +74,21 @@
             console.error('Please enter a valid address');
         }
 
-        let otpPopupHtml = document.getElementsByTagName('html')[0];
-        let popupElement = document.getElementById('mapPopUp');
+        // let otpPopupHtml = document.getElementsByTagName('html')[0];
+        // let popupElement = document.getElementById('mapPopUp');
 
-        if (popupElement) {
-            popupElement.style.display = 'block';
-            otpPopupHtml.classList.add('popup-overlap');
+        // if (popupElement) {
+        //     popupElement.style.display = 'block';
+        //     otpPopupHtml.classList.add('popup-overlap');
 
-            if (typeof initMap === 'function') {
-                initMap();                
-            } else {
-                console.error("initMap function is not defined");
-            }
-        } else {
-            console.error("Element with ID 'popup' not found");
-        }
+        //     if (typeof initMap === 'function') {
+        //         initMap();                
+        //     } else {
+        //         console.error("initMap function is not defined");
+        //     }
+        // } else {
+        //     console.error("Element with ID 'popup' not found");
+        // }
     }
 
     function closeMapPopup() {
