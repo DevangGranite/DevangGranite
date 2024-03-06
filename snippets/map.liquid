@@ -230,7 +230,7 @@
     }
 
     function updateLocationForAddress1() {
-        var address = document.getElementById('addressInput').value;
+        var address1 = document.getElementById('addressInput').value;
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({ 'address1': address1 }, function (results, status) {
             if (status == 'OK' && results[0]) {
