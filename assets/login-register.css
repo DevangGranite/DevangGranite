@@ -659,7 +659,7 @@ html.popup-overlap body:before {
 		overflow: hidden;
 	}
 	#map {
-		height: 65vh !important;       
+		height: 55vh !important;       
 	}
     #ShopifyChat {
         z-index: 999 !important;
