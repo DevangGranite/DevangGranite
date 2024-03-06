@@ -538,49 +538,26 @@ class DropHistory extends HTMLElement {
                 });
             });
 
-            // Get Max date
-            const maxDate = new Date(
-                Math.max(
-                    data.response.map(element => {
-                        let max_date = new Date(element.date);
-                        let day = max_date.getDate();
-                        const nth = (day) => {
-                            if (day > 3 && day < 21) return 'th';
-                            switch (day % 10) {
-                              case 1:  return day+"st";
-                              case 2:  return day+"nd";
-                              case 3:  return day+"rd";
-                              default: return day+"th";
-                            }
-                          };
+            // date ordinal
+            const nth = (d) => {
+                if (d > 3 && d < 21)
+                    return d+'th';
+                switch (d % 10) {
+                  case 1:  
+                    return d+"st";
+                  case 2:  
+                    return d+"nd";
+                  case 3:  
+                    return d+"rd";
+                  default: 
+                    return d+"th";
+                }
+            };
+            const dates = data.response.map(item => new Date(item.date));
+            const minDate = new Date(Math.min(...dates));
+            const maxDate = new Date(Math.max(...dates));
 
-                        return `${nth} ${this.getMonthName(max_date.getMonth(), 'narrow')} ${max_date.getFullYear()}`
-                    }),
-                ),
-            );
-
-            // Get Min date
-            const minDate = new Date(
-                Math.min(
-                    data.response.map(element => {
-                        let min_date = new Date(element.date);
-                        let day = min_date.getDate();
-                        const nth = (day) => {
-                            if (day > 3 && day < 21) return 'th';
-                            switch (day % 10) {
-                              case 1:  return day+"st";
-                              case 2:  return day+"nd";
-                              case 3:  return day+"rd";
-                              default: return day+"th";
-                            }
-                          };
-
-                        return `${nth} ${this.getMonthName(min_date.getMonth(), 'narrow')} ${min_date.getFullYear()}`
-                    }),
-                ),
-            );
-            
-            this.querySelector('.reward_history_data_date_details').innerText = `${minDate} to ${maxDate}`;
+            this.querySelector('.reward_history_data_date_details').innerText = `From ${nth(minDate.getDate())} ${this.getMonthName(minDate.getMonth(), 'short')} ${minDate.getFullYear().toString().slice(-2)} to ${nth(maxDate.getDate())} ${this.getMonthName(maxDate.getMonth(), 'short')} ${maxDate.getFullYear().toString().slice(-2)}`;
             this.querySelector('.reward_history_points_count.total_accumulated').innerText = total_accumulated;
 
             let memberDate = new Date(this.data.customer_sinced);
