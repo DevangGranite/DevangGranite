@@ -1,3 +1,4 @@
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&libraries=places"></script>
 {{ 'map.css' | asset_url | stylesheet_tag }}
 
 <!-- Popup content -->
@@ -31,7 +32,6 @@
   <button type="button" class="close-icon" onclick="closeMapPopup()">{% render 'svg-icons' with 'map-close' %}</button>
 </div>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&libraries=places"></script>
 <script>
     let map;
     let markers = [];
