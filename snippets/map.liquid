@@ -180,6 +180,9 @@
     }
 
     function createMarker(location, address) {
+    // Clear previous markers
+    clearMarkers();
+
     const marker = new google.maps.Marker({
         position: location,
         map: map,
