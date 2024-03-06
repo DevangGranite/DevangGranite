@@ -128,6 +128,10 @@ button.gm-svpc {
     margin-left: 5px;
   }
 }
-.address_Input input#addressInput:-internal-autofill-selected {
-    background-color: transparent !important;
+
+.address_Input input#addressInput:-webkit-autofill,
+.address_Input input#addressInput:-webkit-autofill:hover, 
+.address_Input input#addressInput:-webkit-autofill:focus, 
+.address_Input input#addressInput:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
