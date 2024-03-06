@@ -221,11 +221,12 @@
         markers = [];
     }
 
-    function handleEnterKey(event) {
+     function handleEnterKey(event) {
         if (event.key === 'Enter') {
             event.preventDefault();
             updateLocationForAddress();
         }
+        toggleShowMapButtonState();
     }
 
     function updateLocationForAddress() {
@@ -252,12 +253,27 @@
         });
     }
 
-    function showMapForAddress() {
-        openMapPopup();
-        updateLocationForAddress();
-        updateLocationForAddress1();
+      function showMapForAddress() {
+        var address = document.getElementById('addressInput').value;
+        if (address.trim() !== '') {
+            openMapPopup();
+            updateLocationForAddress(address);
+        } else {
+            console.error('Please enter a valid address');
+        }
     }
     function clearAddressInput() {
         document.getElementById('addressInput').value = '';
+        toggleShowMapButtonState();
+    }
+     function toggleShowMapButtonState() {
+        var showMapButton = document.getElementById('showMapButton');
+        var addressInput = document.getElementById('addressInput').value.trim();
+
+        if (addressInput !== '') {
+            showMapButton.removeAttribute('disabled');
+        } else {
+            showMapButton.setAttribute('disabled', 'disabled');
+        }
     }
 </script>
