@@ -56,15 +56,14 @@
   <input type="text" id="addressInput" placeholder="Enter address" onkeydown="handleEnterKey(event)">
   <button type="button" onclick="clearAddressInput()"><img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/clear.png?v=1709713777"></button>
 
-   <!-- Button to show map based on address -->
-  <button type="button" onclick="showMapForAddress()">Show on Map</button>
-  
   <!-- Container for the map -->
   <div id="map"></div>
 
   <!-- Display selected location as text -->
   <div id="locationText"></div>
 
+  <!-- Button to show map based on address -->
+  <button type="button" onclick="showMapForAddress()">Show on Map</button>
 
   <!-- Close button -->
   <button type="button" class="close-icon" onclick="closeMapPopup()">{% render 'svg-icons' with 'map-close' %}</button>
