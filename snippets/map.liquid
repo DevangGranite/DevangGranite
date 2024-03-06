@@ -180,11 +180,12 @@
     }
 
     function createMarker(location, address) {
+      const fixedPosition = map.getCenter();
         const marker = new google.maps.Marker({
             position: location,
             map: map,
             title: address,
-            draggable: true
+            draggable: false
         });
 
         const infoWindow = new google.maps.InfoWindow({
