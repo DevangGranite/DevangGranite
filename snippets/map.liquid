@@ -100,17 +100,16 @@
         });
     }
 
-      function getCurrentPosition() {
-            if (navigator.geolocation) {
-                // Use getCurrentPosition to get the device's current location
-                navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {
-                    maximumAge: 100000, // Maximum age of cached position in milliseconds (1 minute)
-                    enableHighAccuracy: true // Request high accuracy (may use GPS)
-                });
-            } else {
-                console.error('Geolocation is not supported by this browser');
-            }
+    function getCurrentPosition() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {
+                maximumAge: 60000,
+                enableHighAccuracy: true
+            });
+        } else {
+            console.error('Geolocation is not supported by this browser');
         }
+    }
 
     function successCallback(position) {
         const currentLocation = {
