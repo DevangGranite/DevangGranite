@@ -489,7 +489,7 @@ class LoginCustomer extends HTMLElement {
             this.customLoginElement.style.display = 'none';
           }else{
             setCookie('user_id',data.response['0'].id);
-            this.customerLogin(JSON.stringify({email:data.response['0'].email_id,name:this.username,user_id:this.user_id,customer_id:'7186123587820'}));
+            this.customerLogin(JSON.stringify({email:data.response['0'].email_id,name:this.username,user_id:this.user_id}));
           } 
         }else{
           this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";
@@ -598,7 +598,7 @@ class LoginCustomer extends HTMLElement {
       if(data.responce)
         this.querySelector('#confirmEmailError').innerText = "Something went wrong. Please try again latter!"
       else
-        this.customerLogin(JSON.stringify({email:this.email.value,name:this.username,user_id:this.user_id,customer_id:'7186123587820'}));
+        this.customerLogin(JSON.stringify({email:this.email.value,name:this.username,user_id:this.user_id}));
     }).catch(error => console.log('Error fetching data:',error));
   }
 }

@@ -2,8 +2,7 @@ if (!customElements.get('account-subscription')) {
   class FormHandler extends HTMLElement {
     constructor() {
       super();
-      this.userId = 79895;
-      this.userAddressId = 5858;
+      this.userId = window.getCookie('user_id');
       this.inputElements = this.querySelectorAll('input, select');
       this.submitButton = this.querySelector('[type="submit"]');
       this.changeEvent = new Event('change', {
@@ -60,6 +59,7 @@ if (!customElements.get('account-subscription')) {
       this.formDataFields();
       this.initSubscriptionData();
       this.eventListeners();
+      this.getAddress();
     }
     formDataFields() {
       this.quantityInput = document.getElementById('quantity');
@@ -70,6 +70,26 @@ if (!customElements.get('account-subscription')) {
       this.totalPrice = this.querySelector('[data-total]');
       this.initialPrice = this.querySelector('[data-initialprice]');
       this.address = this.querySelector('[name="address"]');
+    }
+    getAddress() {
+      fetch(`https://alainappuat.gdadmin.org/shopifyApiV2/Addresses/${this.userId}`, {
+        method: 'GET',
+        headers: {
+          'lancode': 'en',
+          'token': '123456',
+          'Content-type': 'application/json'
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          const address = data.response[0];
+          if (address) {
+            this.userAddressId = address.id;
+          }
+        })
+        .catch(error => {
+          console.error('Error updating address:', error);
+        });
     }
     initSubscriptionData() {
       fetch('https://alainappuat.gdadmin.org/shopifyApiV2/subscriptionList', {
@@ -85,9 +105,7 @@ if (!customElements.get('account-subscription')) {
         })
       })
         .then(response => response.json()).then(response => {
-          console.log(response);
           const subscriptionData = response.response[0];
-          console.log(subscriptionData)
           if (subscriptionData) {
             const productData = subscriptionData.custom_orders[0];
             this.setSubscriptionFields(subscriptionData, productData);
@@ -117,35 +135,6 @@ if (!customElements.get('account-subscription')) {
       this.totalPrice.innerText = (this.productPrice * this.quantityInput.value).toFixed(2);
       this.initialPrice.innerText = (this.productPrice * this.quantityInput.value).toFixed(2);
     }
-    placeSubscription() {
-      fetch('https://alainappuat.gdadmin.org/shopifyApiV2/placeSubscription', {
-        method: 'POST',
-        headers: {
-          'lancode': 'en',
-          'token': '123456',
-          'Content-type': 'application/json'
-        },
-        body: JSON.stringify({
-          user_id: 79895,
-          user_address_id: 5858,
-          sub_total: 14,
-          total_vat: 0.7,
-          grand_total: 14.7,
-          items: [{
-            product_id: 1,
-            quantity: 5
-          }],
-          submitNew: 1
-        })
-      })
-        .then(response => response.json())
-        .then(response => {
-          console.log(response);
-        })
-        .catch((e) => {
-          console.log(e)
-        })
-    }
     changeSubscriptionStatus(status, start_date, end_date) {
       fetch('https://alainappuat.gdadmin.org/shopifyApiV2/changeSubscriptionStatus', {
         method: 'POST',
@@ -165,7 +154,6 @@ if (!customElements.get('account-subscription')) {
       })
         .then(response => response.json())
         .then(response => {
-          console.log(response);
           this.submitButton.insertAdjacentHTML('afterend', `<div class="form--success">Status Updated</div>`);
           this.resetInitials();
           status === 2 && window.location.reload();
@@ -193,7 +181,6 @@ if (!customElements.get('account-subscription')) {
       })
       .then(response => response.json())
       .then(response => {
-        console.log(response)
         this.submitButton.insertAdjacentHTML('afterend', `<div class="form--success">Quantity Updated</div>`);
         this.resetInitials();
       })
@@ -216,7 +203,6 @@ if (!customElements.get('account-subscription')) {
       this.cancelAction.addEventListener('click', () => {
         let cancelTime = new Date();
         cancelTime.setDate(cancelTime.getDate() - 1);
-        console.log(cancelTime)
         this.changeSubscriptionStatus(2, cancelTime, cancelTime);
       });
       this.statusInput.forEach(input => {
@@ -306,12 +292,12 @@ if (!customElements.get('account-subscription')) {
       })
         .then(response => response.json())
         .then(data => {
-          console.log(data);
           const address = data.response[0];
           if (address) {
             this.address1.value = address.address;
             this.initMap(address.lat, address.lng);
             this.loadDistricts(address.city_id, address.district_id);
+            this.userAddressId = address.id;
           }
         })
         .catch(error => {
@@ -340,7 +326,6 @@ if (!customElements.get('account-subscription')) {
         .then(response => response.json())
         .then(data => {
           this.submitButton.insertAdjacentHTML('afterend', `<div class="form--success">${data.message}</div>`);
-          console.log(data)
           this.resetInitials();
         })
         .catch(error => {
@@ -373,7 +358,6 @@ if (!customElements.get('account-subscription')) {
       fetch(`https://alainappuat.gdadmin.org/customerApiv3/getCityDistricts/${cityId}`)
         .then(response => response.json())
         .then(data => {
-          console.log(data);
           let options = [];
 
           data.response.forEach(district => {

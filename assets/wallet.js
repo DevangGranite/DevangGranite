@@ -2,7 +2,7 @@ if (!customElements.get('wallet-balance')) {
   class WalletBalance extends HTMLElement {
     constructor() {
       super();
-      this.userId = 79752;
+      this.userId = window.getCookie('user_id');
       this.page = 0;
       this.initDataFields();
       this.closeHelpWallet.style.display = 'none'; // Hide the close button initially

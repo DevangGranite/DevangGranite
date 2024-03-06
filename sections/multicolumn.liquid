@@ -13,6 +13,48 @@
     z-index: 11;
     width: 100%;
   }
+@media screen and ( min-width: 768px ){
+  #shopify-section-{{ section.id }} .row{
+    {% if section.settings.set_max_width %}
+    max-width: {{ section.settings.max-width }}px;
+    {% endif %}
+  }
+  {% if section.settings.set_max_width %}
+  #shopify-section-{{ section.id }} .multicolumn__inner .row{
+     justify-content: space-between;
+  }
+  #shopify-section-{{ section.id }} .multicolumn__inner .multicolumn__column.medium-3{
+     max-width: calc(25% - 50px );
+  }
+
+  {% endif %}
+}
+@media screen and ( max-width: 767.98px ){
+  {% if section.settings.slide_mob and section.settings.mobile_swipe %}
+  #shopify-section-{{ section.id }} .multicolumn.swipe-on-mobile .row{
+    display: flex;
+    /* flex-wrap: no-wrap; */
+    flex-wrap: nowrap;
+    gap: 25px;
+  }
+  #shopify-section-{{ section.id }} .multicolumn.swipe-on-mobile .multicolumn__column{
+    
+  }
+  #shopify-section-{{ section.id }} .multicolumn .row{
+    display: flex;
+  }
+  #shopify-section-{{ section.id }} .multicolumn.swipe-on-mobile .multicolumn__column{
+    max-width: calc(40.33% - 15px );
+  }
+    #shopify-section-{{ section.id }} .multicolumn .multicolumn__column h4{
+    font-size: 14px;
+  }
+    #shopify-section-{{ section.id }} .multicolumn .multicolumn__column .text-button  {
+    font-size: 12px;
+  }
+  {% endif %}
+
+}
 </style>
 {%- liquid
 	assign section_heading = section.settings.heading
@@ -159,7 +201,13 @@
 	      "default": false,
 	      "label": "Enable swipe on mobile"
 	    },
-			{
+        {
+	      "type": "checkbox",
+	      "id": "slide_mob",
+	      "default": false,
+	      "label": "Two cards in mobile and awipe"
+	    },
+        {
 	      "type": "select",
 	      "id": "image_ratio",
 	      "options": [
@@ -270,7 +318,22 @@
 				"id": "disable_bottom_spacing",
 				"default": false,
 				"label": "Remove bottom spacing"
-			}
+			},
+      {
+				"type": "checkbox",
+				"id": "set_max_width",
+				"default": false,
+				"label": "Set max width"
+			},
+      {
+	      "type": "range",
+	      "id": "max-width",
+	      "min": 0,
+	      "max": 1600,
+	      "step": 20,
+	      "default": 1200,
+	      "label": "Max width"
+	    }
     ],
     "blocks": [
       {
