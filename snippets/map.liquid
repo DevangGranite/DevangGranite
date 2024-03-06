@@ -38,23 +38,13 @@
 
     function openMapPopup() {
         let address = document.getElementById('locationInput').value;
-        let address1 = document.getElementById('addressInput').value;
 
         if (address.trim() !== '') {
             document.getElementById('locationInput').value = address;
-            updateLocationForAddress();
-            updateLocationForAddress1();
+            updateLocationForAddress();          
         } else {
             console.error('Please enter a valid address');
-        }
-
-         if (address.trim() !== '') {
-            document.getElementById('addressInput').value = address1;
-            updateLocationForAddress();
-            updateLocationForAddress1();
-        } else {
-            console.error('Please enter a valid address');
-        }
+        }   
 
         let otpPopupHtml = document.getElementsByTagName('html')[0];
         let popupElement = document.getElementById('mapPopUp');
@@ -77,11 +67,8 @@
   function openMapPopup1() {       
         let address1 = document.getElementById('addressInput').value;
 
-        
-
          if (address.trim() !== '') {
-            document.getElementById('addressInput').value = address1;
-           
+            document.getElementById('addressInput').value = address1;           
             updateLocationForAddress1();
         } else {
             console.error('Please enter a valid address');
