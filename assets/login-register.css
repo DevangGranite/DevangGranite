@@ -672,7 +672,7 @@ html.popup-overlap body:before {
     margin-top: 30px !important;
 }
 
-#locationText {
-    margin-top: 30px !important;
-}
+  #locationText {
+      margin-top: 30px !important;
+  }
 }
