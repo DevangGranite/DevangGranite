@@ -227,7 +227,7 @@
     }
 
       function updateLocationForAddress() {
-        var address = document.getElementById('addressInput').value;
+        var address = document.getElementById('locationInput').value;
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({ 'address': address }, function (results, status) {
             if (status == 'OK' && results[0]) {
@@ -236,7 +236,7 @@
                 updateLocation(location);
 
                 // Update both addressInput and locationInput
-                document.getElementById('locationInput').value = address;
+                document.getElementById('addressInput').value = address;
             }
         });
     }
