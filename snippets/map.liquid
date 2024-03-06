@@ -189,6 +189,7 @@
             });
     }
 
+    
     function createMarker(location, address) {
         const marker = new google.maps.Marker({
             position: location,
@@ -212,17 +213,17 @@
         markers.push(marker);
     }
 
-    function clearMarkers() {
+     function clearMarkers() {
         for (const marker of markers) {
             marker.setMap(null);
         }
         markers = [];
     }
 
-    function handleEnterKey(event) {
+  function handleEnterKey(event) {
         if (event.key === 'Enter') {
             event.preventDefault();
-            updateLocationForAddress();
+            showMapForAddress();
         }
     }
 
