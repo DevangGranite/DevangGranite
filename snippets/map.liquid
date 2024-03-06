@@ -73,33 +73,33 @@
     let map;
     let markers = [];
 
-        function openMapPopup() {
-        let address = document.getElementById('addressInput').value;
+     function openMapPopup() {
+        let address = document.getElementById('locationInput').value;
 
         if (address.trim() !== '') {
             document.getElementById('locationInput').value = address;
-
-            let otpPopupHtml = document.getElementsByTagName('html')[0];
-            let popupElement = document.getElementById('mapPopUp');
-
-            if (popupElement) {
-                popupElement.style.display = 'block';
-                otpPopupHtml.classList.add('popup-overlap');
-
-                if (typeof initMap === 'function') {
-                    initMap();
-                    updateLocationForAddress(address);
-                } else {
-                    console.error("initMap function is not defined");
-                }
-            } else {
-                console.error("Element with ID 'popup' not found");
-            }
+            updateLocationForAddress();
         } else {
             console.error('Please enter a valid address');
         }
-    }
 
+        let otpPopupHtml = document.getElementsByTagName('html')[0];
+        let popupElement = document.getElementById('mapPopUp');
+
+        if (popupElement) {
+            popupElement.style.display = 'block';
+            otpPopupHtml.classList.add('popup-overlap');
+
+            if (typeof initMap === 'function') {
+                initMap();
+                getCurrentPosition();
+            } else {
+                console.error("initMap function is not defined");
+            }
+        } else {
+            console.error("Element with ID 'popup' not found");
+        }
+    }
 
     function closeMapPopup() {
         let otpPopupHtml = document.getElementsByTagName('html')[0];
