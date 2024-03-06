@@ -168,8 +168,8 @@
                     document.querySelector('input[name="lang"]').value = latLng.lng();
                     document.getElementById('locationText').innerText = data.results[0].formatted_address;
                     document.getElementById('locationInput').value = data.results[0].formatted_address;
-                    clearMarkers();
-                    createMarker(latLng, data.results[0].formatted_address);
+                    // clearMarkers();
+                    // createMarker(latLng, data.results[0].formatted_address);
                 } else {
                     console.error('Geocoding data is incomplete or returned an error:', data);
                 }
@@ -179,33 +179,35 @@
             });
     }
 
-    function createMarker(location, address) {
+    let fixedMarker;  // Declare a global variable for the fixed marker
+
+function createMarker(location, address) {
     // Clear previous markers
     clearMarkers();
 
     // Get the center of the map
     const fixedPosition = map.getCenter();
 
-    const marker = new google.maps.Marker({
+    fixedMarker = new google.maps.Marker({
         position: fixedPosition,
         map: map,
         title: address,
-        draggable: false
+        draggable: true
     });
 
     const infoWindow = new google.maps.InfoWindow({
         content: `<div><strong>${address}</strong></div>`
     });
 
-    marker.addListener('click', function () {
-        infoWindow.open(map, marker);
+    fixedMarker.addListener('click', function () {
+        infoWindow.open(map, fixedMarker);
     });
 
-    google.maps.event.addListener(marker, 'dragend', function () {
-        updateLocation(marker.getPosition());
+    google.maps.event.addListener(fixedMarker, 'dragend', function () {
+        updateLocation(fixedMarker.getPosition());
     });
 
-    markers.push(marker);
+    markers.push(fixedMarker);
 }
 
 
