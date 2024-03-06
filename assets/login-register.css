@@ -677,6 +677,6 @@ html.popup-overlap body:before {
 
 @media (min-width: 400px) and (max-width: 766px) {
   #map {
-    height: 60vh !important;
+    height: 70vh !important;
   }
 }
