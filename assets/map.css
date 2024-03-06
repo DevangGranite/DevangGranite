@@ -66,8 +66,9 @@
     position: absolute;
     top: 43%;
     right: 4px;
+    background: #fff;
     transform: translateY(-50%);
-  }
+}
   
   .gmnoprint.gm-style-mtc-bbw {
     margin: 0 !important;
