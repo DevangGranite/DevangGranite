@@ -180,34 +180,29 @@
     }
 
     function createMarker(location, address) {
-        const marker = new google.maps.Marker({
-            position: location,
-            map: map,
-            title: address,
-            draggable: true
-        });
+    const marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        title: address,
+        draggable: true,
+        animation: google.maps.Animation.DROP // Add smooth drop animation
+    });
 
-        const infoWindow = new google.maps.InfoWindow({
-            content: `<div><strong>${address}</strong></div>`
-        });
+    const infoWindow = new google.maps.InfoWindow({
+        content: `<div><strong>${address}</strong></div>`
+    });
 
-        marker.addListener('click', function () {
-            infoWindow.open(map, marker);
-        });
+    marker.addListener('click', function () {
+        infoWindow.open(map, marker);
+    });
 
-        google.maps.event.addListener(marker, 'dragend', function () {
-            updateLocation(marker.getPosition());
-        });
+    google.maps.event.addListener(marker, 'dragend', function () {
+        updateLocation(marker.getPosition());
+    });
 
-        markers.push(marker);
-    }
+    markers.push(marker);
+}
 
-    function clearMarkers() {
-        for (const marker of markers) {
-            marker.setMap(null);
-        }
-        markers = [];
-    }
 
     function handleEnterKey(event) {
         if (event.key === 'Enter') {
