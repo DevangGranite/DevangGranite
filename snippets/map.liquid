@@ -73,7 +73,7 @@
     let map;
     let markers = [];
 
-     function openMapPopup() {
+    function openMapPopup() {
         let address = document.getElementById('locationInput').value;
 
         if (address.trim() !== '') {
@@ -92,7 +92,7 @@
 
             if (typeof initMap === 'function') {
                 initMap();
-                updateLocationForAddress();  // Updated line to use the locationInput address
+                getCurrentPosition();
             } else {
                 console.error("initMap function is not defined");
             }
