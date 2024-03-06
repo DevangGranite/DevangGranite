@@ -37,22 +37,12 @@
     let markers = [];
 
     function openMapPopup() {
-        let address = document.getElementById('locationInput').value;
-        let address1 = document.getElementById('addressInput').value;
+    let address = document.getElementById('locationInput').value;
+    let address1 = document.getElementById('addressInput').value;
 
-        if (address.trim() !== '') {
-            document.getElementById('locationInput').value = address;
-            updateLocationForAddress();           
-        } else {
-            console.error('Please enter a valid address');
-        }
-
-         if (address.trim() !== '') {
-            document.getElementById('addressInput').value = address1;            
-            updateLocationForAddress1();
-        } else {
-            console.error('Please enter a valid address');
-        }
+    if (address.trim() !== '' && address1.trim() !== '') {
+        document.getElementById('locationInput').value = address;
+        document.getElementById('addressInput').value = address1;
 
         let otpPopupHtml = document.getElementsByTagName('html')[0];
         let popupElement = document.getElementById('mapPopUp');
@@ -60,6 +50,28 @@
         if (popupElement) {
             popupElement.style.display = 'block';
             otpPopupHtml.classList.add('popup-overlap');
+
+            let geocoder = new google.maps.Geocoder();
+
+            geocoder.geocode({ 'address': address }, function (results, status) {
+                if (status == 'OK' && results[0]) {
+                    let location = results[0].geometry.location;
+
+                    geocoder.geocode({ 'address': address1 }, function (results1, status1) {
+                        if (status1 == 'OK' && results1[0]) {
+                            let location1 = results1[0].geometry.location;
+
+                            // Set the center of the map between the two locations
+                            let centerLocation = new google.maps.LatLngBounds(location, location1).getCenter();
+                            map.setCenter(centerLocation);
+
+                            // Update the location for both addresses
+                            updateLocation(location);
+                            updateLocation(location1);
+                        }
+                    });
+                }
+            });
 
             if (typeof initMap === 'function') {
                 initMap();
@@ -70,7 +82,11 @@
         } else {
             console.error("Element with ID 'popup' not found");
         }
+    } else {
+        console.error('Please enter valid addresses');
     }
+}
+
 
     function closeMapPopup() {
         let otpPopupHtml = document.getElementsByTagName('html')[0];
