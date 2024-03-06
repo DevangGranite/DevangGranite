@@ -118,7 +118,6 @@ button.gm-svpc {
 }
 
 @media only screen and (max-width: 600px) {
- #mapPopUp{
-    padding: 10px;
-  }
+   #mapPopUp{padding: 10px;}
+  .close-icon {top: 12px;}
 }
