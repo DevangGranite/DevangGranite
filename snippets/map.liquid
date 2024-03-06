@@ -104,8 +104,8 @@
             if (navigator.geolocation) {
                 // Use getCurrentPosition to get the device's current location
                 navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {
-                    maximumAge: 20000, // Maximum age of cached position in milliseconds (1 minute)
-                    enableHighAccuracy: false // Request high accuracy (may use GPS)
+                    maximumAge: 100000, // Maximum age of cached position in milliseconds (1 minute)
+                    enableHighAccuracy: true // Request high accuracy (may use GPS)
                 });
             } else {
                 console.error('Geolocation is not supported by this browser');
