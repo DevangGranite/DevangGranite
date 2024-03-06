@@ -1,6 +1,7 @@
 <script src="{{ 'account-subscription.js' | asset_url }}" defer="defer"></script>
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&libraries=places"></script>
+<input type="hidden" name="meta[user_id]" value="{{ customer.metafields.custom.user_id }}">
 
 <account-delivery-address id="account-delivery-address">
   <div class="account-edit-address--wrapper" aria-hidden="true">

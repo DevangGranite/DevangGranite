@@ -2,7 +2,7 @@ if (!customElements.get('wallet-balance')) {
   class WalletBalance extends HTMLElement {
     constructor() {
       super();
-      this.userId = window.getCookie('user_id');
+      this.userId = document.querySelector('[name="meta[user_id]"]').value;
       this.page = 0;
       this.initDataFields();
       this.closeHelpWallet.style.display = 'none'; // Hide the close button initially
@@ -120,6 +120,8 @@ if (!customElements.get('wallet-balance')) {
           const transactions = response.response[transType];
           if (response.response[transType].length) {
             this.createTransactionsList(transactions, transType, tabId);
+          } else {
+            document.getElementById(tabId).querySelector('.zero-wallet-transactions').style.display = 'flex';
           }
         })
     }

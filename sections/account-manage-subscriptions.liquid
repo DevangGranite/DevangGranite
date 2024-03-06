@@ -1,5 +1,6 @@
 <script src="{{ 'account-subscription.js' | asset_url }}" defer="defer"></script>
 {{ 'customer.css' | asset_url | stylesheet_tag }}
+<input type="hidden" name="meta[user_id]" value="{{ customer.metafields.custom.user_id }}">
 
 <account-subscription id="account-form">
   <section id="account-subscriptions--present">
@@ -73,8 +74,11 @@
                 ><span class="account-font--light">Status:</span>
                 <span id="pause_resume">No Scheduled Pauses</span></span
               >
-              <button class="account-pause-options--dropdown">
+              <button data-pause class="account-pause-options--dropdown">
                 View Options <img src="{{ 'account-dropdown-arrow.svg' | file_url }}" alt="">
+              </button>
+              <button data-resume class="account-resume--button">
+                Resume
               </button>
               <div class="account-pause-options--modal">
                 <p>

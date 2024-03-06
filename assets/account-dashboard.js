@@ -2,7 +2,7 @@ if (!customElements.get('wallet-balance')) {
   class WalletBalance extends HTMLElement {
     constructor() {
       super();
-      this.userId = window.getCookie('user_id');
+      this.userId = document.querySelector('[name="meta[user_id]"]').value;
       this.getWalletBalance();
     }
 

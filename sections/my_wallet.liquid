@@ -1,5 +1,6 @@
 <script src="{{ 'wallet.js' | asset_url }}" defer="defer"></script>
 {{ 'wallet_page_style.css' | asset_url | stylesheet_tag }}
+<input type="hidden" name="meta[user_id]" value="{{ customer.metafields.custom.user_id }}">
 
 <wallet-balance>
   <div class="my_wallet_main">
@@ -59,8 +60,24 @@
     </div>
     <div class="tabs_main_style">
       <div id="tab1" class="tab-content active">
+        <div class="zero-wallet-transactions">
+          <div class="zero_wallet_text">
+            You don’t have any transactions.
+          </div>
+          <div class="zero_wallet_button">
+            <a class="zero_wallet_main_btn">Top Up Now</a>
+          </div>
+        </div>
       </div>
       <div id="tab2" class="tab-content Credited_section_tab">
+        <div class="zero-wallet-transactions">
+          <div class="zero_wallet_text">
+            You don’t have any transactions.
+          </div>
+          <div class="zero_wallet_button">
+            <a class="zero_wallet_main_btn">Top Up Now</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

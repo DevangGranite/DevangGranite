@@ -5,7 +5,9 @@
 {% else %}
   {% assign root_url = routes.root_url | append: 'products/top-up-wallet' %}
 {% endif %}
-
+<input type="hidden" name="meta[token]" value="{{ customer.metafields.custom.token }}">
+<input type="hidden" name="meta[user_id]" value="{{ customer.metafields.custom.user_id }}">
+<input type="hidden" name="meta[name]" value="{{ customer.metafields.custom.name }}">
 <div class="customer-content-spacing short-width-row">
   <div class="customer-content--wrapper">
     <div class="customer-welcome--wrapper">
