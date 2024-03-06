@@ -668,4 +668,12 @@ html.popup-overlap body:before {
   #ShopifyChat {
     z-index: 999 !important;
   }
+  .thb-register-form button.confirm-icon {
+    margin-top: 40px;
+}
+
+
+#locationText {
+    margin-top: 30px;
+}
 }
