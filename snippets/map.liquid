@@ -163,7 +163,8 @@
             position: location,
             map: map,
             title: address,
-            draggable: false
+            draggable: false,
+          animation: google.maps.Animation.DROP, // Initial drop animation
         });
 
         const infoWindow = new google.maps.InfoWindow({
