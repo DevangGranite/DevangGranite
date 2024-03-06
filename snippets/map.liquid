@@ -73,16 +73,8 @@
     let map;
     let markers = [];
 
+   
     function openMapPopup() {
-        let address = document.getElementById('locationInput').value;
-
-        if (address.trim() !== '') {
-            document.getElementById('locationInput').value = address;
-            updateLocationForAddress();
-        } else {
-            console.error('Please enter a valid address');
-        }
-
         let otpPopupHtml = document.getElementsByTagName('html')[0];
         let popupElement = document.getElementById('mapPopUp');
 
@@ -101,7 +93,7 @@
         }
     }
 
-    function closeMapPopup() {
+     function closeMapPopup() {
         let otpPopupHtml = document.getElementsByTagName('html')[0];
         let popupElement = document.getElementById('mapPopUp');
         let locationTextElement = document.getElementById('locationText');
@@ -116,7 +108,7 @@
         }
     }
 
-    function initMap() {
+   function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             center: { lat: 25.199514, lng: 55.277397 },
             zoom: 16,
@@ -227,7 +219,7 @@
         }
     }
 
-    function updateLocationForAddress(address) {
+   function updateLocationForAddress(address) {
         // Update the input field
         document.getElementById('addressInput').value = address;
 
@@ -236,7 +228,7 @@
             if (status == 'OK' && results[0]) {
                 var location = results[0].geometry.location;
                 map.setCenter(location);
-                updateLocation(location);
+                updateLocation(location, address);
 
                 // Optionally, you can close the map popup after updating the location
                 // closeMapPopup();
@@ -246,7 +238,7 @@
         });
     }
 
-   function showMapForAddress() {
+     function showMapForAddress() {
         var address = document.getElementById('addressInput').value;
 
         if (address.trim() !== '') {
