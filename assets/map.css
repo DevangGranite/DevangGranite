@@ -46,26 +46,41 @@
     font-weight: 400;
     font-size: 12px;
   }
-#mapPopUp .address_Input {
-    position: relative;
+
+.address_Input input#addressInput {
+    min-height: 55px;
 }
+
+.address_Input .address_button button.clear-button {
+    width: 35px;
+    height: 35px;
+    margin-right: 0px;
+}
+
 .address_Input .address_button {
     position: absolute;
     top: 44%;
     right: 4px;
     transform: translateY(-50%);
+    background-color: #fff;
 }
-.address_Input .address_button button.clear-button {
-     width: 40px;
-    height: 40px;
-    margin-right: 5px;
+
+.gmnoprint.gm-style-mtc-bbw {
+    margin: 0!important;
+    display: none;
 }
-.address_Input .address_button button.clear-button2 {
+
+button.gm-svpc {
+    display: none;
+}
+.gmnoprint {
+    display: none;
+}
+
+.thb-register-form button.confirm-icon {
+    font-size: 16px;
     background: #2461CC;
-    width: 48px;
-    height: 48px;
-    border-radius: 10px;
-}
-.address_Input .address_button button.clear-button2 img {
-    max-width: 40px;
+    width: 100%;
+    color: #fff;
+    border-radius: 5px;
 }
