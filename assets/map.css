@@ -128,3 +128,6 @@ button.gm-svpc {
     margin-left: 5px;
   }
 }
+.address_Input input#addressInput:-internal-autofill-selected {
+    background-color: transparent !important;
+}
