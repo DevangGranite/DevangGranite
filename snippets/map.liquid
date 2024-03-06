@@ -129,7 +129,7 @@
     }
 
     function updateLocation(location) {
-       console.log(location);
+       console.log('location',location);
         const latLng = location instanceof google.maps.LatLng ? location : new google.maps.LatLng(location.lat, location.lng);
 
         let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${latLng.lat().toFixed(6)},${latLng.lng().toFixed(6)}`;
@@ -210,7 +210,7 @@
 
     function updateLocationForAddress1() {
         var address1 = document.getElementById('addressInput').value;
-      console.log(address1);
+      console.log('Input',address1);
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({ 'address': address1 }, function (results, status) {
             if (status == 'OK' && results[0]) {
@@ -223,7 +223,7 @@
 
     function showMapForAddress() {
         // alert('test');
-        openMapPopup();
+        // openMapPopup();
         updateLocationForAddress1(); 
         // updateLocation(location);
     }
