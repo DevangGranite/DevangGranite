@@ -669,11 +669,10 @@ html.popup-overlap body:before {
     z-index: 999 !important;
   }
   .thb-register-form button.confirm-icon {
-    margin-top: 40px;
+    margin-top: 40px !important;
 }
 
-
 #locationText {
-    margin-top: 30px;
+    margin-top: 30px !important;
 }
 }
