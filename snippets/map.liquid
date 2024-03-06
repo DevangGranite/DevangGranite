@@ -74,6 +74,37 @@
         }
     }
 
+  function openMapPopup1() {       
+        let address1 = document.getElementById('addressInput').value;
+
+        
+
+         if (address.trim() !== '') {
+            document.getElementById('addressInput').value = address1;
+           
+            updateLocationForAddress1();
+        } else {
+            console.error('Please enter a valid address');
+        }
+
+        let otpPopupHtml = document.getElementsByTagName('html')[0];
+        let popupElement = document.getElementById('mapPopUp');
+
+        if (popupElement) {
+            popupElement.style.display = 'block';
+            otpPopupHtml.classList.add('popup-overlap');
+
+            if (typeof initMap === 'function') {
+                initMap();
+                getCurrentPosition();
+            } else {
+                console.error("initMap function is not defined");
+            }
+        } else {
+            console.error("Element with ID 'popup' not found");
+        }
+    }
+
     function closeMapPopup() {
         let otpPopupHtml = document.getElementsByTagName('html')[0];
         let popupElement = document.getElementById('mapPopUp');
@@ -224,7 +255,7 @@
     }
 
     function showMapForAddress() {
-        openMapPopup();
+        openMapPopup1();
         updateLocationForAddress();
         updateLocationForAddress1();
     }
