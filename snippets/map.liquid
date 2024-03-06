@@ -38,37 +38,19 @@
 
     function openMapPopup() {
         let address = document.getElementById('locationInput').value;
+        let address1 = document.getElementById('addressInput').value;
 
         if (address.trim() !== '') {
             document.getElementById('locationInput').value = address;
-            updateLocationForAddress();          
+            updateLocationForAddress();
+            updateLocationForAddress1();
         } else {
             console.error('Please enter a valid address');
-        }   
-
-        let otpPopupHtml = document.getElementsByTagName('html')[0];
-        let popupElement = document.getElementById('mapPopUp');
-
-        if (popupElement) {
-            popupElement.style.display = 'block';
-            otpPopupHtml.classList.add('popup-overlap');
-
-            if (typeof initMap === 'function') {
-                initMap();
-                getCurrentPosition();
-            } else {
-                console.error("initMap function is not defined");
-            }
-        } else {
-            console.error("Element with ID 'popup' not found");
         }
-    }
-
-  function openMapPopup1() {       
-        let address1 = document.getElementById('addressInput').value;
 
          if (address.trim() !== '') {
-            document.getElementById('addressInput').value = address1;           
+            document.getElementById('addressInput').value = address1;
+            updateLocationForAddress();
             updateLocationForAddress1();
         } else {
             console.error('Please enter a valid address');
@@ -242,7 +224,7 @@
     }
 
     function showMapForAddress() {
-        openMapPopup1();
+        openMapPopup();
         updateLocationForAddress();
         updateLocationForAddress1();
     }
