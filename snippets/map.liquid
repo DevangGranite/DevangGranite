@@ -221,13 +221,8 @@
 
     function showMapForAddress() {
         alert('test');
-        updateLocationForAddress1();
-        updateLocationForAddress();
-      
-        setTimeout(() => {
-        updateLocationForAddress1();
         openMapPopup();
-        }, 500); // You can adjust the delay as needed
+        updateLocationForAddress1();            
     }
     function clearAddressInput() {
         document.getElementById('addressInput').value = '';
