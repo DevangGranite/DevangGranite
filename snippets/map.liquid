@@ -57,7 +57,7 @@
   <button type="button" onclick="clearAddressInput()"><img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/clear.png?v=1709713777"></button>
 
    <!-- Button to show map based on address -->
-   <button type="button" id="showMapButton" onclick="showMapForAddress()" disabled>Show on Map</button>
+  <button type="button" onclick="showMapForAddress()">Show on Map</button>
   
   <!-- Container for the map -->
   <div id="map"></div>
@@ -221,12 +221,11 @@
         markers = [];
     }
 
-     function handleEnterKey(event) {
+    function handleEnterKey(event) {
         if (event.key === 'Enter') {
             event.preventDefault();
             updateLocationForAddress();
         }
-        toggleShowMapButtonState();
     }
 
     function updateLocationForAddress() {
@@ -253,27 +252,12 @@
         });
     }
 
-      function showMapForAddress() {
-        var address = document.getElementById('addressInput').value;
-        if (address.trim() !== '') {
-            openMapPopup();
-            updateLocationForAddress(address);
-        } else {
-            console.error('Please enter a valid address');
-        }
+    function showMapForAddress() {
+        openMapPopup();
+        updateLocationForAddress();
+        updateLocationForAddress1();
     }
     function clearAddressInput() {
         document.getElementById('addressInput').value = '';
-        toggleShowMapButtonState();
-    }
-     function toggleShowMapButtonState() {
-        var showMapButton = document.getElementById('showMapButton');
-        var addressInput = document.getElementById('addressInput').value.trim();
-
-        if (addressInput !== '') {
-            showMapButton.removeAttribute('disabled');
-        } else {
-            showMapButton.setAttribute('disabled', 'disabled');
-        }
     }
 </script>
