@@ -35,14 +35,15 @@
 <script>
     let map;
     let markers = [];
+    let dragging = false;
 
     function openMapPopup() {
         let address = document.getElementById('locationInput').value;
 
         if (address.trim() !== '') {
             document.getElementById('locationInput').value = address;
-            updateLocationForAddress();
-            updateLocationForAddress1();
+            updateLocationForInput('locationInput');
+            updateLocationForInput('addressInput');
         } else {
             console.error('Please enter a valid address');
         }
@@ -80,35 +81,28 @@
         }
     }
 
-   var dragging = false;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: 25.199514, lng: 55.277397 },
+            zoom: 19,
+            gestureHandling: 'greedy',
+        });
 
-function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 25.199514, lng: 55.277397 },
-        zoom: 19,
-        gestureHandling: 'greedy',
-    });
+        google.maps.event.addListener(map, 'click', function (event) {
+            updateLocation(event.latLng);
+        });
 
-    google.maps.event.addListener(map, 'click', function (event) {
-        updateLocation(event.latLng);
-    });
+        google.maps.event.addListener(map, 'dragstart', function () {
+            dragging = true;
+        });
 
-    google.maps.event.addListener(map, 'dragstart', function () {
-        dragging = true;
-    });
-
-    google.maps.event.addListener(map, 'drag', function () {
-        updateLocation(map.getCenter());
-    });
-
-    google.maps.event.addListener(map, 'dragend', function () {
-        if (dragging) {
-            dragging = false;
-            updateLocation(map.getCenter());
-        }
-    });
-}
-
+        google.maps.event.addListener(map, 'idle', function () {
+            if (dragging) {
+                dragging = false;
+                updateLocation(map.getCenter());
+            }
+        });
+    }
 
     function getCurrentPosition() {
         if (navigator.geolocation) {
@@ -137,7 +131,7 @@ function initMap() {
     function updateLocation(location) {
         const latLng = location instanceof google.maps.LatLng ? location : new google.maps.LatLng(location.lat, location.lng);
 
-        let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${latLng.lat().toFixed(6)},${latLng.lng().toFixed(6)}`;
+        let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=YOUR_API_KEY&latlng=${latLng.lat().toFixed(6)},${latLng.lng().toFixed(6)}`;
 
         fetch(apiAdd)
             .then(response => {
@@ -196,24 +190,12 @@ function initMap() {
     function handleEnterKey(event) {
         if (event.key === 'Enter') {
             event.preventDefault();
-            updateLocationForAddress();
+            updateLocationForInput('locationInput');
         }
     }
 
-    function updateLocationForAddress() {
-        var address = document.getElementById('locationInput').value;
-        var geocoder = new google.maps.Geocoder();
-        geocoder.geocode({ 'address': address }, function (results, status) {
-            if (status == 'OK' && results[0]) {
-                var location = results[0].geometry.location;
-                map.setCenter(location);
-                updateLocation(location);
-            }
-        });
-    }
-
-    function updateLocationForAddress1() {
-        var address = document.getElementById('addressInput').value;
+    function updateLocationForInput(inputId) {
+        var address = document.getElementById(inputId).value;
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({ 'address': address }, function (results, status) {
             if (status == 'OK' && results[0]) {
@@ -226,9 +208,8 @@ function initMap() {
 
     function showMapForAddress() {
         openMapPopup();
-        updateLocationForAddress();
-        updateLocationForAddress1();
     }
+    
     function clearAddressInput() {
         document.getElementById('addressInput').value = '';
     }
