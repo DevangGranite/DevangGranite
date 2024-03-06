@@ -37,12 +37,22 @@
     let markers = [];
 
     function openMapPopup() {
-    let address = document.getElementById('locationInput').value;
-    let address1 = document.getElementById('addressInput').value;
+        let address = document.getElementById('locationInput').value;
+        let address1 = document.getElementById('addressInput').value;
 
-    if (address.trim() !== '' && address1.trim() !== '') {
-        document.getElementById('locationInput').value = address;
-        document.getElementById('addressInput').value = address1;
+        if (address.trim() !== '') {
+            document.getElementById('locationInput').value = address;
+            updateLocationForAddress();           
+        } else {
+            console.error('Please enter a valid address');
+        }
+
+         if (address.trim() !== '') {
+            document.getElementById('addressInput').value = address1;            
+            updateLocationForAddress1();
+        } else {
+            console.error('Please enter a valid address');
+        }
 
         let otpPopupHtml = document.getElementsByTagName('html')[0];
         let popupElement = document.getElementById('mapPopUp');
@@ -51,60 +61,16 @@
             popupElement.style.display = 'block';
             otpPopupHtml.classList.add('popup-overlap');
 
-            let geocoder = new google.maps.Geocoder();
-
-            // Create Promises for geocoding requests
-            let geocodePromise1 = new Promise((resolve, reject) => {
-                geocoder.geocode({ 'address': address }, function (results, status) {
-                    if (status === 'OK' && results[0]) {
-                        resolve(results[0].geometry.location);
-                    } else {
-                        reject('Geocoding failed for address: ' + address);
-                    }
-                });
-            });
-
-            let geocodePromise2 = new Promise((resolve, reject) => {
-                geocoder.geocode({ 'address': address1 }, function (results, status) {
-                    if (status === 'OK' && results[0]) {
-                        resolve(results[0].geometry.location);
-                    } else {
-                        reject('Geocoding failed for address: ' + address1);
-                    }
-                });
-            });
-
-            // Wait for both geocoding requests to complete
-            Promise.all([geocodePromise1, geocodePromise2])
-                .then(locations => {
-                    // Set the center of the map between the two locations
-                    let centerLocation = new google.maps.LatLngBounds(locations[0], locations[1]).getCenter();
-                    map.setCenter(centerLocation);
-
-                    // Update the location for both addresses
-                    updateLocation(locations[0]);
-                    updateLocation(locations[1]);
-
-                    // Initialize the map and get the current position
-                    if (typeof initMap === 'function') {
-                        initMap();
-                        getCurrentPosition();
-                    } else {
-                        console.error("initMap function is not defined");
-                    }
-                })
-                .catch(error => {
-                    console.error('Error geocoding:', error);
-                });
+            if (typeof initMap === 'function') {
+                initMap();
+                getCurrentPosition();
+            } else {
+                console.error("initMap function is not defined");
+            }
         } else {
             console.error("Element with ID 'popup' not found");
         }
-    } else {
-        console.error('Please enter valid addresses');
     }
-}
-
-
 
     function closeMapPopup() {
         let otpPopupHtml = document.getElementsByTagName('html')[0];
