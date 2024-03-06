@@ -73,8 +73,8 @@
     let map;
     let markers = [];
 
-     function openMapPopup() {
-        let address = document.getElementById('locationInput').value;
+        function openMapPopup() {
+        let address = document.getElementById('addressInput').value;
 
         if (address.trim() !== '') {
             document.getElementById('locationInput').value = address;
@@ -88,7 +88,7 @@
 
                 if (typeof initMap === 'function') {
                     initMap();
-                    updateLocationForAddress(address);  // Pass the address directly to updateLocationForAddress
+                    updateLocationForAddress(address);
                 } else {
                     console.error("initMap function is not defined");
                 }
