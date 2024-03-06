@@ -113,9 +113,9 @@
             gestureHandling: 'greedy',
         });
 
-        // google.maps.event.addListener(map, 'click', function (event) {
-        //     updateLocation(event.latLng);
-        // });
+        google.maps.event.addListener(map, 'click', function (event) {
+            updateLocation(event.latLng);
+        });
 
         google.maps.event.addListener(map, 'drag', function () {
             updateLocation(map.getCenter());
