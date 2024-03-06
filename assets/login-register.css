@@ -663,13 +663,13 @@ html.popup-overlap body:before {
   z-index: 999 !important;
 }
 
-@media only screen and (max-width: 399px) {
+@media only screen and (max-width: 320px) {
   #map {
     height: 50vh !important;
   }
 }
 
-@media (min-width: 400px) and (max-width: 766px) {
+@media (min-width: 321px) and (max-width: 766px) {
   #map {
     height: 60vh !important;
   }
