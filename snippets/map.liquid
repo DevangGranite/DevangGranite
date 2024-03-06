@@ -244,26 +244,17 @@
         }
     }
 
-    function updateLocationForAddress(address) {
-        // Update the first input field
-        document.getElementById('locationInput').value = address;
+  function updateLocationForAddress() {
+    var address = document.getElementById('locationInput').value;
 
-        // Update the second input field
-        document.getElementById('addressInput').value = address;
+    // Update the first input field
+    document.getElementById('locationInput').value = address;
 
-        var geocoder = new google.maps.Geocoder();
-        geocoder.geocode({ 'address': address }, function (results, status) {
-            if (status == 'OK' && results[0]) {
-                var location = results[0].geometry.location;
-                map.setCenter(location);
-                updateLocation(location);
+    // Update the second input field
+    document.getElementById('addressInput').value = address;
 
-                // Optionally, you can close the map popup after updating the location
-                // closeMapPopup();
-            } else {
-                console.error('Geocode was not successful for the following reason: ' + status);
-            }
-        });
-    }
+    updateMapForAddress(address);
+}
+
 
 </script>
