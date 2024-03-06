@@ -93,10 +93,14 @@
 
         google.maps.event.addListener(map, 'drag', function () {
             updateLocation(map.getCenter());
+          / Update the marker position without animation
+            markers[0].setPosition(newCenter);
         });
 
         google.maps.event.addListener(map, 'dragend', function () {
             updateLocation(map.getCenter());
+          / Update the marker position without animation
+            markers[0].setPosition(newCenter);
         });
     }
 
