@@ -129,6 +129,7 @@
     }
 
     function updateLocation(location) {
+       console.log(location);
         const latLng = location instanceof google.maps.LatLng ? location : new google.maps.LatLng(location.lat, location.lng);
 
         let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${latLng.lat().toFixed(6)},${latLng.lng().toFixed(6)}`;
