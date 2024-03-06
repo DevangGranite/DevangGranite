@@ -225,8 +225,10 @@
             updateLocationForAddress();
         }
     }
-
-        function updateLocationForAddress() {
+ function reflectInputValue(value) {
+        document.getElementById('addressInput').value = value;
+    }
+            function updateLocationForAddress() {
         var address = document.getElementById('locationInput').value;
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({ 'address': address }, function (results, status) {
