@@ -239,8 +239,14 @@
         });
     }
 
-    function showMapForAddress() {
-        openMapPopup();
-        updateLocationForAddress();
+     function showMapForAddress() {
+        let address = document.getElementById('locationInput').value;
+
+        if (address.trim() !== '') {
+            openMapPopup();
+            updateLocationForAddress(address);
+        } else {
+            console.error('Please enter a valid address');
+        }
     }
 </script>
