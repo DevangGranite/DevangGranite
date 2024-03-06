@@ -8,10 +8,10 @@
   <div class="address_Input">
   <input type="text" id="addressInput" placeholder="Enter address" onkeydown="handleEnterKey(event)">
     <div class="address_button">
-  <button class="clear-button" onclick="clearAddressInput()"><img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/clear.png?v=1709713777"></button>
+  <button class="clear-button" style="display:none" onclick="clearAddressInput()"><img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/clear.png?v=1709713777"></button>
 
     <!-- Button to show map based on address -->
-  <button type="button" class="clear-button2" onclick="showMapForAddress()" disabled>
+  <button type="button" class="clear-button2" id="popup-address-submit" onclick="showMapForAddress()" disabled>
    <img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/Component_2.png?v=1709716243">
   </button>
     </div>
@@ -229,5 +229,17 @@
     }
     function clearAddressInput() {
         document.getElementById('addressInput').value = '';
+        document.getElementById('popup-address-submit').setAttribute('disabled','');
+        document.querySelector('.address_button .clear-button').style.display = 'none'
     }
+
+    document.getElementById('addressInput').addEventListener('input', e => {
+        if(document.getElementById('addressInput').value.length != 0){
+            document.querySelector('.address_button .clear-button').style.display = 'inline-block';
+            document.getElementById('popup-address-submit').removeAttribute('disabled');
+        }else{
+            document.querySelector('.address_button .clear-button').style.display = 'none';
+            document.getElementById('popup-address-submit').setAttribute('disabled','');
+        }
+    });
 </script>

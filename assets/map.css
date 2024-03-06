@@ -56,7 +56,6 @@
   .address_Input input#addressInput {
     min-height: 55px;
   }
-  
   .address_Input .address_button button.clear-button {
     width: 35px;
     height: 35px;
@@ -65,10 +64,9 @@
   
   .address_Input .address_button {
     position: absolute;
-    top: 44%;
+    top: 50%;
     right: 4px;
     transform: translateY(-50%);
-    background-color: #fff;
   }
   
   .gmnoprint.gm-style-mtc-bbw {
@@ -95,12 +93,6 @@
   
   #mapPopUp .address_Input {
     position: relative;
-  }
-  .address_Input .address_button {
-    position: absolute;
-    top: 44%;
-    right: 4px;
-    transform: translateY(-50%);
   }
   .address_Input .address_button button.clear-button {
     width: 40px;
@@ -134,4 +126,12 @@
   .address_Input input#addressInput:-webkit-autofill:focus, 
   .address_Input input#addressInput:-webkit-autofill:active{
       -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }
+
+  button{
+    transition: all 0.5s;
+  }
+  button:disabled{
+    background: #CDD5DD !important;
+    cursor: not-allowed;
   }
