@@ -669,7 +669,13 @@ html.popup-overlap body:before {
   }
 }
 
-@media (min-width: 321px) and (max-width: 766px) {
+@media (min-width: 321px) and (max-width: 399px) {
+  #map {
+    height: 50vh !important;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 766px) {
   #map {
     height: 60vh !important;
   }
