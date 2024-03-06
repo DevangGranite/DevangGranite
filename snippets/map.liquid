@@ -170,9 +170,9 @@
             content: `<div><strong>${address}</strong></div>`
         });
 
-        // marker.addListener('click', function () {
-        //     infoWindow.open(map, marker);
-        // });
+        marker.addListener('click', function () {
+            infoWindow.open(map, marker);
+        });
 
         google.maps.event.addListener(marker, 'dragend', function () {
             updateLocation(marker.getPosition());
