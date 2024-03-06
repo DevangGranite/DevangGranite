@@ -37,22 +37,22 @@
     let markers = [];
 
     function openMapPopup() {
-        const addressInput = document.getElementById('addressInput');
-        const address = addressInput.value.trim();
+        let address = document.getElementById('locationInput').value;
 
-        if (address !== '') {
-            addressInput.value = address;
+        if (address.trim() !== '') {
+            document.getElementById('locationInput').value = address;
             updateLocationForAddress();
+            updateLocationForAddress1();
         } else {
             console.error('Please enter a valid address');
-            return;
         }
 
-        const popupElement = document.getElementById('mapPopUp');
+        let otpPopupHtml = document.getElementsByTagName('html')[0];
+        let popupElement = document.getElementById('mapPopUp');
 
         if (popupElement) {
             popupElement.style.display = 'block';
-            document.documentElement.classList.add('popup-overlap');
+            otpPopupHtml.classList.add('popup-overlap');
 
             if (typeof initMap === 'function') {
                 initMap();
@@ -61,21 +61,22 @@
                 console.error("initMap function is not defined");
             }
         } else {
-            console.error("Element with ID 'mapPopUp' not found");
+            console.error("Element with ID 'popup' not found");
         }
     }
 
     function closeMapPopup() {
-        const popupElement = document.getElementById('mapPopUp');
-        const locationTextElement = document.getElementById('locationText');
+        let otpPopupHtml = document.getElementsByTagName('html')[0];
+        let popupElement = document.getElementById('mapPopUp');
+        let locationTextElement = document.getElementById('locationText');
 
         if (popupElement) {
-            document.documentElement.classList.remove('popup-overlap');
+            otpPopupHtml.classList.remove('popup-overlap');
             popupElement.style.display = 'none';
             locationTextElement.innerText = '';
             clearMarkers();
         } else {
-            console.error("Element with ID 'mapPopUp' not found");
+            console.error("Element with ID 'popup' not found");
         }
     }
 
@@ -86,15 +87,15 @@
             gestureHandling: 'greedy',
         });
 
-        map.addListener('click', function (event) {
+        google.maps.event.addListener(map, 'click', function (event) {
             updateLocation(event.latLng);
         });
 
-        map.addListener('drag', function () {
+        google.maps.event.addListener(map, 'drag', function () {
             updateLocation(map.getCenter());
         });
 
-        map.addListener('dragend', function () {
+        google.maps.event.addListener(map, 'dragend', function () {
             updateLocation(map.getCenter());
         });
     }
@@ -125,19 +126,24 @@
 
     function updateLocation(location) {
         const latLng = location instanceof google.maps.LatLng ? location : new google.maps.LatLng(location.lat, location.lng);
-        const apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=YOUR_API_KEY&latlng=${latLng.lat().toFixed(6)},${latLng.lng().toFixed(6)}`;
+
+        let apiAdd = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAEbeab1tjvjCM0g95bVgRTI1iR5yPln1Q&latlng=${latLng.lat().toFixed(6)},${latLng.lng().toFixed(6)}`;
 
         fetch(apiAdd)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
             .then(data => {
                 if (data.status === 'OK' && data.results && data.results.length > 0 && data.results[0].formatted_address) {
-                    const formattedAddress = data.results[0].formatted_address;
                     document.querySelector('input[name="lat"]').value = latLng.lat();
                     document.querySelector('input[name="lang"]').value = latLng.lng();
-                    document.getElementById('locationText').innerText = formattedAddress;
-                    document.getElementById('locationInput').value = formattedAddress;
+                    document.getElementById('locationText').innerText = data.results[0].formatted_address;
+                    document.getElementById('locationInput').value = data.results[0].formatted_address;
                     clearMarkers();
-                    createMarker(latLng, formattedAddress);
+                    createMarker(latLng, data.results[0].formatted_address);
                 } else {
                     console.error('Geocoding data is incomplete or returned an error:', data);
                 }
@@ -163,7 +169,7 @@
             infoWindow.open(map, marker);
         });
 
-        marker.addListener('dragend', function () {
+        google.maps.event.addListener(marker, 'dragend', function () {
             updateLocation(marker.getPosition());
         });
 
@@ -185,18 +191,23 @@
     }
 
     function updateLocationForAddress() {
-        const addressInput = document.getElementById('addressInput');
-        const address = addressInput.value;
-
-        if (address.trim() === '') {
-            console.error('Please enter a valid address');
-            return;
-        }
-
-        const geocoder = new google.maps.Geocoder();
+        var address = document.getElementById('locationInput').value;
+        var geocoder = new google.maps.Geocoder();
         geocoder.geocode({ 'address': address }, function (results, status) {
-            if (status === 'OK' && results[0]) {
-                const location = results[0].geometry.location;
+            if (status == 'OK' && results[0]) {
+                var location = results[0].geometry.location;
+                map.setCenter(location);
+                updateLocation(location);
+            }
+        });
+    }
+
+    function updateLocationForAddress1() {
+        var address = document.getElementById('addressInput').value;
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status == 'OK' && results[0]) {
+                var location = results[0].geometry.location;
                 map.setCenter(location);
                 updateLocation(location);
             }
@@ -205,8 +216,9 @@
 
     function showMapForAddress() {
         openMapPopup();
+        updateLocationForAddress();
+        updateLocationForAddress1();
     }
-
     function clearAddressInput() {
         document.getElementById('addressInput').value = '';
     }
