@@ -116,3 +116,9 @@ button.gm-svpc {
 .address_Input .address_button button.clear-button2 img {
     max-width: 40px;
 }
+
+@media only screen and (max-width: 600px) {
+ #mapPopUp{
+    padding: 10px;
+  }
+}
