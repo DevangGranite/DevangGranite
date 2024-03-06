@@ -147,7 +147,7 @@
                     document.getElementById('locationText').innerText = data.results[0].formatted_address;
                     document.getElementById('locationInput').value = data.results[0].formatted_address;
                     clearMarkers();
-                    createMarker(latLng, data.results[0].formatted_address);
+                    createMarker();
                 } else {
                     console.error('Geocoding data is incomplete or returned an error:', data);
                 }
