@@ -44,8 +44,14 @@
   /* Style for the location text */
   #locationText {
     font-weight: 400;
-    font-size: 12px;
-  }
+    font-size: 15px;
+    color: #000;        
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+}
 
 .address_Input input#addressInput {
     min-height: 55px;
