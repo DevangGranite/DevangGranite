@@ -226,22 +226,17 @@
         }
     }
 
-    function updateLocationForAddress() {
-        var address = document.getElementById('locationInput').value;
-        var address1 = document.getElementById('addressInput').value;
+      function updateLocationForAddress() {
+        var address = document.getElementById('addressInput').value;
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({ 'address': address }, function (results, status) {
             if (status == 'OK' && results[0]) {
                 var location = results[0].geometry.location;
                 map.setCenter(location);
                 updateLocation(location);
-            }
-        });
-       geocoder.geocode({ 'address1': address1 }, function (results, status) {
-            if (status == 'OK' && results[0]) {
-                var location = results[0].geometry.location;
-                map.setCenter(location);
-                updateLocation(location);
+
+                // Update both addressInput and locationInput
+                document.getElementById('locationInput').value = address;
             }
         });
     }
