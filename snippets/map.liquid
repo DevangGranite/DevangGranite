@@ -163,8 +163,7 @@
             position: location,
             map: map,
             title: address,
-            draggable: false,
-          animation: google.maps.Animation.DROP, // Initial drop animation
+            draggable: false
         });
 
         const infoWindow = new google.maps.InfoWindow({
@@ -180,28 +179,6 @@
         });
 
         markers.push(marker);
-       // Smooth animation using requestAnimationFrame
-const start = performance.now();
-const end = start + 1000; // Animation duration in milliseconds
-
-function animate() {
-    const now = performance.now();
-    const percentage = (now - start) / (end - start);
-
-    if (percentage < 1) {
-        const heading = google.maps.geometry.spherical.computeHeading(fixedPosition, location);
-        const distance = google.maps.geometry.spherical.computeDistanceBetween(fixedPosition, location);
-        const newPosition = google.maps.geometry.spherical.computeOffset(fixedPosition, distance * percentage, heading);
-        marker.setPosition(newPosition);
-        requestAnimationFrame(animate);
-    } else {
-        marker.setAnimation(null); // Clear drop animation
-    }
-}
-
-marker.setAnimation(google.maps.Animation.BOUNCE); // Initial bounce animation
-requestAnimationFrame(animate);
-
     }
 
     function clearMarkers() {
