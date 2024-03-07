@@ -139,10 +139,6 @@
 
 /* profile page */
 
-.profile-form__wrapper .address_Input .address_button {
-    position: absolute;
+.profile-form__wrapper .address_Input .address_button {    
     top: 50%;
-    right: 4px;
-    background: #fff;
-    transform: translateY(-50%);
 }
