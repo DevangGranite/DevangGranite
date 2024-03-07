@@ -208,6 +208,11 @@
           >
 
         {%- else -%}
+          <a class="thb-mobile-account-link">
+             {{ 'customer.login_page.dont_have_an_account' | t }}
+                    {% assign text_button_title = 'customer.login_page.create_account' | t %}
+                    {% render 'text-button', url: routes.account_register_url, title: text_button_title %}
+          </a>
           {%- assign profile_link = routes.account_login_url -%}
           {%- capture profile_text -%}
 				    {{ 'sections.header.login' | t }}
