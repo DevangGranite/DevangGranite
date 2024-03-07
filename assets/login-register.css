@@ -693,7 +693,9 @@ html.popup-overlap body:before {
     transform: rotate(180deg);
 }
 
-[dir=rtl] .create_form_wrapper .field .location_icon {
+[dir=rtl] .create_form_wrapper .field .location_icon,
+[dir=rtl] .profile-form__wrapper fieldset .field .location_icon {
     left: 15px;
     right: auto;
 }
+
