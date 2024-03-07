@@ -650,29 +650,23 @@ html.popup-overlap body:before {
     color:red;
 }
 
-
 @media only screen and (max-width: 600px) {
-  .thb-form-container .create_form_wrapper input {
-    min-height: 55px;
-  }
-
-  #mapPopUp {
-    height: 93vh;
-    overflow: hidden;
-  }
-
-  #map {
-    height: 60vh !important;
-  }
-
-  #ShopifyChat {
-    z-index: 999 !important;
-  }
-  .thb-register-form button.confirm-icon {
-    margin-top: 30px !important;
-}
-
-  #locationText {
-      margin-top: 30px !important;
-  }
+	#mapPopUp {
+		padding: 10px 10px 70px 10px;
+	}
+	#map {
+		height: calc(100vh - 310px) !important;
+	}
+	.thb-register-form button.confirm-icon {
+		width: calc(100% - 20px);
+		border-radius: 5px;
+		min-height: 50px;
+		margin-top: 0;
+		position: fixed;
+		bottom: 10px;
+		left: 10px;
+	}
+	#locationText {
+		padding-top: 5px;
+	}
 }
