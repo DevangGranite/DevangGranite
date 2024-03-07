@@ -215,10 +215,7 @@
             <a class="thb-mobile-account-link_signup" href="{{ routes.account_register_url }}">Sign Up</a>
           </div>
         {%- endif -%}
-        <a class="thb-mobile-account-link" href="{{ profile_link | escape }}" title="{{ profile_text | escape }}">
-          {%- unless customer %}{%- render 'svg-icons' with 'myaccount' %}{% endunless -%}
-          {{- profile_text -}}
-        </a>
+       
       {%- endif -%}
       <div class="no-js-hidden">
         {%- render 'localization',
