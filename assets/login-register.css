@@ -689,7 +689,7 @@ html[dir="rtl"] .address_Input .address_button {
 /* html[dir="rtl"] .address_Input .address_button button.clear-button2 img {
     transform: rotate(180deg);
 } */
-html[dir="rtl"] .close-icon {
+/* html[dir="rtl"] .close-icon {
     left: 20px;
     right: auto;
-}
+} */
