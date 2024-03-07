@@ -207,12 +207,9 @@
             {{ 'sections.header.logout_drop' | t }}</a
           >
 
-        {%- else -%}          
-          {%- assign profile_link = routes.account_login_url -%}
-          {%- capture profile_text -%}
-				    {{ 'sections.header.login' | t }}
-  		  {%- endcapture -%}
+        {%- else -%}
           
+          <a class="thb-mobile-account-link" href="{{ routes.account_login_url }}">Login</a>
           <a class="thb-mobile-account-link" href="{{ routes.account_register_url }}">Sign Up</a>
           
         {%- endif -%}
