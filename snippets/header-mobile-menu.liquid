@@ -215,7 +215,7 @@
           
           <a class="thb-mobile-account-link">           
             {% assign text_button_title = 'sign up' %}
-            {% render 'logout', url: routes.account_register_url, title: text_button_title %}
+            {% render url: routes.account_register_url, title: text_button_title %}
           </a>
           
         {%- endif -%}
