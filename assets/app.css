@@ -4269,3 +4269,7 @@ line-height: 34px;
   position: relative;
   -webkit-transform: translateZ(0);
   }
+/* chat btn */
+button.chat-toggle.chat-toggle--text-button {    
+    height: 50px !important;   
+}
