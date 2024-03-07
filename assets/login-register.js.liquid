@@ -133,8 +133,8 @@ class RegisterCustomer extends HTMLElement{
     });
 
     this.accept_condition.addEventListener('change', e => {
-      if (this.accept_condition && this.registerBtn) {
-        validateForm();
+      validateForm();
+      if (this.accept_condition && this.registerBtn) {        
         this.registerBtn.disabled = !this.accept_condition.checked;
       } else {
           console.error("Checkbox or button not found");
