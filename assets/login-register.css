@@ -660,7 +660,7 @@ html.popup-overlap body:before {
 		height: calc(100vh - 310px) !important;
 	}
 	body .thb-register-form button.confirm-icon, .profile-form__wrapper .confirm-icon {
-    width: calc(100% - 20px);
+    width: calc(100% - 20px) !important;
     border-radius: 5px;
     min-height: 50px;
     margin-top: 0;
