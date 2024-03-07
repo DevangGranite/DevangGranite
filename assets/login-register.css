@@ -658,7 +658,7 @@ html.popup-overlap body:before {
 		height: calc(100vh - 310px) !important;
 	}
 	body .thb-register-form button.confirm-icon,
-    body .profile-form__wrapper .confirm-icon{
+    .profile-form__wrapper .confirm-icon{
 		width: calc(100% - 20px);
 		border-radius: 5px;
 		min-height: 50px;
