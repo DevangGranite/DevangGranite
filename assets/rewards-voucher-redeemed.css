@@ -376,6 +376,9 @@ line-height: 18px;
 .rewards-voucher-redeemed_help{
   flex: 1;
 }
+.d-none{
+  display: none;
+}
 @media screen and ( min-width: 749px ){
   .rewards-voucher-redeemed_card_image.deaktop_hide{
     display: none;

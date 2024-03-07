@@ -68,6 +68,7 @@ class UpdateProfile extends HTMLElement{
                 return response.json();  
             }).then(data => {
                 console.log('Customer profile edit',data);
+                window.location.href = '/account?view=profile'
             }).catch(error => {
                 console.error('Customer profile edit Error fetching data:', error);
             }); 
@@ -117,7 +118,7 @@ class UpdateProfile extends HTMLElement{
                         .then(response => response.text())
                         .then(data => {
                             console.log('MSS Customer email edit',data);
-                            // window.location.href = '/pages/profile'
+                            window.location.href = '/account?view=profile'
                         }).catch(error => 
                             console.log('MSS email update error', error)
                         );

@@ -8,7 +8,7 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/My_Account_Hero_Banner_Clip_The_Deal.jpg",
             "mobile_image": "shopify:\/\/shop_images\/My_Account_Hero_Banner_Clip_The_Deal_Mobile.jpg",
-            "slide_link": "shopify:\/\/pages\/clip-the-deal",
+            "slide_link": "https:\/\/alainwaterdev2.myshopify.com\/account?view=clip-the-deal",
             "video_background": false,
             "badge_text": "",
             "subheading": "",
@@ -119,9 +119,9 @@
         "mobile_height": "mobile-height-250",
         "full_width": true,
         "autoplay": true,
-        "autoplay_length": 10,
+        "autoplay_length": 3,
         "transition": "slide",
-        "controls": "dots",
+        "controls": "arrows",
         "disable_top_spacing": true,
         "disable_bottom_spacing": true
       }

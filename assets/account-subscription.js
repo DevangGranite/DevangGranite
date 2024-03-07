@@ -110,6 +110,7 @@ if (!customElements.get('account-subscription')) {
     initSubscriptionData() {
       this.getSubscriptionList(1)
         .then(active => {
+          console.log(active)
           const subscriptionData = active.response[0];
           if (subscriptionData) {
             const productData = subscriptionData.custom_orders[0];
@@ -119,9 +120,7 @@ if (!customElements.get('account-subscription')) {
             this.editPauseStatusButton.style.display = 'block';
           }
           else {
-            this.emptyScreen.style.display = 'flex';
-
-            /*this.getSubscriptionList(3)
+            this.getSubscriptionList(3)
               .then(paused => {
                 console.log(paused)
                 const subscriptionData = paused.response[0];
@@ -131,6 +130,13 @@ if (!customElements.get('account-subscription')) {
                   this.setInitials();
                   this.presentScreen.style.display = 'block';
                   this.resumeStatusButton.style.display = 'block';
+                  this.resumeStatusButton.addEventListener('click', (e) => {
+                    const resumeTime = new Date();
+                    resumeTime.setDate(resumeTime.getDate() + 1);
+
+                    e.preventDefault();
+                    this.changeSubscriptionStatus(1, resumeTime, null);
+                  });
                 }
                 else {
                   this.emptyScreen.style.display = 'flex';
@@ -138,7 +144,7 @@ if (!customElements.get('account-subscription')) {
               })
               .catch(() => {
                 this.submitButton.insertAdjacentHTML('afterend', `<div class="form--error">Something went wrong</div>`);
-              });*/
+              });
           }
         })
         .catch(() => {
@@ -151,7 +157,14 @@ if (!customElements.get('account-subscription')) {
         product.innerText = productData.product_name;
       });
       this.productPrice = (productData.price_per_unit + productData.price_per_unit * parseFloat(productData.vat)/100);
-      this.nextDelivery.value = this.prettyDate(new Date(subscriptionData.delivery_date));
+      if (subscriptionData.delivery_date) {
+        this.nextDelivery.value = this.prettyDate(new Date(subscriptionData.delivery_date));
+      } else if (subscriptionData.end_date) {
+        this.nextDelivery.value = this.prettyDate(new Date(subscriptionData.end_date));
+        this.statusText.innerText = `Paused until ${this.prettyDate(new Date(subscriptionData.end_date))}`;
+      } else {
+        this.nextDelivery.value = this.prettyDate(new Date(subscriptionData.delivery_date));
+      }
       this.inititalDeliveryDate = subscriptionData.delivery_date;
       this.nextDeliveryDate = subscriptionData.delivery_date;
       this.address.value = `${subscriptionData.location}, ${subscriptionData.state}, ${subscriptionData.city}`;
@@ -179,7 +192,11 @@ if (!customElements.get('account-subscription')) {
       })
         .then(response => response.json())
         .then(response => {
-          this.submitButton.insertAdjacentHTML('afterend', `<div class="form--success">Status Updated</div>`);
+          if (response.message === 'success') {
+            this.submitButton.insertAdjacentHTML('afterend', `<div class="form--success">Status Updated</div>`);
+          } else  {
+            this.submitButton.insertAdjacentHTML('afterend', `<div class="form--error">Something went wrong</div>`);
+          }
           this.resetInitials();
           status === 2 && window.location.reload();
         })
