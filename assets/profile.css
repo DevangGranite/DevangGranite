@@ -403,11 +403,11 @@ html[lang="ar"] .profile-form__wrapper select {
     padding-top: 12px;
     padding-bottom: 12px;
 }
-/* html[lang="ar"] .profile-form__wrapper fieldset .field .edit-link {
+html[lang="ar"] .profile-form__wrapper fieldset .field .edit-link {
     left: 0;
     right: auto;
 }
-html[dir="rtl"] .profile-form__wrapper fieldset .field .location_icon {
+/* html[dir="rtl"] .profile-form__wrapper fieldset .field .location_icon {
     left: 15px;
     right: auto;
 }
