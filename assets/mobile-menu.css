@@ -68,7 +68,7 @@
       color: var(--color-header-links, --color-accent); }
       .mobile-menu-drawer .thb-mobile-menu-footer .thb-mobile-account-link svg {
         margin-right: 12px;
-        height: 30px;
+        height: 20px;
         width: auto;}
         .mobile-menu-drawer .thb-mobile-menu-footer .thb-mobile-account-link svg path {
           fill: var(--color-header-links, --color-accent); }
