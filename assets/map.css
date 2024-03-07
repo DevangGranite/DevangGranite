@@ -82,7 +82,7 @@
     display: none;
   }
   
-  .thb-register-form button.confirm-icon{
+  .thb-register-form button.confirm-icon, .profile-form__wrapper .confirm-icon{
     font-size: 16px;
     background: #2461cc;
     width: 100%;
@@ -91,21 +91,6 @@
     min-height: 40px;
     margin-top: 5px;
   }
-
-.profile-form__wrapper .confirm-icon {
-    width: calc(100% - 20px);
-    border-radius: 5px;
-    min-height: 50px;
-    margin-top: 0;
-    position: fixed;
-    bottom: 10px;
-    font-size: 16px;
-    background: #2461cc;    
-    color: #fff;
-    border-radius: 5px;    
-    margin-top: 5px;
-    left: 10px;
-}
   
   #mapPopUp .address_Input {
     position: relative;
