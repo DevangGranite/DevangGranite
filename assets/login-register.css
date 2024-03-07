@@ -697,5 +697,6 @@ html.popup-overlap body:before {
 [dir=rtl] .profile-form__wrapper fieldset .field .location_icon {
     left: 15px;
     right: auto;
+    background: #fff;
 }
 
