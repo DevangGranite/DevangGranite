@@ -132,8 +132,7 @@ class RegisterCustomer extends HTMLElement{
       this.switchDistricts(this.city.value);
     });
 
-    this.accept_condition.addEventListener('change', e => {
-      validateForm();
+    this.accept_condition.addEventListener('change', e => {      
       if (this.accept_condition && this.registerBtn) {        
         this.registerBtn.disabled = !this.accept_condition.checked;
       } else {
