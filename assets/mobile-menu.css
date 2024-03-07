@@ -206,3 +206,9 @@
 .mobile-menu-drawer .thb-mobile-menu-footer .thb-mobile-account-link_signup svg path {
     fill: none !important;
 }
+
+.thb-mobile-account-link.thb-mobile-account-logout a svg {
+    height: 30px !important;
+    stroke: #2461CC;
+    stroke-width: .5;
+}
