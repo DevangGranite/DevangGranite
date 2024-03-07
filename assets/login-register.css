@@ -678,3 +678,8 @@ html.popup-overlap body:before {
 		padding-top: 5px;
 	}
 }
+
+[dir=rtl] button.close-icon {
+    left: 20px;
+    right: auto;
+}
