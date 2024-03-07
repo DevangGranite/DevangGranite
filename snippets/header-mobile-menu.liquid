@@ -198,6 +198,7 @@
     <div class="thb-mobile-menu-footer">
       {%- if shop.customer_accounts_enabled -%}
         {%- if customer -%}
+          <div class="thb-mobile-account-link">
           <a title="My account"  class="thb-mobile-account-link" href="{{ routes.account_url }}">{{ 'sections.header.my_account' | t }}</a>
           <a
             title="Logout"
@@ -205,9 +206,9 @@
             href="{{ routes.account_logout_url }}"
           >
             {%- render 'svg-icons' with 'logout' -%}
-            {{ 'sections.header.logout_drop' | t }}</a
-          >
-
+            {{ 'sections.header.logout_drop' | t }}
+          </a>
+          </div>
         {%- else -%}
           <div class="thb-mobile-account-link">
             <div class="thb-mobile-account-link_login">             
