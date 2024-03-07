@@ -209,9 +209,8 @@
 
         {%- else -%}
           <div class="thb-mobile-account-link">
-            <div class="thb-mobile-account-link_login">
-              
-              <a {%- render 'svg-icons' with 'login' -%} href="{{ routes.account_login_url }}">Login</a>
+            <div class="thb-mobile-account-link_login">             
+              <a href="{{ routes.account_login_url }}"> {%- render 'svg-icons' with 'login' -%} Login </a>
             </div>
             
             {%- render 'svg-icons' with 'signup' -%}
