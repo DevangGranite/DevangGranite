@@ -683,3 +683,8 @@ html.popup-overlap body:before {
     left: 20px;
     right: auto;
 }
+
+[dir=rtl] .address_Input .address_button {
+    left: 4px;
+    right: auto;
+}
