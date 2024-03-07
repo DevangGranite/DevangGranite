@@ -69,9 +69,7 @@
       .mobile-menu-drawer .thb-mobile-menu-footer .thb-mobile-account-link svg {
         margin-right: 12px;
         height: 30px;
-        width: auto; 
-          stroke: #2461CC;
-    stroke-width: 0.5;}
+        width: auto;}
         .mobile-menu-drawer .thb-mobile-menu-footer .thb-mobile-account-link svg path {
           fill: var(--color-header-links, --color-accent); }
         [dir="rtl"] .mobile-menu-drawer .thb-mobile-menu-footer .thb-mobile-account-link svg {
