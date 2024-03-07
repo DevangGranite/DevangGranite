@@ -198,6 +198,7 @@
     <div class="thb-mobile-menu-footer">
       {%- if shop.customer_accounts_enabled -%}
         {%- if customer -%}
+          <a title="My account"  class="thb-mobile-account-link" href="{{ routes.account_url }}">{{ 'sections.header.home' | t }}</a>
           <a
             title="Logout"
             class="thb-mobile-account-link thb-mobile-account-logout"
