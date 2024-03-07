@@ -212,11 +212,12 @@
           {%- capture profile_text -%}
 				    {{ 'sections.header.login' | t }}
   		  {%- endcapture -%}
-          <a class="thb-mobile-account-link">
-           
-                    {% assign text_button_title = 'sign up' %}
-                    {% render 'text-button', url: routes.account_register_url, title: text_button_title %}
+          
+          <a class="thb-mobile-account-link">           
+            {% assign text_button_title = 'sign up' %}
+            {% render 'logout', url: routes.account_register_url, title: text_button_title %}
           </a>
+          
         {%- endif -%}
         <a class="thb-mobile-account-link" href="{{ profile_link | escape }}" title="{{ profile_text | escape }}">
           {%- unless customer %}{%- render 'svg-icons' with 'myaccount' %}{% endunless -%}
