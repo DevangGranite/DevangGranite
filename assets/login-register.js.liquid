@@ -132,8 +132,8 @@ class RegisterCustomer extends HTMLElement{
       this.switchDistricts(this.city.value);
     });
 
-    this.accept_condition.addEventListener('change', e => {      
-      if (this.accept_condition && this.registerBtn) {        
+    this.accept_condition.addEventListener('change', e => {
+      if (this.accept_condition && this.registerBtn) {
         this.registerBtn.disabled = !this.accept_condition.checked;
       } else {
           console.error("Checkbox or button not found");
@@ -141,9 +141,11 @@ class RegisterCustomer extends HTMLElement{
     });
 
     this.registerBtn.addEventListener('click', e => {
+      console.log('regi clicked');
         e.preventDefault();
         this.numericValue = this.phone.value.replace(/\D/g, '');
-        if (this.numericValue.length === 9 && this.validateForm()) { 
+        let isValidate = this.validateForm();
+        if (this.numericValue.length === 9 && isValidate) { 
           sendOTP(this.phone.value).then(response=>{
             console.log('Send OTP',response);
             // if(response.response.isExist == 1){
@@ -267,21 +269,25 @@ class RegisterCustomer extends HTMLElement{
     }, 1000);
   }
   validateForm(){
-    this.isValid = true;
+    console.log('Validate form');
+    this.isValid = false;
 
-    this.isValid = this.isValid && this.validateField('first_name', 'firstNameError', 'Please enter your First Name.');
-    this.isValid = this.isValid && this.validateField('last_name', 'lastNameError', 'Please enter your Last Name.');
-    this.isValid = this.isValid && this.validateEmailField('email', 'emailError', 'Please enter a valid Email Address.');
-    this.isValid = this.isValid && this.validateConfirmEmailField('confirm_email', 'email', 'confirmEmailError', 'Email Addresses does not match.');
-    this.isValid = this.isValid && this.validateField('locationInput', 'locationInputError', 'Please enter your Address.');
-    this.isValid = this.isValid && this.validateSelectField('regi_city', 'regiCityError', 'Please select your City.');
-    this.isValid = this.isValid && this.validateSelectField('district', 'districtError', 'Please select your District.');
+    this.first_name_valid = this.validateField('first_name', 'firstNameError', 'Please enter your First Name.');
+    this.last_name_valid = this.validateField('last_name', 'lastNameError', 'Please enter your Last Name.');
+    this.email_valid = this.validateEmailField('email', 'emailError', 'Please enter a valid Email Address.');
+    this.confirm_email_valid = this.validateConfirmEmailField('confirm_email', 'email', 'confirmEmailError', 'Email Addresses does not match.');
+    this.address_valid = this.validateField('locationInput', 'locationInputError', 'Please enter your Address.');
+    this.city_valid = this.validateSelectField('regi_city', 'regiCityError', 'Please select your City.');
+    this.district_valid = this.validateSelectField('district', 'districtError', 'Please select your District.');
+
+    this.isValid = this.first_name_valid && this.last_name_valid && this.email_valid && this.confirm_email_valid && this.address_valid && this.city_valid && this.district_valid;
 
     console.log('Form validation result:', this.isValid); // Add this line for debugging
 
     return this.isValid;
   }
   validateField(inputId, errorId, errorMessage){
+    console.log('Validate field');
     this.input = document.getElementById(inputId);
     this.errorElement = document.getElementById(errorId);
     this.value = this.input.value.trim();
