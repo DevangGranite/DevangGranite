@@ -209,8 +209,8 @@
 
         {%- else -%}
           
-          <a class="thb-mobile-account-link" href="{{ routes.account_login_url }}">Login</a>
-          <a class="thb-mobile-account-link" href="{{ routes.account_register_url }}">Sign Up</a>
+          <a class="thb-mobile-account-link login" href="{{ routes.account_login_url }}">Login</a>
+          <a class="thb-mobile-account-link signup" href="{{ routes.account_register_url }}">Sign Up</a>
           
         {%- endif -%}
         <a class="thb-mobile-account-link" href="{{ profile_link | escape }}" title="{{ profile_text | escape }}">
