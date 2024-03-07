@@ -56,15 +56,13 @@
   .address_Input input#addressInput {
     min-height: 55px;
   }
-  .address_Input .address_button button.clear-button,
-  .profile-form__wrapper .address_Input .address_button {
+  .address_Input .address_button button.clear-button {
     width: 35px;
     height: 35px;
     margin-right: 0px;
   }
   
-  .address_Input .address_button,
-  .profile-form__wrapper .address_Input .address_button {
+  .address_Input .address_button {
     position: absolute;
     top: 43%;
     right: 4px;
