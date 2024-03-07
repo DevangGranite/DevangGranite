@@ -82,8 +82,8 @@
     display: none;
   }
   
-  .thb-register-form button.confirm-icon,
-  .profile-form__wrapper .confirm-icon {
+  .thb-register-form button.confirm-icon
+   {
     font-size: 16px;
     background: #2461cc;
     width: 100%;
