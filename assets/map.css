@@ -136,3 +136,13 @@
     background: #CDD5DD !important;
     cursor: not-allowed;
   }
+
+/* profile page */
+
+.profile-form__wrapper .address_Input .address_button {
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    background: #fff;
+    transform: translateY(-50%);
+}
