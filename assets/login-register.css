@@ -250,6 +250,7 @@ input.full.numeric {
   right: 18px;
   background: #ffffff;
   padding: 0 0px 0 5px;
+  background: #fff;
 }
 .thb-form-container .create_form_wrapper select {
   -webkit-appearance: auto;
