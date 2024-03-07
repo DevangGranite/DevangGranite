@@ -213,8 +213,8 @@
 				    {{ 'sections.header.login' | t }}
   		  {%- endcapture -%}
           <a class="thb-mobile-account-link">
-             sign up
-                    {% assign text_button_title = 'customer.login_page.create_account' | t %}
+           
+                    {% assign text_button_title =   sign up %}
                     {% render 'text-button', url: routes.account_register_url, title: text_button_title %}
           </a>
         {%- endif -%}
