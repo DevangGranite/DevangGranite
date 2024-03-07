@@ -679,17 +679,17 @@ html.popup-overlap body:before {
 	}
 }
 
-/* html[dir="rtl"] .create_form_wrapper .field .location_icon {
+html[dir="rtl"] .create_form_wrapper .field .location_icon {
     left: 18px;
     padding: 0
 }
 html[dir="rtl"] .address_Input .address_button {
     left: 4px;
 }
-html[dir="rtl"] .address_Input .address_button button.clear-button2 img {
+/* html[dir="rtl"] .address_Input .address_button button.clear-button2 img {
     transform: rotate(180deg);
-}
+} */
 html[dir="rtl"] .close-icon {
     left: 20px;
     right: auto;
-} */
+}
