@@ -207,16 +207,16 @@
             {{ 'sections.header.logout_drop' | t }}</a
           >
 
-        {%- else -%}
-          <a class="thb-mobile-account-link">
-             {{ 'customer.login_page.dont_have_an_account' | t }}
-                    {% assign text_button_title = 'customer.login_page.create_account' | t %}
-                    {% render 'text-button', url: routes.account_register_url, title: text_button_title %}
-          </a>
+        {%- else -%}          
           {%- assign profile_link = routes.account_login_url -%}
           {%- capture profile_text -%}
 				    {{ 'sections.header.login' | t }}
-				  {%- endcapture -%}
+  		  {%- endcapture -%}
+          <a class="thb-mobile-account-link">
+             sign up
+                    {% assign text_button_title = 'customer.login_page.create_account' | t %}
+                    {% render 'text-button', url: routes.account_register_url, title: text_button_title %}
+          </a>
         {%- endif -%}
         <a class="thb-mobile-account-link" href="{{ profile_link | escape }}" title="{{ profile_text | escape }}">
           {%- unless customer %}{%- render 'svg-icons' with 'myaccount' %}{% endunless -%}
