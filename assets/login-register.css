@@ -651,13 +651,13 @@ html.popup-overlap body:before {
 }
 
 @media only screen and (max-width: 600px) {
-	#mapPopUp {
+	body #mapPopUp {
 		padding: 10px 10px 70px 10px;
 	}
-	#map {
+	body #map {
 		height: calc(100vh - 310px) !important;
 	}
-	.thb-register-form button.confirm-icon {
+	body .thb-register-form button.confirm-icon {
 		width: calc(100% - 20px);
 		border-radius: 5px;
 		min-height: 50px;
@@ -666,7 +666,7 @@ html.popup-overlap body:before {
 		bottom: 10px;
 		left: 10px;
 	}
-	#locationText {
+	body #locationText {
 		padding-top: 5px;
 	}
 }
