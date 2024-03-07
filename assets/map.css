@@ -129,6 +129,13 @@
       -webkit-box-shadow: 0 0 0 30px white inset !important;
   }
 
+  .profile-form__wrapper .address_Input input#addressInput:-webkit-autofill,
+  .profile-form__wrapper .address_Input input#addressInput:-webkit-autofill:hover, 
+  .profile-form__wrapper .address_Input input#addressInput:-webkit-autofill:focus, 
+  .profile-form__wrapper .address_Input input#addressInput:-webkit-autofill:active{
+      -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }
+
   button{
     transition: all 0.5s;
   }
