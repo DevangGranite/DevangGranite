@@ -502,7 +502,7 @@ function showLoader() {
       .then(response => {
         if (!response.ok) {
         this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";
-        document.getElementById('loaderotp').style.display = 'none';
+        hideLoaderotp();
         throw new Error(`Network response was not ok: ${response.status}`);
       }
         return response.json();
@@ -522,7 +522,7 @@ function showLoader() {
           } 
         }else{
           this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";
-          document.getElementById('loaderotp').style.display = 'none';
+           hideLoaderotp();
         }
       }).catch(error => {
         console.log('Fetching error verify OTP',error);
