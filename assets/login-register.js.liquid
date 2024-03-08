@@ -454,10 +454,6 @@ function showLoader() {
     loader.style.display = 'block';    
 }
 
-// Function to hide the loader
-function hideLoader() {
-  document.getElementById('loader').style.display = 'none';
-}
     // send opt on mobile number and visible enter otp form
     this.verifyMobileBtn.addEventListener('click', e => {
       sendOTP(this.mobileNo.value).then(response => {
@@ -489,7 +485,6 @@ function hideLoader() {
     });
 
 
-
     // verify otp to login
     this.verifyOtpLoginBtn.addEventListener('click', e => {
       let OTP = this.querySelector('#OneTimePassword1').value+this.querySelector('#OneTimePassword2').value+this.querySelector('#OneTimePassword3').value+this.querySelector('#OneTimePassword4').value+this.querySelector('#OneTimePassword5').value+this.querySelector('#OneTimePassword6').value;
@@ -506,7 +501,8 @@ function hideLoader() {
       })
       .then(response => {
         if (!response.ok) {
-        this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";   
+        this.querySelector("#invalidOTPError").innerText = "Invalid OTP."; 
+        document.getElementById('loaderotp').style.display = 'none';
         throw new Error(`Network response was not ok: ${response.status}`);
       }
         return response.json();
