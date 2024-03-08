@@ -700,11 +700,19 @@ html.popup-overlap body:before {
     right: auto;
     background: #fff;
 }
-.fields.login--page #loader,
-.fields.login--page #loaderotp,
+.fields.login--page #loader, 
+.fields.login--page #loaderotp, 
 .fields.login--page #loaderemail {
     margin: -60px auto 0;
-    max-width: 40px;
     position: relative;
     z-index: 1;
+    width: 100%;
+    text-align: center;
+    cursor: not-allowed;
+}
+
+.fields.login--page #loader img,
+.fields.login--page #loaderotp img,
+.fields.login--page #loaderemail img {
+    max-width: 40px;
 }
