@@ -531,7 +531,8 @@ function showLoader() {
 
         // Function to show the loader
       function showLoaderotp() { 
-        verifyOtpLoginBtn.querySelector('span').style.display = 'none';    
+        verifyOtpLoginBtn.querySelector('span').style.display = 'none';
+        updateEmailBtn.querySelector('span').style.display = 'none';        
           loaderotp.style.display = 'block';
       }
 
@@ -549,6 +550,7 @@ function showLoader() {
     });
 
     this.updateEmailBtn.addEventListener('click', e => {
+      showLoaderotp();
       if(this.validateForm && this.isValidEmail() && this.validateConfirmEmailField()){
         this.updateEmailAddress();
       }
