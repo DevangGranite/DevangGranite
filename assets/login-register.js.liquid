@@ -428,7 +428,8 @@ class LoginCustomer extends HTMLElement {
       const verifyMobileBtn = document.getElementById('verifyMobile');
       const verifyOtpLoginBtn = document.getElementsByClassName('verifyOtpLoginBtn')[0]; 
       const loader = document.getElementById('loader');
-
+      const loaderotp = document.getElementById('loaderotp');
+    
     // validate mobile number
     this.mobileNo.addEventListener('keypress', e => {
       var numericValue = this.mobileNo.value.replace(/\D/g, '');
@@ -631,9 +632,11 @@ customElements.define('login-customer',LoginCustomer);
 function showLoader() { 
   verifyMobileBtn.querySelector('span').style.display = 'none';
     loader.style.display = 'block';
+    loaderotp.style.display = 'block';
 }
 
 // Function to hide the loader
 function hideLoader() {
   document.getElementById('loader').style.display = 'none';
+  document.getElementById('loaderotp').style.display = 'none';
 }
