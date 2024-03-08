@@ -424,35 +424,43 @@ class LoginCustomer extends HTMLElement {
   }
   evenetListener() {
 
-    // validate mobile number
-    this.mobileNo.addEventListener('keypress', e => {
-      var numericValue = this.mobileNo.value.replace(/\D/g, '');
-      this.mobileNo.value = numericValue;
-      if (numericValue.length >= 8) {
-        this.verifyMobileBtn.removeAttribute('disabled');
-      } else {
-        this.verifyMobileBtn.setAttribute('disabled', 'disabled');
-      }
-      if (e.key === 'Enter') {
-        this.verifyMobileBtn.click();
-      }
-    });
+    // Add an event listener to the button
+this.verifyMobileBtn.addEventListener('click', e => {
+  // Show loader while waiting for the response
+  showLoader();
 
-    // send opt on mobile number and visible enter otp form
-    this.verifyMobileBtn.addEventListener('click', e => {
-      sendOTP(this.mobileNo.value).then(response => {
-        console.log('Send Login OTP',response);
-        this.capturedValue.innerHTML = this.mobileNo.value;
-        this.startTimer();
-        if (this.customLoginElement.style.display === 'none' || this.customLoginElement.style.display === '') {
-            this.customLoginElement.style.display = 'block';
-            this.customLoginotpElement.style.display = 'none';
-        } else {
-            this.customLoginElement.style.display = 'none';
-            this.customLoginotpElement.style.display = 'block';
-        }
-      });
+  // Send OTP and handle the response
+  sendOTP(this.mobileNo.value)
+    .then(response => {
+      console.log('Send Login OTP', response);
+      this.capturedValue.innerHTML = this.mobileNo.value;
+      this.startTimer();
+
+      // Handle UI changes after receiving the response
+      if (this.customLoginElement.style.display === 'none' || this.customLoginElement.style.display === '') {
+        this.customLoginElement.style.display = 'block';
+        this.customLoginotpElement.style.display = 'none';
+      } else {
+        this.customLoginElement.style.display = 'none';
+        this.customLoginotpElement.style.display = 'block';
+      }
+    })
+    .finally(() => {
+      // Hide the loader regardless of success or failure
+      hideLoader();
     });
+});
+
+// Function to show the loader
+function showLoader() {
+  document.getElementById('loader').style.display = 'block';
+}
+
+// Function to hide the loader
+function hideLoader() {
+  document.getElementById('loader').style.display = 'none';
+}
+
 
     // resend otp on mobile number
     this.resendBtn.addEventListener('click', e => {
