@@ -563,6 +563,19 @@ function hideLoader() {
         }
     }, 1000);
   }
+
+      // Function to show the loader
+function showLoaderotp() { 
+  verifyOtpLoginBtn.querySelector('span').style.display = 'none';    
+    loaderotp.style.display = 'block';
+}
+
+// Function to hide the loader
+function hideLoaderotp() { 
+  document.getElementById('loaderotp').style.display = 'none';
+  verifyOtpLoginBtn.querySelector('span').style.display = 'block'; 
+}
+  
   customerLogin(jsondata) {
     fetch(`https://alainuat.gdadmin.org/laravel/public/api/customer/login/${jsondata}`, {
         method: 'GET',
@@ -635,16 +648,5 @@ function hideLoader() {
         this.customerLogin(JSON.stringify({email:this.email.value,name:this.username,user_id:this.user_id}));
     }).catch(error => console.log('Error fetching data:',error));
   }
-      // Function to show the loader
-function showLoaderotp() { 
-  verifyOtpLoginBtn.querySelector('span').style.display = 'none';    
-    loaderotp.style.display = 'block';
-}
-
-// Function to hide the loader
-function hideLoaderotp() { 
-  document.getElementById('loaderotp').style.display = 'none';
-  verifyOtpLoginBtn.querySelector('span').style.display = 'block'; 
-}
 }
 customElements.define('login-customer',LoginCustomer);
