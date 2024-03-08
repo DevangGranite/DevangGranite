@@ -399,6 +399,7 @@
    }
   }
 
+  .blue_drops,
   .premium_drops,
   .green_drops{
     opacity: 0;
@@ -452,9 +453,15 @@
     flex-direction: column;
     align-items: center;
   }
+  .d-none{
+    display:none;
+  }
 
 </style>
-
+<input type="hidden" name="meta[token]" value="{{ customer.metafields.custom.token }}">
+<input type="hidden" name="meta[user_id]" value="{{ customer.metafields.custom.user_id }}">
+<input type="hidden" name="meta[name]" value="{{ customer.metafields.custom.name }}">
+<reward-benefit>
 <div class="reward-benefits-main-container">
   <div class="reward-benefits-banner">
     <div class="reward-benefits-banner-inner">
@@ -614,15 +621,13 @@
           Happy shopping!
         </div>
 
-        <div class="reward-benefits-date-bottom">
-          Member since 4 Jan 2023
-        </div>
+        <div class="reward-benefits-date-bottom"></div>
         
       </div>
     </div>
   </div>
 </div>
-
+</reward-benefit>
 
 
 
