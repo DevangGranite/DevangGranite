@@ -478,17 +478,7 @@ function hideLoader() {
         showLoaderotp();
       });
 
-    // Function to show the loader
-function showLoaderotp() { 
-  verifyOtpLoginBtn.querySelector('span').style.display = 'none';    
-    loaderotp.style.display = 'block';
-}
 
-// Function to hide the loader
-function hideLoaderotp() { 
-  document.getElementById('loaderotp').style.display = 'none';
-  verifyOtpLoginBtn.querySelector('span').style.display = 'block'; 
-}
     // resend otp on mobile number
     this.resendBtn.addEventListener('click', e => {
       sendOTP(this.mobileNo.value).then(response => {
@@ -542,8 +532,21 @@ function hideLoaderotp() {
       });
     });
 
+        // Function to show the loader
+function showLoaderotp() { 
+  verifyOtpLoginBtn.querySelector('span').style.display = 'none';    
+    loaderotp.style.display = 'block';
+}
+
+// Function to hide the loader
+function hideLoaderotp() { 
+  document.getElementById('loaderotp').style.display = 'none';
+  verifyOtpLoginBtn.querySelector('span').style.display = 'block'; 
+}
+
     this.querySelector('#OneTimePassword6').addEventListener('keypress', e => {
       if (e.key === 'Enter') {
+        showLoaderotp();
         this.verifyOtpLoginBtn.click();
       }
     });
