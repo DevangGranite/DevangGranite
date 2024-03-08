@@ -556,9 +556,14 @@ function showLoader() {
 
     this.updateEmailBtn.addEventListener('click', e => {
       showLoaderemail();
-      if(this.validateForm && this.isValidEmail() && this.validateConfirmEmailField() && e.key === 'Enter'){
-        this.updateEmailAddress();
-        this.updateEmailBtn.click();
+      if(this.validateForm && this.isValidEmail() && this.validateConfirmEmailField()){
+        this.updateEmailAddress();       
+      }
+    });
+    this.updateEmailBtn.addEventListener('keypress', e => {
+      if (e.key === 'Enter') {
+        showLoaderotp();
+        this.updateEmailAddress.click();
       }
     });
   }
