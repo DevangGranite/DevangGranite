@@ -438,7 +438,8 @@ class LoginCustomer extends HTMLElement {
         this.verifyMobileBtn.click();
       }
     });
-        const verifyMobileBtn = document.getElementById('verifyMobile');
+        // Assuming this.verifyMobileBtn is your button element
+const verifyMobileBtn = document.getElementById('verifyMobile');
 const loader = document.getElementById('loader');
 
 verifyMobileBtn.addEventListener('click', () => {
@@ -449,24 +450,11 @@ verifyMobileBtn.addEventListener('click', () => {
     // Perform any additional functionality or make a request here
     // For example, you can use a setTimeout to simulate a delayed response
     setTimeout(() => {
-        // Simulated response condition, replace with your actual condition
-        const isResponseValid = Math.random() > 0.5; // Replace with your actual condition
-
-        if (isResponseValid) {
-            // Once the desired condition in the response is met, hide the loader and show the button text
-            loader.style.display = 'none';
-            verifyMobileBtn.querySelector('span').style.display = 'inline';
-        } else {
-            // If the condition is not met, handle accordingly (e.g., show an error message)
-            console.error('Response not valid. Handle the error appropriately.');
-            // Optionally, you can hide the loader and show an error message here
-            loader.style.display = 'none';
-            // Show an error message instead of the button text
-            verifyMobileBtn.innerHTML = '<span>Error Occurred</span>';
-        }
-    }, 2000); // Replace 2000 with the actual time it takes to get the response
+        // Once the response is received, hide the loader and show the button text
+        loader.style.display = 'none';
+        verifyMobileBtn.querySelector('span').style.display = 'inline';
+    }, 3000); // Replace 2000 with the actual time it takes to get the response
 });
-
 
 
     // send opt on mobile number and visible enter otp form
