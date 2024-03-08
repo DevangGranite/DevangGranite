@@ -438,6 +438,9 @@ class LoginCustomer extends HTMLElement {
         this.verifyMobileBtn.click();
       }
     });
+        // Assuming this.verifyMobileBtn is your button element
+      const verifyMobileBtn = document.getElementById('verifyMobile');
+      const loader = document.getElementById('loader');
 
         verifyMobileBtn.addEventListener('click', () => {
              showLoader();   
