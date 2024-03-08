@@ -701,7 +701,7 @@ html.popup-overlap body:before {
     background: #fff;
 }
 .fields.login--page #loader {
-    margin: -56px auto 0;
+    margin: -60px auto 0;
     max-width: 40px;
     position: relative;
     z-index: 1;
