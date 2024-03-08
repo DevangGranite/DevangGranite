@@ -433,6 +433,9 @@ class LoginCustomer extends HTMLElement {
       } else {
         this.verifyMobileBtn.setAttribute('disabled', 'disabled');
       }
+     verifyMobileBtn.addEventListener('click', () => {
+      showLoader();
+     }
       if (e.key === 'Enter') {
         showLoader();
         this.verifyMobileBtn.click();
