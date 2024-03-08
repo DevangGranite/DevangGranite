@@ -438,24 +438,10 @@ class LoginCustomer extends HTMLElement {
         this.verifyMobileBtn.click();
       }
     });
-        // Assuming this.verifyMobileBtn is your button element
-const verifyMobileBtn = document.getElementById('verifyMobile');
-const loader = document.getElementById('loader');
 
-verifyMobileBtn.addEventListener('click', () => {
-    // Hide button text and show loader
-    verifyMobileBtn.querySelector('span').style.display = 'none';
-    loader.style.display = 'block';
-
-    // Perform any additional functionality or make a request here
-    // For example, you can use a setTimeout to simulate a delayed response
-    setTimeout(() => {
-        // Once the response is received, hide the loader and show the button text
-        // loader.style.display = 'none';
-        // verifyMobileBtn.querySelector('span').style.display = 'inline';
-    }, 3000); // Replace 2000 with the actual time it takes to get the response
-});
-
+        verifyMobileBtn.addEventListener('click', () => {
+             showLoader();   
+        });
 
     // send opt on mobile number and visible enter otp form
     this.verifyMobileBtn.addEventListener('click', e => {
@@ -483,8 +469,7 @@ verifyMobileBtn.addEventListener('click', () => {
     });
 
     // Function to show the loader
-function showLoader() {
-  // document.getElementById('loader').style.display = 'block';
+function showLoader() { 
   verifyMobileBtn.querySelector('span').style.display = 'none';
     loader.style.display = 'block';
 }
