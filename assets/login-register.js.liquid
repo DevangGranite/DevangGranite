@@ -494,6 +494,7 @@ class LoginCustomer extends HTMLElement {
       .then(response => {
         if (!response.ok) {
           this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";
+          hideLoaderotp();
           throw new Error(`Network response was not ok: ${response.status}`);
         }
         return response.json();
