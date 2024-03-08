@@ -501,7 +501,8 @@ function showLoader() {
       })
       .then(response => {
         if (!response.ok) {
-        this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";         
+        this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";
+        document.getElementById('loaderotp').style.display = 'none';
         throw new Error(`Network response was not ok: ${response.status}`);
       }
         return response.json();
