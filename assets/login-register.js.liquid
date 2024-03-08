@@ -423,13 +423,7 @@ class LoginCustomer extends HTMLElement {
     this.evenetListener();
   }
   evenetListener() {
-
-     // Assuming this.verifyMobileBtn is your button element
-      const verifyMobileBtn = document.getElementById('verifyMobile');
-      const verifyOtpLoginBtn = document.getElementsByClassName('verifyOtpLoginBtn')[0]; 
-      const loader = document.getElementById('loader');
-      const loaderotp = document.getElementById('loaderotp');
-    
+  
     // validate mobile number
     this.mobileNo.addEventListener('keypress', e => {
       var numericValue = this.mobileNo.value.replace(/\D/g, '');
@@ -443,7 +437,14 @@ class LoginCustomer extends HTMLElement {
         showLoader();
         this.verifyMobileBtn.click();
       }
-    });       
+    });     
+
+         // Assuming this.verifyMobileBtn is your button element
+      const verifyMobileBtn = document.getElementById('verifyMobile');
+      const verifyOtpLoginBtn = document.getElementsByClassName('verifyOtpLoginBtn')[0]; 
+      const loader = document.getElementById('loader');
+      const loaderotp = document.getElementById('loaderotp');
+    
         verifyMobileBtn.addEventListener('click', () => {
              showLoader();   
         });
