@@ -423,7 +423,7 @@ class LoginCustomer extends HTMLElement {
     this.evenetListener();
   }
   evenetListener() {
-  
+
     // validate mobile number
     this.mobileNo.addEventListener('keypress', e => {
       var numericValue = this.mobileNo.value.replace(/\D/g, '');
@@ -437,14 +437,11 @@ class LoginCustomer extends HTMLElement {
         showLoader();
         this.verifyMobileBtn.click();
       }
-    });     
-
-         // Assuming this.verifyMobileBtn is your button element
+    });
+        // Assuming this.verifyMobileBtn is your button element
       const verifyMobileBtn = document.getElementById('verifyMobile');
-      const verifyOtpLoginBtn = document.getElementsByClassName('verifyOtpLoginBtn')[0]; 
       const loader = document.getElementById('loader');
-      const loaderotp = document.getElementById('loaderotp');
-    
+
         verifyMobileBtn.addEventListener('click', () => {
              showLoader();   
         });
@@ -474,7 +471,16 @@ class LoginCustomer extends HTMLElement {
       });
     });
 
+    // Function to show the loader
+function showLoader() { 
+  verifyMobileBtn.querySelector('span').style.display = 'none';
+    loader.style.display = 'block';
+}
 
+// Function to hide the loader
+function hideLoader() {
+  document.getElementById('loader').style.display = 'none';
+}
 
     // verify otp to login
     this.verifyOtpLoginBtn.addEventListener('click', e => {
@@ -517,12 +523,6 @@ class LoginCustomer extends HTMLElement {
         console.log('Fetching error verify OTP',error);
       });
     });
-
-      verifyOtpLoginBtn.addEventListener('click', () => {
-    // Your click event logic here
-    showLoader(); // Assuming you have a showLoader function
-    // Perform any additional functionality for the click event if needed
-});
 
     this.querySelector('#OneTimePassword6').addEventListener('keypress', e => {
       if (e.key === 'Enter') {
@@ -628,17 +628,3 @@ class LoginCustomer extends HTMLElement {
   }
 }
 customElements.define('login-customer',LoginCustomer);
-
-    // Function to show the loader
-function showLoader() { 
-  verifyMobileBtn.querySelector('span').style.display = 'none';
-  verifyOtpLoginBtn.querySelector('span').style.display = 'none';
-    loader.style.display = 'block';
-    loaderotp.style.display = 'block';
-}
-
-// Function to hide the loader
-function hideLoader() {
-  document.getElementById('loader').style.display = 'none';
-  document.getElementById('loaderotp').style.display = 'none';
-}
