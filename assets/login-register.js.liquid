@@ -438,9 +438,10 @@ class LoginCustomer extends HTMLElement {
         this.verifyMobileBtn.click();
       }
     });
-     verifyMobileBtn.addEventListener('click', () => {
-      showLoader();
-     });
+        this.verifyMobileBtn.addEventListener('click', () => {
+          showLoader();
+          // Add any additional functionality for the click event if needed
+        });
 
     // send opt on mobile number and visible enter otp form
     this.verifyMobileBtn.addEventListener('click', e => {
