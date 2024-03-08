@@ -10,7 +10,7 @@
           <a href="/account">{% render 'back_icon' %}</a>
         </div>
         <div class="clip_the_deal_title">{{ section.settings.heading }}</div>
-        <div class="clip_the_deal_help"><a href="{{ section.settings.learn_more_link }}"> {% render 'help_icon' %} </a></div>
+        <div class="clip_the_deal_help"><a href="{{ routes.account_url | append:'?view=reward-benefits' }}"> {% render 'help_icon' %} </a></div>
       </div>
       <div class="clip_the_deal_inner_bottom">
       </div>
@@ -44,7 +44,7 @@
             <span class="range_icon_move"><img src="{{ 'Green.svg' | file_url }}" alt="Green Drop"></span>
           </div>
           <div class="clip_the_deal_inner_data_points">
-            <a href="{{ routes.account_url | append:'?view=rewards-history'}}">{{ section.settings.h_label }}</a>
+            <a href="{{ routes.account_url | append:'?view=rewards-history' }}">{{ section.settings.h_label }}</a>
           </div>
           <!-- <div class="clip_the_deal_data_drops_range mobile"></div> -->
           <div class="range_drops_main mobile">
@@ -56,7 +56,7 @@
           </div>
         </div>
 
-        <a class="clip_the_deal_inner_learn_more_link" href="{{ section.settings.learn_more_link }}">{{ section.settings.learn_more_text }} {% render 'clip-the-deal-icons', icon: 'arrow' %}</a>
+        <a class="clip_the_deal_inner_learn_more_link" href="{{ routes.account_url | append:'?view=reward-benefits' }}">{{ section.settings.learn_more_text }} {% render 'clip-the-deal-icons', icon: 'arrow' %}</a>
 
         <div class="card_redeme_main card_redeme_main_blue_card_offer d-none">
           <div class="card_redeme_main_inner" >

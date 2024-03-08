@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "reward-benefits",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

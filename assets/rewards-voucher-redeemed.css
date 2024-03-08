@@ -171,6 +171,7 @@
   width: 100%;
   border-radius: 50%;
   overflow: hidden;
+  padding: 1.5rem;
 }
 .rewards-voucher-redeemed_card_image img{
   width: 100%;
@@ -375,6 +376,11 @@ line-height: 18px;
 .rewards-voucher-redeemed_back, 
 .rewards-voucher-redeemed_help{
   flex: 1;
+}
+.rewards-voucher-redeemed_card_image.deaktop_hide{
+  display: flex;
+  background: #fff;
+    padding: 2rem;
 }
 .d-none{
   display: none;
