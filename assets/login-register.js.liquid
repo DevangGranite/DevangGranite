@@ -521,6 +521,7 @@ class LoginCustomer extends HTMLElement {
 
     this.querySelector('#OneTimePassword6').addEventListener('keypress', e => {
       if (e.key === 'Enter') {
+        showLoaderotp();
         this.verifyOtpLoginBtn.click();
       }
     });
