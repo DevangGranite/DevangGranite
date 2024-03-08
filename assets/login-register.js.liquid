@@ -447,7 +447,17 @@ class LoginCustomer extends HTMLElement {
     verifyMobileBtn.addEventListener('click', () => {
              showLoader();   
         });
+    
+    // Function to show the loader
+function showLoader() { 
+  verifyMobileBtn.querySelector('span').style.display = 'none';
+    loader.style.display = 'block';    
+}
 
+// Function to hide the loader
+function hideLoader() {
+  document.getElementById('loader').style.display = 'none';
+}
     // send opt on mobile number and visible enter otp form
     this.verifyMobileBtn.addEventListener('click', e => {
       sendOTP(this.mobileNo.value).then(response => {
@@ -479,7 +489,6 @@ function hideLoaderotp() {
   document.getElementById('loaderotp').style.display = 'none';
   verifyOtpLoginBtn.querySelector('span').style.display = 'block'; 
 }
-
     // resend otp on mobile number
     this.resendBtn.addEventListener('click', e => {
       sendOTP(this.mobileNo.value).then(response => {
@@ -489,16 +498,7 @@ function hideLoaderotp() {
       });
     });
 
-    // Function to show the loader
-function showLoader() { 
-  verifyMobileBtn.querySelector('span').style.display = 'none';
-    loader.style.display = 'block';    
-}
 
-// Function to hide the loader
-function hideLoader() {
-  document.getElementById('loader').style.display = 'none';
-}
 
     // verify otp to login
     this.verifyOtpLoginBtn.addEventListener('click', e => {
