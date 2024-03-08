@@ -516,10 +516,9 @@ function hideLoaderotp() {
       })
       .then(response => {
         if (!response.ok) {
-    this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";
-    hideLoaderotp(); // Call the hideLoaderotp function
-    throw new Error(`Network response was not ok: ${response.status}`);
-}
+        this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";   
+        throw new Error(`Network response was not ok: ${response.status}`);
+      }
         return response.json();
       })
       .then(data => {
