@@ -377,9 +377,9 @@ customElements.define('reward-offer-detail',RewardOfferDetail);
 class RedemeedRewardOffer extends HTMLElement{
     constructor() {
         super();
-        this.pageHeader = this.querySelector('.reward-redeem-voucher_inner');
+        this.pageHeader = this.querySelector('.rewards-voucher-redeemed_inner');
         this.rewardInfo = this.querySelector('.rewards-voucher-redeemed_card_info');
-        this.voucherImages = this.querySelectorAll('.rewards-voucher-redeemed_image');
+        this.voucherImages = this.querySelectorAll('.rewards-voucher-redeemed_card_image');
         this.voucherDetail = this.querySelector('div.reward-redeem-voucher_detail');
         this.couponCode = this.querySelector('.rewards-voucher-redeemed-code');
         this.voucherTitleCount = this.querySelector('.reward-redeem-voucher-title-count');
@@ -388,21 +388,26 @@ class RedemeedRewardOffer extends HTMLElement{
         this.backBtn = this.querySelector('.rewards-voucher-redeemed_back a');
         this.voucherID = urlParams.get('reward');
         this.user_id = document.querySelector('input[name="meta[user_id]"]').value;
-        offerDetail;
+        this.offerDetail;
 
         this.inital();
         this.evenetListener();
     }
     async inital() {
-        console.log('Header',this.pageHeader);
 
         // set back button
         this.backBtn.href = `/account?view=rewards-redeem-voucher&reward=${urlParams.get('reward')}`;
 
-        await rewardOfferDetail(this.voucherID).then(data => {
+        rewardOfferDetail(this.voucherID).then(data => {
 
             this.offerDetail = data;
             this.redeemVoucher(this.voucherID, this.user_id);
+
+            if(data.tier.toLowerCase() == 'green')
+                this.pageHeader.style.background = `radial-gradient(circle, #00B140 0%, #007C2D 100%)`;
+            else if(data.tier.toLowerCase() == 'platinum')
+                this.pageHeader.style.background = `radial-gradient(circle, #8A8F95 0%, #6B6E71 100%)`;
+            
         });
         
 
@@ -437,7 +442,7 @@ class RedemeedRewardOffer extends HTMLElement{
             body: raw,
             redirect: 'follow'
         };
-        return fetch("https://alainappuat.gdadmin.org/shopifyApiV2/redeemCtdReward", requestOptions)
+        fetch("https://alainappuat.gdadmin.org/shopifyApiV2/redeemCtdReward", requestOptions)
         .then(response => response.json())
         .then(data=>{
             console.log('Redeemed',data);
@@ -446,7 +451,7 @@ class RedemeedRewardOffer extends HTMLElement{
             
             // set image
             this.voucherImages.forEach(image => {
-                image.src = this.offerDetail.image;
+                image.innerHTML = `<img src="${this.offerDetail.image}" alt="${this.offerDetail.name}" class="rewards-voucher-redeemed_image">`;
                 image.alt = this.offerDetail.name;
             });
 
@@ -471,8 +476,11 @@ class RedemeedRewardOffer extends HTMLElement{
 
             this.voucherTitleCount.innerHTML = `${this.offerDetail.description} {{ 'customer.account.reward.discount_code_voucher' | t }}<span class="count_drops_total">${this.offerDetail.points} <img src="${this.dropIcon}" width="15px">`;
 
-            this.rewardInfo.style.display = 'block';
-        }).catch(error => console.error('Redeemed Voucher Error fetching data:', error))
+            this.querySelector('.reward-voucher-redeemed_inner_wrapper').style.display = 'block';
+        }).catch(error => {
+            this.rewardInfo.innerHTML = `<div class="rewards-voucher-redeemed_title_card">We're facing technical issue.Please try again later.</h6>`;
+            console.error('Redeemed Voucher Error fetching data:', error)
+        });
     }
 }
 customElements.define('redemeed-reward-offer',RedemeedRewardOffer);
@@ -642,3 +650,27 @@ class DropHistory extends HTMLElement {
     }
 }
 customElements.define('drop-history', DropHistory);
+
+
+class RewardBenefit extends HTMLElement {
+    constructor() {
+        super();
+        this.inital();
+    }
+    inital() {
+        this.customerReward = getCustomerReward().then(data => {
+            if(data.tier.toLowerCase() == 'blue'){
+                this.querySelector('.reward-benefits-range-icons .blue_drops').style.opacity = '1';
+            }else if(data.tier.toLowerCase() == 'green'){
+                this.querySelector('.reward-benefits-range-icons .green_drops').style.opacity = '1';
+            }else{
+                this.querySelector('.reward-benefits-range-icons .premium_drops').style.opacity = '1';
+            }
+
+
+            let memberDate = new Date(data.customer_sinced);
+            this.querySelector('.reward-benefits-date-bottom').innerText = `{{ 'customer.account.reward.member_since' | t }} ${memberDate.getDate()} ${memberDate.toLocaleString('default', { month: 'long' })} ${memberDate.getFullYear()}`;
+        });
+    }
+}
+customElements.define('reward-benefit', RewardBenefit);
