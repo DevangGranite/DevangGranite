@@ -182,6 +182,7 @@ class RegisterCustomer extends HTMLElement{
         if (!response.ok) {
           this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";
           throw new Error(`Network response was not ok: ${response.status}`);
+          hideLoaderotp();
         }
         return response.json();
       })
@@ -497,6 +498,7 @@ function showLoaderotp() {
 // Function to hide the loader
 function hideLoaderotp() { 
   document.getElementById('loaderotp').style.display = 'none';
+  verifyOtpLoginBtn.querySelector('span').style.display = 'block'; 
 }
 
     // verify otp to login
