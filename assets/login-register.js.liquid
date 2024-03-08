@@ -516,9 +516,11 @@ class LoginCustomer extends HTMLElement {
       });
     });
 
-       verifyOtpLoginBtn.addEventListener('click', () => {
-             showLoader();   
-        });
+      verifyOtpLoginBtn.addEventListener('click', () => {
+    // Your click event logic here
+    showLoader(); // Assuming you have a showLoader function
+    // Perform any additional functionality for the click event if needed
+});
 
     this.querySelector('#OneTimePassword6').addEventListener('keypress', e => {
       if (e.key === 'Enter') {
