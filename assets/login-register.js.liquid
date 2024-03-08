@@ -438,7 +438,7 @@ class LoginCustomer extends HTMLElement {
         this.verifyMobileBtn.click();
       }
     });
-       const verifyMobileBtn = document.getElementById('verifyMobile');
+        const verifyMobileBtn = document.getElementById('verifyMobile');
 const loader = document.getElementById('loader');
 
 verifyMobileBtn.addEventListener('click', () => {
@@ -454,33 +454,18 @@ verifyMobileBtn.addEventListener('click', () => {
 
         if (isResponseValid) {
             // Once the desired condition in the response is met, hide the loader and show the button text
-            hideLoaderAndShowText();
+            loader.style.display = 'none';
+            verifyMobileBtn.querySelector('span').style.display = 'inline';
         } else {
             // If the condition is not met, handle accordingly (e.g., show an error message)
             console.error('Response not valid. Handle the error appropriately.');
             // Optionally, you can hide the loader and show an error message here
-            hideLoaderAndShowErrorMessage();
+            loader.style.display = 'none';
+            // Show an error message instead of the button text
+            verifyMobileBtn.innerHTML = '<span>Error Occurred</span>';
         }
     }, 2000); // Replace 2000 with the actual time it takes to get the response
 });
-
-// Function to hide the loader and show the button text
-function hideLoaderAndShowText() {
-    loader.style.display = 'none';
-    verifyMobileBtn.querySelector('span').style.display = 'inline';
-
-    // Set a timer (e.g., 3000 milliseconds) to automatically hide the button text
-    setTimeout(() => {
-        verifyMobileBtn.querySelector('span').style.display = 'none';
-    }, 3000); // Replace 3000 with the desired duration to show the button text
-}
-
-// Function to hide the loader and show an error message
-function hideLoaderAndShowErrorMessage() {
-    loader.style.display = 'none';
-    // Show an error message instead of the button text
-    verifyMobileBtn.innerHTML = '<span>Error Occurred</span>';
-}
 
 
 
