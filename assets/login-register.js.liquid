@@ -441,8 +441,10 @@ class LoginCustomer extends HTMLElement {
         // Assuming this.verifyMobileBtn is your button element
       const verifyMobileBtn = document.getElementById('verifyMobile');
       const loader = document.getElementById('loader');
+      const verifyOtpLoginBtn = document.querySelector('.verifyOtpLoginBtn');
+      const loaderotp = document.getElementById('loaderotp');
 
-        verifyMobileBtn.addEventListener('click', () => {
+    verifyMobileBtn.addEventListener('click', () => {
              showLoader();   
         });
 
@@ -461,6 +463,10 @@ class LoginCustomer extends HTMLElement {
         }
       });
     });
+      
+      verifyOtpLoginBtn.addEventListener('click', () => {
+        showLoader();
+      });
 
     // resend otp on mobile number
     this.resendBtn.addEventListener('click', e => {
@@ -475,11 +481,13 @@ class LoginCustomer extends HTMLElement {
 function showLoader() { 
   verifyMobileBtn.querySelector('span').style.display = 'none';
     loader.style.display = 'block';
+    loaderotp.style.display = 'block';
 }
 
 // Function to hide the loader
 function hideLoader() {
   document.getElementById('loader').style.display = 'none';
+  document.getElementById('loaderotp').style.display = 'none';
 }
 
     // verify otp to login
