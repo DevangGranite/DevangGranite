@@ -635,10 +635,7 @@ function hideLoader() {
         this.customerLogin(JSON.stringify({email:this.email.value,name:this.username,user_id:this.user_id}));
     }).catch(error => console.log('Error fetching data:',error));
   }
-}
-customElements.define('login-customer',LoginCustomer);
-
-    // Function to show the loader
+      // Function to show the loader
 function showLoaderotp() { 
   verifyOtpLoginBtn.querySelector('span').style.display = 'none';    
     loaderotp.style.display = 'block';
@@ -649,3 +646,5 @@ function hideLoaderotp() {
   document.getElementById('loaderotp').style.display = 'none';
   verifyOtpLoginBtn.querySelector('span').style.display = 'block'; 
 }
+}
+customElements.define('login-customer',LoginCustomer);
