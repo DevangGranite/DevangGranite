@@ -151,6 +151,7 @@ class ClipTheDeal  extends HTMLElement{
         this.expireDrop = this.querySelector('.drop_expire');
         this.rewardPriceTimer = this.querySelector('.clip_the_deal_data_range_title');
         this.memberDate = this.querySelector('.date_bottom_cards');
+        this.data;
         this.inital();
         this.rewardOffers();
     }
@@ -316,54 +317,58 @@ class RewardOfferDetail extends HTMLElement{
     }
     async inital() {
 
-        this.offerDetail = await rewardOfferDetail(urlParams.get('reward'));
-        
-        // set image
-        this.voucherImage.src = this.offerDetail.image;
-        this.voucherImage.alt = this.offerDetail.name;
+        this.offerDetail = await rewardOfferDetail(urlParams.get('reward')).then(offerDetail => {
 
-        // set voucher detail
-        if(this.offerDetail.tier.toLowerCase() == 'blue'){
-            this.dropIcon = "{{ 'Blue_Tier.png' | file_url }}";
-        }
-        else if(this.offerDetail.tier.toLowerCase() == 'green'){
-            this.dropIcon = "{{ 'Green_Tier.png' | file_url }}";
-            this.pageHeader.style.background = `radial-gradient(circle, #00B140 0%, #007C2D 100%)`;
-        }
-        else{
-            this.dropIcon = "{{ 'Platinum_Tier.png' | file_url }}";
-            this.pageHeader.style.background = `radial-gradient(circle, #8A8F95 0%, #6B6E71 100%)`;
-        }
+            // set image
+            this.voucherImage.src = offerDetail.image;
+            this.voucherImage.alt = offerDetail.name;
 
-        this.voucherDetail.innerHTML = `${this.offerDetail.description} <span class="count_drops_total"><img src="${this.dropIcon}" width="15">${this.offerDetail.points}</span>`
+            // set voucher detail
+            if(offerDetail.tier.toLowerCase() == 'blue'){
+                this.dropIcon = "{{ 'Blue_Tier.png' | file_url }}";
+            }
+            else if(offerDetail.tier.toLowerCase() == 'green'){
+                this.dropIcon = "{{ 'Green_Tier.png' | file_url }}";
+                this.pageHeader.style.background = `radial-gradient(circle, #00B140 0%, #007C2D 100%)`;
+            }
+            else{
+                this.dropIcon = "{{ 'Platinum_Tier.png' | file_url }}";
+                this.pageHeader.style.background = `radial-gradient(circle, #8A8F95 0%, #6B6E71 100%)`;
+            }
 
-        this.redeemBtn.href = `/account?view=rewards-voucher-redeemed&reward=${urlParams.get('reward')}`;
+            this.voucherDetail.innerHTML = `${offerDetail.description} <span class="count_drops_total"><img src="${this.dropIcon}" width="15">${offerDetail.points}</span>`
 
-        // terms and condition
-        this.termsConditionData = "";
-        this.offerDetail.terms_conditions.forEach(item => {
-            this.termsConditionData += `<li>${item}</li>`;
-        });
-        this.termsCondition.querySelector('ul').innerHTML = this.termsConditionData;
+            this.redeemBtn.href = `/account?view=rewards-voucher-redeemed&reward=${urlParams.get('reward')}`;
 
-        // similar deals
-        this.similarDeals = '';
-        if(this.offerDetail.similar.length > 0){
-            this.offerDetail.similar.forEach(item => {
-                if(this.offerDetail.points == item.points){
-                    this.similarDeals += `<div class="voucher_cards_blocks">
-                            <div class="voucher_cards_image"><img src="${item.image}"></div>
-                            <div class="voucher_cards_info">
-                            <p class="voucher_cards_title">${item.name}</p>
-                            <p class="voucher_cards_drops"><img src="${this.dropIcon}" width="9"> ${item.points} {{ 'customer.account.reward.drop' | t }}</p>
-                            </div>
-                            <a class="voucher_card_link" href="/pages/rewards-redeem-voucher/?reward=${item.id}"></a>
-                        </div>`;
-                }
+            // terms and condition
+            this.termsConditionData = "";
+            offerDetail.terms_conditions.forEach(item => {
+                this.termsConditionData += `<li>${item}</li>`;
             });
-            this.similarWrapper.querySelector('.voucher_cards_blocks_inner_main').innerHTML = this.similarDeals;
-            this.similarWrapper.style.display = 'block';
-        }
+            this.termsCondition.querySelector('ul').innerHTML = this.termsConditionData;
+
+            // similar deals
+            this.similarDeals = '';
+            if(offerDetail.similar.length > 0){
+                offerDetail.similar.forEach(item => {
+                    // if(offerDetail.points == item.points){
+                        this.similarDeals += `<div class="voucher_cards_blocks">
+                                <div class="voucher_cards_image"><img src="${item.image}"></div>
+                                <div class="voucher_cards_info">
+                                <p class="voucher_cards_title">${item.name}</p>
+                                <p class="voucher_cards_drops"><img src="${this.dropIcon}" width="9"> ${item.points} {{ 'customer.account.reward.drop' | t }}</p>
+                                </div>
+                                <a class="voucher_card_link" href="/pages/rewards-redeem-voucher/?reward=${item.id}"></a>
+                            </div>`;
+                    // }
+                });
+                this.similarWrapper.querySelector('.voucher_cards_blocks_inner_main').innerHTML = this.similarDeals;
+                this.similarWrapper.style.display = 'block';
+            }
+
+            this.querySelector('.reward-redeem-voucher_data_main.reward-info-wrapper').style.display = 'block';
+        });
+        
     }
 }
 customElements.define('reward-offer-detail',RewardOfferDetail);
@@ -383,7 +388,7 @@ class RedemeedRewardOffer extends HTMLElement{
         this.backBtn = this.querySelector('.rewards-voucher-redeemed_back a');
         this.voucherID = urlParams.get('reward');
         this.user_id = document.querySelector('input[name="meta[user_id]"]').value;
-        this.offerDetail;
+        offerDetail;
 
         this.inital();
         this.evenetListener();
