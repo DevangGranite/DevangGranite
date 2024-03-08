@@ -560,13 +560,6 @@ function showLoader() {
         this.updateEmailAddress();       
       }
     });
-    this.updateEmailBtn.addEventListener('keypress', e => {  
-      if(e.key === 'Enter' && this.validateForm && this.isValidEmail() && this.validateConfirmEmailField()){
-        showLoaderotp();
-        this.updateEmailAddress();  
-        this.updateEmailBtn.click();
-      }
-    });
   }
 
   startTimer() {
