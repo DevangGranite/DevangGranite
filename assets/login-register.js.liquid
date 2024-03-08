@@ -424,6 +424,11 @@ class LoginCustomer extends HTMLElement {
   }
   evenetListener() {
 
+     // Assuming this.verifyMobileBtn is your button element
+      const verifyMobileBtn = document.getElementById('verifyMobile');
+      const verifyOtpLoginBtn = document.getElementById('verifyOtpLoginBtn');    
+      const loader = document.getElementById('loader');
+
     // validate mobile number
     this.mobileNo.addEventListener('keypress', e => {
       var numericValue = this.mobileNo.value.replace(/\D/g, '');
@@ -437,11 +442,7 @@ class LoginCustomer extends HTMLElement {
         showLoader();
         this.verifyMobileBtn.click();
       }
-    });
-        // Assuming this.verifyMobileBtn is your button element
-      const verifyMobileBtn = document.getElementById('verifyMobile');
-      const loader = document.getElementById('loader');
-
+    });       
         verifyMobileBtn.addEventListener('click', () => {
              showLoader();   
         });
@@ -523,6 +524,10 @@ function hideLoader() {
         console.log('Fetching error verify OTP',error);
       });
     });
+
+       verifyOtpLoginBtn.addEventListener('click', e => {
+             showLoader();   
+        });
 
     this.querySelector('#OneTimePassword6').addEventListener('keypress', e => {
       if (e.key === 'Enter') {
