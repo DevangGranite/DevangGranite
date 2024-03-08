@@ -438,10 +438,25 @@ class LoginCustomer extends HTMLElement {
         this.verifyMobileBtn.click();
       }
     });
-        this.verifyMobileBtn.addEventListener('click', () => {
-          showLoader();
-          // Add any additional functionality for the click event if needed
-        });
+        // Assuming verifyMobileBtn is a reference to a button element
+const verifyMobileBtn = document.getElementById('verifyMobile');
+const buttonTextSpan = document.getElementById('buttonText');
+const loader = document.getElementById('loader');
+
+verifyMobileBtn.addEventListener('click', () => {
+  // Change the button text to 'Loading...'
+  buttonTextSpan.textContent = 'Loading...';
+  
+  // Show the loader
+  loader.style.display = 'block';
+
+  // Simulate some asynchronous action, for example, use setTimeout
+  setTimeout(() => {
+    // Once the action is complete, you can reset the button text and hide the loader
+    buttonTextSpan.textContent = '{{ 'customer.login_page.verify' | t }}';
+    loader.style.display = 'none';
+  }, 2000); // Replace 2000 with the actual duration of your asynchronous action
+});
 
     // send opt on mobile number and visible enter otp form
     this.verifyMobileBtn.addEventListener('click', e => {
