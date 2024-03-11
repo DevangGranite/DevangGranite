@@ -118,7 +118,7 @@
     "d0a8ec14-e408-4c33-ad5a-bd6a19ccef04": {
       "type": "background-video",
       "settings": {
-        "desktop_height": "desktop-height-550",
+        "desktop_height": "desktop-height-650",
         "mobile_height": "mobile-height-500",
         "full_width": false,
         "video_controls": false,
