@@ -78,14 +78,14 @@
         "template--17918041260314__9e57bc14-72e8-48b3-81d3-9b209e520fd0-1678353048d7c75c7a-1": {
           "type": "media",
           "settings": {
-            "image": "shopify:\/\/shop_images\/2X_Image_4_-_Loyalty.jpg",
-            "slide_link": "shopify:\/\/pages\/top-up-wallet",
+            "image": "shopify:\/\/shop_images\/Al_Ain_Water_Rewards_Banner.jpg",
+            "slide_link": "shopify:\/\/pages\/clip-the-deal",
             "use_video": false,
             "video_autoplay": true,
             "column": 2,
             "row": 1,
             "subheading": "",
-            "heading": "RECHARGE & INCREASE DROP POINTS",
+            "heading": "",
             "heading_size": "h4",
             "heading_weight": 400,
             "button_text": "",
