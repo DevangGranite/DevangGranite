@@ -1959,7 +1959,8 @@
         "individual_violations_title": {
           "DeliveryViolations": "عنوان الشحن",
           "PaymentViolations": "عنوان وصول الفواتير",
-          "OtherViolations": "معلومات الطلب"
+          "OtherViolations": "معلومات الطلب",
+          "UnhandledViolations": "معلومات الطلب"
         },
         "all_violations_content": "اتصل أو {{emailLink}} لنا لتحديث هذه المعلومات وإكمال طلبك:",
         "all_violations_email_link": "بريد إلكتروني",
@@ -2014,7 +2015,8 @@
       "shop_pay_external": {
         "errors": {
           "problem_loading": "هناك مشكلة في تحميل Shop Pay",
-          "try_again_later": "تحقق من اتصالك أو أغلق هذه النافذة وحاول مرة أخرى خلال لحظات قليلة."
+          "try_again_later": "تحقق من اتصالك أو أغلق هذه النافذة وحاول مرة أخرى خلال لحظات قليلة.",
+          "checkout_has_expired": "لقد انتهت صلاحية الخروج الخاص بك. أغلق هذه النافذة وحاول السحب مرة أخرى من {{shopName}}."
         },
         "return_to_store": "الرجوع الى {{shopName}}"
       },
@@ -2074,7 +2076,8 @@
             "postal_code_contains_emoji": "احذف الرموز التعبيرية من الرمز البريدي الخاص بك",
             "first_name_too_long": "الاسم الأول يحتوي على عدد كبير جدًا من الأحرف",
             "last_name_too_long": "يحتوي الاسم الأخير على عدد كبير جدًا من الأحرف"
-          }
+          },
+          "select_different_shipping_address_to_resolve_errors": "عنوان الشحن الخاص بك غير صالح. حدد عنوانًا مختلفًا أو استخدم عنوانًا جديدًا."
         }
       },
       "note": {
@@ -3841,7 +3844,10 @@
         "copied_voucher": "قسيمة منسوخة",
         "tier": "الطبقة",
         "member_since": "عضو منذ",
-        "reach_top_tier": "تهانينا، أنت في القمة"
+        "reach_top_tier": "تهانينا، أنت في القمة",
+        "topup": "فوق حتى",
+        "purchase_history": "تاريخ شراء",
+        "spent": "أنفق"
       }
     },
     "order": {
