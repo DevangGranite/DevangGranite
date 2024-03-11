@@ -306,8 +306,8 @@
     "dashboard": {
       "welcome": "Hi",
       "help": "How can we help you today?",
-      "subscriptions": "Manage Subscriptions",
-      "top_up_wallett": "Top Up Wallet",
+      "subscriptions": "Subscriptions",
+      "top_up_wallett": "Top Up",
       "view_cataloguee": "Shop Now",
       "view_all": "View all",
       "current_balance": "Current Balance",
