@@ -1930,7 +1930,7 @@ scroll-shadow {
 
 @media only screen and (max-width: 767px) {
   .template-product-special-offers .mobile-height-500 {
-    min-height: 500px; } }
+    min-height: 220px; } }
 
 @media only screen and (min-width: 768px) {
   .desktop-height-full {
