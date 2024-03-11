@@ -463,6 +463,7 @@ function showLoader() {
       sendOTP(this.mobileNo.value).then(response => {
         console.log('Send Login OTP',response);
         this.capturedValue.innerHTML = this.mobileNo.value;
+        this.capturedValuemob.innerHTML = this.mobileNo.value;
         this.startTimer();
         if (this.customLoginElement.style.display === 'none' || this.customLoginElement.style.display === '') {
             this.customLoginElement.style.display = 'block';
