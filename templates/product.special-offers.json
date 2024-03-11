@@ -119,7 +119,7 @@
       "type": "background-video",
       "settings": {
         "desktop_height": "desktop-height-650",
-        "mobile_height": "mobile-height-auto",
+        "mobile_height": "mobile-height-500",
         "full_width": false,
         "video_controls": false,
         "video": "",
