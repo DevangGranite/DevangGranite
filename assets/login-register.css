@@ -703,7 +703,7 @@ html.popup-overlap body:before {
 .fields.login--page #loader, 
 .fields.login--page #loaderotp, 
 .fields.login--page #loaderemail {
-    margin: -60px auto 0;
+    margin: -55px auto 0;
     position: relative;
     z-index: 1;
     width: 100%;
@@ -714,5 +714,5 @@ html.popup-overlap body:before {
 .fields.login--page #loader img,
 .fields.login--page #loaderotp img,
 .fields.login--page #loaderemail img {
-    max-width: 40px;
+    max-width: 60px;
 }
