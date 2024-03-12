@@ -10,6 +10,7 @@ class PredictiveSearch {
     // Create a custom clear button
     this.clearButton = document.createElement('div');
     this.clearButton.className = 'custom-clear-button';
+    this.clearButton.textContent = 'Clear'; // Set the text content
     this.container.appendChild(this.clearButton);
 
     this.setupEventListeners();
