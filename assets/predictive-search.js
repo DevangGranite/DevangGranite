@@ -39,15 +39,20 @@ class PredictiveSearch {
   }
 
   toggleClearButton() {
-    const searchTerm = this.getQuery();
-    const clearButton = document.querySelector('.custom-clear-button');
+  const searchTerm = this.getQuery();
+  const clearButton = document.querySelector('.custom-clear-button');
 
-    if (searchTerm.length > 0) {
-      clearButton.style.display = 'block';
-    } else {
-      clearButton.style.display = 'none';
-    }
+  console.log('Search Term:', searchTerm);
+
+  if (searchTerm.length > 0) {
+    console.log('Displaying clear button');
+    clearButton.style.display = 'block';
+  } else {
+    console.log('Hiding clear button');
+    clearButton.style.display = 'none';
   }
+}
+
 
   getQuery() {
     return this.input.value.trim();
