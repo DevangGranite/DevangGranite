@@ -9,7 +9,7 @@
       "type": "main-list-collections",
       "settings": {
         "heading": "Shop by category",
-        "description": "<p>Add a short description for your collections<\/p>",
+        "description": "<p>Discover our diverse range of products to suit every preference and occasion.<\/p>",
         "heading_size": "small",
         "sort": "date",
         "image_ratio": "square",
@@ -17,7 +17,7 @@
         "columns_desktop": 4,
         "collection_list_pagination_num": 12,
         "heading_position": "bottom-center",
-        "text_color": "#2C2D2E",
+        "text_color": "#2c2d2e",
         "overlay_color": "#000000",
         "overlay_opacity": 0,
         "disable_top_spacing": false,
