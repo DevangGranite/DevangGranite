@@ -4273,3 +4273,28 @@ line-height: 34px;
   position: relative;
   -webkit-transform: translateZ(0);
   }
+
+button#search-results-submit {
+    position: relative;
+    display: inline-flex;
+    cursor: pointer;
+    padding: 7px 30px;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    font-size: .9375rem;
+    font-weight: 500;
+    letter-spacing: var(--button-letter-spacing, .02em);
+    background: var(--solid-button-background, var(--color-accent));
+    color: var(--solid-button-label, #fff);
+    border: 0;
+    border-radius: var(--button-border-radius, 6px);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: color .25s cubic-bezier(.104,.204,.492,1),background-color .25s cubic-bezier(.104,.204,.492,1);
+}
