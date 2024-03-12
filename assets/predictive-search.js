@@ -29,8 +29,6 @@ class PredictiveSearch {
       this.input.value = ''; // Clear the input field
       this.onChange(); // Trigger the onChange event manually
     });
-     // Add an event listener for the custom clear button
-    this.clearButton.addEventListener('click', this.clearInput.bind(this));
 
     // Hide the default clear button
     this.input.addEventListener('search', () => {
@@ -164,8 +162,3 @@ document.getElementById('side-panel-search-input').addEventListener('blur', func
   clearButton.style.display = 'none';
 });
 
-  clearInput() {
-    this.input.value = ''; // Clear the input field
-    this.onChange(); // Trigger the onChange event manually
-    this.clearButton.style.display = 'none'; // Hide the custom clear button
-  }
