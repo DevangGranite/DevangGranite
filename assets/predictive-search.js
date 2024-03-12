@@ -45,10 +45,10 @@ class PredictiveSearch {
   console.log('Search Term:', searchTerm);
 
   if (searchTerm.length > 0) {
-    console.log('Displaying clear button');
+    // console.log('Displaying clear button');
     clearButton.style.display = 'block';
   } else {
-    console.log('Hiding clear button');
+    // console.log('Hiding clear button');
     clearButton.style.display = 'none';
   }
 }
