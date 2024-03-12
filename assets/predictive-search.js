@@ -119,12 +119,13 @@ window.addEventListener('load', () => {
   }
 });
 function clearSearch() {
-  var searchInput = document.getElementById('side-panel-search-input');
-  var sidePanelContent = document.querySelector('.side-panel-content.side-panel-content--has-tabs');
+  var searchInput = document.getElementById('side-panel-search-input');  
+  var sidePanelContent = document.querySelector('.side-panel-content--has-tabs');
 
   searchInput.value = '';
   clearButton.style.display = 'none';
-  
-  // Remove the 'active' class from side-panel-content
+
+  // Remove the 'active' class from side-panel-content--has-tabs
   sidePanelContent.classList.remove('active');
 }
+
