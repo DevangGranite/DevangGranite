@@ -123,7 +123,7 @@ function clearSearch() {
   var sidePanelContent = document.querySelector('.side-panel-content--has-tabs');
 
   searchInput.value = '';
-  clearButton.style.display = 'none';
+  // clearButton.style.display = 'none';
 
   // Debugging: Log to console
   console.log('clearSearch function called');
