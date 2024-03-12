@@ -118,9 +118,13 @@ window.addEventListener('load', () => {
     new PredictiveSearch();
   }
 });
-  function clearSearch() {
+function clearSearch() {
   var searchInput = document.getElementById('side-panel-search-input');
+  var sidePanelContent = document.querySelector('.side-panel-content.side-panel-content--has-tabs');
 
   searchInput.value = '';
   clearButton.style.display = 'none';
+  
+  // Remove the 'active' class from side-panel-content
+  sidePanelContent.classList.remove('active');
 }
