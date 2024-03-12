@@ -163,17 +163,22 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* Add styles for the custom clear button */
 .custom-clear-button {
-  /* Add your custom styles here */
-  background-color: #fff; /* Example background color */
-  border: 1px solid #ccc; /* Example border */
-  color: #333; /* Example text color */
+  background-color: #fff; /* Customize background color */
+  border: 1px solid #ccc; /* Customize border */
+  color: #333; /* Customize text color */
   cursor: pointer;
   display: none; /* Initially hide the custom clear button */
-  padding: 5px 10px; /* Example padding */
+  padding: 5px 10px; /* Customize padding */
   position: absolute; /* Adjust positioning as needed */
   right: 5px; /* Adjust positioning as needed */
   top: 50%; /* Adjust positioning as needed */
   transform: translateY(-50%); /* Adjust positioning as needed */
+  font-size: 12px; /* Customize font size */
+}
+
+/* Show the custom clear button when there's input */
+input[type="search"]:not(:placeholder-shown) + .custom-clear-button {
+  display: block;
 }
 
   </style>
