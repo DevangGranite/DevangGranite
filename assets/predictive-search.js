@@ -1,3 +1,7 @@
+/**
+ *  @class
+ *  @function PredictiveSearch
+ */
 class PredictiveSearch {
   constructor() {
     this.container = document.getElementById('Search-Drawer');
@@ -6,11 +10,6 @@ class PredictiveSearch {
     this.input = this.container.querySelector('input[type="search"]');
     this.defaultTab = this.container.querySelector('.side-panel-content--initial');
     this.predictiveSearchResults = this.container.querySelector('.side-panel-content--has-tabs');
-
-    // Create a custom clear button
-    this.clearButton = document.createElement('div');
-    this.clearButton.className = 'custom-clear-button';
-    this.container.appendChild(this.clearButton);
 
     this.setupEventListeners();
   }
@@ -21,22 +20,6 @@ class PredictiveSearch {
     this.input.addEventListener('input', debounce((event) => {
       this.onChange(event);
     }, 300).bind(this));
-
-    // Add an event listener for the custom clear button
-    this.clearButton.addEventListener('click', () => {
-      this.input.value = ''; // Clear the input field
-      this.onChange(); // Trigger the onChange event manually
-    });
-
-    // Hide the default clear button
-    this.input.addEventListener('search', () => {
-      this.clearButton.style.display = 'none';
-    });
-
-    // Show the custom clear button when there's input
-    this.input.addEventListener('input', () => {
-      this.clearButton.style.display = this.input.value.length ? 'block' : 'none';
-    });
 
     this.button.forEach((item, i) => {
       item.addEventListener('click', (event) => {
@@ -130,7 +113,6 @@ class PredictiveSearch {
     this.container.classList.remove('active');
   }
 }
-
 window.addEventListener('load', () => {
   if (typeof PredictiveSearch !== 'undefined') {
     new PredictiveSearch();
