@@ -119,7 +119,8 @@ window.addEventListener('load', () => {
   }
 });
 function clearSearch() {
-  var searchInput = document.getElementById('side-panel-search-input');  
+  var searchInput = document.getElementById('side-panel-search-input'); 
+  var clearButton = document.querySelector('.custom-clear-button');
   var sidePanelContent = document.querySelector('.side-panel-content--has-tabs');
 
   searchInput.value = '';
