@@ -140,7 +140,6 @@ window.addEventListener('load', () => {
 });
 
 function clearSearch() {
-  this.input.value = '';
   var searchInput = document.getElementById('side-panel-search-input');
   var clearButton = document.querySelector('.custom-clear-button');
 
