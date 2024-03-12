@@ -6,15 +6,6 @@ class PredictiveSearch {
     this.input = this.container.querySelector('input[type="search"]');
     this.defaultTab = this.container.querySelector('.side-panel-content--initial');
     this.predictiveSearchResults = this.container.querySelector('.side-panel-content--has-tabs');
-
-    // Create a custom clear button
-    this.clearButton = document.createElement('div');
-    this.clearButton.className = 'custom-clear-button';
-    this.clearButton.textContent = 'Clear';
-    this.container.appendChild(this.clearButton);
-
-    // Bind event listeners in the constructor
-    this.setupEventListeners();
   }
 
   setupEventListeners() {
@@ -140,7 +131,6 @@ window.addEventListener('load', () => {
 });
 
 function clearSearch() {
-   alert('test');
   var searchInput = document.getElementById('side-panel-search-input');
   var clearButton = document.querySelector('.custom-clear-button');
 
