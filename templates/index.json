@@ -54,7 +54,7 @@
             "content_position": "middle-left",
             "text_alignment": "left",
             "content_size": "medium",
-            "color_slidebg": "transparent",
+            "color_slidebg": "rgba(0,0,0,0)",
             "color_slidebg_opacity": 0,
             "color_slidebg_blur": 0,
             "color_text": "#ffffff",
@@ -162,7 +162,7 @@
         "column_nPhX3J": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/AlAinPETPlastic_6f45fc77-7bda-4c22-98b9-9f89466ea553.jpg",
+            "image": "shopify:\/\/shop_images\/Al_Ain_Water_Quick_Menu_Al_Ain_Water.jpg",
             "image_full_width": true,
             "image_link": "",
             "title": "Al Ain Water",
@@ -174,7 +174,7 @@
         "column_4MzCxf": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Buy10Get2BottlesFree_610x_crop_center_e23eb65a-5552-47c8-8c8b-36b018aa52d3.webp",
+            "image": "shopify:\/\/shop_images\/Al_Ain_Water_Quick_Menu_Gallons.jpg",
             "image_full_width": false,
             "image_link": "",
             "title": "Al Ain Water Gallons",
@@ -186,7 +186,7 @@
         "column_ATXYGa": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/6x3300ml-GB-Sparkling.jpg",
+            "image": "shopify:\/\/shop_images\/Al_Ain_Water_Quick_Menu_New.jpg",
             "image_full_width": false,
             "image_link": "",
             "title": "Recently Launched",
@@ -198,7 +198,7 @@
         "column_nniHyU": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Offers.jpg",
+            "image": "shopify:\/\/shop_images\/Al_Ain_Water_Quick_Menu_Offers.jpg",
             "image_full_width": false,
             "image_link": "",
             "title": "Special Offers",
