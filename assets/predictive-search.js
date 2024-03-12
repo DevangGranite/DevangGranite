@@ -25,7 +25,7 @@ class PredictiveSearch {
 
     // Add an event listener for the custom clear button
     this.clearButton.addEventListener('click', () => {
-      this.clearInput(); // Clear the input field
+      this.input.value = ''; // Clear the input field
       this.onChange(); // Trigger the onChange event manually
     });
 
@@ -36,17 +36,7 @@ class PredictiveSearch {
 
     // Show the custom clear button when there's input
     this.input.addEventListener('input', () => {
-      this.updateClearButtonDisplay();
-    });
-
-    // Show the custom clear button when the input is focused
-    this.input.addEventListener('focus', () => {
-      this.updateClearButtonDisplay();
-    });
-
-    // Hide the custom clear button when the input loses focus
-    this.input.addEventListener('blur', () => {
-      this.clearButton.style.display = 'none';
+      this.clearButton.style.display = this.input.value.length ? 'block' : 'none';
     });
 
     this.button.forEach((item, i) => {
@@ -136,15 +126,6 @@ class PredictiveSearch {
     });
   }
 
-  clearInput() {
-    this.input.value = ''; // Clear the input field
-    this.clearButton.style.display = 'none'; // Hide the custom clear button
-  }
-
-  updateClearButtonDisplay() {
-    this.clearButton.style.display = this.input.value.length ? 'block' : 'none';
-  }
-
   close() {
     this.container.classList.remove('active');
   }
@@ -155,3 +136,28 @@ window.addEventListener('load', () => {
     new PredictiveSearch();
   }
 });
+
+function clearSearch() {
+  var searchInput = document.getElementById('side-panel-search-input');
+  var clearButton = document.querySelector('.custom-clear-button');
+
+  searchInput.value = '';
+  clearButton.style.display = 'none';
+}
+
+// Show the custom clear button when there's input
+document.getElementById('side-panel-search-input').addEventListener('focus', function() {
+  var clearButton = document.querySelector('.custom-clear-button');
+  clearButton.style.display = this.value.length ? 'inline-block' : 'none';
+});
+
+document.getElementById('side-panel-search-input').addEventListener('input', function() {
+  var clearButton = document.querySelector('.custom-clear-button');
+  clearButton.style.display = this.value.length ? 'inline-block' : 'none';
+});
+
+document.getElementById('side-panel-search-input').addEventListener('blur', function() {
+  var clearButton = document.querySelector('.custom-clear-button');
+  clearButton.style.display = 'none';
+});
+
