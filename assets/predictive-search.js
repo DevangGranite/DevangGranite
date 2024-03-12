@@ -10,7 +10,7 @@ class PredictiveSearch {
     // Create a custom clear button
     this.clearButton = document.createElement('div');
     this.clearButton.className = 'custom-clear-button';
-    this.clearButton.textContent = 'Clear';
+    this.clearButton.textContent = 'Clear'; // Set the text content
     this.container.appendChild(this.clearButton);
 
     this.setupEventListeners();
@@ -18,18 +18,44 @@ class PredictiveSearch {
 
   setupEventListeners() {
     this.form.addEventListener('submit', this.onFormSubmit.bind(this));
-    this.input.addEventListener('input', debounce(this.onChange.bind(this), 300));
-    this.clearButton.addEventListener('click', this.clearInput.bind(this));
-    this.button.forEach(item => {
-      item.addEventListener('click', (event) => {
-        this.handleButtonClick(event);
-      });
+
+    this.input.addEventListener('input', debounce((event) => {
+      this.onChange(event);
+    }, 300).bind(this));
+
+    // Add an event listener for the custom clear button
+    this.clearButton.addEventListener('click', () => {
+      this.input.value = ''; // Clear the input field
+      this.onChange(); // Trigger the onChange event manually
     });
 
-    this.input.addEventListener('input', this.updateClearButtonDisplay.bind(this));
-    this.input.addEventListener('focus', this.updateClearButtonDisplay.bind(this));
-    this.input.addEventListener('blur', () => {
+    // Hide the default clear button
+    this.input.addEventListener('search', () => {
       this.clearButton.style.display = 'none';
+    });
+
+    // Show the custom clear button when there's input
+    this.input.addEventListener('input', () => {
+      this.clearButton.style.display = this.input.value.length ? 'block' : 'none';
+    });
+
+    this.button.forEach((item, i) => {
+      item.addEventListener('click', (event) => {
+        var _this = this;
+        event.preventDefault();
+        document.getElementsByTagName("body")[0].classList.toggle('open-cc');
+        this.container.classList.toggle('active');
+        if (this.container.classList.contains('active')) {
+          setTimeout(function () {
+            _this.input.focus({
+              preventScroll: true
+            });
+          }, 100);
+          dispatchCustomEvent('search:open');
+        }
+
+        return false;
+      });
     });
   }
 
@@ -44,7 +70,6 @@ class PredictiveSearch {
       this.predictiveSearchResults.classList.remove('active');
       return;
     }
-
     this.predictiveSearchResults.classList.add('active');
     this.getSearchResults(searchTerm);
   }
@@ -55,19 +80,14 @@ class PredictiveSearch {
     }
   }
 
-  handleButtonClick(event) {
-    event.preventDefault();
-    document.getElementsByTagName("body")[0].classList.toggle('open-cc');
-    this.container.classList.toggle('active');
+  onFocus() {
+    const searchTerm = this.getQuery();
 
-    if (this.container.classList.contains('active')) {
-      setTimeout(() => {
-        this.input.focus({
-          preventScroll: true
-        });
-      }, 100);
-      dispatchCustomEvent('search:open');
+    if (!searchTerm.length) {
+      return;
     }
+
+    this.getSearchResults(searchTerm);
   }
 
   getSearchResults(searchTerm) {
@@ -98,19 +118,12 @@ class PredictiveSearch {
   renderSearchResults(resultsMarkup) {
     this.predictiveSearchResults.innerHTML = resultsMarkup;
 
-    let submitButton = this.container.querySelector('#search-results-submit');
+    let _this = this,
+      submitButton = this.container.querySelector('#search-results-submit');
+
     submitButton.addEventListener('click', () => {
-      this.form.submit();
+      _this.form.submit();
     });
-  }
-
-  clearInput() {
-    this.input.value = '';
-    this.clearButton.style.display = 'none';
-  }
-
-  updateClearButtonDisplay() {
-    this.clearButton.style.display = this.input.value.length ? 'block' : 'none';
   }
 
   close() {
@@ -124,19 +137,27 @@ window.addEventListener('load', () => {
   }
 });
 
-function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
+function clearSearch() {
+  var searchInput = document.getElementById('side-panel-search-input');
+  var clearButton = document.querySelector('.custom-clear-button');
+
+  searchInput.value = '';
+  clearButton.style.display = 'none';
 }
 
-function dispatchCustomEvent(eventName) {
-  const event = new Event(eventName);
-  document.dispatchEvent(event);
-}
+// Show the custom clear button when there's input
+document.getElementById('side-panel-search-input').addEventListener('focus', function() {
+  var clearButton = document.querySelector('.custom-clear-button');
+  clearButton.style.display = this.value.length ? 'inline-block' : 'none';
+});
+
+document.getElementById('side-panel-search-input').addEventListener('input', function() {
+  var clearButton = document.querySelector('.custom-clear-button');
+  clearButton.style.display = this.value.length ? 'inline-block' : 'none';
+});
+
+document.getElementById('side-panel-search-input').addEventListener('blur', function() {
+  var clearButton = document.querySelector('.custom-clear-button');
+  clearButton.style.display = 'none';
+});
+
