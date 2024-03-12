@@ -234,14 +234,13 @@
 					</p>
 				</div>
 			{%- else -%}
-              <h1>{{ 'sections.cart.empty' | t }}</h1>
 				<div class="cart-empty">
                   <div class="cart_inner_main_ctm">
                     <div class="cart_icon_main"><img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/2a2bb63242f91ebbffdd82f9754d2fb3.png?v=1710254765"</div>
                   </div>
-					
+					<h1 class="title_small_cart">{{ 'sections.cart.empty' | t }}</h1>
 					<p>{{ 'sections.cart.ready' | t }}</p>
-					<a href="{{ routes.root_url }}" class="button accent2"><span>{{ 'general.continue_shopping' | t }}</span></a>
+					<a href="{{ routes.root_url }}" class="button accent"><span>{{ 'general.continue_shopping_new' | t }}</span></a>
 				</div>
 			{%- endif -%}
 		</div>
@@ -251,6 +250,10 @@
   .cart_icon_main img{
     max-width: 158px;
     width: 100%;
+  }
+  .title_small_cart{
+    font-size: 20px;
+    line-height: 22px
   }
 </style>
 {% schema %}

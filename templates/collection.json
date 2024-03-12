@@ -20,6 +20,7 @@
       "type": "image-with-text-overlay",
       "settings": {
         "image": "shopify:\/\/shop_images\/Product_Range_Hero_Header.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/Product_Range_Hero_Header.jpg",
         "image_parallax": false,
         "desktop_height": "desktop-height-450",
         "mobile_height": "mobile-height-500",
@@ -53,7 +54,7 @@
         "template--17918041260314__9e57bc14-72e8-48b3-81d3-9b209e520fd0-1678353048d7c75c7a-0": {
           "type": "media",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_1.png",
+            "image": "shopify:\/\/shop_images\/Al_Ain_Water_Philips_Electric_Pump_Banner.jpg",
             "slide_link": "shopify:\/\/products\/free-philips-pump",
             "use_video": false,
             "video_autoplay": true,
