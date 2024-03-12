@@ -50,7 +50,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 /* Add styles for the custom clear button */
-.custom-clear-button {    
+/* .custom-clear-button {    
     color: #2461CC;
     cursor: pointer;
     display: none;
@@ -59,4 +59,4 @@ input[type="search"]::-webkit-search-cancel-button {
     position: relative;
     border-bottom: 1px solid #2461CC !important;
     font-size: 12px;
-}
+} */
