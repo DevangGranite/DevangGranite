@@ -139,8 +139,7 @@ window.addEventListener('load', () => {
   }
 });
 
-function clearSearch() {
-   alert('test');
+function clearSearch() {   
   var searchInput = document.getElementById('side-panel-search-input');
   var clearButton = document.querySelector('.custom-clear-button');
 
