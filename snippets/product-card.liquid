@@ -50,7 +50,7 @@
       {% assign badge_position = settings.badge_position %}
       {% if product_card_product.tags contains 'Special Offers' %}{% assign Special_Offers = true %}{% endif %}
       {% if Special_Offers %}
-      <span class="badge special_offer {% if badge_position == 'top left' %} top right {% else %} top left {% endif %}">
+      <span class="badge special_offer">
         {{ 'products.product.Special_Offers' | t }}
       </span>
       {% endif %}
