@@ -136,6 +136,7 @@ window.addEventListener('load', () => {
     new PredictiveSearch();
   }
 });
+
 function clearSearch() {
   var searchInput = document.getElementById('side-panel-search-input');
   var clearButton = document.querySelector('.custom-clear-button');
