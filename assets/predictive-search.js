@@ -145,7 +145,7 @@ function clearSearch() {
   var clearButton = document.querySelector('.custom-clear-button');
 
   searchInput.value = '';
-  clearButton.style.display = 'none';
+  //clearButton.style.display = 'none';
 }
 
 // Show the custom clear button when there's input
