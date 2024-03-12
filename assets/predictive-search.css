@@ -51,11 +51,11 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* Add styles for the custom clear button */
 .custom-clear-button {  
+  top:19px;
   color: #333;
   cursor: pointer;
   display: none;
   padding: 5px 10px;
   position: relative;  
-  font-size: 12px;
-  top:19px;
+  font-size: 12px;  
 }
