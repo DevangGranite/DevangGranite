@@ -151,7 +151,7 @@ function clearSearch() {
 // Show the custom clear button when there's input
 document.getElementById('side-panel-search-input').addEventListener('focus', function() {
   var clearButton = document.querySelector('.custom-clear-button');
-  clearButton.style.display = this.value.length ? 'inline-block' : 'none';
+  //clearButton.style.display = this.value.length ? 'inline-block' : 'none';
 });
 
 document.getElementById('side-panel-search-input').addEventListener('input', function() {
