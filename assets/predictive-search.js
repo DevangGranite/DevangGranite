@@ -146,5 +146,5 @@ function clearSearch() {
 
 document.getElementById('side-panel-search-input').addEventListener('input', function() {
   var clearButton = document.querySelector('.custom-clear-button');
-  clearButton.style.display = this.value.length ? 'block' : 'none';
+  clearButton.style.display = this.value.length ? 'inline-block' : 'none';
 });
