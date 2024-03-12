@@ -1,7 +1,3 @@
-/**
- *  @class
- *  @function PredictiveSearch
- */
 class PredictiveSearch {
   constructor() {
     this.container = document.getElementById('Search-Drawer');
@@ -19,6 +15,7 @@ class PredictiveSearch {
 
     this.input.addEventListener('input', debounce((event) => {
       this.onChange(event);
+      this.toggleClearButton(); // Add this line
     }, 300).bind(this));
 
     this.button.forEach((item, i) => {
@@ -39,6 +36,17 @@ class PredictiveSearch {
         return false;
       });
     });
+  }
+
+  toggleClearButton() {
+    const searchTerm = this.getQuery();
+    const clearButton = document.querySelector('.custom-clear-button');
+
+    if (searchTerm.length > 0) {
+      clearButton.style.display = 'block';
+    } else {
+      clearButton.style.display = 'none';
+    }
   }
 
   getQuery() {
@@ -113,13 +121,15 @@ class PredictiveSearch {
     this.container.classList.remove('active');
   }
 }
+
 window.addEventListener('load', () => {
   if (typeof PredictiveSearch !== 'undefined') {
     new PredictiveSearch();
   }
 });
+
 function clearSearch() {
-  var searchInput = document.getElementById('side-panel-search-input'); 
+  var searchInput = document.getElementById('side-panel-search-input');
   var clearButton = document.querySelector('.custom-clear-button');
   var sidePanelContent = document.querySelector('.side-panel-content--has-tabs');
 
