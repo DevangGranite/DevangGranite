@@ -53,7 +53,6 @@ class PredictiveSearch {
   }
 }
 
-
   getQuery() {
     return this.input.value.trim();
   }
