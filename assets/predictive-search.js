@@ -39,15 +39,20 @@ class PredictiveSearch {
   }
 
   toggleClearButton() {
-    const searchTerm = this.getQuery();
-    const clearButton = document.querySelector('.custom-clear-button');
+  const searchTerm = this.getQuery();
+  const clearButton = document.querySelector('.custom-clear-button');
+  const excludeClasses = ['thb-quick-search']; // Add the class you want to exclude
 
-    if (searchTerm.length > 0) {
-      clearButton.style.display = 'block';
-    } else {
-      clearButton.style.display = 'none';
-    }
+  // Check if the clicked element has any of the excluded classes
+  const isExcluded = Array.from(event.target.classList).some(className => excludeClasses.includes(className));
+
+  if (searchTerm.length > 0 && !isExcluded) {
+    clearButton.style.display = 'block';
+  } else {
+    clearButton.style.display = 'none';
   }
+}
+
 
   getQuery() {
     return this.input.value.trim();
