@@ -26,7 +26,7 @@ class PredictiveSearch {
 
     // Add an event listener for the custom clear button
     this.clearButton.addEventListener('click', () => {
-      alert('test');
+     
       this.input.value = ''; // Clear the input field
       this.onChange(); // Trigger the onChange event manually
     });
@@ -140,6 +140,7 @@ window.addEventListener('load', () => {
 });
 
 function clearSearch() {
+   alert('test');
   var searchInput = document.getElementById('side-panel-search-input');
   var clearButton = document.querySelector('.custom-clear-button');
 
