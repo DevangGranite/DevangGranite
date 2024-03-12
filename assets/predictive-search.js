@@ -28,6 +28,7 @@ class PredictiveSearch {
     this.clearButton.addEventListener('click', () => {
       this.input.value = ''; // Clear the input field
       this.onChange(); // Trigger the onChange event manually
+      this.clearButton.style.display = 'none'; 
     });
 
     // Hide the default clear button
