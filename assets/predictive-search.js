@@ -41,7 +41,7 @@ class PredictiveSearch {
       });
       this.input.addEventListener('clear', () => {
     this.input.value = ''; // Clear the input field
-    this.onChange(); /
+    this.onChange();
     });
   }
 
