@@ -145,6 +145,27 @@ function clearSearch() {
   clearButton.style.display = 'none';
 }
 
+// Hide the default clear button for search inputs
+document.getElementById('side-panel-search-input').style.webkitAppearance = 'none';
+document.getElementById('side-panel-search-input').style.appearance = 'none';
+document.getElementById('side-panel-search-input').style.display = 'none';
+
+// Add styles for the custom clear button
+var customClearButton = document.createElement('div');
+customClearButton.className = 'custom-clear-button';
+customClearButton.textContent = 'Clear'; // Set the text content
+document.getElementById('Search-Drawer').appendChild(customClearButton);
+
+customClearButton.style.backgroundColor = '#fff'; // Customize background color
+customClearButton.style.border = '1px solid #ccc'; // Customize border
+customClearButton.style.color = '#333'; // Customize text color
+customClearButton.style.cursor = 'pointer';
+customClearButton.style.display = 'none'; // Initially hide the custom clear button
+customClearButton.style.padding = '5px 10px'; // Customize padding
+customClearButton.style.position = 'relative'; // Adjust positioning as needed
+customClearButton.style.left = '-25px'; // Adjust positioning as needed
+customClearButton.style.fontSize = '12px'; // Customize font size
+
 // Show the custom clear button when there's input
 document.getElementById('side-panel-search-input').addEventListener('focus', function() {
   var clearButton = document.querySelector('.custom-clear-button');
@@ -159,5 +180,7 @@ document.getElementById('side-panel-search-input').addEventListener('input', fun
 document.getElementById('side-panel-search-input').addEventListener('blur', function() {
   var clearButton = document.querySelector('.custom-clear-button');
   clearButton.style.display = 'none';
+});
+
 });
 
