@@ -125,7 +125,12 @@ function clearSearch() {
   searchInput.value = '';
   clearButton.style.display = 'none';
 
+  // Debugging: Log to console
+  console.log('clearSearch function called');
+  console.log('sidePanelContent:', sidePanelContent);
+
   // Remove the 'active' class from side-panel-content--has-tabs
   sidePanelContent.classList.remove('active');
 }
+
 
