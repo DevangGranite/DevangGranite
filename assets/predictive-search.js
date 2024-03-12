@@ -8,7 +8,6 @@ class PredictiveSearch {
     this.form = this.container.querySelector('form.searchform');
     this.button = document.querySelectorAll('.thb-quick-search');
     this.input = this.container.querySelector('input[type="search"]');
-    this.input.setAttribute('type', 'text');
     this.defaultTab = this.container.querySelector('.side-panel-content--initial');
     this.predictiveSearchResults = this.container.querySelector('.side-panel-content--has-tabs');
 
@@ -39,9 +38,6 @@ class PredictiveSearch {
 
         return false;
       });
-      this.input.addEventListener('clear', () => {
-    this.input.value = ''; // Clear the input field
-    this.onChange();
     });
   }
 
