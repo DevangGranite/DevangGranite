@@ -1,3 +1,7 @@
+/**
+ *  @class
+ *  @function PredictiveSearch
+ */
 class PredictiveSearch {
   constructor() {
     this.container = document.getElementById('Search-Drawer');
@@ -7,13 +11,6 @@ class PredictiveSearch {
     this.defaultTab = this.container.querySelector('.side-panel-content--initial');
     this.predictiveSearchResults = this.container.querySelector('.side-panel-content--has-tabs');
 
-    // Create a custom clear button
-    this.clearButton = document.createElement('div');
-    this.clearButton.className = 'custom-clear-button';
-    this.clearButton.textContent = 'Clear';
-    this.container.appendChild(this.clearButton);
-
-    // Bind event listeners in the constructor
     this.setupEventListeners();
   }
 
@@ -23,23 +20,6 @@ class PredictiveSearch {
     this.input.addEventListener('input', debounce((event) => {
       this.onChange(event);
     }, 300).bind(this));
-
-    // Add an event listener for the custom clear button
-    this.clearButton.addEventListener('click', () => {
-     
-      this.input.value = ''; // Clear the input field
-      this.onChange(); // Trigger the onChange event manually
-    });
-
-    // Hide the default clear button
-    this.input.addEventListener('search', () => {
-      this.clearButton.style.display = 'none';
-    });
-
-    // Show the custom clear button when there's input
-    this.input.addEventListener('input', () => {
-      this.clearButton.style.display = this.input.value.length ? 'block' : 'none';
-    });
 
     this.button.forEach((item, i) => {
       item.addEventListener('click', (event) => {
@@ -123,6 +103,7 @@ class PredictiveSearch {
     let _this = this,
       submitButton = this.container.querySelector('#search-results-submit');
 
+
     submitButton.addEventListener('click', () => {
       _this.form.submit();
     });
@@ -132,35 +113,8 @@ class PredictiveSearch {
     this.container.classList.remove('active');
   }
 }
-
 window.addEventListener('load', () => {
   if (typeof PredictiveSearch !== 'undefined') {
     new PredictiveSearch();
   }
 });
-
-function clearSearch() {
-  var searchInput = document.getElementById('side-panel-search-input');
-  var clearButton = document.querySelector('.custom-clear-button');
-
-  searchInput.value = '';
-  clearButton.style.display = 'none';
-}
-
-
-// Show the custom clear button when there's input
-document.getElementById('side-panel-search-input').addEventListener('focus', function() {
-  // var clearButton = document.querySelector('.custom-clear-button');
-  clearButton.style.display = this.value.length ? 'inline-block' : 'none';
-});
-
-document.getElementById('side-panel-search-input').addEventListener('input', function() {
-  // var clearButton = document.querySelector('.custom-clear-button');
-  clearButton.style.display = this.value.length ? 'inline-block' : 'none';
-});
-
-document.getElementById('side-panel-search-input').addEventListener('blur', function() {
-  // var clearButton = document.querySelector('.custom-clear-button');
-  clearButton.style.display = 'none';
-});
-
