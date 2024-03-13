@@ -276,4 +276,9 @@ class UpdateProfile extends HTMLElement{
         });
     }
 }
+    // Function to show the loader
+function showLoader() { 
+  updateNameBtn.querySelector('span').style.display = 'none';
+    loader.style.display = 'block';    
+}
 customElements.define('update-profile', UpdateProfile);
