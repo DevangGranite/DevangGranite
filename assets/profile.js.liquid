@@ -57,9 +57,12 @@ class UpdateProfile extends HTMLElement{
       
       const updateNameBtn = document.getElementById('updateUserName');
       const updateEmailBtn = document.getElementById('updateEmailBtn');
+      const updateAddressBtn = document.getElementById('updateAddress');
+      
       
       const loadname = document.getElementById('loadname');
       const loademail = document.getElementById('loademail');
+      const loadaddress = document.getElementById('loadaddress');
 
        // Update first name and last name
         this.updateNameBtn.addEventListener('click', e => {
@@ -92,12 +95,9 @@ class UpdateProfile extends HTMLElement{
         updateNameBtn.querySelector('span').style.display = 'none';
           loadname.style.display = 'block';
         updateEmailBtn.querySelector('span').style.display = 'none';
-          loademail.style.display = 'block';        
-      }
-       // Function to hide the loader
-      function hideLoaderotp() { 
-        document.getElementById('loademail').style.display = 'none';
-        updateEmailBtn.querySelector('span').style.display = 'block'; 
+          loademail.style.display = 'block';  
+        updateAddressBtn.querySelector('span').style.display = 'none';
+          loadaddress.style.display = 'block'; 
       }
 
         // Update email address
