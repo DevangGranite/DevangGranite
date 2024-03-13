@@ -55,10 +55,11 @@ class UpdateProfile extends HTMLElement{
     }
     evenetListener(){
 
+      const loadname = document.getElementById('loadname');
+
        // Update first name and last name
         this.updateNameBtn.addEventListener('click', e => {
             e.preventDefault();
-            showLoader();
             fetch(`https://alainuat.gdadmin.org/laravel/public/api/customer/update/profile`, {
                 method: 'POST',
                 body: JSON.stringify({
@@ -280,6 +281,6 @@ class UpdateProfile extends HTMLElement{
     // Function to show the loader
 function showLoader() { 
   updateNameBtn.querySelector('span').style.display = 'none';
-    loader.style.display = 'block';    
+    loadname.style.display = 'block';    
 }
 customElements.define('update-profile', UpdateProfile);
