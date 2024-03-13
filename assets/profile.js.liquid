@@ -56,7 +56,10 @@ class UpdateProfile extends HTMLElement{
     evenetListener(){
       
       const updateNameBtn = document.getElementById('updateUserName');
+      const updateEmailBtn = document.getElementById('updateEmailBtn');
+      
       const loadname = document.getElementById('loadname');
+      const loademail = document.getElementById('loademail');
 
        // Update first name and last name
         this.updateNameBtn.addEventListener('click', e => {
@@ -87,11 +90,14 @@ class UpdateProfile extends HTMLElement{
     // Function to show the loader
       function showLoader() { 
         updateNameBtn.querySelector('span').style.display = 'none';
-          loadname.style.display = 'block';    
+          loadname.style.display = 'block';
+        updateEmailBtn.querySelector('span').style.display = 'none';
+          loademail.style.display = 'block';        
       }
 
         // Update email address
         this.updateEmailBtn.addEventListener('click', e => {
+          showLoader();
             if(this.newEmail.value != this.newEmailConfirm.value){
                 this.email_confirm_error.innerText = "Email address doesn't match.";
             }else{
