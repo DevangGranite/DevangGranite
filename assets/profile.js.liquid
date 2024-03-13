@@ -269,4 +269,16 @@ class UpdateProfile extends HTMLElement{
         });
     }
 }
+document.addEventListener("DOMContentLoaded", function() {
+    var scrollToTopLink = document.getElementById("scrollToTopLink");
+    scrollToTopLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        var offset = 100; // Adjust this value to set the space from the top
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+});
+
 customElements.define('update-profile', UpdateProfile);
