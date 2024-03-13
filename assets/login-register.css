@@ -716,7 +716,3 @@ html.popup-overlap body:before {
 .fields.login--page #loaderemail img {
     max-width: 60px;
 }
-
-.mobile-menu-drawer .thb-mobile-menu-footer .thb-mobile-account-link .thb-mobile-account-link_signup svg {
-  height: 18px;
-}
