@@ -238,8 +238,8 @@
                   <div class="cart_inner_main_ctm">
                     <div class="cart_icon_main"><img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/2a2bb63242f91ebbffdd82f9754d2fb3.png?v=1710254765"</div>
                   </div>
-					<h1 class="title_small_cart">{{ 'sections.cart.empty' | t }}</h1>
-					<p>{{ 'sections.cart.ready' | t }}</p>
+					<p class="title_small_cart">{{ 'sections.cart.empty' | t }}</p>
+					<p class="empty_cart_text">{{ 'sections.cart.ready' | t }}</p>
 					<a href="{{ routes.root_url }}" class="button accent"><span>{{ 'general.continue_shopping_new' | t }}</span></a>
 				</div>
 			{%- endif -%}
@@ -252,8 +252,29 @@
     width: 100%;
   }
   .title_small_cart{
+    font-weight: bold;
     font-size: 20px;
-    line-height: 22px
+    line-height: 22px;
+    color: var(--color-accent);
+    margin-bottom: 30px;
+  }
+   .cart-empty .button{
+    min-width: 318px;
+    margin-top: 0;
+  }
+  .empty_cart_text{
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  @media screen and ( max-width: 549px ){
+    .cart-empty{
+      margin: 0;
+      max-width: fit-content;
+      text-align: left;
+    }
+    .cart_icon_main{
+      text-align: center;
+    }
   }
 </style>
 {% schema %}
