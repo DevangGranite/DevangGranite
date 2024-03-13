@@ -1,4 +1,3 @@
-<script>
 	document.querySelector('.edit-name').addEventListener('click', e => {
 		document.querySelector('.profile-form-section').classList.add('active-form');
 		document.querySelector('.update-name-section').classList.add('active-section');
@@ -50,5 +49,3 @@ function easeInOutQuad(t, b, c, d, offset) {
     t--;
     return -c / 2 * (t * (t - 2) - 1) + b;
 }
-
-</script>
