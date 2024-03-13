@@ -60,6 +60,7 @@ class UpdateProfile extends HTMLElement{
        // Update first name and last name
         this.updateNameBtn.addEventListener('click', e => {
             e.preventDefault();
+          showLoader();
             fetch(`https://alainuat.gdadmin.org/laravel/public/api/customer/update/profile`, {
                 method: 'POST',
                 body: JSON.stringify({
