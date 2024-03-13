@@ -15,6 +15,7 @@
       margin-bottom: 0; }
   .template-header--content {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     grid-gap: 24px; }
     @media only screen and (min-width: 1068px) {
