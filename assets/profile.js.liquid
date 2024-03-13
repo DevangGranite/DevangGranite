@@ -101,11 +101,11 @@ class UpdateProfile extends HTMLElement{
       }
 
         // Update email address
-        this.updateEmailBtn.addEventListener('click', e => {
-          showLoader();
+        this.updateEmailBtn.addEventListener('click', e => {         
             if(this.newEmail.value != this.newEmailConfirm.value){
                 this.email_confirm_error.innerText = "Email address doesn't match.";
             }else{
+                 showLoader();
                 /** update email in shopify database */
                 fetch(`https://alainuat.gdadmin.org/laravel/public/api/customer/update/profile`, {
                     method: 'POST',
@@ -120,8 +120,7 @@ class UpdateProfile extends HTMLElement{
                     console.log('Customer profile edit',responce);
                     if(responce.errors){
                         if(responce.errors.email)
-                            this.email_confirm_error.innerText = "Email has already been taken.";
-                      hideLoaderotp();
+                            this.email_confirm_error.innerText = "Email has already been taken.";                           
                     }else{
                         /** update email in mss */
 
