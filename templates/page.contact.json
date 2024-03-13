@@ -6,15 +6,14 @@
         "heading_Hpz6Jn": {
           "type": "heading",
           "settings": {
-            "text": "Need help or have feedback?",
+            "text": "Contact Us",
             "heading_size": "h2"
           }
         },
         "text_dqyFij": {
           "type": "text",
-          "disabled": true,
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Need help or have feedback?<\/p>",
             "description_size": "medium"
           }
         },
@@ -34,7 +33,8 @@
         "button_FF68BW"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/AlAin_Hero_Gallon.jpg",
+        "image": "shopify:\/\/shop_images\/Al_Ain_Water_Zero_Hero_Banner_Desktop_2x_ceae6b87-1ea4-488f-bbe2-7e59355310c9.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/Al_Ain_Water_Zero_Hero_Banner_Mobile_2x_edbe8d59-1e97-423f-9310-52e60f79439b.jpg",
         "image_parallax": true,
         "desktop_height": "desktop-height-450",
         "mobile_height": "mobile-height-350",
@@ -84,6 +84,10 @@
         "marker_style": "style1",
         "description": "<h5><strong>We're Ready to Assist. <\/strong><\/h5><p>Reach Out, and We'll Respond Promptly.<br\/><br\/><br\/><\/p>",
         "show_phone_number": true,
+        "show_comment": true,
+        "show_order": false,
+        "show_name": true,
+        "show_account_id": true,
         "marker_color": "#fd6262",
         "disable_top_spacing": false,
         "disable_bottom_spacing": false
@@ -97,6 +101,10 @@
         "marker_style": "style1",
         "description": "",
         "show_phone_number": true,
+        "show_comment": false,
+        "show_order": false,
+        "show_name": true,
+        "show_account_id": false,
         "marker_color": "#2866d3",
         "disable_top_spacing": true,
         "disable_bottom_spacing": false

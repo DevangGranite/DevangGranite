@@ -142,6 +142,7 @@
                 return response.json();
             })
             .then(data => {
+                console.log('Map address',data);
                 if (data.status === 'OK' && data.results && data.results.length > 0 && data.results[0].formatted_address) {
                     document.querySelector('input[name="lat"]').value = latLng.lat();
                     document.querySelector('input[name="lang"]').value = latLng.lng();

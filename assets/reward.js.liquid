@@ -358,7 +358,7 @@ class RewardOfferDetail extends HTMLElement{
                                 <p class="voucher_cards_title">${item.name}</p>
                                 <p class="voucher_cards_drops"><img src="${this.dropIcon}" width="9"> ${item.points} {{ 'customer.account.reward.drop' | t }}</p>
                                 </div>
-                                <a class="voucher_card_link" href="/pages/rewards-redeem-voucher/?reward=${item.id}"></a>
+                                <a class="voucher_card_link" href="/account?view=rewards-redeem-voucher&reward=${item.id}"></a>
                             </div>`;
                     // }
                 });
@@ -435,7 +435,7 @@ class RedemeedRewardOffer extends HTMLElement{
             coupon_code:this.offerDetail.coupon_code,
             points:this.offerDetail.points,
             data:this.offerDetail});
-
+            
         var requestOptions = {
             method: 'POST',
             headers: myHeaders,

@@ -49,6 +49,7 @@ class UpdateProfile extends HTMLElement{
         this.current_district = this.querySelector('input[name="current_district"]');
         this.lat = this.querySelector('input[name="lat"]');
         this.lang = this.querySelector('input[name="lang"]');
+        this.user_id = document.querySelector('input[name="meta[user_id]"]').value;
         this.tokenPayload = JSON.stringify({user_id:document.querySelector('input[name="meta[user_id]"]').value,name:document.querySelector('input[name="meta[name]"]').value});
         this.getCity();
         this.evenetListener();
@@ -188,7 +189,7 @@ class UpdateProfile extends HTMLElement{
                 console.log('Customer address edit',data);
                 let responce = JSON.parse(data.customer);
                 if(!responce.errors){
-                    fetch(`https://alainappuat.gdadmin.org/shopifyApiV2/Addresses/${getCookie('user_id')}`, {
+                    fetch(`https://alainappuat.gdadmin.org/shopifyApiV2/Addresses/${this.user_id}`, {
                         method:'GET',
                         headers:{
                             'lancode':'en',
@@ -226,7 +227,7 @@ class UpdateProfile extends HTMLElement{
                                 }).then(response => response.text())
                                 .then(data => {
                                     console.log('Customer address updated',data);
-                                    window.location.href = '/pages/profile'
+                                    window.location.href = '/account?view=profile'
                                 }).catch(error => console.log('MSS customer address update error',error));
                             }
                         });
