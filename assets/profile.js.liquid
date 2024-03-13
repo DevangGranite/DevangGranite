@@ -274,11 +274,28 @@ document.addEventListener("DOMContentLoaded", function() {
     scrollToTopLink.addEventListener("click", function(event) {
         event.preventDefault();
         var offset = 100; // Adjust this value to set the space from the top
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
+        var targetPosition = 0;
+        var currentPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var distance = currentPosition - targetPosition;
+        var duration = 500; // Adjust this value to set the duration of the scroll animation
+
+        var start = null;
+        window.requestAnimationFrame(function step(timestamp) {
+            if (!start) start = timestamp;
+            var progress = timestamp - start;
+            window.scrollTo(0, easeInOutQuad(progress, currentPosition, -currentPosition, duration, offset));
+            if (progress < duration) window.requestAnimationFrame(step);
+            else window.scrollTo(0, targetPosition + offset);
         });
     });
 });
+
+function easeInOutQuad(t, b, c, d, offset) {
+    t /= d / 2;
+    if (t < 1) return c / 2 * t * t + b;
+    t--;
+    return -c / 2 * (t * (t - 2) - 1) + b;
+}
+
 
 customElements.define('update-profile', UpdateProfile);
