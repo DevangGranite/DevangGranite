@@ -275,17 +275,39 @@ class RegisterCustomer extends HTMLElement{
 
     this.first_name_valid = this.validateField('first_name', 'firstNameError', 'Please enter your First Name.');
     this.last_name_valid = this.validateField('last_name', 'lastNameError', 'Please enter your Last Name.');
+    this.phone_valid = this.validatePhone('mobile', 'mobileError', 'Please enter a valid phone number.');
     this.email_valid = this.validateEmailField('email', 'emailError', 'Please enter a valid Email Address.');
     this.confirm_email_valid = this.validateConfirmEmailField('confirm_email', 'email', 'confirmEmailError', 'Email Addresses does not match.');
     this.address_valid = this.validateField('locationInput', 'locationInputError', 'Please enter your Address.');
     this.city_valid = this.validateSelectField('regi_city', 'regiCityError', 'Please select your City.');
     this.district_valid = this.validateSelectField('district', 'districtError', 'Please select your District.');
 
-    this.isValid = this.first_name_valid && this.last_name_valid && this.email_valid && this.confirm_email_valid && this.address_valid && this.city_valid && this.district_valid;
+    this.isValid = this.first_name_valid && this.last_name_valid && this.phone_valid && this.email_valid && this.confirm_email_valid && this.address_valid && this.city_valid && this.district_valid;
 
     console.log('Form validation result:', this.isValid); // Add this line for debugging
 
     return this.isValid;
+  }
+  validatePhone(inputId, errorId, errorMessage){
+    console.log('Validate phone');
+    // Get and trim phone number input
+    this.input = document.getElementById(inputId);
+    this.errorElement = document.getElementById(errorId);
+    this.value = this.input.value.trim();
+
+    // Regex pattern for 10-digit phone number
+    const pattern = /^\d{9}$/;
+
+    // Validate phone number and update message
+    const isValid = pattern.test(this.value);
+    if(this.value != '' && isValid){
+      this.errorElement.innerHTML = '';       
+      return true; 
+    }else{
+      this.errorElement.innerHTML = errorMessage;
+      console.error(errorMessage);
+      return false;
+    }
   }
   validateField(inputId, errorId, errorMessage){
     console.log('Validate field');
@@ -306,10 +328,6 @@ class RegisterCustomer extends HTMLElement{
     this.input = document.getElementById(inputId);
     this.errorElement = document.getElementById(errorId);
     this.email = this.input.value.trim();
-
-    // Clear mobile error message
-    this.mobileErrorElement = document.getElementById('mobileError');
-    this.mobileErrorElement.innerHTML = '';
 
     if (this.email === '' || !this.isValidEmail(this.email)) {
         this.errorElement.innerHTML = errorMessage;
