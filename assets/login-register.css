@@ -716,3 +716,6 @@ html.popup-overlap body:before {
 .fields.login--page #loaderemail img {
     max-width: 60px;
 }
+select#regi_city, select#district {
+    margin-bottom: 0;
+}
