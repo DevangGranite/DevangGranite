@@ -166,6 +166,7 @@ class UpdateProfile extends HTMLElement{
         // Update address
         this.updateAddressBtn.addEventListener('click', e => {
             e.preventDefault();
+            showLoader();
             fetch(`https://alainuat.gdadmin.org/laravel/public/api/customer/update/address`, {
                 method:'POST',
                 body:JSON.stringify(
