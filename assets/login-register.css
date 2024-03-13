@@ -717,5 +717,5 @@ html.popup-overlap body:before {
     max-width: 60px;
 }
 select#regi_city, select#district {
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
 }
