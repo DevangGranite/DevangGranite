@@ -94,6 +94,11 @@ class UpdateProfile extends HTMLElement{
         updateEmailBtn.querySelector('span').style.display = 'none';
           loademail.style.display = 'block';        
       }
+       // Function to hide the loader
+      function hideLoaderotp() { 
+        document.getElementById('loademail').style.display = 'none';
+        updateEmailBtn.querySelector('span').style.display = 'block'; 
+      }
 
         // Update email address
         this.updateEmailBtn.addEventListener('click', e => {
@@ -116,6 +121,7 @@ class UpdateProfile extends HTMLElement{
                     if(responce.errors){
                         if(responce.errors.email)
                             this.email_confirm_error.innerText = "Email has already been taken.";
+                      hideLoaderotp();
                     }else{
                         /** update email in mss */
 
