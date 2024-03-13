@@ -269,6 +269,7 @@ class UpdateProfile extends HTMLElement{
         });
     }
 }
+customElements.define('update-profile', UpdateProfile);
 document.addEventListener("DOMContentLoaded", function() {
     var scrollToTopLink = document.getElementById("scrollToTopLink");
     scrollToTopLink.addEventListener("click", function(event) {
@@ -296,6 +297,3 @@ function easeInOutQuad(t, b, c, d, offset) {
     t--;
     return -c / 2 * (t * (t - 2) - 1) + b;
 }
-
-
-customElements.define('update-profile', UpdateProfile);
