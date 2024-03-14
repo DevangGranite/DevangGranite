@@ -322,10 +322,6 @@ line-height: 18px;
             z-index: 99999; 
         }
   
-      /* #reward-redeem-voucher_inner_top, #reward-redeem-voucher_data_main, #cards_small_inline, #reward-redeem-voucher_main, #reward-redeem-voucher_inner{
-          visibility: hidden;
-      } */
-
     #reward-redeem-voucher{visibility: hidden;
       }
 

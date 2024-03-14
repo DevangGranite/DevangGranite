@@ -11,9 +11,9 @@
 </div>
   <div id="reward-redeem-voucher" class="reward-redeem-voucher">
    
-    <div id="reward-redeem-voucher_inner" class="reward-redeem-voucher_inner">         
-      <div id="reward-redeem-voucher_main" class="reward-redeem-voucher_main">             
-        <div id="reward-redeem-voucher_inner_top" class="reward-redeem-voucher_inner_top">
+    <div class="reward-redeem-voucher_inner">         
+      <div class="reward-redeem-voucher_main">             
+        <div class="reward-redeem-voucher_inner_top">
         <div class="reward-redeem-voucher_back">
           <a href="{{ routes.account_url | append: '?view=clip-the-deal' }}">{% render 'back_icon' %}</a>
         </div>
@@ -28,7 +28,7 @@
 
     <!--  -->
 
-      <div id="reward-redeem-voucher_data_main" class="reward-redeem-voucher_data_main reward-info-wrapper d-none">
+      <div class="reward-redeem-voucher_data_main reward-info-wrapper d-none">
         <div class="reward-redeem-voucher_data_main_inner">
         <div class="reward-redeem-voucher_card_main">
           <div class="reward-redeem-voucher_card_image reward_voucher_image_detail">
@@ -48,7 +48,7 @@
         </div>
         </div>
       </div>
-      <div id="cards_small_inline" class="cards_small_inline similar_deal_wrapper d-none">
+      <div class="cards_small_inline similar_deal_wrapper d-none">
         <div class="voucher_inner_cards">
           <p class="voucher_cards_title_main">Similar Deals</p>
           <div class="voucher_cards_blocks_inner_main">
@@ -67,14 +67,9 @@
     setTimeout(function() {
         document.getElementById('loader').classList.add('hidden');
       
-        document.getElementById('reward-redeem-voucher').style.visibility = 'visible';
-        // document.getElementById('reward-redeem-voucher_inner').style.visibility = 'visible';
-        // document.getElementById('reward-redeem-voucher_main').style.visibility = 'visible';
-        // document.getElementById('reward-redeem-voucher_inner_top').style.visibility = 'visible';
-        // document.getElementById('reward-redeem-voucher_data_main').style.visibility = 'visible';
-        // document.getElementById('cards_small_inline').style.visibility = 'visible';
+        document.getElementById('reward-redeem-voucher').style.visibility = 'visible';      
       
-    }, 500000000); // 5000 milliseconds = 5 seconds
+    }, 5000); // 5000 milliseconds = 5 seconds
 </script>
 {% schema %}
   {
