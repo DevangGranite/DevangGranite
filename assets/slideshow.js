@@ -33,7 +33,7 @@ if (!customElements.get('slide-show')) {
           pageDots: pageDots,
           contain: true,
           fade: fade,
-          draggable: false,
+          draggable: true,
           autoPlay: autoplay,
           rightToLeft: rightToLeft,
           prevNextButtons: false,
