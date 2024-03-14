@@ -15,7 +15,7 @@
       margin-bottom: 0; }
   .template-header--content {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: center !important;
     grid-gap: 24px; }
     @media only screen and (min-width: 1068px) {
