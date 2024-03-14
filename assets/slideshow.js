@@ -26,7 +26,7 @@ if (!customElements.get('slide-show')) {
         rightToLeft = document.dir === 'rtl',
         animations_enabled = document.body.classList.contains('animations-true') && typeof gsap !== 'undefined',
         selectedIndex = 0,
-        tick = autoplay ? window.setInterval(autoplay, 5) : false,
+        tick = autoplay ? window.setInterval(autoplay, 3) : true,
         args = {
           wrapAround: true,
           cellAlign: align,
