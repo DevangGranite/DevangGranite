@@ -352,10 +352,10 @@
       }
 
 
-       .loader img {
-          width: 100%;
-          height: 100%;
-          }
+        .loader img {
+            width: 200px; /* Adjust size as needed */
+            height: 200px; /* Adjust size as needed */
+        }
 
         /* Hide the loader by default */
         .hidden {
