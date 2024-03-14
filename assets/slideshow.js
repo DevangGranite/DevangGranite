@@ -357,12 +357,12 @@ if (!customElements.get('slide-show')) {
           ease: 'none',
           drawSVG: true
         });
-      slideshow.addEventListener('mouseenter', function () {
-        slideshow.autoPlayProgressTL.pause().progress(0);
-      });
-      slideshow.addEventListener('mouseleave', function () {
-        slideshow.autoPlayProgressTL.play();
-      });
+      // slideshow.addEventListener('mouseenter', function () {
+      //   slideshow.autoPlayProgressTL.pause().progress(0);
+      // });
+      // slideshow.addEventListener('mouseleave', function () {
+      //   slideshow.autoPlayProgressTL.play();
+      // });
     }
 
     videoPause(video_container) {
