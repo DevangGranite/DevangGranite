@@ -332,3 +332,32 @@
       font-size: 20px;
     }
   }
+
+        /* Styles for the loader */
+        .loader {
+            position: fixed;
+            /* top: 0; */
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 310px);
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* Ensure the loader appears on top of other content */
+        }
+  
+      #clip_the_deal_inner, #all_blocks_main_data{
+          visibility: hidden;
+      }
+
+
+        .loader img {
+            width: 100px; /* Adjust size as needed */
+            height: 100px; /* Adjust size as needed */
+        }
+
+        /* Hide the loader by default */
+        .hidden {
+            display: none;
+        }
