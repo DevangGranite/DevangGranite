@@ -7,7 +7,7 @@
 {{- 'cart.js' | asset_url | script_tag -}}
 <div class="row">
 	<div class="small-12 columns">
-		<div class="thb-cart-form--full {% if cart != empty -%}thb-cart-form{%- endif -%}" id="Cart" data-id="{{ section.id }}">
+		<div class="thb-cart-form thb-cart-form--full {% if cart != empty -%}thb-cart-form thb-cart-form--full{%- endif -%}" id="Cart" data-id="{{ section.id }}">
 			{%- if cart != empty -%}
 				<form action="{{ routes.cart_url }}" method="post" id="cart-form" novalidate>
 					<table class="cart-items no-borders">
