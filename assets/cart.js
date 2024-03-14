@@ -168,7 +168,7 @@ removeProductEvent() {
       // Wait for 5 seconds before reloading the page
       setTimeout(() => {
         window.location.reload();
-      }, 2000);
+      }, 1000);
     });
   });
 }
