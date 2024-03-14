@@ -247,3 +247,6 @@
     transform: translateY(-100%); }
   .product-card-small:hover .product-card-small--add-to-cart-button {
     transform: translateY(0%); }
+.cart_icon_main svg {
+    margin-bottom: 40px;
+}
