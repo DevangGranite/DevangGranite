@@ -89,7 +89,7 @@
 											>
 											<button class="plus" type="button" aria-label="{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}">{% render 'svg-icons' with 'plus' %}</button>
 											</quantity-selector>
-											<a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="remove cart-remove-mobile" data-index="{{ item.index | plus: 1 }}" onclick="setTimeout(function() { location.reload(); }, 3000);">{% render 'svg-icons' with 'trash' %}</a>
+											<a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="remove cart-remove-mobile" data-index="{{ item.index | plus: 1 }}">{% render 'svg-icons' with 'trash' %}</a>
 											<div class="cart-item__error form-notification error" id="Line-item-error-{{ item.index | plus: 1 }}" role="alert" hidden>
 												{% render 'svg-icons' with 'thb-error' %}
 												<small class="cart-item__error-text"></small>
