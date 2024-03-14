@@ -164,11 +164,12 @@ class Cart {
 
       // Prevent the default action of following the link immediately
       event.preventDefault();
+      window.location.reload();
 
       // Wait for 5 seconds before reloading the page
-      setTimeout(() => {
-        window.location.reload();
-      }, 300);
+      // setTimeout(() => {
+      //   window.location.reload();
+      // }, 300);
     });
   });
 }
