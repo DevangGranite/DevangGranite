@@ -1,7 +1,9 @@
 {{ 'clip-the-deal.css' | asset_url | stylesheet_tag }}
+
 <input type="hidden" name="meta[token]" value="{{ customer.metafields.custom.token }}">
 <input type="hidden" name="meta[user_id]" value="{{ customer.metafields.custom.user_id }}">
 <input type="hidden" name="meta[name]" value="{{ customer.metafields.custom.name }}">
+
 <clip-the-deal>
   <div class="clip_the_deal_main">
     <div class="clip_the_deal_inner">
