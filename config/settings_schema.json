@@ -561,7 +561,8 @@
       {
         "type": "text",
         "id": "social_whatsapp_link",
-        "label": "Whatsapp"
+        "label": "Whatsapp",
+        "info": "Add Whatsapp number"
       },
       {
         "type": "header",
