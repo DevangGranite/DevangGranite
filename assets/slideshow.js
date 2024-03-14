@@ -34,7 +34,7 @@ if (!customElements.get('slide-show')) {
           contain: true,
           fade: fade,
           draggable: true,
-          autoPlay: autoplay,
+          autoPlay: true,
           rightToLeft: rightToLeft,
           prevNextButtons: false,
           cellSelector: '.carousel__slide',
