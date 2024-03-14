@@ -168,7 +168,7 @@ class Cart {
       // Wait for 5 seconds before reloading the page
       setTimeout(() => {
         window.location.reload();
-      }, 500);
+      }, 300);
     });
   });
 }
