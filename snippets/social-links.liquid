@@ -26,8 +26,7 @@
 	{% if settings.social_wechat_link != blank %}
 	<li><a href="{{ settings.social_wechat_link }}" class="social wechat" target="_blank" rel="noreferrer" title="WeChat">{% render 'svg-icons' with 'wechat' %}{% if show_label %} <span>{{ 'social.links.wechat' | t }}</span>{% endif %}</a></li>
 	{% endif %}
-    {% if settings.social_youtube_link != blank %}
-	<li><a href="whatsapp://send?phone=123456" class="social youtube" target="_blank" rel="noreferrer" title="YouTube">{% render 'svg-icons' with 'whatsapp' %}{% if show_label %} <span>{{ 'social.links.youtube' | t }}</span>{% endif %}</a></li>
-	{% endif %}
-   <li><a href="https://wa.me/123456" class="social whatsapp" rel="noreferrer" title="WhatsApp">{% render 'svg-icons' with 'whatsapp' %}{% if show_label %} <span>{{ 'social.links.whatsapp' | t }}</span>{% endif %}</a></li>
+    {% if settings.social_whatsapp_link != blank %}
+    <li><a href="https://wa.me/123456" class="social whatsapp" rel="noreferrer" title="WhatsApp">{% render 'svg-icons' with 'whatsapp' %}{% if show_label %} <span>{{ 'social.links.whatsapp' | t }}</span>{% endif %}</a></li>
+    {% endif %}
 </ul>
