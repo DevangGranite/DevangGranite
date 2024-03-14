@@ -353,7 +353,7 @@ if (!customElements.get('slide-show')) {
         .fromTo(slideshow.querySelector('.thb-slideshow-progress--svg circle'), {
           drawSVG: 0
         }, {
-          duration: parseInt(slideshow.dataset.autoplay, 10) / 1000,
+          duration: parseInt(slideshow.dataset.autoplay, 5) / 1000,
           ease: 'none',
           drawSVG: true
         });
