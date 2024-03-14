@@ -346,23 +346,23 @@ if (!customElements.get('slide-show')) {
 
     }
     setupAutoplayProgress(slideshow) {
-      // slideshow.autoPlayProgressTL = gsap.timeline({
-      //   inherit: false
-      // });
-      // slideshow.autoPlayProgressTL
-      //   .fromTo(slideshow.querySelector('.thb-slideshow-progress--svg circle'), {
-      //     drawSVG: 0
-      //   }, {
-      //     duration: parseInt(slideshow.dataset.autoplay, 10) / 1000,
-      //     ease: 'none',
-      //     drawSVG: true
-      //   });
-      // slideshow.addEventListener('mouseenter', function () {
-      //   slideshow.autoPlayProgressTL.pause().progress(0);
-      // });
-      // slideshow.addEventListener('mouseleave', function () {
-      //   slideshow.autoPlayProgressTL.play();
-      // });
+      slideshow.autoPlayProgressTL = gsap.timeline({
+        inherit: false
+      });
+      slideshow.autoPlayProgressTL
+        .fromTo(slideshow.querySelector('.thb-slideshow-progress--svg circle'), {
+          drawSVG: 0
+        }, {
+          duration: parseInt(slideshow.dataset.autoplay, 10) / 1000,
+          ease: 'none',
+          drawSVG: true
+        });
+      slideshow.addEventListener('mouseenter', function () {
+        slideshow.autoPlayProgressTL.pause().progress(0);
+      });
+      slideshow.addEventListener('mouseleave', function () {
+        slideshow.autoPlayProgressTL.play();
+      });
     }
 
     videoPause(video_container) {
