@@ -12,7 +12,7 @@
     <img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/loader.gif?v=1710423701" alt="Loading...">
 </div>
       <div class="reward-redeem-voucher_main">
-        <div class="reward-redeem-voucher_inner_top">
+        <div id="reward-redeem-voucher_inner_top" class="reward-redeem-voucher_inner_top">
         <div class="reward-redeem-voucher_back">
           <a href="{{ routes.account_url | append: '?view=clip-the-deal' }}">{% render 'back_icon' %}</a>
         </div>
@@ -27,7 +27,7 @@
 
     <!--  -->
 
-      <div class="reward-redeem-voucher_data_main reward-info-wrapper d-none">
+      <div id="reward-redeem-voucher_data_main" class="reward-redeem-voucher_data_main reward-info-wrapper d-none">
         <div class="reward-redeem-voucher_data_main_inner">
         <div class="reward-redeem-voucher_card_main">
           <div class="reward-redeem-voucher_card_image reward_voucher_image_detail">
@@ -47,7 +47,7 @@
         </div>
         </div>
       </div>
-      <div class="cards_small_inline similar_deal_wrapper d-none">
+      <div id="cards_small_inline" class="cards_small_inline similar_deal_wrapper d-none">
         <div class="voucher_inner_cards">
           <p class="voucher_cards_title_main">Similar Deals</p>
           <div class="voucher_cards_blocks_inner_main">
@@ -65,8 +65,9 @@
     // Remove loader after 5 seconds
     setTimeout(function() {
         document.getElementById('loader').classList.add('hidden');
-        document.getElementById('clip_the_deal_inner').style.visibility = 'visible';
-        document.getElementById('all_blocks_main_data').style.visibility = 'visible';
+        document.getElementById('reward-redeem-voucher_inner_top').style.visibility = 'visible';
+        document.getElementById('reward-redeem-voucher_data_main').style.visibility = 'visible';
+        document.getElementById('cards_small_inline').style.visibility = 'visible';
       
     }, 5000); // 5000 milliseconds = 5 seconds
 </script>

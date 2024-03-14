@@ -322,7 +322,7 @@ line-height: 18px;
             z-index: 9999; 
         }
   
-      #clip_the_deal_inner, #all_blocks_main_data{
+      #reward-redeem-voucher_inner_top, #reward-redeem-voucher_data_main, #cards_small_inline{
           visibility: hidden;
       }
 
