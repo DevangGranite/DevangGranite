@@ -327,9 +327,9 @@
         "icon_TqMcNb": {
           "type": "icon",
           "settings": {
-            "icon": "bottle",
+            "icon": "star",
             "heading": "",
-            "text": "<p>Complimentary water bottles.<\/p>"
+            "text": "<p>Exciting offers<\/p>"
           }
         }
       },

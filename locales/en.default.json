@@ -393,7 +393,8 @@
         "member_since": "Member since",
         "purchase_history": "Purchase History",
         "topup": "Top Up",
-        "spent": "Spent"
+        "spent": "Spent",
+        "remaining_drop": "Your Remaining Drops"
       }
     },
     "order": {

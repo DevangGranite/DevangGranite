@@ -291,7 +291,7 @@ class UpdateProfile extends HTMLElement{
             options.push(`<option id="district_${district.id}" value="${district.id}">${district.district_name}</option>`);
             });
             this.district.querySelector('option').remove();
-            this.district.insertAdjacentHTML('afterbegin', options.join(''));
+            this.district.innerHTML = options.join('');
         })
         .catch(error => {
             console.error('Error fetching city:', error);

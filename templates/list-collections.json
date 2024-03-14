@@ -11,7 +11,7 @@
         "heading": "Shop by category",
         "description": "<p>Discover our diverse range of products to suit every preference and occasion.<\/p>",
         "heading_size": "small",
-        "sort": "date",
+        "sort": "alphabetical",
         "image_ratio": "square",
         "style": "style1",
         "columns_desktop": 4,

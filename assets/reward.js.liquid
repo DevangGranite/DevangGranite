@@ -409,7 +409,6 @@ class RedemeedRewardOffer extends HTMLElement{
                 this.pageHeader.style.background = `radial-gradient(circle, #8A8F95 0%, #6B6E71 100%)`;
             
         });
-        
 
     }
     evenetListener(){
@@ -435,7 +434,7 @@ class RedemeedRewardOffer extends HTMLElement{
             coupon_code:this.offerDetail.coupon_code,
             points:this.offerDetail.points,
             data:this.offerDetail});
-            
+
         var requestOptions = {
             method: 'POST',
             headers: myHeaders,
@@ -473,9 +472,9 @@ class RedemeedRewardOffer extends HTMLElement{
                 this.dropIcon = "{{ 'Platinum_Tier.png' | file_url }}";
                 // this.pageHeader.style.background = `radial-gradient(circle, #8A8F95 0%, #6B6E71 100%)`;
             }
-
-            this.voucherTitleCount.innerHTML = `${this.offerDetail.description} {{ 'customer.account.reward.discount_code_voucher' | t }}<span class="count_drops_total">${this.offerDetail.points} <img src="${this.dropIcon}" width="15px">`;
-
+            getCustomerReward().then(customerReward => {
+                this.voucherTitleCount.innerHTML = `{{ 'customer.account.reward.remaining_drop' | t }}<span class="count_drops_total">${customerReward.current_points} <img src="${this.dropIcon}" width="15px">`;
+            });
             this.querySelector('.reward-voucher-redeemed_inner_wrapper').style.display = 'block';
         }).catch(error => {
             this.rewardInfo.innerHTML = `<div class="rewards-voucher-redeemed_title_card">We're facing technical issue.Please try again later.</h6>`;
