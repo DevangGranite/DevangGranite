@@ -8,11 +8,11 @@
 <reward-offer-detail>
 
   <div class="reward-redeem-voucher">
-    <div class="reward-redeem-voucher_inner">      
-      <div class="reward-redeem-voucher_main">
-              <div id="loader" class="loader">
+    <div class="reward-redeem-voucher_inner">  
+       <div id="loader" class="loader">
     <img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/loader.gif?v=1710423701" alt="Loading...">
 </div>
+      <div id="reward-redeem-voucher_main" class="reward-redeem-voucher_main">             
         <div id="reward-redeem-voucher_inner_top" class="reward-redeem-voucher_inner_top">
         <div class="reward-redeem-voucher_back">
           <a href="{{ routes.account_url | append: '?view=clip-the-deal' }}">{% render 'back_icon' %}</a>
@@ -66,6 +66,8 @@
     // Remove loader after 5 seconds
     setTimeout(function() {
         document.getElementById('loader').classList.add('hidden');
+       
+        document.getElementById(' reward-redeem-voucher_main').style.visibility = 'visible';
         document.getElementById('reward-redeem-voucher_inner_top').style.visibility = 'visible';
         document.getElementById('reward-redeem-voucher_data_main').style.visibility = 'visible';
         document.getElementById('cards_small_inline').style.visibility = 'visible';
