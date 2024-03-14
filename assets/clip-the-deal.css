@@ -353,8 +353,8 @@
 
 
         .loader img {
-            width: 200px; /* Adjust size as needed */
-            height: 200px; /* Adjust size as needed */
+            width: 100px; /* Adjust size as needed */
+            height: 100px; /* Adjust size as needed */
         }
 
         /* Hide the loader by default */
