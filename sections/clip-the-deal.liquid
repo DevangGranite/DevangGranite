@@ -37,7 +37,7 @@
     <div id="loader" class="loader">
     <img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/loader.gif?v=1710420879" alt="Loading...">
 </div>
-    <div id="clip_the_deal_inner" class="clip_the_deal_inner hidden">
+    <div id="clip_the_deal_inner" class="clip_the_deal_inner">
       <div class="clip_the_deal_inner_main">
         <div class="clip_the_deal_inner_top">
         <div class="clip_the_deal_back">
@@ -51,7 +51,7 @@
       </div>
     </div>
     <!--  -->
-      <div id="all_blocks_main_data" class="all_blocks_main_data hidden">
+      <div id="all_blocks_main_data" class="all_blocks_main_data">
         <div class="all_blocks_main_data_inner">
           <div class="clip_the_deal_inner_main_data">
         <div class="clip_the_deal_data_inner_top">
@@ -129,6 +129,8 @@
     // Show loader when the page starts loading
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('loader').classList.remove('hidden');
+        document.getElementById('clip_the_deal_inner').classList.add('hidden');
+        document.getElementById('all_blocks_main_data').classList.add('hidden');
     });
 
     // Remove loader after 5 seconds
