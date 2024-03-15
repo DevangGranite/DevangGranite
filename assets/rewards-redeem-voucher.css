@@ -319,7 +319,7 @@ line-height: 18px;
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 99999; 
+            /* z-index: 99999;  */
         }
   
     #reward-redeem-voucher{visibility: hidden;
