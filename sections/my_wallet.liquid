@@ -99,73 +99,21 @@
   </div>
 </wallet-balance>
 
-<style>
-  .balance_content_help_main{
-    position: relative;
-  }
-  .total_ballane_detail_div, .total_ballane_detail_help_div {
-        opacity: 1;
-        transition: opacity 0.5s ease-in-out;
-    }
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('loader').classList.remove('hidden');
+        document.documentElement.classList.add('no_scroll');
+    });
 
-    .hidden {
-        opacity: 0;
-    }
-    .total_balance_content_main.total_ballane_detail_help_div{
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      transform: translateY(-50%);
-      margin: 0 !important;
-      opacity: 0;
-      width: 100%;
-      /* min-height: 76px; */
-    }
-  .close_help_wallet{
-    didplay: none;
-  }
-  .open_help_wallet.hidden{
-    display: none;
-  }
-
-  .tabs_main_style{
-    max-width: 816px;
-    margin-inline: auto;
-    position: relative;
-  }
-
-  /* Styles for the loader */
-        .loader {
-            position: fixed;
-            /* top: 0; */
-            left: 0;
-            width: 100%;
-            height: calc(100vh - 310px);
-            background-color: rgba(255, 255, 255, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* z-index: 9999;  */
-        }
-  
-      #clip_the_deal_inner, #all_blocks_main_data{
-          visibility: hidden;
-      }
-
-
-        .loader img {
-            width: 100px;
-            height: 100px;
-        }
-
-      html.js.no_scroll.hydrated {
-          overflow: hidden;
-      }
-        /* Hide the loader by default */
-        .hidden {
-            display: none;
-        }
-</style>
+    setTimeout(function() {
+        document.getElementById('loader').classList.add('hidden');
+        document.documentElement.classList.remove('no_scroll');
+        document.getElementById('my_wallet_main').style.visibility = 'visible';
+        document.getElementById('my_wallet_data_blocks_main').style.visibility = 'visible';
+        document.getElementById('zero_wallet_top_up').style.visibility = 'visible';
+      
+    }, 5000);
+</script>
 
 {% schema %}
   {

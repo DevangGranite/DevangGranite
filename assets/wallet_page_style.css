@@ -1104,7 +1104,7 @@ html[lang=ar] .balance_content_help_main a.help_about_my_wallet.open_help_wallet
             /* z-index: 9999;  */
         }
   
-      #clip_the_deal_inner, #all_blocks_main_data{
+      #my_wallet_main, #my_wallet_data_blocks_main, #zero_wallet_top_up{
           visibility: hidden;
       }
 
