@@ -100,12 +100,13 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('loader').classList.remove('hidden');
-        document.getElementById('loader').classList.add('active1234');
+        document.documentElement.classList.add('active1234');
+
     });
 
     setTimeout(function() {
         document.getElementById('loader').classList.add('hidden');
-        document.getElementById('loader').classList.remove('active1234');
+        document.documentElement.classList.remove('active1234');
         document.getElementById('clip_the_deal_inner').style.visibility = 'visible';
         document.getElementById('all_blocks_main_data').style.visibility = 'visible';
       
