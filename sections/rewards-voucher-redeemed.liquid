@@ -6,7 +6,10 @@
 <input type="hidden" name="meta[user_id]" value="{{ customer.metafields.custom.user_id }}">
 <input type="hidden" name="meta[name]" value="{{ customer.metafields.custom.name }}">
 <redemeed-reward-offer>
-  <div class="rewards-voucher-redeemed">
+   <div id="loader" class="loader">
+    <img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/loader.gif?v=1710423701" alt="Loading...">
+</div>
+  <div id="rewards-voucher-redeemed" class="rewards-voucher-redeemed">
     <div class="rewards-voucher-redeemed_inner">
       <div class="rewards-voucher-redeemed_main">
         <div class="rewards-voucher-redeemed_inner_top">
@@ -64,6 +67,18 @@
     {% endcomment %}
   </div>
 </redemeed-reward-offer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('loader').classList.remove('hidden');
+    });
+
+    setTimeout(function() {
+        document.getElementById('loader').classList.add('hidden');
+        document.getElementById('rewards-voucher-redeemed').style.visibility = 'visible';      
+    }, 4000);
+</script>
+
 {% schema %}
   {
     "name": "Clip the deal",
