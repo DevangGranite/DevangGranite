@@ -368,7 +368,7 @@ table.account-order-history--table tbody tr:last-child td {
 }
 .customer-rewards-drops--text {
   line-height: 20px;
-  margin: 8px 0;
+  /* margin: 8px 0; */
 }
 .customer-rewards-drops--timer {
   color: #6B6E71;
