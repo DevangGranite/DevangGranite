@@ -1,5 +1,6 @@
 <script src="{{ 'wallet.js' | asset_url }}" defer="defer"></script>
 {{ 'wallet_page_style.css' | asset_url | stylesheet_tag }}
+{{- 'breadcrumbs.css' | asset_url | stylesheet_tag -}}
 <input type="hidden" name="meta[user_id]" value="{{ customer.metafields.custom.user_id }}">
 
   <div id="loader" class="loader">
