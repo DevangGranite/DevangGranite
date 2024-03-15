@@ -89,7 +89,7 @@
 											>
 											<button class="plus" type="button" aria-label="{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}">{% render 'svg-icons' with 'plus' %}</button>
 											</quantity-selector>
-											<a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="remove cart-remove-mobile" data-index="{{ item.index | plus: 1 }}" >{% render 'svg-icons' with 'trash' %}</a>
+											<a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="remove cart-remove-mobile" data-index="{{ item.index | plus: 1 }}">{% render 'svg-icons' with 'trash' %}</a>
 											<div class="cart-item__error form-notification error" id="Line-item-error-{{ item.index | plus: 1 }}" role="alert" hidden>
 												{% render 'svg-icons' with 'thb-error' %}
 												<small class="cart-item__error-text"></small>
@@ -235,48 +235,14 @@
 				</div>
 			{%- else -%}
 				<div class="cart-empty">
-                  <div class="cart_inner_main_ctm">
-                    <div class="cart_icon_main">{% render 'svg-icons' with 'thb-empty-cart' %}</div>
-                  </div>
-					<p class="title_small_cart">{{ 'sections.cart.empty' | t }}</p>
-					<p class="empty_cart_text">{{ 'sections.cart.ready' | t }}</p>
-					<a href="/collections/all" class="button accent"><span>{{ 'general.continue_shopping_new' | t }}</span></a>
+					<h1>{{ 'sections.cart.empty' | t }}</h1>
+					<p>{{ 'sections.cart.ready' | t }}</p>
+					<a href="{{ routes.root_url }}" class="button accent2"><span>{{ 'general.continue_shopping' | t }}</span></a>
 				</div>
 			{%- endif -%}
 		</div>
 	</div>
 </div>
-<style>
-  .cart_icon_main img{
-    max-width: 158px;
-    width: 100%;
-  }
-  .title_small_cart{
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 22px;
-    color: var(--color-accent);
-    margin-bottom: 30px;
-  }
-   .cart-empty .button{
-    min-width: 318px;
-    margin-top: 0;
-  }
-  .empty_cart_text{
-    font-size: 18px;
-    margin-bottom: 30px;
-  }
-  @media screen and ( max-width: 549px ){
-    .cart-empty{
-      margin: 0;
-      max-width: fit-content;
-      text-align: center;
-    }
-    .cart_icon_main{
-      text-align: center;
-    }
-  }
-</style>
 {% schema %}
 {
 	"name": "Cart",
