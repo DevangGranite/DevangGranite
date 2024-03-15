@@ -59,7 +59,7 @@
     line-height: 22px;
   }
   .count_drops_total{
-    width: 56px;
+    width: 85px;
     height: 40px;
     flex-shrink: 0;
     border-radius: 8px;
@@ -202,7 +202,8 @@ line-height: 18px;
   align-items: center;
 }
 .rewards-voucher-redeemed_detail .count_drops_total{
-  width: 56px;
+  max-width: 100px;
+  padding: 0 10px;
   height: 40px;
   flex-shrink: 0;
   border-radius: 8px;
@@ -418,4 +419,31 @@ line-height: 18px;
       /* border-top: 1px solid rgba(88, 139, 191, 0.2); */
     }
   }
-   
+    /* Styles for the loader */
+        .loader {
+            position: fixed;
+            /* top: 0; */
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 310px);
+            background-color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; 
+        }
+  
+      #rewards-voucher-redeemed{
+          visibility: hidden;
+      }
+
+
+        .loader img {
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Hide the loader by default */
+        .hidden {
+            display: none;
+        }
