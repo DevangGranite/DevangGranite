@@ -250,3 +250,6 @@
 .cart_icon_main svg {
     margin-bottom: 30px;
 }
+.full {
+    position: relative !important;    
+}
