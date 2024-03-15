@@ -155,30 +155,22 @@
 
 {% if customer %}
   <script>
-    // Function to update URLs when the customer is logged in
     function updateUrls() {
       var accountPageUrl = "{{ shop.url }}/account";
       var links = document.getElementsByTagName("a");
 
       for (var i = 0; i < links.length; i++) {
         var link = links[i];
-
-        // Update the href attribute of the link to the account page URL
         if (link.href === "{{ shop.url }}/") {
           link.href = accountPageUrl;
         }
       }
     }
-
-    // Call the function when the page is fully loaded
     window.onload = function() {
       updateUrls();
     };
   </script>
 {% endif %}
-
-
-
-  
+ 
 </body>
 </html>
