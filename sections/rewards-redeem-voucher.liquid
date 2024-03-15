@@ -60,10 +60,12 @@
  <script>
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('loader').classList.remove('hidden');
+        document.documentElement.classList.add('no_scroll');
     });
 
     setTimeout(function() {
-        document.getElementById('loader').classList.add('hidden');      
+        document.getElementById('loader').classList.add('hidden');  
+        document.documentElement.classList.remove('no_scroll');
         document.getElementById('reward-redeem-voucher').style.visibility = 'visible';            
     }, 5000);
 </script>
