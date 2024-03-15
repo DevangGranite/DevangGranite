@@ -11,11 +11,7 @@
         </div>
         <div class="my_wallert_content_inner">
           <div class="mobile_header_with_back">
-            <div class="back_arrow">
-              <a href="/pages/account">
-              {% render 'back_icon' %}
-              </a>
-            </div>
+            <div class="back_arrow">{% render 'back_icon' %}</div>
             <div class="my_wallet_heading_mobile">
               My Wallet
             </div>
@@ -52,7 +48,7 @@
         </div>
       </div>
       <div class="my_wallert_image_main">
-        <img src="{{ section.settings.upload_image | img_url: 'large' }}">
+        <img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/Group_18474bbb.png?v=1707769654">
       </div>
     </div>
   </div>
@@ -69,7 +65,7 @@
             You don’t have any transactions.
           </div>
           <div class="zero_wallet_button">
-            <a class="zero_wallet_main_btn" href="/products/top-up-wallet">Top Up Now</a>
+            <a class="zero_wallet_main_btn">Top Up Now</a>
           </div>
         </div>
       </div>
@@ -79,7 +75,7 @@
             You don’t have any transactions.
           </div>
           <div class="zero_wallet_button">
-            <a class="zero_wallet_main_btn" href="/products/top-up-wallet">Top Up Now</a>
+            <a class="zero_wallet_main_btn">Top Up Now</a>
           </div>
         </div>
       </div>
@@ -91,7 +87,7 @@
       <img class="zero_wallet_img_positioned" src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/Group_18439.png?v=1707858874">
     </div>
     <div class="zero_wallet_button">
-      <a class="zero_wallet_main_btn" href="/products/top-up-wallet">Top Up Now</a>
+      <a class="zero_wallet_main_btn">Top Up Now</a>
     </div>
   </div>
 </wallet-balance>
@@ -134,13 +130,11 @@
 
 {% schema %}
   {
-    "name": "My wallet",
-    "settings": [
-      {
-      "type": "image_picker",
-      "id": "upload_image",
-      "label": "Upload a image for bottle"
-      }
-    ]
+    "name": "Section name",
+    "settings": []
   }
 {% endschema %}
+
+
+
+ 

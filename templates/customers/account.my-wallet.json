@@ -8,7 +8,6 @@
     "main": {
       "type": "my_wallet",
       "settings": {
-        "upload_image": "shopify:\/\/shop_images\/Wallet_Image.png"
       }
     }
   },

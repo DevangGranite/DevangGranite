@@ -1,3 +1,7 @@
+
+
+
+
 .thb-predictive-search--label {
   display: block;
   font-style: normal;
@@ -40,20 +44,3 @@
       .thb-predictive-search--promotion-products .products.row {
         grid-auto-columns: minmax(40%, 1fr);
         grid-template-columns: repeat(auto-fill, minmax(40%, 1fr)); } }
-
-/* Hide the default clear button for search inputs */
-input[type="search"]::-webkit-search-clear-button,
-input[type="search"]::-webkit-search-cancel-button {
-  -webkit-appearance: none;
-  appearance: none;
-  display: none;
-}
-
-/* Add styles for the custom clear button */
-.custom-clear-button {    
-    color: #2461CC;
-    display:none;
-    cursor: pointer;
-    border-bottom: 1px solid #2461CC !important;
-    font-size: 12px;
-}
