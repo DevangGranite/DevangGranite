@@ -1,3 +1,7 @@
+/**
+ *  @class
+ *  @function PredictiveSearch
+ */
 class PredictiveSearch {
   constructor() {
     this.container = document.getElementById('Search-Drawer');
@@ -15,7 +19,6 @@ class PredictiveSearch {
 
     this.input.addEventListener('input', debounce((event) => {
       this.onChange(event);
-      this.toggleClearButton(); // Add this line
     }, 300).bind(this));
 
     this.button.forEach((item, i) => {
@@ -37,21 +40,6 @@ class PredictiveSearch {
       });
     });
   }
-
-  toggleClearButton() {
-  const searchTerm = this.getQuery();
-  const clearButton = document.querySelector('.custom-clear-button');
-
-  console.log('Search Term:', searchTerm);
-
-  if (searchTerm.length > 0) {
-    // console.log('Displaying clear button');
-    clearButton.style.display = 'block';
-  } else {
-    // console.log('Hiding clear button');
-    clearButton.style.display = 'none';
-  }
-}
 
   getQuery() {
     return this.input.value.trim();
@@ -125,21 +113,8 @@ class PredictiveSearch {
     this.container.classList.remove('active');
   }
 }
-
 window.addEventListener('load', () => {
   if (typeof PredictiveSearch !== 'undefined') {
     new PredictiveSearch();
   }
 });
-
-function clearSearch() {
-  var searchInput = document.getElementById('side-panel-search-input');
-  var clearButton = document.querySelector('.custom-clear-button');
-  var sidePanelContent = document.querySelector('.side-panel-content--has-tabs');
-
-  searchInput.value = '';
-  clearButton.style.display = 'none';
-
-  // Remove the 'active' class from side-panel-content--has-tabs
-  sidePanelContent.classList.remove('active');
-}

@@ -1,7 +1,6 @@
 {
   "general": {
     "continue_shopping": "Continue shopping",
-    "continue_shopping_new": "Shop Now",
     "close": "Close",
     "cart_drawer": {
       "title": "Cart",
@@ -227,7 +226,7 @@
       "total": "Total",
       "note": "Order special instructions",
       "checkout": "Checkout",
-      "empty": "Your cart is currently empty.",
+      "empty": "Your cart is empty",
       "ready": "Ready to find your new favorite products?",
       "cart_error": "There was an error while updating your cart. Please try again.",
       "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your cart.",
@@ -307,8 +306,8 @@
     "dashboard": {
       "welcome": "Hi",
       "help": "How can we help you today?",
-      "subscriptions": "Subscriptions",
-      "top_up_wallett": "Top Up",
+      "subscriptions": "Manage Subscriptions",
+      "top_up_wallett": "Top Up Wallet",
       "view_cataloguee": "Shop Now",
       "view_all": "View all",
       "current_balance": "Current Balance",
@@ -393,8 +392,7 @@
         "member_since": "Member since",
         "purchase_history": "Purchase History",
         "topup": "Top Up",
-        "spent": "Spent",
-        "remaining_drop": "Your Remaining Drops"
+        "spent": "Spent"
       }
     },
     "order": {
@@ -503,11 +501,6 @@
   "shopify": {
     "links": {
       "powered_by_shopify": " "
-    },
-    "checkout": {
-      "stock": {
-        "empty_cart_label": "Your cart is currently empty."
-      }
     }
   }
 }
