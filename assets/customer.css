@@ -361,14 +361,14 @@ table.account-order-history--table tbody tr:last-child td {
   width: 100%;
 }
 .customer-rewards--balance {
-  color: #2461CC;
+  color: #001489;
   font-weight: 500;
   font-size: 20px;
   line-height: 22px;
 }
 .customer-rewards-drops--text {
   line-height: 20px;
-  /* margin: 8px 0; */
+  margin: 8px 0;
 }
 .customer-rewards-drops--timer {
   color: #6B6E71;
