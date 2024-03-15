@@ -1,4 +1,3 @@
-<script src="{{ 'profile-new.js' | asset_url }}" defer="defer"></script>
 {{ 'profile.css' | asset_url | stylesheet_tag }}
 {{ 'login-register.css' | asset_url | stylesheet_tag }}
 
@@ -145,9 +144,8 @@
 							aria-label="update name"
 							id="updateUserName"
 							>
-						<span>update name</span>
+						update name
 						</button>
-                        <div id="loadname" style="display: none;"><img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/load.gif?v=1710156948"></div>
 						<a href="javascript:void(0);" class="back-link" title="Go back">Go back</a>
 					</div>
 				</fieldset>
@@ -211,9 +209,8 @@
 							aria-label="update Email"
 							id="updateEmailBtn"
 							>
-						<span>update Email</span>
+						update Email
 						</button>
-                        <div id="loademail" style="display: none;"><img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/load.gif?v=1710156948"></div>
 						<a href="javascript:void(0);" class="back-link" title="Go back">Go back</a>
 					</div>
 				</fieldset>
@@ -300,9 +297,8 @@
 							aria-label="update Address"
 							id="updateAddress"
 							>
-						<span>update Address</span>
+						update Address
 						</button>
-                        <div id="loadaddress" style="display: none;"><img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/load.gif?v=1710156948"></div>
 						<div class="error"></div>
 						<a href="javascript:void(0);" class="back-link" title="Go back">Go back</a>
 					</div>
@@ -320,3 +316,27 @@
 		We’re here to assist.            
 	</div>
 </main>
+<script>
+	document.querySelector('.edit-name').addEventListener('click', e => {
+		document.querySelector('.profile-form-section').classList.add('active-form');
+		document.querySelector('.update-name-section').classList.add('active-section');
+	});
+	document.querySelector('.edit-email').addEventListener('click', e => {
+		document.querySelector('.profile-form-section').classList.add('active-form');
+		document.querySelector('.update-email-section').classList.add('active-section');
+	});
+	document.querySelector('.edit-address').addEventListener('click', e => {
+		document.querySelector('.profile-form-section').classList.add('active-form');
+		document.querySelector('.update-delivery-address-section').classList.add('active-section');
+	});
+	document.querySelectorAll('.back-link').forEach(backlink => {
+		backlink.addEventListener('click', e => {
+			setTimeout(() => {
+				document.querySelector('.profile-form-section').classList.remove('active-form');
+			},800);
+			document.querySelector('.update-name-section').classList.remove('active-section');
+			document.querySelector('.update-email-section').classList.remove('active-section');
+			document.querySelector('.update-delivery-address-section').classList.remove('active-section');
+		});
+	});
+</script>

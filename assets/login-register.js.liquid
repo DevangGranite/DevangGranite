@@ -89,7 +89,6 @@ function captureMobileNumber() {
 
   // Update the content of the div with the id "capturedValue"
   document.getElementById("capturedValue").innerText = mobileNumber;
-  document.getElementById("capturedValuemob").innerText = mobileNumber;  
 }
 class RegisterCustomer extends HTMLElement{
   constructor(){
@@ -182,7 +181,7 @@ class RegisterCustomer extends HTMLElement{
       .then(response => {
         if (!response.ok) {
           this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";
-          throw new Error(`Network response was not ok: ${response.status}`);          
+          throw new Error(`Network response was not ok: ${response.status}`);
         }
         return response.json();
       })
@@ -275,39 +274,17 @@ class RegisterCustomer extends HTMLElement{
 
     this.first_name_valid = this.validateField('first_name', 'firstNameError', 'Please enter your First Name.');
     this.last_name_valid = this.validateField('last_name', 'lastNameError', 'Please enter your Last Name.');
-    this.phone_valid = this.validatePhone('mobile', 'mobileError', 'Please enter a valid phone number.');
     this.email_valid = this.validateEmailField('email', 'emailError', 'Please enter a valid Email Address.');
     this.confirm_email_valid = this.validateConfirmEmailField('confirm_email', 'email', 'confirmEmailError', 'Email Addresses does not match.');
     this.address_valid = this.validateField('locationInput', 'locationInputError', 'Please enter your Address.');
     this.city_valid = this.validateSelectField('regi_city', 'regiCityError', 'Please select your City.');
     this.district_valid = this.validateSelectField('district', 'districtError', 'Please select your District.');
 
-    this.isValid = this.first_name_valid && this.last_name_valid && this.phone_valid && this.email_valid && this.confirm_email_valid && this.address_valid && this.city_valid && this.district_valid;
+    this.isValid = this.first_name_valid && this.last_name_valid && this.email_valid && this.confirm_email_valid && this.address_valid && this.city_valid && this.district_valid;
 
     console.log('Form validation result:', this.isValid); // Add this line for debugging
 
     return this.isValid;
-  }
-  validatePhone(inputId, errorId, errorMessage){
-    console.log('Validate phone');
-    // Get and trim phone number input
-    this.input = document.getElementById(inputId);
-    this.errorElement = document.getElementById(errorId);
-    this.value = this.input.value.trim();
-
-    // Regex pattern for 10-digit phone number
-    const pattern = /^\d{9}$/;
-
-    // Validate phone number and update message
-    const isValid = pattern.test(this.value);
-    if(this.value != '' && isValid){
-      this.errorElement.innerHTML = '';       
-      return true; 
-    }else{
-      this.errorElement.innerHTML = errorMessage;
-      console.error(errorMessage);
-      return false;
-    }
   }
   validateField(inputId, errorId, errorMessage){
     console.log('Validate field');
@@ -328,6 +305,10 @@ class RegisterCustomer extends HTMLElement{
     this.input = document.getElementById(inputId);
     this.errorElement = document.getElementById(errorId);
     this.email = this.input.value.trim();
+
+    // Clear mobile error message
+    this.mobileErrorElement = document.getElementById('mobileError');
+    this.mobileErrorElement.innerHTML = '';
 
     if (this.email === '' || !this.isValidEmail(this.email)) {
         this.errorElement.innerHTML = errorMessage;
@@ -435,7 +416,6 @@ class LoginCustomer extends HTMLElement {
     this.confirm_email = this.querySelector('[name="customer[confirm_email]"]');
     this.mobileNo = this.querySelector('#mobile');
     this.capturedValue = this.querySelector('#capturedValue');
-    this.capturedValuemob = this.querySelector('#capturedValuemob');
     this.lastOTPDigit = this.querySelector('#OneTimePassword6');
     this.user_id = getCookie('user_id');
     this.username = '';
@@ -452,36 +432,17 @@ class LoginCustomer extends HTMLElement {
         this.verifyMobileBtn.removeAttribute('disabled');
       } else {
         this.verifyMobileBtn.setAttribute('disabled', 'disabled');
-      }    
+      }
       if (e.key === 'Enter') {
-        showLoader();
         this.verifyMobileBtn.click();
       }
     });
-        // Assuming this.verifyMobileBtn is your button element
-      const verifyMobileBtn = document.getElementById('verifyMobile');
-      const verifyOtpLoginBtn = document.querySelector('.verifyOtpLoginBtn');
-      
-      const loader = document.getElementById('loader');      
-      const loaderotp = document.getElementById('loaderotp');
-     
-
-    verifyMobileBtn.addEventListener('click', () => {
-             showLoader();   
-        });
-    
-    // Function to show the loader
-function showLoader() { 
-  verifyMobileBtn.querySelector('span').style.display = 'none';
-    loader.style.display = 'block';    
-}
 
     // send opt on mobile number and visible enter otp form
     this.verifyMobileBtn.addEventListener('click', e => {
       sendOTP(this.mobileNo.value).then(response => {
         console.log('Send Login OTP',response);
         this.capturedValue.innerHTML = this.mobileNo.value;
-        this.capturedValuemob.innerHTML = this.mobileNo.value;
         this.startTimer();
         if (this.customLoginElement.style.display === 'none' || this.customLoginElement.style.display === '') {
             this.customLoginElement.style.display = 'block';
@@ -492,11 +453,6 @@ function showLoader() {
         }
       });
     });
-      
-      verifyOtpLoginBtn.addEventListener('click', () => {
-        showLoaderotp();
-      });
-
 
     // resend otp on mobile number
     this.resendBtn.addEventListener('click', e => {
@@ -506,7 +462,6 @@ function showLoader() {
         this.startTimer();
       });
     });
-
 
     // verify otp to login
     this.verifyOtpLoginBtn.addEventListener('click', e => {
@@ -524,10 +479,9 @@ function showLoader() {
       })
       .then(response => {
         if (!response.ok) {
-        this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";
-        hideLoaderotp();
-        throw new Error(`Network response was not ok: ${response.status}`);
-      }
+          this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";
+          throw new Error(`Network response was not ok: ${response.status}`);
+        }
         return response.json();
       })
       .then(data => {
@@ -545,44 +499,24 @@ function showLoader() {
           } 
         }else{
           this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";
-           hideLoaderotp();
         }
       }).catch(error => {
         console.log('Fetching error verify OTP',error);
       });
     });
 
-        // Function to show the loader
-      function showLoaderotp() { 
-        verifyOtpLoginBtn.querySelector('span').style.display = 'none';          
-          loaderotp.style.display = 'block';              
-      }
-       function showLoaderemail() { 
-        updateEmailBtn.querySelector('span').style.display = 'none';          
-          loaderemail.style.display = 'block';              
-      }
-
-      // Function to hide the loader
-      function hideLoaderotp() { 
-        document.getElementById('loaderotp').style.display = 'none';
-        verifyOtpLoginBtn.querySelector('span').style.display = 'block'; 
-      }
-
     this.querySelector('#OneTimePassword6').addEventListener('keypress', e => {
       if (e.key === 'Enter') {
-        showLoaderotp();
         this.verifyOtpLoginBtn.click();
       }
     });
 
     this.updateEmailBtn.addEventListener('click', e => {
-      showLoaderemail();
       if(this.validateForm && this.isValidEmail() && this.validateConfirmEmailField()){
-        this.updateEmailAddress();       
+        this.updateEmailAddress();
       }
     });
   }
-
   startTimer() {
     var timeLeft = 60;
     var timerElement = document.getElementById('timer');
