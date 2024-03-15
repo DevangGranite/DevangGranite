@@ -407,16 +407,3 @@ html[lang="ar"] .profile-form__wrapper fieldset .field .edit-link {
     left: 0;
     right: auto;
 }
-
-div#loadname,
-div#loademail,
-div#loadaddress{
-    margin: -44px auto 0;
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    text-align: center;
-    cursor: not-allowed;
-    max-width: 60px;
-    top: -53px;
-}

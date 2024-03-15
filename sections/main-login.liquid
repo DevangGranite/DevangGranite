@@ -2,7 +2,7 @@
 <style>
   html[lang=ar] #main-content .otp-container .field-area .popup-otp-input-box input {
     text-align: center !important;    
-}
+} 
 </style>
 <div class="row">
   <div class="small-12 columns">
@@ -56,7 +56,6 @@
                     <button type="button" class="button full" id="verifyMobile" disabled>
                       <span>{{ 'customer.login_page.varify' | t }}</span>
                     </button>
-                    <div id="loader" style="display: none;"><img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/load.gif?v=1710156948"></div>
                   </div>
                 </div>
                 <div class="switch-login-section mob">
@@ -171,7 +170,6 @@
                     <button type="button" class="button full verifyOtpLoginBtn" id="verifyOtpbtn" disabled>
                       <span>{{ 'customer.login_page.title' | t }}</span>
                     </button>
-                    <div id="loaderotp" style="display: none;"><img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/load.gif?v=1710156948"></div>
                   </div>
                 </div>
               </div>
@@ -222,13 +220,13 @@
                     <button type="button" class="button full" id="updateEmailBtn">
                       <span>{{ 'customer.login_page.add_email' | t }}</span>
                     </button>
-                    <div id="loaderemail" style="display: none;"><img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/load.gif?v=1710156948"></div>
                   </div>
                 </div>
                 <div class="switch-login-section mob">
                   {{ 'customer.login_page.dont_have_an_account' | t }}
                   {% assign text_button_title = 'customer.login_page.create_account' | t %}
-                  {% render 'text-button', url: routes.account_register_url, title: text_button_title %}                  
+                  {% render 'text-button', url: routes.account_register_url, title: text_button_title %}
+                  <div></div>
                 </div>
               </div>
             </div>
@@ -248,3 +246,4 @@
     </div>
   </div>
 </div>
+

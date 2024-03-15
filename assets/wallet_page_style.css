@@ -253,11 +253,12 @@ html[lang=ar] .balance_content_help_main a.help_about_my_wallet.open_help_wallet
     justify-content: center;
     border-radius: 8px;
     background: #00A9E0;
+
     color: #001489;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 20px; 
   }
   .top-up-wallet-button-main{
@@ -869,9 +870,6 @@ html[lang=ar] .balance_content_help_main a.help_about_my_wallet.open_help_wallet
     }
   }
   @media screen and ( max-width: 749px ){
-    .row-my-wallet{
-      display: none;
-    }
     .top_up_wallet_title h1 {
       line-height: 30px;
     }

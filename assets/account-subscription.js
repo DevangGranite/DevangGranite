@@ -244,7 +244,7 @@ if (!customElements.get('account-subscription')) {
       });
       this.cancelAction.addEventListener('click', () => {
         let cancelTime = new Date();
-        cancelTime.setDate(cancelTime.getDate());
+        cancelTime.setDate(cancelTime.getDate() - 1);
         this.changeSubscriptionStatus(2, cancelTime, cancelTime);
       });
       this.statusInput.forEach(input => {

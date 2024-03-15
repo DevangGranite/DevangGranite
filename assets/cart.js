@@ -157,24 +157,13 @@ class Cart {
   removeProductEvent() {
     let removes = this.container.querySelectorAll('.remove');
 
-    removeProductEvent() {
-      let removes = this.container.querySelectorAll('.remove');
-    
-      removes.forEach((remove) => {
-        remove.addEventListener('click', (event) => {
-          // Update quantity or perform any other actions here
-          this.updateQuantity(event.target.dataset.index, '0');
-    
-          // Prevent the default action of following the link immediately
-          event.preventDefault();
-    
-          // Wait for 5 seconds before reloading the page
-          setTimeout(() => {
-            window.location.reload();
-          }, 300);
-        });
+    removes.forEach((remove) => {
+      remove.addEventListener('click', (event) => {
+        this.updateQuantity(event.target.dataset.index, '0');
+
+        event.preventDefault();
       });
-    }
+    });
   }
   renderContents(parsedState, line, refresh) {
     this.getSectionsToRender().forEach((section => {

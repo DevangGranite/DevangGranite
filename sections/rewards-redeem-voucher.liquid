@@ -6,13 +6,9 @@
 <input type="hidden" name="meta[name]" value="{{ customer.metafields.custom.name }}">
 {{ 'rewards-redeem-voucher.css' | asset_url | stylesheet_tag }}
 <reward-offer-detail>
- <div id="loader" class="loader">
-    <img src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/loader.gif?v=1710423701" alt="Loading...">
-</div>
-  <div id="reward-redeem-voucher" class="reward-redeem-voucher">
-   
-    <div class="reward-redeem-voucher_inner">         
-      <div class="reward-redeem-voucher_main">             
+  <div class="reward-redeem-voucher">
+    <div class="reward-redeem-voucher_inner">
+      <div class="reward-redeem-voucher_main">
         <div class="reward-redeem-voucher_inner_top">
         <div class="reward-redeem-voucher_back">
           <a href="{{ routes.account_url | append: '?view=clip-the-deal' }}">{% render 'back_icon' %}</a>
@@ -57,16 +53,7 @@
       </div>
   </div>
 </reward-offer-detail>
- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('loader').classList.remove('hidden');
-    });
-
-    setTimeout(function() {
-        document.getElementById('loader').classList.add('hidden');      
-        document.getElementById('reward-redeem-voucher').style.visibility = 'visible';            
-    }, 5000);
-</script>
+ 
 {% schema %}
   {
     "name": "Clip the deal",

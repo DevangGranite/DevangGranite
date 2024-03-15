@@ -83,7 +83,7 @@ html[lang="ar"] .thb-form-container .create_form_wrapper select {
 }
 .thb-form-container input {
   width: 100%;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
 }
 .thb-form-container .button {
   margin-top: 10px;
@@ -700,22 +700,4 @@ html.popup-overlap body:before {
     right: auto;
     background: #fff;
 }
-.fields.login--page #loader, 
-.fields.login--page #loaderotp, 
-.fields.login--page #loaderemail {
-    margin: -55px auto 0;
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    text-align: center;
-    cursor: not-allowed;
-}
 
-.fields.login--page #loader img,
-.fields.login--page #loaderotp img,
-.fields.login--page #loaderemail img {
-    max-width: 60px;
-}
-select#regi_city, select#district {
-    margin-bottom: 0 !important;
-}
