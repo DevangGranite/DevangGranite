@@ -49,36 +49,64 @@ class UpdateProfile extends HTMLElement{
         this.current_district = this.querySelector('input[name="current_district"]');
         this.lat = this.querySelector('input[name="lat"]');
         this.lang = this.querySelector('input[name="lang"]');
+        this.user_id = document.querySelector('input[name="meta[user_id]"]').value;
         this.tokenPayload = JSON.stringify({user_id:document.querySelector('input[name="meta[user_id]"]').value,name:document.querySelector('input[name="meta[name]"]').value});
         this.getCity();
         this.evenetListener();
     }
     evenetListener(){
+      
+      const updateNameBtn = document.getElementById('updateUserName');
+      const updateEmailBtn = document.getElementById('updateEmailBtn');
+      const updateAddressBtn = document.getElementById('updateAddress');
+      
+      
+      const loadname = document.getElementById('loadname');
+      const loademail = document.getElementById('loademail');
+      const loadaddress = document.getElementById('loadaddress');
 
-        // Update first name and last name
+       // Update first name and last name
         this.updateNameBtn.addEventListener('click', e => {
             e.preventDefault();
+            showLoader();
             fetch(`https://alainuat.gdadmin.org/laravel/public/api/customer/update/profile`, {
                 method: 'POST',
-                body:JSON.stringify({id:this.customer_id.value,first_name:this.first_name.value,last_name:this.last_name.value,user_id:getCookie('user_id')})
+                body: JSON.stringify({
+                    id: this.customer_id.value,
+                    first_name: this.first_name.value,
+                    last_name: this.last_name.value,
+                    user_id: getCookie('user_id')
+                })
             }).then(response => {
                 if (!response.ok) {
                     throw new Error(`Network response was not ok: ${response.status}`);
                 }
-                return response.json();  
+                return response.json();
             }).then(data => {
-                console.log('Customer profile edit',data);
-                window.location.href = '/account?view=profile'
+                console.log('Customer profile edit', data);
+                window.location.href = '/account?view=profile';
+                location.reload(); // Refresh the page
             }).catch(error => {
                 console.error('Customer profile edit Error fetching data:', error);
-            }); 
+            });
         });
+      
+    // Function to show the loader
+      function showLoader() { 
+        updateNameBtn.querySelector('span').style.display = 'none';
+          loadname.style.display = 'block';
+        updateEmailBtn.querySelector('span').style.display = 'none';
+          loademail.style.display = 'block';  
+        updateAddressBtn.querySelector('span').style.display = 'none';
+          loadaddress.style.display = 'block'; 
+      }
 
         // Update email address
-        this.updateEmailBtn.addEventListener('click', e => {
+        this.updateEmailBtn.addEventListener('click', e => {         
             if(this.newEmail.value != this.newEmailConfirm.value){
                 this.email_confirm_error.innerText = "Email address doesn't match.";
             }else{
+                 showLoader();
                 /** update email in shopify database */
                 fetch(`https://alainuat.gdadmin.org/laravel/public/api/customer/update/profile`, {
                     method: 'POST',
@@ -93,7 +121,7 @@ class UpdateProfile extends HTMLElement{
                     console.log('Customer profile edit',responce);
                     if(responce.errors){
                         if(responce.errors.email)
-                            this.email_confirm_error.innerText = "Email has already been taken.";
+                            this.email_confirm_error.innerText = "Email has already been taken.";                           
                     }else{
                         /** update email in mss */
 
@@ -139,6 +167,7 @@ class UpdateProfile extends HTMLElement{
         // Update address
         this.updateAddressBtn.addEventListener('click', e => {
             e.preventDefault();
+            showLoader();
             fetch(`https://alainuat.gdadmin.org/laravel/public/api/customer/update/address`, {
                 method:'POST',
                 body:JSON.stringify(
@@ -160,7 +189,7 @@ class UpdateProfile extends HTMLElement{
                 console.log('Customer address edit',data);
                 let responce = JSON.parse(data.customer);
                 if(!responce.errors){
-                    fetch(`https://alainappuat.gdadmin.org/shopifyApiV2/Addresses/${getCookie('user_id')}`, {
+                    fetch(`https://alainappuat.gdadmin.org/shopifyApiV2/Addresses/${this.user_id}`, {
                         method:'GET',
                         headers:{
                             'lancode':'en',
@@ -198,7 +227,7 @@ class UpdateProfile extends HTMLElement{
                                 }).then(response => response.text())
                                 .then(data => {
                                     console.log('Customer address updated',data);
-                                    window.location.href = '/pages/profile'
+                                    window.location.href = '/account?view=profile'
                                 }).catch(error => console.log('MSS customer address update error',error));
                             }
                         });
@@ -262,11 +291,12 @@ class UpdateProfile extends HTMLElement{
             options.push(`<option id="district_${district.id}" value="${district.id}">${district.district_name}</option>`);
             });
             this.district.querySelector('option').remove();
-            this.district.insertAdjacentHTML('afterbegin', options.join(''));
+            this.district.innerHTML = options.join('');
         })
         .catch(error => {
             console.error('Error fetching city:', error);
         });
     }
 }
+
 customElements.define('update-profile', UpdateProfile);
