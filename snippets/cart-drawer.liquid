@@ -239,7 +239,7 @@
 						{%- endif -%}
 						{%- if settings.cart_drawer_checkout_button -%}
 						<form action="{{ routes.cart_url }}" method="post" novalidate>
-							<button style="position: relative;" type="submit" class="button accent checkout full" name="checkout" title="{{ 'general.cart_drawer.checkout' | t | escape }}"><span>{{ 'general.cart_drawer.checkout' | t }}</span></button>
+							<button style="position: relative !important; " type="submit" class="button accent checkout full" name="checkout" title="{{ 'general.cart_drawer.checkout' | t | escape }}"><span>{{ 'general.cart_drawer.checkout' | t }}</span></button>
 						</form>
 						{%- endif -%}
 					</div>
