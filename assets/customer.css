@@ -305,7 +305,7 @@ table.account-order-history--table tbody tr:last-child td {
   display: flex;
   align-items: center;
 }
-.customer-wallet--balance img {
+.customer-wallet--balance svg {
   margin-right: 11px;
 }
 .customer-wallet-price--wrapper {
@@ -345,7 +345,7 @@ table.account-order-history--table tbody tr:last-child td {
   display: flex;
   align-items: flex-start;
 }
-.customer-rewards--drops img {
+.customer-rewards--drops svg {
   margin-right: 11px;
 }
 .customer-rewards-price--wrapper {
