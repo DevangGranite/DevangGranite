@@ -159,29 +159,20 @@
     function updateUrls() {
       var accountPageUrl = "https://alainwaterdev2.myshopify.com/account";
       
-      // Get all links on the page
-      var links = document.getElementsByTagName("a");
+      // Get all links on the page with href attribute
+      var links = document.querySelectorAll('a[href="{{ shop.url }}"]');
       
       // Loop through each link
-      for (var i = 0; i < links.length; i++) {
-        var link = links[i];
-        
-        // Get the original href value
-        var originalHref = link.getAttribute("href");
-        
-        // Update the href to the account page URL if the original href is the homepage URL
-        if (originalHref === "https://alainwaterdev2.myshopify.com") {
-          link.setAttribute("href", accountPageUrl);
-        }
-      }
+      links.forEach(function(link) {
+        // Update the href to the account page URL
+        link.href = accountPageUrl;
+      });
     }
     
     // Call the function when the page loads
     window.onload = updateUrls;
   </script>
 {% endif %}
-
-
   
 </body>
 </html>
