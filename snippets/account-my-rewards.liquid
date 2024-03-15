@@ -10,7 +10,9 @@
         </div>
         <div class="customer-rewards--progress">
           <div class="customer-rewards-progress--complete"></div>
-          <img class="customer-rewards-progress--drop" src="{{ 'account-green-drop.png' | file_url }}" alt="Green Drop">
+          <div class="customer-rewards-progress--drop">
+            {%- render 'svg-icons' with 'customer_wallet_balance' -%}
+          </div>          
         </div>
         <div class="customer-rewards-price--wrapper"></div>
       </div>
