@@ -153,6 +153,31 @@
 	  {{ 'login-register.js' | asset_url | script_tag }}
 	  {{ 'reward.js' | asset_url | script_tag }}
 
+{% if customer %}
+  <script>
+    // Function to update URLs when the customer is logged in
+    function updateUrls() {
+      var accountPageUrl = "https://alainwaterdev2.myshopify.com/account";
+      var homepageUrl = "{{ root_url }}";
+      var links = document.getElementsByTagName("a");
+
+      for (var i = 0; i < links.length; i++) {
+        var link = links[i];
+        var href = link.getAttribute("href");
+
+        // Check if the link points to the homepage
+        if (href === homepageUrl) {
+          link.href = accountPageUrl;
+        }
+      }
+    }
+
+    // Call the function when the page is fully loaded
+    window.onload = function() {
+      updateUrls();
+    };
+  </script>
+{% endif %}
 
   
 </body>
