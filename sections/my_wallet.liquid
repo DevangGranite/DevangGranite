@@ -2,10 +2,10 @@
 {{ 'wallet_page_style.css' | asset_url | stylesheet_tag }}
 <input type="hidden" name="meta[user_id]" value="{{ customer.metafields.custom.user_id }}">
 
-<wallet-balance>  
-    <div id="loader" class="loader">
+  <div id="loader" class="loader">
         {% render 'svg-icons' with 'spinnerLoaderRef' %}
     </div>
+    
 <div id="row-my-wallet" class="row row-my-wallet">
     <nav class="breadcrumbs account-breadcrumbs" aria-label="breadcrumbs">
       <a href="{{ routes.account_url }}" title="{{ 'sections.breadcrumbs.my_account' | t | escape }}">{{ 'sections.breadcrumbs.my_account' | t }}</a>     
@@ -13,6 +13,8 @@
         <a href="{{ routes.account_url | append: '/account?view=my-wallet' }}" data-route="My Wallet">My Wallet</a>     
     </nav>
 </div>
+
+<wallet-balance>  
   <div id="my_wallet_main" class="my_wallet_main">
     <div class="my_wallet_main_inner">
       <div class="my_wallert_content_main">
