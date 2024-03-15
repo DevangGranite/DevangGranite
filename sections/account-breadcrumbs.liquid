@@ -14,11 +14,10 @@
       {% elsif template contains 'product.wallet' %}
         <i>&#x3e;</i>
         <a href="{{ routes.account_url | append: '/products/top-up-wallet' }}" data-route="Top Up Wallet">Top Up Wallet</a>
-      {% comment %}
+      
         {% elsif template contains 'my-wallet' %}
         <i>&#x3e;</i>
         <a href="{{ routes.account_url | append: '/account?view=my-wallet' }}" data-route="My Wallet">My Wallet</a>
-      {% endcomment %}  
       {% endif %}
     </nav>
   </scroll-shadow>
