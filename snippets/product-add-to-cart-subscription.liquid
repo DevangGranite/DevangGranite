@@ -24,7 +24,7 @@
 			<div class="product-add-to-cart-container">
 				<div class="form-notification error" style="display:none;"></div>
 				<div class="add_to_cart_holder{% if show_dynamic_checkout %} add_to_cart_holder--multi{%- endif -%}">
-					<button type="submit" name="add" id="AddToCart" class="single-add-to-cart-button button accent {% unless product.selected_or_first_available_variant.available %}sold-out{% endunless %}" {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}>
+					<button type="submit" name="add" id="AddToCart" class="test_0023156  single-add-to-cart-button button accent {% unless product.selected_or_first_available_variant.available %}sold-out{% endunless %}" {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}>
 						<span class="single-add-to-cart-button--text">
 							{%- if product.selected_or_first_available_variant.available -%}
 								{{ 'products.product.add_to_cart' | t }}
@@ -36,9 +36,13 @@
 							{% render 'svg-icons' with 'thb-loading' %}
 						</span>
 					</button>
+                    {% if customer.tags contains "Active Subscriber" %}
+                      <a class="button accent2" href="/account?view=manage-subscriptions">Manage Subscriptions</a>
+                   {% else %}
 					{%- if show_dynamic_checkout -%}
 						{{ form | payment_button }}
 					{%- endif -%}
+                   {% endif %}
 				</div>
 			</div>
 		{%- endform -%}

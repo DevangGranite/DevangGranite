@@ -307,4 +307,31 @@ line-height: 18px;
       border-top: 1px solid rgba(88, 139, 191, 0.2);
     }
   }
-   
+
+ /* Styles for the loader */
+        .loader {
+            position: fixed;
+            /* top: 0; */
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 310px);
+            background-color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999; 
+        }
+  
+    #reward-redeem-voucher{visibility: hidden;
+      }
+
+
+        .loader img {
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Hide the loader by default */
+        .hidden {
+            display: none;
+        }

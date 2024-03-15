@@ -559,6 +559,12 @@
         "info": "https:\/\/wechat.com\/shopify"
       },
       {
+        "type": "text",
+        "id": "social_whatsapp_link",
+        "label": "Whatsapp",
+        "info": "Add Whatsapp number"
+      },
+      {
         "type": "header",
         "content": "Social sharing options"
       },
