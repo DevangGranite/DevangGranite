@@ -2,7 +2,11 @@
 {{ 'wallet_page_style.css' | asset_url | stylesheet_tag }}
 <input type="hidden" name="meta[user_id]" value="{{ customer.metafields.custom.user_id }}">
 
-<div class="row row-my-wallet">
+  <div id="loader" class="loader">
+        {% render 'svg-icons' with 'spinnerLoaderRef' %}
+    </div>
+    
+<div id="row-my-wallet" class="row row-my-wallet">
     <nav class="breadcrumbs account-breadcrumbs" aria-label="breadcrumbs">
       <a href="{{ routes.account_url }}" title="{{ 'sections.breadcrumbs.my_account' | t | escape }}">{{ 'sections.breadcrumbs.my_account' | t }}</a>     
         <i>&#x3e;</i>
@@ -10,10 +14,7 @@
     </nav>
 </div>
 
-<wallet-balance>
-    <div id="loader" class="loader">
-        {% render 'svg-icons' with 'spinnerLoaderRef' %}
-    </div>
+<wallet-balance>  
   <div id="my_wallet_main" class="my_wallet_main">
     <div class="my_wallet_main_inner">
       <div class="my_wallert_content_main">
@@ -114,10 +115,10 @@
     });
 
     setTimeout(function() {
-        document.getElementById('loader').classList.add('hidden');
-        document.querySelector('.account-breadcrumbs').classList.remove('hidden');
+        document.getElementById('loader').classList.add('hidden');        
         document.documentElement.classList.remove('no_scroll');
         document.getElementById('my_wallet_main').style.visibility = 'visible';
+        document.getElementById('row-my-wallet').style.visibility = 'visible';      
         document.getElementById('my_wallet_data_blocks_main').style.visibility = 'visible';
         document.getElementById('zero_wallet_top_up').style.visibility = 'visible';
       
