@@ -8,7 +8,8 @@
 				{%- form 'activate_customer_password' -%}
 			    {%- if form.errors -%}
 						<div class="form-notification error has-list" id="ActivateAccount-error">
-							{% render 'svg-icons' with 'thb-error' %} <ul>
+							{% render 'svg-icons' with 'thb-error' %}
+                          <ul>
 				        {%- for field in form.errors -%}
 				          <li>
 				            {%- if field == 'form' -%}
