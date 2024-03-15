@@ -233,7 +233,7 @@
               </label>
             </div>
           {% endif %}
-					<div class="cart-drawer-buttons">
+					<div class="cart-drawer-buttons" style="position: relative;">
 						{%- if settings.cart_drawer_cart_button -%}
 						<a href="{{ routes.cart_url }}" class="button" title="{{ 'general.cart_drawer.view_cart' | t | escape }}"><span>{{ 'general.cart_drawer.view_cart' | t }}</span></a>
 						{%- endif -%}
