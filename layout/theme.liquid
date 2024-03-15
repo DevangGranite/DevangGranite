@@ -158,17 +158,13 @@
     // Function to update URLs when the customer is logged in
     function updateUrls() {
       var accountPageUrl = "https://alainwaterdev2.myshopify.com/account";
-      var homepageUrl = "{{ root_url }}";
       var links = document.getElementsByTagName("a");
 
       for (var i = 0; i < links.length; i++) {
         var link = links[i];
-        var href = link.getAttribute("href");
 
-        // Check if the link points to the homepage
-        if (href === homepageUrl) {
-          link.href = accountPageUrl;
-        }
+        // Update the href attribute of the link to the account page URL
+        link.href = accountPageUrl;
       }
     }
 
@@ -178,6 +174,7 @@
     };
   </script>
 {% endif %}
+
 
   
 </body>
