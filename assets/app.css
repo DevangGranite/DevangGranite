@@ -4274,3 +4274,6 @@ line-height: 34px;
   position: relative;
   -webkit-transform: translateZ(0);
   }
+.full {
+    position: relative !important;    
+}
