@@ -153,17 +153,6 @@
 	  {{ 'login-register.js' | asset_url | script_tag }}
 	  {{ 'reward.js' | asset_url | script_tag }}
 
-  {% if customer %}
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      var accountPageUrl = "https://alainwaterdev2.myshopify.com/account";
-      
-      // Update all links pointing to the homepage to point to the account page
-      $('a[href="https://alainwaterdev2.myshopify.com"]').attr('href', accountPageUrl);
-    });
-  </script>
-{% endif %}
 
   
 </body>
