@@ -151,6 +151,14 @@
 	  </script>
 	  {{ 'profile.js' | asset_url | script_tag }}
 	  {{ 'login-register.js' | asset_url | script_tag }}
-	  {{ 'reward.js' | asset_url | script_tag }} 
+	  {{ 'reward.js' | asset_url | script_tag }}
+
+<script>
+  // Redirect to the account page
+if (window.location.href === "https://alainwaterdev2.myshopify.com/") {
+    window.location.href = "https://alainwaterdev2.myshopify.com/account";
+}
+</script>
+  
 </body>
 </html>
