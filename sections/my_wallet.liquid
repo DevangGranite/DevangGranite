@@ -103,10 +103,12 @@
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('loader').classList.remove('hidden');
         document.documentElement.classList.add('no_scroll');
+        document.querySelector('.account-breadcrumbs').classList.add('hidden');
     });
 
     setTimeout(function() {
         document.getElementById('loader').classList.add('hidden');
+        document.querySelector('.account-breadcrumbs').classList.remove('hidden');
         document.documentElement.classList.remove('no_scroll');
         document.getElementById('my_wallet_main').style.visibility = 'visible';
         document.getElementById('my_wallet_data_blocks_main').style.visibility = 'visible';
