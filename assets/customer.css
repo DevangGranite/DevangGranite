@@ -317,7 +317,7 @@ table.account-order-history--table tbody tr:last-child td {
   padding: 0 8px;
   font-size: 14px;
   line-height: 18px;
-  min-width: 144px;
+  min-width: 150px;
 }
 .customer-wallet-price {
   color: #001489;
@@ -357,7 +357,7 @@ table.account-order-history--table tbody tr:last-child td {
   padding: 0 8px;
   font-size: 14px;
   line-height: 18px;
-  max-width: 144px;
+  max-width: 150px;
   width: 100%;
 }
 .customer-rewards--balance {
@@ -368,7 +368,7 @@ table.account-order-history--table tbody tr:last-child td {
 }
 .customer-rewards-drops--text {
   line-height: 20px;
-  /* margin: 8px 0; */
+  margin: 8px 0;
 }
 .customer-rewards-drops--timer {
   color: #6B6E71;
