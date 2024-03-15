@@ -3,7 +3,10 @@
 <input type="hidden" name="meta[user_id]" value="{{ customer.metafields.custom.user_id }}">
 
 <wallet-balance>
-  <div class="my_wallet_main">
+    <div id="loader" class="loader">
+        {% render 'svg-icons' with 'spinnerLoaderRef' %}
+    </div>
+  <div id="my_wallet_main" class="my_wallet_main">
     <div class="my_wallet_main_inner">
       <div class="my_wallert_content_main">
         <div class="my_wallet_heading desktop">
@@ -57,7 +60,7 @@
     </div>
   </div>
 
-  <div class="tabs_main my_wallet_data_blocks_main">
+  <div id="my_wallet_data_blocks_main" class="tabs_main my_wallet_data_blocks_main">
     <div class="my_wallet_block_switch_buttons">
       <div data-tab="tab1" class="button_wallet_Debited tab active">Debited</div>
       <div data-tab="tab2" class="button_wallet_Credited tab">Credited</div>
@@ -86,7 +89,7 @@
     </div>
   </div>
 
-  <div class="zero_wallet_top_up">
+  <div id="zero_wallet_top_up" class="zero_wallet_top_up">
     <div class="zero_wallet_image">
       <img class="zero_wallet_img_positioned" src="https://cdn.shopify.com/s/files/1/0678/1026/3276/files/Group_18439.png?v=1707858874">
     </div>
@@ -130,6 +133,38 @@
     margin-inline: auto;
     position: relative;
   }
+
+  /* Styles for the loader */
+        .loader {
+            position: fixed;
+            /* top: 0; */
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 310px);
+            background-color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* z-index: 9999;  */
+        }
+  
+      #clip_the_deal_inner, #all_blocks_main_data{
+          visibility: hidden;
+      }
+
+
+        .loader img {
+            width: 100px;
+            height: 100px;
+        }
+
+      html.js.no_scroll.hydrated {
+          overflow: hidden;
+      }
+        /* Hide the loader by default */
+        .hidden {
+            display: none;
+        }
 </style>
 
 {% schema %}
