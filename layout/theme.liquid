@@ -160,7 +160,7 @@
       var accountPageUrl = "https://alainwaterdev2.myshopify.com/account";
       
       // Update all links pointing to the homepage to point to the account page
-      $('a[href="https://alainwaterdev2.myshopify.com"]').attr('href', accountPageUrl);
+      $('a[href="{{ root_url }}"]').attr('href', accountPageUrl);
     });
   </script>
 {% endif %}
