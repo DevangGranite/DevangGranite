@@ -1,5 +1,5 @@
 {{- 'breadcrumbs.css' | asset_url | stylesheet_tag -}}
-<div class="{% if template contains 'product.wallet' %}row row-wallet{% elsif template contains 'my-wallet' %}row row-my-wallet{% else %}account-subscription--wrapper{% endif %}">
+<div class="{% if template contains 'product.wallet' %}row row-wallet{% else %}account-subscription--wrapper{% endif %}">
   <scroll-shadow>
     <nav class="breadcrumbs account-breadcrumbs" aria-label="breadcrumbs">
     {% unless template contains 'my-wallet' %}
