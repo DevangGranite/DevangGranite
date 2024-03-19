@@ -34,9 +34,11 @@
 				{% render 'section-header', section_heading: section_heading, section_description: section_description %}
 				<ul class="products row no-padding">
 					{% for recommendation in recommendations.products %}
-						<li class="{{ columns_class }} columns">
-							{% render 'product-card', product_card_product: recommendation %}
-						</li>
+						{% if recommendation.type != 'Top Up' %}
+							<li class="{{ columns_class }} columns">
+								{% render 'product-card', product_card_product: recommendation %}
+							</li>
+						{% endif %}
 					{% endfor %}
 				</ul>
 			{% endif %}

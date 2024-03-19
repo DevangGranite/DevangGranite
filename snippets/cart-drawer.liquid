@@ -152,7 +152,9 @@
 					<scroll-shadow>
 				    <div class="complementary-products--inner">
 				      {% for recommendation in recommendations.products %}
-				        {% render 'product-card-small' product_small: recommendation %}
+				        {% if recommendation.type != 'Top Up' %}
+				        	{% render 'product-card-small', product_small: recommendation %}
+				        {% endif %}
 				      {% endfor %}
 				    </div>
 					</scroll-shadow>
@@ -239,7 +241,11 @@
 						{%- endif -%}
 						{%- if settings.cart_drawer_checkout_button -%}
 						<form action="{{ routes.cart_url }}" method="post" novalidate>
+<<<<<<< HEAD
 							<button style="position: relative !important; " type="submit" class="button accent checkout full" name="checkout" title="{{ 'general.cart_drawer.checkout' | t | escape }}"><span>{{ 'general.cart_drawer.checkout' | t }}</span></button>
+=======
+							<button style="position: relative !important;"  type="submit" class="button accent checkout full" name="checkout" title="{{ 'general.cart_drawer.checkout' | t | escape }}"><span>{{ 'general.cart_drawer.checkout' | t }}</span></button>
+>>>>>>> cdc2746287d6c98c0ce02e44376e5af3969fe7c7
 						</form>
 						{%- endif -%}
 					</div>
