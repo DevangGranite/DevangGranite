@@ -178,6 +178,11 @@
         window.onload = function() {
           updateUrls();
         };
+
+         if (link.href === "{{ shop.url }}/") {
+              window.location.href = "{{ shop.url }}/account";
+            }
+        
       </script>
     {% endif %}
   </body>
