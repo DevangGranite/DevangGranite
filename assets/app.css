@@ -2047,8 +2047,8 @@ scroll-shadow {
   height: 36px;
   background: var(--color-drawer-bg, #fff);
   position: fixed;
-  bottom: 60px;
-  right: 20px;
+  bottom: 90px;
+  right: 30px;
   z-index: 30;
   border-radius: 50%;
   cursor: pointer;
