@@ -193,21 +193,17 @@ document.addEventListener("DOMContentLoaded", function() {
     htmlElement.classList.add('new-class');
   }
 
-  // Function to remove class from <html> element
-  function removeClassFromHTML() {
-    var htmlElement = document.querySelector('html');
-    htmlElement.classList.remove('new-class');
-  }
-
-  // Select the element with the class .product-card--add-to-cart-button
+  // Event listener for adding class on click
   var addToCartButton = document.querySelector('.product-card--add-to-cart-button');
-  // Add click event listener to the button
   addToCartButton.addEventListener('click', addClassToHTML);
 
-  // Select the element with the class .side-panel-close
-  var sidePanelCloseButton = document.querySelector('.side-panel-close');
-  // Add click event listener to the close button
-  sidePanelCloseButton.addEventListener('click', removeClassFromHTML);
+  // Event listener for removing class when clicking side-panel-close
+  document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('side-panel-close')) {
+      var htmlElement = document.querySelector('html');
+      htmlElement.classList.remove('new-class');
+    }
+  });
 });
 </script>
     
