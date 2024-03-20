@@ -2047,8 +2047,8 @@ scroll-shadow {
   height: 36px;
   background: var(--color-drawer-bg, #fff);
   position: fixed;
-  bottom: 90px;
-  right: 30px;
+  bottom: 20px;
+  right: 20px;
   z-index: 30;
   border-radius: 50%;
   cursor: pointer;
@@ -2056,8 +2056,8 @@ scroll-shadow {
   transform: translateY(70px); }
   @media only screen and (min-width: 1068px) {
     .back-to-top {
-      bottom: 30px;
-      right: 30px; } }
+      bottom: 90px;
+      right: 50px; } }
   .back-to-top.back-to-top--active {
     transform: translateY(0px); }
   .back-to-top svg {
