@@ -215,8 +215,11 @@
   </product-card>
 {%- endif -%}
   <script>
-        function addClickClass() {
-            var element = document.querySelector('.product-card--add-to-cart-button');
-            element.classList.add('click');
-        }
+        
+          document.addEventListener("DOMContentLoaded", function addClickClass() {
+          var htmlElement = document.querySelector('html');
+          htmlElement.classList.add('your-class-name');
+          });
+
+        
     </script>
