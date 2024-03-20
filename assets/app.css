@@ -2057,7 +2057,7 @@ scroll-shadow {
   @media only screen and (min-width: 1068px) {
     .back-to-top {
       bottom: 90px;
-      right: 50px; } }
+      right: 25px; } }
   .back-to-top.back-to-top--active {
     transform: translateY(0px); }
   .back-to-top svg {
