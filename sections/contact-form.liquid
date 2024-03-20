@@ -49,9 +49,22 @@
 					{%- if show_phone_number -%}
 						<div class="small-12 medium-12 columns">
 							<div class="field">
-								<input type="tel" id="ContactFormPhone" name="contact[phone]" class="full" placeholder="{{ 'sections.contact.form.phone' | t | escape }}">
-								<label for="ContactFormPhone">{{ 'sections.contact.form.phone' | t }}</label>
-							</div>
+              <label for="number">{{ 'customer.login_page.Mobile' | t }}</label>
+              <div class="field--country_codee">
+                <span>+971</span>
+                <input
+                  type="tel"
+                  placeholder="{{ 'customer.login_page.mobile'| t }}"
+                  class="full numeric"
+                  name="phone"
+                  id="mobile"
+                  inputmode="numeric"
+                  required
+                  maxlength="9"
+                >                                
+              </div>
+              <div id="mobileError" class="form-error"></div>
+            </div>
 						</div>
 					{%- endif -%}
 					<div class="small-12 medium-12 columns">
