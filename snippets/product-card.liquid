@@ -204,7 +204,7 @@
         <div class="star-rating" style="--star-rating: 5;"><span class="body-font">5</span></div>
       {%- endif -%}
       {%- if settings.enable_quick_add -%}
-        <div class="product-card--add-to-cart-button-wrapper">
+        <div class="product-card--add-to-cart-button-wrapper" onclick="addClickClass()">
           <quick-view class="product-card--add-to-cart-button button accent" data-product-handle="" tabindex="-1">
             {% render 'svg-icons' with 'thb-loading' %}
             <span class="product-card--add-to-cart-text">{{ 'products.product.choose_options' | t }}</span>
@@ -214,3 +214,9 @@
     </div>
   </product-card>
 {%- endif -%}
+  <script>
+        function addClickClass() {
+            var element = document.querySelector('.product-card--add-to-cart-button');
+            element.classList.add('click');
+        }
+    </script>
