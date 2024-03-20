@@ -160,6 +160,15 @@
 </div>
 {{- 'background-video.css' | asset_url | stylesheet_tag -}}
 <script src="{{ 'background-video.js' | asset_url }}" defer="defer"></script>
+<script>
+$('#myvideo').hover(function toggleControls() {
+    if (this.hasAttribute("controls")) {
+        this.removeAttribute("controls")
+    } else {
+        this.setAttribute("controls", "controls")
+    }
+})
+</script>
 {% schema %}
 {
   "name": "Background video",
