@@ -7,6 +7,7 @@
 	assign video = section.settings.video
 	assign video_hosted = section.settings.video_hosted
 	assign video_autoplay = section.settings.video_autoplay
+    assign video_controls = section.settings.video_controls
 	assign aspect_ratio = section.settings.aspect_ratio
 
 	assign marker_color = section.settings.marker_color
@@ -36,6 +37,14 @@
 						<iframe data-src="https://player.vimeo.com/video/{{ video.id }}{%- if video_autoplay -%}?background=1{%- endif -%}" frameborder="0" class="lazyload" allow="autoplay; encrypted-media" allowfullscreen title="{{ section.settings.heading | escape }}" tabindex="-1"></iframe>
 					{%- endif -%}
 				{%- endif -%}
+              {% if video_controls %}
+        <div class="background-video__controls">
+          <button id="VideoPlayToggle-{{ section.id }}" type="button">
+            <span class="background-video__controls-play">{% render 'svg-icons' with 'thb-video-play' %}</span>
+            <span class="background-video__controls-pause">{% render 'svg-icons' with 'thb-video-pause' %}</span>
+          </button>
+        </div>
+      {% endif %}
 			</div>
 		</div>
 	</div>
