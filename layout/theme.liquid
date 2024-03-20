@@ -184,5 +184,18 @@
         }        
       </script>
     {% endif %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the body element
+            var body = document.querySelector('body');
+
+            
+
+            // Check if the body has the class 'open-cc--product' and add a class to the html element
+            if (body.classList.contains('open-cc--product')) {
+                document.documentElement.classList.add('your-html-class');
+            }
+        });
+    </script>
   </body>
 </html>
