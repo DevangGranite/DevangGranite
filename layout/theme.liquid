@@ -184,35 +184,6 @@
         }        
       </script>
     {% endif %}
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  // Function to add class to <html> element
-  function addClassToHTML() {
-    var htmlElement = document.querySelector('html');
-    htmlElement.classList.add('new-class');
-  }
-
-  // Event listener for adding class on click
-var addToCartButton = document.querySelector('.product-card--add-to-cart-button');
-addToCartButton.addEventListener('click', addClassToHTML);
-
-// Event listener for removing class when clicking on .side-panel-close
-var sidePanelCloseButton = document.querySelector('.side-panel-close svg');
-sidePanelCloseButton.addEventListener('click', removeClassFromHTML);
-
-function addClassToHTML() {
-  // Add class to HTML element
-  document.documentElement.classList.add('your-class-name');
-}
-
-function removeClassFromHTML() {
-  // Remove class from HTML element
-  document.documentElement.classList.remove('your-class-name');
-}
-
-});
-</script>
     
   </body>
 </html>
