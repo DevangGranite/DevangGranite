@@ -4248,6 +4248,9 @@ line-height: 34px;
   box-sizing: content-box;
 }
 @media screen and (max-width: 767px) {
+  inbox-online-store-chat#ShopifyChat {
+    left: 16px;   
+}
   .shopify-block[id^="shopify-block-socialembed_instagram_feed_app_block"] {
     padding: 0 15px;
   }
