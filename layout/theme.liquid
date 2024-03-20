@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Function to add class to <html> element
   function addClassToHTML() {
     var htmlElement = document.querySelector('html');
-    htmlElement.classList.add('new-class');
+    htmlElement.classList.add('no-scroll-quick');
   }
 
   // Event listener for adding class on click
@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", function() {
   document.addEventListener('click', function(event) {
     if (event.target.classList.contains('side-panel-close')) {
       var htmlElement = document.querySelector('html');
-      htmlElement.classList.remove('new-class');
+      htmlElement.classList.remove('no-scroll-quick');
     }
   });
 });
