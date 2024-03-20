@@ -1683,3 +1683,8 @@ h6,
     margin-right: 16px; }
     .product--icon-list-image svg path {
       fill: var(--color-body, #2c2d2e); }
+
+.accordion .accordion__content p {
+    line-height: 20px;
+    letter-spacing: 0.5px;
+}
