@@ -185,17 +185,19 @@
       </script>
     {% endif %}
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get the body element
-            var body = document.querySelector('body');
+document.addEventListener("DOMContentLoaded", function() {
+  // Select the element with the class .product-card--add-to-cart-button
+  var addToCartButton = document.querySelector('.product-card--add-to-cart-button');
 
-            
-
-            // Check if the body has the class 'open-cc--product' and add a class to the html element
-            if (body.classList.contains('open-cc--product')) {
-                document.documentElement.classList.add('no-scroll-cc');
-            }
-        });
-    </script>
+  // Add click event listener to the button
+  addToCartButton.addEventListener('click', function() {
+    // Select the <html> element
+    var htmlElement = document.querySelector('html');
+    
+    // Add a new class to the <html> element
+    htmlElement.classList.add('new-class');
+  });
+});
+</script>
   </body>
 </html>
