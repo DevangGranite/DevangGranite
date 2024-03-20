@@ -278,37 +278,18 @@
         "disable_bottom_spacing": true
       }
     },
-    "background_video_Yt3Ct8": {
-      "type": "background-video",
-      "blocks": {
-        "text_thLgp8": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "description_size": "medium"
-          }
-        },
-        "button_bN8XxA": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "text_thLgp8",
-        "button_bN8XxA"
-      ],
+    "video_DETbfD": {
+      "type": "video",
       "settings": {
-        "desktop_height": "desktop-height-750",
-        "mobile_height": "mobile-height-500",
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
         "full_width": false,
-        "video_controls": false,
         "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
         "video_hosted": "shopify:\/\/files\/videos\/Al_Ain_Video_Ramadan_15 sec EN YT - AMZN.mp4",
-        "overlay_color": "#000000",
-        "overlay_opacity": 0,
+        "video_autoplay": true,
+        "aspect_ratio": "16-9",
+        "marker_color": "#FD6262",
         "disable_top_spacing": false,
         "disable_bottom_spacing": false
       }
@@ -492,7 +473,7 @@
     "60ed2e7d-3f50-428a-b546-03274d862db0",
     "multicolumn_EYCcrV",
     "41985d74-e833-4bbd-b6df-f14039d7d1e4",
-    "background_video_Yt3Ct8",
+    "video_DETbfD",
     "video_QLgji3",
     "featured_blog_hbU64y",
     "rich_text_pBXrVW",

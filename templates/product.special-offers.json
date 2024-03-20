@@ -115,8 +115,25 @@
         "border_separator_full": false
       }
     },
+    "video_i8epxx": {
+      "type": "video",
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "full_width": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_hosted": "shopify:\/\/files\/videos\/video_1280.mp4",
+        "video_autoplay": true,
+        "aspect_ratio": "16-9",
+        "marker_color": "#FD6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
     "d0a8ec14-e408-4c33-ad5a-bd6a19ccef04": {
       "type": "background-video",
+      "disabled": true,
       "settings": {
         "desktop_height": "desktop-height-650",
         "mobile_height": "mobile-height-500",
@@ -177,6 +194,7 @@
     "breadcrumbs",
     "main-product",
     "16623877721f33fb14",
+    "video_i8epxx",
     "d0a8ec14-e408-4c33-ad5a-bd6a19ccef04",
     "1662552569cce2536d",
     "product-recommendations",

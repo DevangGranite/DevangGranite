@@ -397,6 +397,7 @@
         "description": "",
         "columns_desktop": 3,
         "mobile_swipe": true,
+        "slide_mob": false,
         "image_ratio": "adapt",
         "text_alignment": "left",
         "heading_size": "h5",
@@ -405,7 +406,9 @@
         "color_text": "#2c2d2e",
         "color_links": "#2c2d2e",
         "disable_top_spacing": false,
-        "disable_bottom_spacing": false
+        "disable_bottom_spacing": false,
+        "set_max_width": false,
+        "max-width": 1200
       }
     },
     "spacer_FVLqFx": {
