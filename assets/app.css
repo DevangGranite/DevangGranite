@@ -2061,7 +2061,7 @@ scroll-shadow {
     z-index: 30; }
   }
 back-to-top.back-to-top.back-to-top--active {
-    bottom: 70px;
+    bottom: 80px;
 }
   .back-to-top.back-to-top--active {
     transform: translateY(0px); }
