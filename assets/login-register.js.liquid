@@ -541,8 +541,9 @@ function showLoader() {
             this.customLoginElement.style.display = 'none';
           }else{
             setCookie('user_id',data.response['0'].id);
-            this.customerLogin(JSON.stringify({email:data.response['0'].email_id,name:this.username,user_id:this.user_id}));
-          } 
+            const responseData = data.response['0'];
+            this.customerLogin(JSON.stringify({email:responseData.email_id,name:this.username,user_id:this.user_id,phone:responseData.phoneNo,address1:responseData.address,city:responseData.cityName,province:responseData.districtName,country:responseData.country,zip:responseData.zipcode}));
+          }
         }else{
           this.querySelector("#invalidOTPError").innerText = "Invalid OTP.";
            hideLoaderotp();

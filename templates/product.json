@@ -124,9 +124,10 @@
         "full_width": false,
         "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
         "video_hosted": "shopify:\/\/files\/videos\/Al_Ain_Video_Ramadan_15 sec EN YT - AMZN.mp4",
+        "video_controls": false,
         "video_autoplay": true,
         "aspect_ratio": "16-9",
-        "marker_color": "#FD6262",
+        "marker_color": "#fd6262",
         "disable_top_spacing": true,
         "disable_bottom_spacing": false
       }

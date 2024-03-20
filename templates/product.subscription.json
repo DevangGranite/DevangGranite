@@ -26,6 +26,11 @@
             "show_products_rating": true
           }
         },
+        "quantity": {
+          "type": "quantity",
+          "settings": {
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -36,11 +41,6 @@
             "sizing_guide_text": "",
             "sizing_guide_icon": "ruler",
             "sizing_guide_page": ""
-          }
-        },
-        "quantity": {
-          "type": "quantity",
-          "settings": {
           }
         },
         "buy_buttons": {
@@ -123,8 +123,25 @@
         "border_separator_full": false
       }
     },
+    "video_eYNypU": {
+      "type": "video",
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "full_width": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_hosted": "shopify:\/\/files\/videos\/Al_Ain_Video_Ramadan_15 sec EN YT - AMZN.mp4",
+        "video_autoplay": true,
+        "aspect_ratio": "16-9",
+        "marker_color": "#FD6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
     "d0a8ec14-e408-4c33-ad5a-bd6a19ccef04": {
       "type": "background-video",
+      "disabled": true,
       "settings": {
         "desktop_height": "desktop-height-550",
         "mobile_height": "mobile-height-500",
@@ -185,6 +202,7 @@
     "breadcrumbs",
     "main-product-subscription",
     "16623877721f33fb14",
+    "video_eYNypU",
     "d0a8ec14-e408-4c33-ad5a-bd6a19ccef04",
     "1662552569cce2536d",
     "product-recommendations",

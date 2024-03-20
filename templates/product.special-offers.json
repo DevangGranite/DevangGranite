@@ -126,7 +126,7 @@
         "video_hosted": "shopify:\/\/files\/videos\/video_1280.mp4",
         "video_autoplay": true,
         "aspect_ratio": "16-9",
-        "marker_color": "#FD6262",
+        "marker_color": "#fd6262",
         "disable_top_spacing": true,
         "disable_bottom_spacing": false
       }
