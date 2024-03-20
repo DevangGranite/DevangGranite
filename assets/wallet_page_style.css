@@ -1071,8 +1071,8 @@ html[lang=ar] .balance_content_help_main a.help_about_my_wallet.open_help_wallet
       /* position: absolute; */
       top: 50%;
       width: 100%;
-      transform: translateY(-50%);
-      margin: 0 !important;
+      /* transform: translateY(-50%); */
+      /* margin: 0 !important; */
       opacity: 0;
       width: 100%;
       /* min-height: 76px; */
