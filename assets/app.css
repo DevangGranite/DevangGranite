@@ -4282,3 +4282,15 @@ line-height: 34px;
 .full {
     position: relative !important;    
 }
+.side-panel-header sup {
+    top: -.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: var(--color-header-bg, #fff);
+    display: inline-block;
+    line-height: 20px;
+    text-align: center;
+    font-size: 12px;
+}
