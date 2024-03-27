@@ -114,7 +114,7 @@ if (!customElements.get('account-subscription')) {
           const subscriptionData = active.response[0];
           if (subscriptionData) {
             const productData = subscriptionData.custom_orders[0];
-            this.setSubscriptionFields(subscriptionData, productData);
+            this.setSubscriptionFields(subscriptionData, productData, 1);
             this.setInitials();
             this.presentScreen.style.display = 'block';
             this.editPauseStatusButton.style.display = 'block';
@@ -126,7 +126,7 @@ if (!customElements.get('account-subscription')) {
                 const subscriptionData = paused.response[0];
                 if (subscriptionData) {
                   const productData = subscriptionData.custom_orders[0];
-                  this.setSubscriptionFields(subscriptionData, productData);
+                  this.setSubscriptionFields(subscriptionData, productData, 3);
                   this.setInitials();
                   this.presentScreen.style.display = 'block';
                   this.resumeStatusButton.style.display = 'block';
@@ -151,19 +151,17 @@ if (!customElements.get('account-subscription')) {
           this.submitButton.insertAdjacentHTML('afterend', `<div class="form--error">Something went wrong</div>`);
         });
     }
-    setSubscriptionFields(subscriptionData, productData) {
+    setSubscriptionFields(subscriptionData, productData, status) {
       this.orderId = subscriptionData.id;
       this.productLink.forEach(product => {
         product.innerText = productData.product_name;
       });
       this.productPrice = (productData.price_per_unit + productData.price_per_unit * parseFloat(productData.vat)/100);
-      if (subscriptionData.delivery_date) {
+      if (status === 1) {
         this.nextDelivery.value = this.prettyDate(new Date(subscriptionData.delivery_date));
-      } else if (subscriptionData.end_date) {
+      } else if (status === 3) {
         this.nextDelivery.value = this.prettyDate(new Date(subscriptionData.end_date));
         this.statusText.innerText = `Paused until ${this.prettyDate(new Date(subscriptionData.end_date))}`;
-      } else {
-        this.nextDelivery.value = this.prettyDate(new Date(subscriptionData.delivery_date));
       }
       this.inititalDeliveryDate = subscriptionData.delivery_date;
       this.nextDeliveryDate = subscriptionData.delivery_date;

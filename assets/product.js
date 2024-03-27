@@ -964,12 +964,15 @@ if (!customElements.get('product-add-to-cart-sticky')) {
       this.animations_enabled = document.body.classList.contains('animations-true') && typeof gsap !== 'undefined';
     }
     connectedCallback() {
-      this.setupObservers();
-      this.setupToggle();
+      window.addEventListener('load', () => {
+        this.setupObservers();
+        this.setupToggle();
+      });
     }
     setupToggle() {
       const button = this.querySelector('.product-add-to-cart-sticky--inner'),
         content = this.querySelector('.product-add-to-cart-sticky--content');
+      const chatBot = document.querySelector('inbox-online-store-chat#ShopifyChat');
 
       if (this.animations_enabled) {
         const tl = gsap.timeline({
@@ -995,12 +998,15 @@ if (!customElements.get('product-add-to-cart-sticky')) {
 
         button.addEventListener('click', function () {
           tl.reversed() ? tl.play() : tl.reverse();
+          chatBot.classList.toggle('chat-with-product-card-opened');
 
           return false;
         });
       } else {
         button.addEventListener('click', function () {
           content.classList.toggle('active');
+          chatBot.classList.toggle('chat-with-product-card-opened');
+
           return false;
         });
       }
@@ -1010,11 +1016,15 @@ if (!customElements.get('product-add-to-cart-sticky')) {
       let _this = this,
         observer = new IntersectionObserver(function (entries) {
           entries.forEach((entry) => {
+            const chatBot = document.querySelector('inbox-online-store-chat#ShopifyChat');
+
             if (entry.target === footer) {
               if (entry.intersectionRatio > 0) {
                 _this.classList.remove('sticky--visible');
+                chatBot.classList.remove('chat-with-product-card');
               } else if (entry.intersectionRatio == 0 && _this.formPassed) {
                 _this.classList.add('sticky--visible');
+                chatBot.classList.add('chat-with-product-card');
               }
             }
             if (entry.target === form) {
@@ -1023,9 +1033,12 @@ if (!customElements.get('product-add-to-cart-sticky')) {
               if (entry.intersectionRatio === 0 && window.scrollY > (boundingRect.top + boundingRect.height)) {
                 _this.formPassed = true;
                 _this.classList.add('sticky--visible');
+                chatBot.classList.add('chat-with-product-card');
+
               } else if (entry.intersectionRatio === 1) {
                 _this.formPassed = false;
                 _this.classList.remove('sticky--visible');
+                chatBot.classList.remove('chat-with-product-card');
               }
             }
           });

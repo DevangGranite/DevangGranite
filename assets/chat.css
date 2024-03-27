@@ -1,0 +1,20 @@
+.chat-with-product-card {
+    bottom: 120px !important;
+    transition: all .25s cubic-bezier(.104,.204,.492,1);
+}
+.chat-with-product-card.chat-with-product-card-opened {
+    bottom: 180px !important;
+    transition: all .25s cubic-bezier(.104,.204,.492,1);
+}
+@media screen and (max-width: 767px) {
+    .chat-with-product-card {
+        bottom: 100px !important;
+    }
+    .chat-with-product-card.chat-with-product-card-opened {
+        bottom: 160px !important;
+    }
+
+    inbox-online-store-chat#ShopifyChat {
+        left: auto;
+    }
+}

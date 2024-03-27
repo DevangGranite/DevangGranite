@@ -23,15 +23,15 @@ if (!customElements.get('wallet-balance')) {
     }
     eventListeners() {
      this.openHelpWallet.addEventListener('click', () => {
-       this.fadeIn(this.helpDiv);
        this.fadeOut(this.detailDiv);
+       this.fadeIn(this.helpDiv);
        this.closeButton.style.display = 'flex'; // Show the close button
        this.openButton.style.display = 'none'; // Hide the open button
       });
 
       this.closeHelpWallet.addEventListener('click', () => {
-        this.fadeIn(this.detailDiv);
         this.fadeOut(this.helpDiv);
+        this.fadeIn(this.detailDiv);
         this.closeButton.style.display = 'none'; // Hide the close button
         this.openButton.style.display = 'flex'; // Show the open button
       });
@@ -57,9 +57,7 @@ if (!customElements.get('wallet-balance')) {
       setTimeout(function() {
         element.style.opacity = '0';
       }, 10); // Delay to allow opacity change to take effect before display change
-      setTimeout(function() {
-        element.classList.add('hidden');
-      }, 500); // Matches transition duration (0.5s)
+      element.classList.add('hidden');
     }
     initDataFields() {
       this.positiveBalance = this.querySelector('.my_wallet_data_blocks_main');
