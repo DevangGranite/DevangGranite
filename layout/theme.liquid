@@ -144,7 +144,12 @@
     {%- if request.design_mode -%}
       {{ 'theme-editor.js' | asset_url | script_tag }}
     {%- endif -%}
-    {% render 'back-to-top' %}
+    {% unless template contains 'product' %}
+      {% render 'back-to-top' %}
+    {% endunless %}
+    {% if template contains 'product' %}
+      {{- 'chat.css' | asset_url | stylesheet_tag -}}
+    {% endif %}
     {% include 'store-credit-launcher' %}
     {% if request.path == '/pages/profile' %}
       {% include 'popup_update' %}
@@ -158,6 +163,10 @@
         });
       });
     </script>
+
+    {% if template contains 'customer' %}
+      {{ 'rewards-svg.js' | asset_url | script_tag }}
+    {% endif %}
     {{ 'profile.js' | asset_url | script_tag }}
     {{ 'login-register.js' | asset_url | script_tag }}
     {{ 'reward.js' | asset_url | script_tag }}
@@ -184,6 +193,5 @@
         }        
       </script>
     {% endif %}
-    
   </body>
 </html>

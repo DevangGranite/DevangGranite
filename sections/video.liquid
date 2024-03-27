@@ -10,18 +10,24 @@
     assign video_controls = section.settings.video_controls
 	assign aspect_ratio = section.settings.aspect_ratio
 
+
+	if video_hosted == blank
+		assign video_type = video.type
+	else
+		assign video_type = 'hosted'
+	endif
 	assign marker_color = section.settings.marker_color
 
 	assign disable_top_spacing = section.settings.disable_top_spacing
 	assign disable_bottom_spacing = section.settings.disable_bottom_spacing
 -%}
-<div class="row {% if full_width %} full-width-row-full{% endif %}">
+<custom-video class="row {% if full_width %} full-width-row-full{% endif %}">
 	<div class="small-12 columns">
 		<div class="video-section section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
 			<div class="video-section--inner">
 				{% render 'section-header', section_heading: section_heading, section_description: section_description, marker_color: marker_color, marker_style: marker_style %}
 			</div>
-			<div class="video-section--container video-aspect--{{ aspect_ratio }}">
+			<div class="video-section--container video-aspect--{{ aspect_ratio }}" data-provider="{{ video_type }}">
 				{%- if video_hosted != blank -%}
 					{%- liquid
 						assign sizes = '1280x'
@@ -37,18 +43,21 @@
 						<iframe data-src="https://player.vimeo.com/video/{{ video.id }}{%- if video_autoplay -%}?background=1{%- endif -%}" frameborder="0" class="lazyload" allow="autoplay; encrypted-media" allowfullscreen title="{{ section.settings.heading | escape }}" tabindex="-1"></iframe>
 					{%- endif -%}
 				{%- endif -%}
-              {% if video_controls %}
-        <div class="background-video__controls">
-          <button id="VideoPlayToggle-{{ section.id }}" type="button">
-            <span class="background-video__controls-play">{% render 'svg-icons' with 'thb-video-play' %}</span>
-            <span class="background-video__controls-pause">{% render 'svg-icons' with 'thb-video-pause' %}</span>
-          </button>
-        </div>
-      {% endif %}
+				{% if video_controls %}
+					<div class="background-video__controls">
+						<button id="VideoPlayToggle-{{ section.id }}" type="button">
+							<span class="background-video__controls-play">{% render 'svg-icons' with 'thb-video-play' %}</span>
+							<span class="background-video__controls-pause">{% render 'svg-icons' with 'thb-video-pause' %}</span>
+						</button>
+					</div>
+      	{% endif %}
 			</div>
 		</div>
 	</div>
-</div>
+</custom-video>
+
+{{- 'background-video.css' | asset_url | stylesheet_tag -}}
+<script src="{{ 'video.js' | asset_url }}" defer="defer"></script>
 {% schema %}
   {
     "name": "Video",
@@ -113,12 +122,12 @@
 			  "label": "Shopify-hosted video",
 				"info": "Overrides the Video URL setting."
 			},
-              {
-              "type": "checkbox",
-              "id": "video_controls",
-              "label": "Display video controls",
-              "default": false
-            },
+			{
+				"type": "checkbox",
+				"id": "video_controls",
+				"label": "Display video controls",
+				"default": false
+			},
 			{
 				"type": "checkbox",
 				"id": "video_autoplay",

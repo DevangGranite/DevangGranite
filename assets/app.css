@@ -2061,7 +2061,7 @@ scroll-shadow {
     z-index: 30; }
   }
 back-to-top.back-to-top.back-to-top--active {
-    bottom: 80px;
+    bottom: 90px;
 }
   .back-to-top.back-to-top--active {
     transform: translateY(0px); }
@@ -4253,9 +4253,6 @@ line-height: 34px;
   box-sizing: content-box;
 }
 @media screen and (max-width: 767px) {
-  inbox-online-store-chat#ShopifyChat {
-    left: 16px;   
-}
   .shopify-block[id^="shopify-block-socialembed_instagram_feed_app_block"] {
     padding: 0 15px;
   }
@@ -4296,4 +4293,15 @@ line-height: 34px;
     line-height: 20px;
     text-align: center;
     font-size: 12px;
+}
+.open-cc #shopify-chat,
+.open-cc .back-to-top {
+  display: none;
+}
+.blog-post-info h5 {
+  font-size: 22px;
+  line-height: 30px;
+}
+.open-cc {
+  overflow: hidden;
 }

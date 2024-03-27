@@ -1,7 +1,37 @@
 <script src="{{ 'account-subscription.js' | asset_url }}" defer="defer"></script>
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 <input type="hidden" name="meta[user_id]" value="{{ customer.metafields.custom.user_id }}">
-
+{% comment %}<script>
+  fetch('https://alainappuat.gdadmin.org/shopifyApiV2/placeSubscription', {
+    method: 'POST',
+    headers: {
+      'lancode': 'en',
+      'token': '123456',
+      'Content-type': 'application/json',
+      'vendor_id': '2'
+    },
+    body: JSON.stringify({
+      user_id: 79752,
+      user_address_id: 5728,
+      sub_total: 14,
+      total_vat: 0.70,
+      grand_total: 14.70,
+      total_discount: 0,
+      items: {
+        product_id: 1,
+        quantity: 4
+      },
+      submitNew: 0
+    })
+  })
+    .then(response => response.json())
+    .then(response => {
+      console.log(response);
+    })
+    .catch((e) => {
+      console.log(e)
+    })
+</script>{% endcomment %}
 <account-subscription id="account-form">
   <section id="account-subscriptions--present">
     <div class="account-subscription--wrapper">

@@ -502,6 +502,7 @@ class PanelClose extends HTMLElement {
     e.preventDefault();
     let panel = e.target.closest('.side-panel');
     panel.classList.remove('active');
+
     if (document.body.classList.contains('open-cc--product')) {
       document.body.classList.remove('open-cc--product');
       setTimeout(() => {
@@ -530,10 +531,12 @@ class CartDrawer {
 
 
     // Add functionality to buttons
+    this.checkTopUp();
     button.addEventListener('click', (e) => {
       e.preventDefault();
       document.body.classList.add('open-cc');
       this.container.classList.add('active');
+
       this.container.focus();
       dispatchCustomEvent('cart-drawer:open');
     });
@@ -674,6 +677,65 @@ class CartDrawer {
         });
         if (this.container.querySelector(`#CartDrawerItem-${line}`)) {
           this.container.querySelector(`#CartDrawerItem-${line}`).classList.remove('thb-loading');
+        }
+      });
+  }
+  removeCartItem(variantId) {
+    const body = JSON.stringify({
+      id: `${variantId}`,
+      quantity: 0,
+      sections: this.getSectionsToRender().map((section) => section.section),
+      sections_url: window.location.pathname
+    });
+    fetch(`${theme.routes.cart_change_url}.js`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': `application/json`
+      },
+      ...{
+        body
+      }
+    })
+      .then(response => response.text())
+      .then(state => {
+        const parsedState = JSON.parse(state);
+        console.log(parsedState)
+
+        this.getSectionsToRender().forEach((section => {
+          const elementToReplace = document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
+
+          if (parsedState.sections) {
+            elementToReplace.innerHTML = this.getSectionInnerHTML(parsedState.sections[section.section], section.selector);
+          }
+        }));
+        this.removeProductEvent();
+        this.notesToggle();
+        this.termsCheckbox();
+        dispatchCustomEvent('line-item:change:end', {
+          quantity: quantity,
+          cart: parsedState
+        });
+        if (this.container.querySelector(`#CartDrawerItem-${line}`)) {
+          this.container.querySelector(`#CartDrawerItem-${line}`).classList.remove('thb-loading');
+        }
+      });
+  }
+  checkTopUp() {
+    fetch(`${theme.routes.cart_url}.js`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': `application/json`
+      }
+    })
+      .then(response => response.json())
+      .then(response => {
+        console.log(response)
+        const { items } = response;
+        const topUpItem = items.find(item => item.product_type === 'Top Up');
+        if (topUpItem) {
+          this.removeCartItem(topUpItem.variant_id);
         }
       });
   }

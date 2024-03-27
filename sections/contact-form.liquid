@@ -49,7 +49,7 @@
 					{%- if show_phone_number -%}
 						<div class="small-12 medium-12 columns">
 							<div class="field">
-								<input type="tel" id="ContactFormPhone" name="contact[phone]" inputmode="numeric" required maxlength="9" class="full" placeholder="{{ 'sections.contact.form.phone' | t | escape }}" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+								<input type="tel" id="ContactFormPhone" name="contact[phone]" inputmode="numeric" required class="full" placeholder="{{ 'sections.contact.form.phone' | t | escape }}" aria-label="UAE phone format" pattern="^(?:\+971|00971|0)?(?:50|51|52|55|56|2|3|4|6|7|9)\d{7}$">
 								<label for="ContactFormPhone">{{ 'sections.contact.form.phone' | t }}</label>
 							</div>
 						</div>
